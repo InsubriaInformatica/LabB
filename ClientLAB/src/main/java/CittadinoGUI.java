@@ -33,7 +33,7 @@ public class CittadinoGUI {
 		labelPortaleCittadini.setBounds(0,0,900,150);
 	
 
-		Registrati = new JButton("REGISTRATO");
+		Registrati = new JButton("REGISTRATI");
 		Registrati.setText("REGISTRATI");
 		//Registrati.setToolTipText("sono passato sopra");
 		Registrati.setBounds(750,20,120,50);
