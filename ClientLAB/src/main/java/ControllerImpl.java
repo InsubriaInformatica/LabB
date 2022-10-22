@@ -5,25 +5,24 @@ import javax.swing.JButton;
 public class ControllerImpl implements ActionListener{
 	
 	private View v;
-	private Model m;
+	private Model m; 
 	
 	
 	public ControllerImpl(View v, Model m) {
 		this.v = v;
 		this.m = m;
 		
-		//cattura bottoni
-		JButton[] funzionalita = this.v.getSceltaTipoUtente(); //v.getSceltaFunzionalità
-		for (int i=0; i<funzionalita.length; i++) {
-			funzionalita[i].addActionListener(this); //aggiunge come action listener ai componenti della view a cui serve
-		}
-		
+		//cattura bottoni		
 		JButton back = this.v.getBack();
 		back.addActionListener(this);
 		
 		JButton[] sceltaUtente = this.v.getSceltaTipoUtente();
 		sceltaUtente[0].addActionListener(this);
 		sceltaUtente[1].addActionListener(this);
+		
+		JButton[] funzionalitaOperatore = this.v.getBottoniFunzionalita();
+		funzionalitaOperatore[0].addActionListener(this);
+		funzionalitaOperatore[1].addActionListener(this);
 		
 	}
 

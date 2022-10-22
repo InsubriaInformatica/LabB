@@ -56,12 +56,12 @@ public class RegistraCentroGUI {
 		this.textFieldNomeCentro = new JTextField("", 10);
 		this.panelNomeCentro.add(this.labelNomeCentro);
 		this.panelNomeCentro.add(this.textFieldNomeCentro);
-		this.panelNomeCentro.setPreferredSize(new Dimension(altezza/2, larghezza/100*7));
+		this.panelNomeCentro.setPreferredSize(new Dimension(150, 100));
 		
 		this.panelBottone = new JPanel();
 		this.buttonRegistra = new JButton("REGISTRA");
 		this.buttonRegistra.setName("REGISTRA");
-		this.panelBottone.setPreferredSize(new Dimension(altezza/2, larghezza/100*7));
+		this.panelBottone.setPreferredSize(new Dimension(larghezza/2, altezza/10*7));
 		this.panelBottone.add(this.buttonRegistra);
 		
 		//CONTENITORE PRINCIPALE
