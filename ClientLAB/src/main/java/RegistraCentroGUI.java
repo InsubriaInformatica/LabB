@@ -56,7 +56,7 @@ public class RegistraCentroGUI {
 		this.textFieldNomeCentro = new JTextField("", 10);
 		this.panelNomeCentro.add(this.labelNomeCentro);
 		this.panelNomeCentro.add(this.textFieldNomeCentro);
-		this.panelNomeCentro.setPreferredSize(new Dimension(150, 100));
+		this.panelNomeCentro.setPreferredSize(new Dimension(500, 25));
 		
 		this.panelBottone = new JPanel();
 		this.buttonRegistra = new JButton("REGISTRA");
