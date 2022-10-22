@@ -51,6 +51,10 @@ public class ControllerImpl implements ActionListener{
 			dati = null; //non serve passare nulla
 		}
 		
+		if(button.equals("REGISTRA NUOVO CENTRO")) {
+			dati = null;
+		}
+		
 		
 		m.updateModel(source, null); //elabora dati sul bottone d'origine
 		
