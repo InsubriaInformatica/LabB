@@ -3,6 +3,7 @@
 import java.awt.*;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 
 //componenti grafici operatore
 public class CittadinoGUI {
@@ -22,7 +23,7 @@ public class CittadinoGUI {
 		
 		this.contenitoreCittadini = new JPanel();
 		//this.contenitoreCittadini.setLayout(new GridLayout(3,3, 20, 20));
-		this.contenitoreCittadini.setLayout(new BorderLayout());
+		this.contenitoreCittadini.setLayout(new GridLayout(0, 1));
 		this.contenitoreCittadini.setPreferredSize(new Dimension(larghezza, altezza/10*7)); //size
 		
 		labelPortaleCittadini = new JLabel();
@@ -32,10 +33,12 @@ public class CittadinoGUI {
 		this.labelPortaleCittadini.setVerticalAlignment(JLabel.CENTER);
 		labelPortaleCittadini.setBounds(0,0,900,150);
 	
-
+		
 		Registrati = new JButton("REGISTRATI");
 		Registrati.setText("REGISTRATI");
 		//Registrati.setToolTipText("sono passato sopra");
+		Registrati.setHorizontalAlignment(JButton.CENTER);
+		Registrati.setVerticalAlignment(JButton.CENTER);
 		Registrati.setBounds(750,20,120,50);
 		
 		ConsultaInfo = new JButton("CONSULTA INFO CENTRI VACCINALI");
