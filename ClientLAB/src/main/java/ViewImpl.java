@@ -195,11 +195,7 @@ public class ViewImpl extends JFrame implements View{
 
 	//cattura le funzionalità dei vari bottoni
 	public JButton[] getBottoniFunzionalita() {
-		JButton[] ret = new JButton[5];
-		ret[0] = this.viewOperatore.retButtonRegistraCentro();
-		
-		return ret;
-	
+		return null;
 	}
 
 	//metodo che ritorna riferimento bottone indietro

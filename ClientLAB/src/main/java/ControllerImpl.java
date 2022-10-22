@@ -13,7 +13,7 @@ public class ControllerImpl implements ActionListener{
 		this.m = m;
 		
 		//cattura bottoni
-		JButton[] funzionalita = this.v.getSceltaTipoUtente();   //v.getSceltaFunzionalità
+		JButton[] funzionalita = this.v.getSceltaTipoUtente(); //v.getSceltaFunzionalità
 		for (int i=0; i<funzionalita.length; i++) {
 			funzionalita[i].addActionListener(this); //aggiunge come action listener ai componenti della view a cui serve
 		}
