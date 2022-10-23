@@ -57,7 +57,7 @@ public class RegistraCentroGUI {
 		this.panelTitolo = new JPanel();
 		this.panelTitolo.setLayout(new GridLayout(1,1));
 		this.labelTitolo = new JLabel("REGISTRA CENTRO VACCINALE:");
-		this.labelTitolo.setFont(new Font("Arial", Font.BOLD, 40));
+		this.labelTitolo.setFont(new Font("Arial", Font.BOLD, 30));
 		this.labelTitolo.setHorizontalAlignment(JLabel.CENTER);
 		this.labelTitolo.setVerticalAlignment(JLabel.CENTER);
 		this.panelTitolo.add(this.labelTitolo);
@@ -157,7 +157,7 @@ public class RegistraCentroGUI {
 		//BOTTONE
 		this.panelBottone = new JPanel();
 		this.buttonRegistra = new JButton("REGISTRA CENTRO");
-		this.buttonRegistra.setName("REGISTRA");
+		this.buttonRegistra.setName("REGISTRA CENTRO");
 		this.panelBottone.setPreferredSize(new Dimension(500, 35));
 		this.panelBottone.add(this.buttonRegistra);
 		
@@ -169,6 +169,8 @@ public class RegistraCentroGUI {
 		this.contenitorePrincipale.add(panelIndirizzo);
 		this.contenitorePrincipale.add(panelNumeroCivico);
 		this.contenitorePrincipale.add(panelComune);
+		this.contenitorePrincipale.add(panelProvincia);
+		this.contenitorePrincipale.add(panelCap);
 		this.contenitorePrincipale.add(panelSceltaTipologiaCentro);
 		this.contenitorePrincipale.add(panelBottone);
 		
@@ -197,11 +199,7 @@ public class RegistraCentroGUI {
 		return this.contenitorePrincipale;
 	}
 	
-	//ritorna il bottone di aggiunta del centro
-	public JButton retBottoneRegistraCentro() {
-		return this.buttonRegistra;
-	}
-	
+
 	//ritorna dalla combobox la tipologia selezionato
 	public Object retTipoCentro() {
 		return this.tipologiaCentro.getSelectedItem();
@@ -241,6 +239,11 @@ public class RegistraCentroGUI {
 	public String retCAP() {
 		return this.textFieldCap.getText();
 	}
+	
+	//ritorna il bottone di aggiunta del centro
+		public JButton retBottoneRegistraCentro() {
+			return this.buttonRegistra;
+		}
 	
 	
 

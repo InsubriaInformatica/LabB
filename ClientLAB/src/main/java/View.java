@@ -11,7 +11,7 @@ public interface View {
 	
 	
 	
-	public JButton[] getBottoniFunzionalita(); //serve al controller per aggiungersi come action listener --> restituisce un array di button con le funzionalità principali 
+	public JButton[] getBottoniFunzionalitaOperatore(); //serve al controller per aggiungersi come action listener --> restituisce un array di button con le funzionalità principali 
 	
 	public JButton getBack(); //riferimento al bottone "indietro"
 	

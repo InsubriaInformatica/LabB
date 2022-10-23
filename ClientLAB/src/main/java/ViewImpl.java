@@ -33,6 +33,8 @@ public class ViewImpl extends JFrame implements View{
 	private CittadinoGUI viewCittadino;
 	//schermata registrazione centro
 	private RegistraCentroGUI viewRegistraCentro;
+	//schermata registrazione vaccinato
+	private RegistraVaccinatoGUI viewRegistraVaccinato;
 	
 	//costruttore che realizza la view
 	public ViewImpl() {
@@ -103,6 +105,8 @@ public class ViewImpl extends JFrame implements View{
 		this.viewCittadino = new CittadinoGUI(altezza,larghezza, this.intestazione);
 		//registra centro vaccinale
 		this.viewRegistraCentro = new RegistraCentroGUI(altezza,larghezza, this.intestazione);
+		//registra vaccinato
+		viewRegistraVaccinato = new RegistraVaccinatoGUI(altezza, larghezza, this.intestazione);
 		
 		this.mostraSceltaUtenteView(); //mostra a video
 	}
@@ -158,6 +162,20 @@ public class ViewImpl extends JFrame implements View{
 		this.viewAttuale = "registraNuovoCentro";
 	}
 	
+	private void mostraViewRegistraVaccinato() {
+		
+		this.setVisible(false);
+		this.getContentPane().removeAll();
+		this.getBack().setVisible(true); //mostra tasto indietro
+		//this.viewRegistraCentro.pulisciView(); //pulisce tutte caselle
+		this.getContentPane().add(this.viewRegistraVaccinato.retIntestazione(), BorderLayout.PAGE_START);
+		this.getContentPane().add(this.viewRegistraVaccinato.retContenitore(), BorderLayout.CENTER);
+		this.setVisible(true);
+		this.viewAttuale = "registraNuovoVaccinato";
+	}
+	
+	
+	
 	//metodo che riceve dati del model e aggiorna in base al componente che ha generato evento
 	//source --> valore riferito al componente origine che ha generato evento
 	//dati --> con cui aggiornare componenti view
@@ -174,7 +192,7 @@ public class ViewImpl extends JFrame implements View{
 				mostraSceltaUtenteView(); //torna indietro alla schermata
 			}
 			
-			if(this.viewAttuale.equals("registraNuovoCentro")) {
+			if(this.viewAttuale.equals("registraNuovoCentro") || this.viewAttuale.equals("registraNuovoVaccinato")) {
 				mostraViewOperatore(); //torna alla schermata dell'operatore
 			}
 		}
@@ -191,10 +209,22 @@ public class ViewImpl extends JFrame implements View{
 			mostraViewRegistraCentro(); //va alla schermata registrazione centro vaccinale
 		}
 		
+		if(buttonOrigine.equals("REGISTRA NUOVO VACCINATO")) {
+			mostraViewRegistraVaccinato(); //va alla schermata registrazione centro vaccinale
+		}
+		
+	}
+	
+	//restituisce i riferimenti dei button alla scelta del tipo di utente
+	public JButton[] getSceltaTipoUtente() {
+		JButton[] ret = new JButton[2]; //bottoni usati con controller per eventi
+		ret[0] = this.viewSceltaUtente.retButtonOperatore();
+		ret[1] = this.viewSceltaUtente.retButtonCittadino();
+		return ret;
 	}
 
 	//cattura le funzionalità dei vari bottoni
-	public JButton[] getBottoniFunzionalita() {
+	public JButton[] getBottoniFunzionalitaOperatore() {
 		JButton[] ret = new JButton[2];
 		ret[0] = this.viewOperatore.retButtonRegistraCentro();
 		ret[1] = this.viewOperatore.retButtonRegistraVaccinato();
@@ -206,13 +236,7 @@ public class ViewImpl extends JFrame implements View{
 		return this.indietro;
 	}
 
-	//restituisce i riferimenti dei button alla scelta del tipo di utente
-	public JButton[] getSceltaTipoUtente() {
-		JButton[] ret = new JButton[2]; //bottoni usati con controller per eventi
-		ret[0] = this.viewSceltaUtente.retButtonOperatore();
-		ret[1] = this.viewSceltaUtente.retButtonCittadino();
-		return ret;
-	}
+	
 
 	public JButton getCercaInfoCentriVaccinali() {
 		// TODO Auto-generated method stub
