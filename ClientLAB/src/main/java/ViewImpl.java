@@ -75,7 +75,7 @@ public class ViewImpl extends JFrame implements View{
 		
 		this.intestazione = new JPanel(); //inizializza contenitore intestazione
 		this.intestazione.setLayout(new BorderLayout());
-		this.intestazione.setPreferredSize(new Dimension(180, 180)); //size panel 
+		this.intestazione.setPreferredSize(new Dimension(180, 60)); //size panel 
 		this.intestazione.setOpaque(true);
 		this.intestazione.setBackground(Color.WHITE);
 		
