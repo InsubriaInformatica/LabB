@@ -8,6 +8,7 @@ public class SceltaUtenteGUI {
 	
 	private JPanel intestazione;
 	private JPanel intestazioneTipoUtente;
+	private JPanel titolo;
 	
 	private ImageIcon immagineOperatore;
 	private ImageIcon scalaOperatore; //immagine in scala da inserire
@@ -32,6 +33,9 @@ public class SceltaUtenteGUI {
 		immagineOperatore = new ImageIcon("img/fotoprova.png");
 		scalaOperatore = new ImageIcon(immagineOperatore.getImage().getScaledInstance(immagineOperatore.getIconWidth()/20*4, immagineOperatore.getIconHeight()/20*4, java.awt.Image.SCALE_SMOOTH)); //immagine in scala
 		
+		this.titolo = new JPanel();
+		this.titolo.setLayout(new GridLayout(0, 1));
+		this.titolo.setPreferredSize(new Dimension(larghezza/2, altezza/10*7));
 		
 		this.operatore = new JButton("OPERATORE"); //bottone operatore
 		this.operatore.setName("OPERATORE");
@@ -43,6 +47,7 @@ public class SceltaUtenteGUI {
 		this.operatore.setBorder(BorderFactory.createEtchedBorder());
 		
 		this.spazioVuotoS = new JLabel("SELEZIONA TIPO DI UTENTE"); //inizializzo spazio vuoto prima riga
+		this.spazioVuotoS.setHorizontalTextPosition(JLabel.CENTER);
 		this.spazioVuotoG = new JLabel(); //inizializzo vuoto prima riga
 		
 		
@@ -56,7 +61,8 @@ public class SceltaUtenteGUI {
 		this.cittadino.setBorder(BorderFactory.createEtchedBorder());
 	
 		//aggiunta bottoni al Panel
-		this.contenitoreTipoUtente.add(this.spazioVuotoS, BorderLayout.WEST);
+//		this.contenitoreTipoUtente.add(this.spazioVuotoS, BorderLayout.WEST);
+		this.titolo.add(this.spazioVuotoS);
 		this.contenitoreTipoUtente.add(this.spazioVuotoG);
 		this.contenitoreTipoUtente.add(this.operatore,BorderLayout.WEST);
 		this.contenitoreTipoUtente.add(this.cittadino, BorderLayout.EAST);
