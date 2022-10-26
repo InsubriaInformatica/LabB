@@ -24,6 +24,11 @@ public class ControllerImpl implements ActionListener{
 		funzionalitaOperatore[0].addActionListener(this);
 		funzionalitaOperatore[1].addActionListener(this);
 		
+		JButton[] funzionalitaCittadino = this.v.getBottoniFunzionalitaCittadino();
+		funzionalitaCittadino[0].addActionListener(this);
+		funzionalitaCittadino[1].addActionListener(this);
+		funzionalitaCittadino[2].addActionListener(this);
+		
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -57,6 +62,12 @@ public class ControllerImpl implements ActionListener{
 		if(button.equals("REGISTRA NUOVO VACCINATO")) {
 			dati = null;
 		}
+		
+		if(button.equals("REGISTRATI")) {
+			dati = null;
+		}
+		
+		
 		
 		
 		m.updateModel(source, null); //elabora dati sul bottone d'origine

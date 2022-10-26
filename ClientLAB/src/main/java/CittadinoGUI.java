@@ -72,14 +72,34 @@ public class CittadinoGUI {
 	}
 	
 	//metodo che ritorna riferimento al Panel Intestazione della schermata
-			public JPanel retIntestazione() {
-				return this.intestazione;
-			}
+	public JPanel retIntestazione() {
+		return this.intestazione;
+	}
 			
-			//metodo che ritorna riferimento al Panel contenitore, ovvero al corpo della schermata
-			public JPanel retContenitore() {
-				return this.contenitore;
-			}
+	//metodo che ritorna riferimento al Panel contenitore, ovvero al corpo della schermata
+	public JPanel retContenitore() {
+		return this.contenitore;
+	}
+	
+	//ritorna riferimento al bottone registrati
+	public JButton retButtonRegistrati() {
+		return this.buttonRegistrati;
+		
+	}
+	
+	//ritorna riferimento al bottone inserisci evento avverso
+	public JButton retButtonInserisciEvento() {
+		return this.buttoninserisciAvversita;
+		
+	}
+	
+	//ritorna riferimento al bottone visualizza info
+	public JButton retButtonVisualizzaInfo() {
+		return this.buttonConsultaInfo;
+		
+	}
+	
+	
 			
 			
 	
