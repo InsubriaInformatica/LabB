@@ -37,6 +37,8 @@ public class ViewImpl extends JFrame implements View{
 	private RegistraVaccinatoGUI viewRegistraVaccinato;
 	//schermata di registrazione del cittadino
 	private RegisterGUI viewRegistrazione;
+	//schermata di ricerca del centro vaccinale
+	private CercaCentroGUI viewRicercaCentro;
 	
 	//costruttore che realizza la view
 	public ViewImpl() {
@@ -114,6 +116,8 @@ public class ViewImpl extends JFrame implements View{
 		this.viewRegistraVaccinato = new RegistraVaccinatoGUI(altezza, larghezza, this.intestazione);
 		//registra cittadino
 		this.viewRegistrazione = new RegisterGUI(altezza, larghezza, this.intestazione);
+		//ricerca centro
+		this.viewRicercaCentro = new CercaCentroGUI(altezza, larghezza, this.intestazione);
 		
 		
 		this.mostraSceltaUtenteView(); //mostra a video
@@ -193,6 +197,17 @@ public class ViewImpl extends JFrame implements View{
 		this.viewAttuale = "registrazione";
 	}
 	
+	private void mostraViewRicercaCentro() {
+		this.setVisible(false);
+		this.getContentPane().removeAll();
+		this.getBack().setVisible(true); //mostra tasto indietro
+		this.viewRicercaCentro.pulisciView(); //pulisce tutte caselle
+		this.getContentPane().add(this.viewRicercaCentro.retIntestazione(), BorderLayout.PAGE_START);
+		this.getContentPane().add(this.viewRicercaCentro.retContenitore(), BorderLayout.CENTER);
+		this.setVisible(true);
+		this.viewAttuale = "ricercaCentro";
+	}
+	
 	
 	
 	//metodo che riceve dati del model e aggiorna in base al componente che ha generato evento
@@ -215,7 +230,7 @@ public class ViewImpl extends JFrame implements View{
 				mostraViewOperatore(); //torna alla schermata dell'operatore
 			}
 			
-			if(this.viewAttuale.equals("registrazione")) {
+			if(this.viewAttuale.equals("registrazione") || this.viewAttuale.equals("ricercaCentro")) {
 				mostraViewCittadino(); //torna alla schermata cittadino
 			}
 		}
@@ -239,6 +254,13 @@ public class ViewImpl extends JFrame implements View{
 		if(buttonOrigine.equals("REGISTRATI")) {
 			mostraViewRegistrazione(); //va alla schermata dove il cittadino può registrarsi presso il proprio centro di competenza
 		}
+		
+		if(buttonOrigine.equals("INFO CENTRI VACCINALI")) {
+			mostraViewRicercaCentro(); //va alla schermata dove il cittadino può visualizzare la ricerca del centro vaccinale
+		}
+		
+		
+		
 		
 	}
 	

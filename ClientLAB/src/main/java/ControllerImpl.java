@@ -67,6 +67,10 @@ public class ControllerImpl implements ActionListener{
 			dati = null;
 		}
 		
+		if(button.equals("INFO CENTRI VACCINALI")) {
+			dati = null;
+		}
+		
 		
 		
 		

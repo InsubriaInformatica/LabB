@@ -11,6 +11,9 @@ public class RegistraCentroGUI {
 	private JPanel panelTitolo;
 	private JLabel labelTitolo;
 	
+	private JPanel panelVuoto;
+	private JLabel labelVuoto;
+	
 	private JPanel panelNomeCentro;
 	private JLabel labelNomeCentro;
 	private JTextField textFieldNomeCentro;
@@ -62,6 +65,15 @@ public class RegistraCentroGUI {
 		this.labelTitolo.setVerticalAlignment(JLabel.CENTER);
 		this.panelTitolo.add(this.labelTitolo);
 		this.panelTitolo.setPreferredSize(new Dimension(700, 35)); //larghezza, altezza
+		
+		//PANEL PER SPAZIO
+		this.panelVuoto = new JPanel();
+		this.panelVuoto.setLayout(new GridLayout(1,1));
+		this.labelVuoto = new JLabel();
+		this.labelVuoto.setHorizontalAlignment(JLabel.CENTER);
+		this.labelVuoto.setVerticalAlignment(JLabel.CENTER);
+		this.panelVuoto.add(labelVuoto);
+		this.panelVuoto.setPreferredSize(new Dimension(700, 50)); //larghezza, altezza
 		
 		//NOME CENTRO
 		this.panelNomeCentro = new JPanel();
@@ -164,6 +176,7 @@ public class RegistraCentroGUI {
 		//CONTENITORE PRINCIPALE
 		this.contenitorePrincipale = new JPanel();
 		this.contenitorePrincipale.add(panelTitolo);
+		this.contenitorePrincipale.add(panelVuoto);
 		this.contenitorePrincipale.add(panelNomeCentro);
 		this.contenitorePrincipale.add(panelQualificatore);
 		this.contenitorePrincipale.add(panelIndirizzo);
