@@ -9,51 +9,65 @@ import javax.swing.border.EmptyBorder;
 public class CittadinoGUI {
 	
 	private JPanel intestazione;
-	private JPanel contenitoreCittadini;
 	
-	private JLabel labelPortaleCittadini;
+	private JPanel contenitore;
 	
-	private JButton ConsultaInfo;
-	private JButton Registrati;
-	private JButton inserisciAvversita;
+	private JLabel labelTitolo;
+	
+	private JLabel spazioVuoto1;
+	private JLabel spazioVuoto2;
+	private JLabel spazioVuoto3;
+	private JLabel spazioVuoto4;
+	private JLabel spazioVuoto5;
+	
+	private JButton buttonConsultaInfo;
+	private JButton buttonRegistrati;
+	private JButton buttoninserisciAvversita;
 	
 	public CittadinoGUI(int larghezza, int altezza, JPanel intestazione) {
 		this.intestazione = intestazione;
 		
+		this.contenitore = new JPanel();
+		this.contenitore.setLayout(new GridLayout(3,3, 20, 20)); //layout del panel, margine tra righe e colonne
+		this.contenitore.setPreferredSize(new Dimension(larghezza/2, altezza/10*7)); //size
 		
-		this.contenitoreCittadini = new JPanel();
-		//this.contenitoreCittadini.setLayout(new GridLayout(3,3, 20, 20));
-		this.contenitoreCittadini.setLayout(new GridLayout(0, 1));
-		this.contenitoreCittadini.setPreferredSize(new Dimension(larghezza, altezza/10*7)); //size
+		this.labelTitolo = new JLabel("CITTADINO:");
+		this.labelTitolo.setFont(new Font("Arial", Font.BOLD, 30));
+		this.labelTitolo.setHorizontalAlignment(JLabel.CENTER);
+		this.labelTitolo.setVerticalAlignment(JLabel.CENTER);
 		
-		labelPortaleCittadini = new JLabel();
-		this.labelPortaleCittadini.setText("PORTALE CITTADINI");
-		this.labelPortaleCittadini.setFont(new Font("Arial", Font.BOLD, 40));
-		this.labelPortaleCittadini.setHorizontalAlignment(JLabel.CENTER);
-		this.labelPortaleCittadini.setVerticalAlignment(JLabel.CENTER);
-		labelPortaleCittadini.setBounds(0,0,900,150);
+		
+		
+		this.buttonRegistrati = new JButton("REGISTRATI");
+		this.buttonRegistrati.setName("REGISTRATI");
+		
+		
+		
+		this.buttonConsultaInfo = new JButton("CONSULTA INFO CENTRI VACCINALI");
+		this.buttonConsultaInfo.setName("CONSULTA INFO CENTRI VACCINALI");
+		
+		
+		
+		this.buttoninserisciAvversita = new JButton("INSERISCI EVENTI AVVERSI");
+		this.buttoninserisciAvversita.setName("INSERISCI EVENTI AVVERSI");
+		
+		
+		spazioVuoto1 = new JLabel();
+		spazioVuoto2 = new JLabel();
+		spazioVuoto3 = new JLabel();
+		spazioVuoto4 = new JLabel();
+		spazioVuoto5 = new JLabel();
+		
+		this.contenitore.add(this.spazioVuoto1);
+		this.contenitore.add(this.labelTitolo);
+		this.contenitore.add(this.spazioVuoto2);
+		this.contenitore.add(this.buttonRegistrati);
+		this.contenitore.add(this.buttonConsultaInfo);
+		this.contenitore.add(this.buttoninserisciAvversita);
+		this.contenitore.add(this.spazioVuoto3);
+		this.contenitore.add(this.spazioVuoto4);
+		this.contenitore.add(this.spazioVuoto5);
 	
-		
-		Registrati = new JButton("REGISTRATI");
-		Registrati.setText("REGISTRATI");
-		//Registrati.setToolTipText("sono passato sopra");
-		Registrati.setHorizontalAlignment(JButton.CENTER);
-		Registrati.setVerticalAlignment(JButton.CENTER);
-		Registrati.setBounds(750,20,120,50);
-		
-		ConsultaInfo = new JButton("CONSULTA INFO CENTRI VACCINALI");
-		ConsultaInfo.setText("CONSULTA INFO CENTRI VACCINALI");
-		ConsultaInfo.setBounds(750,20,120,50);
-		
-		inserisciAvversita = new JButton("INSERISCI EVENTI AVVERSI");
-		inserisciAvversita.setText("INSERISCI EVENTI AVVERSI");
-		inserisciAvversita.setBounds(750,20,120,50);
-		
-		contenitoreCittadini.add(this.labelPortaleCittadini);
-		contenitoreCittadini.add(this.Registrati);
-		contenitoreCittadini.add(this.ConsultaInfo);
-		contenitoreCittadini.add(this.inserisciAvversita);
-		
 		
 	}
 	
@@ -64,7 +78,7 @@ public class CittadinoGUI {
 			
 			//metodo che ritorna riferimento al Panel contenitore, ovvero al corpo della schermata
 			public JPanel retContenitore() {
-				return this.contenitoreCittadini;
+				return this.contenitore;
 			}
 			
 			

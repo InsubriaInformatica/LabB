@@ -59,7 +59,7 @@ public class ViewImpl extends JFrame implements View{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
 		this.setLayout(new BorderLayout());
 
-		Border bordo = BorderFactory.createLineBorder(Color.RED, 2); //crea bordo
+		//Border bordo = BorderFactory.createLineBorder(Color.White, 2); //crea bordo
 		back = new ImageIcon("img/indietro.png");
 		ImageIcon scalaBack = new ImageIcon(back.getImage().getScaledInstance(back.getIconWidth()/20*2, back.getIconHeight()/20*2, java.awt.Image.SCALE_SMOOTH)); //immagine in scala
 		
@@ -75,11 +75,11 @@ public class ViewImpl extends JFrame implements View{
 		
 		this.intestazione = new JPanel(); //inizializza contenitore intestazione
 		this.intestazione.setLayout(new BorderLayout());
-		this.intestazione.setPreferredSize(new Dimension(180, 60)); //size panel 
+		this.intestazione.setPreferredSize(new Dimension(180, 150)); //size panel 
 		this.intestazione.setOpaque(true);
-		this.intestazione.setBackground(Color.WHITE);
+		this.intestazione.setBackground(Colori.arancione);
 		
-		this.immagine = new ImageIcon("img/fotoprova.png"); // ../ serve per il jar
+		this.immagine = new ImageIcon("img/logovaccino.png"); // ../ serve per il jar
 		
 		
 		//TITOLO
@@ -88,9 +88,9 @@ public class ViewImpl extends JFrame implements View{
 		//titolo.setIcon(immagine);
 		titolo.setHorizontalTextPosition(JLabel.CENTER); //setta il testo DX,CX,SX rispetto a immagine
 		titolo.setVerticalTextPosition(JLabel.TOP); //setta il testo TOP,CX,BOTTOM rispetto a immagine
-		titolo.setFont(new Font("MV Boli", Font.PLAIN, 30));
-		titolo.setForeground(Color.RED); //colore testo
-		titolo.setBorder(bordo); //aggiunge bordo
+		titolo.setFont(new Font("MV Boli", Font.BOLD, 30));
+		titolo.setForeground(Colori.purple); //colore testo
+		//titolo.setBorder(bordo); //aggiunge bordo
 		
 		this.intestazione.add(this.titolo, BorderLayout.CENTER); //aggiungi titolo
 		this.intestazione.add(this.indietro, BorderLayout.EAST); //aggiungi bottono indietro
