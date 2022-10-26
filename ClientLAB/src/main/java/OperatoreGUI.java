@@ -2,6 +2,7 @@
 import java.awt.*;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 
 //componenti grafici operatore
 
@@ -10,12 +11,17 @@ public class OperatoreGUI{
 	private JPanel intestazione;
 	
 	private JLabel labelTitolo;
-	private ImageIcon immagine;
 	
 	private JPanel contenitore;
 	
 	private JButton registraCentro;
 	private JButton registraVaccinato;
+	
+	private ImageIcon immagineRegCentro;
+	private ImageIcon scalaRegCentro; //immagine in scala da inserire
+	
+	private ImageIcon immagineRegVaccinato;
+	private ImageIcon scalaRegVaccinato; //immagine in scala da inserire
 	
 	private JLabel spazioVuoto1;
 	private JLabel spazioVuoto2;
@@ -28,27 +34,50 @@ public class OperatoreGUI{
 	public OperatoreGUI(int larghezza, int altezza, JPanel intestazione) {
 		this.intestazione = intestazione; //instestazione schermata
 		
+		Border bordo = BorderFactory.createLineBorder(Colori.arancione, 5); //crea bordo
 	
 		this.contenitore = new JPanel(); //inizializza contenitore, corpo dello schermo
-		this.contenitore.setLayout(new GridLayout(3,3,20,20)); //layout del panel
+		this.contenitore.setLayout(new GridLayout(3,3,10,10)); //layout del panel
 		this.contenitore.setPreferredSize(new Dimension(larghezza, altezza/10*7)); //size
-		//this.contenitore.setBackground(Color.white);
+		this.contenitore.setBackground(Colori.purple);
 		
-		this.labelTitolo = new JLabel("OPERATORE:");
-		this.labelTitolo.setFont(new Font("Arial", Font.BOLD, 30));
+		immagineRegCentro = new ImageIcon("img/regCentro.png");
+		scalaRegCentro = new ImageIcon(immagineRegCentro.getImage().getScaledInstance(immagineRegCentro.getIconWidth()/20*3, immagineRegCentro.getIconHeight()/20*3, java.awt.Image.SCALE_SMOOTH)); //immagine in scala
+		
+		immagineRegVaccinato = new ImageIcon("img/regVaccinato.png");
+		scalaRegVaccinato = new ImageIcon(immagineRegVaccinato.getImage().getScaledInstance(immagineRegVaccinato.getIconWidth()/20*3, immagineRegVaccinato.getIconHeight()/20*3, java.awt.Image.SCALE_SMOOTH)); //immagine in scala
+		
+		this.labelTitolo = new JLabel("FORM OPERATORE:");
+		this.labelTitolo.setFont(new Font("Arial", Font.BOLD, 28));
+		this.labelTitolo.setForeground(Colori.arancione);
 		this.labelTitolo.setHorizontalAlignment(JLabel.CENTER);
 		this.labelTitolo.setVerticalAlignment(JLabel.CENTER);
 		
 		this.registraCentro = new JButton("REGISTRA NUOVO CENTRO"); //bottone centro
 		this.registraCentro.setName("REGISTRA NUOVO CENTRO");
-		this.registraCentro.setFont(new Font("Arial", Font.BOLD, 18)); //size:18
-		
+		this.registraCentro.setFont(new Font("Arial", Font.BOLD, 18)); //size
+		this.registraCentro.setForeground(Colori.light_grey);
+		this.registraCentro.setIcon(scalaRegCentro);
+		this.registraCentro.setHorizontalTextPosition(JButton.CENTER);
+		this.registraCentro.setVerticalTextPosition(JButton.BOTTOM);
+		this.registraCentro.setIconTextGap(10); //distanza tra immagine e testo
+		this.registraCentro.setBorder(bordo);
 		
 		this.registraVaccinato = new JButton("REGISTRA NUOVO VACCINATO"); //bottone vaccinato
 		this.registraVaccinato.setName("REGISTRA NUOVO VACCINATO");
-		this.registraVaccinato.setFont(new Font("Arial", Font.BOLD, 18)); //size:18
+		this.registraVaccinato.setFont(new Font("Arial", Font.BOLD, 17)); //size
+		this.registraVaccinato.setForeground(Colori.light_grey);
+		this.registraVaccinato.setIcon(scalaRegVaccinato);
+		this.registraVaccinato.setHorizontalTextPosition(JButton.CENTER);
+		this.registraVaccinato.setVerticalTextPosition(JButton.BOTTOM);
+		this.registraVaccinato.setIconTextGap(10); //distanza tra immagine e testo
+		this.registraVaccinato.setBorder(bordo);
 		
-		spazioVuoto1 = new JLabel();
+		
+		this.spazioVuoto1 = new JLabel("Seleziona Servizio");
+		this.spazioVuoto1.setFont(new Font("Arial", Font.PLAIN, 30));
+		this.spazioVuoto1.setForeground(Colori.arancione);
+		
 		spazioVuoto2 = new JLabel();
 		spazioVuoto3 = new JLabel();
 		spazioVuoto4 = new JLabel();
@@ -57,8 +86,8 @@ public class OperatoreGUI{
 		
 		
 		//aggiunta bottoni al Panel
-		this.contenitore.add(this.spazioVuoto1);
 		this.contenitore.add(this.labelTitolo);
+		this.contenitore.add(this.spazioVuoto1);
 		this.contenitore.add(this.spazioVuoto2);
 		this.contenitore.add(this.registraCentro);
 		this.contenitore.add(this.spazioVuoto6);

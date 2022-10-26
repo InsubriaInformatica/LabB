@@ -60,16 +60,18 @@ public class ViewImpl extends JFrame implements View{
 		this.setResizable(false);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
 		this.setLayout(new BorderLayout());
+		
+		Border bordoIntestazione = BorderFactory.createLineBorder(Colori.purple, 3); //crea bordo
 
-		//Border bordo = BorderFactory.createLineBorder(Color.White, 2); //crea bordo
-		back = new ImageIcon("img/indietro.png");
+		back = new ImageIcon("img/indietro2.png");
 		ImageIcon scalaBack = new ImageIcon(back.getImage().getScaledInstance(back.getIconWidth()/20*2, back.getIconHeight()/20*2, java.awt.Image.SCALE_SMOOTH)); //immagine in scala
 		
-		//tasto indietro
-		this.indietro = new JButton("INDIETRO");
+		//TASTO INDIETRO
+		this.indietro = new JButton();
 		this.indietro.setName("INDIETRO");
 		this.indietro.setFont(new Font("Arial", Font.BOLD, 10));
 		this.indietro.setIcon(scalaBack);
+		this.indietro.setBorderPainted(false); //senza contorni
 		this.indietro.setHorizontalTextPosition(JButton.CENTER);
 		this.indietro.setVerticalTextPosition(JButton.TOP);
 		this.indietro.setIconTextGap(10); //distanza tra immagine e testo
@@ -77,9 +79,10 @@ public class ViewImpl extends JFrame implements View{
 		
 		this.intestazione = new JPanel(); //inizializza contenitore intestazione
 		this.intestazione.setLayout(new BorderLayout());
-		this.intestazione.setPreferredSize(new Dimension(180, 150)); //size panel 
+		this.intestazione.setPreferredSize(new Dimension(180, 160)); //size panel 
 		this.intestazione.setOpaque(true);
 		this.intestazione.setBackground(Colori.arancione);
+		this.intestazione.setBorder(bordoIntestazione);
 		
 		this.immagine = new ImageIcon("img/logovaccino.png"); // ../ serve per il jar
 		

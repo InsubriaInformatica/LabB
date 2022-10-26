@@ -28,12 +28,13 @@ public class SceltaUtenteGUI {
 	public SceltaUtenteGUI(int larghezza, int altezza, JPanel intestazione) {
 		this.intestazione = intestazione; //intestazione schermata
 		
-		Border bordo = BorderFactory.createLineBorder(new Color(244,176,61), 3); //crea bordo
+		Border bordo = BorderFactory.createLineBorder(Colori.arancione, 5); //crea bordo
+		
 		
 		this.contenitoreTipoUtente = new JPanel(); //inizializza contenitore 
 		this.contenitoreTipoUtente.setLayout(new GridLayout(3,2, 20, 20)); //layout del panel, margine tra righe e colonne
 		this.contenitoreTipoUtente.setPreferredSize(new Dimension(larghezza/2, altezza/10*7)); //size
-		this.contenitoreTipoUtente.setBackground(new Color(224,55,121));
+		this.contenitoreTipoUtente.setBackground(Colori.purple);
 			
 		immagineOperatore = new ImageIcon("img/operatore.png");
 		scalaOperatore = new ImageIcon(immagineOperatore.getImage().getScaledInstance(immagineOperatore.getIconWidth()/20*3, immagineOperatore.getIconHeight()/20*3, java.awt.Image.SCALE_SMOOTH)); //immagine in scala
@@ -41,9 +42,9 @@ public class SceltaUtenteGUI {
 		immagineCittadino = new ImageIcon("img/cittadino.png");
 		scalaCittadino = new ImageIcon(immagineCittadino.getImage().getScaledInstance(immagineCittadino.getIconWidth()/20*3, immagineCittadino.getIconHeight()/20*3, java.awt.Image.SCALE_SMOOTH)); //immagine in scala
 		
-		this.labelTitolo = new JLabel("SELEZIONA TIPO UTENTE:");
+		this.labelTitolo = new JLabel("SELEZIONA IL TIPO UTENTE:");
 		this.labelTitolo.setFont(new Font("Arial", Font.BOLD, 30));
-		this.labelTitolo.setForeground(new Color(244,176,61));
+		this.labelTitolo.setForeground(Colori.arancione);
 		this.labelTitolo.setHorizontalAlignment(JLabel.CENTER);
 		this.labelTitolo.setVerticalAlignment(JLabel.CENTER);
 		
@@ -70,7 +71,7 @@ public class SceltaUtenteGUI {
 		
 		this.spazioVuoto = new JLabel();
 		
-	
+		
 		//aggiunta bottoni al Panel
 		this.contenitoreTipoUtente.add(this.labelTitolo);
 		this.contenitoreTipoUtente.add(this.spazioVuoto);
