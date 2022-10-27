@@ -227,7 +227,7 @@ public class ViewImpl extends JFrame implements View{
 			this.viewElencoCentri.aggiungiCentroInComboBox(centro);;
 		}*/
 		
-		//recupera valori da lista e inserisce nelle label
+		//recupera valori da lista e inserisce nelle label senza mostrarli
 		/*this.viewElencoCentri.setNomeCentroNOVISUAL("index: " + this.viewElencoCentri.retIndiceCentroSelezionatoComboBox());
 		this.viewElencoCentri.setTipologiaCentroNOVISUAL(dati.get(this.viewElencoCentri.retIndiceCentroSelezionatoComboBox()).get(0));
 		this.viewElencoCentri.setIndirizzoCentroNOVISUAL(dati.get(this.viewElencoCentri.retIndiceCentroSelezionatoComboBox()).get(1));
@@ -299,6 +299,15 @@ public class ViewImpl extends JFrame implements View{
 		}
 		
 		if(buttonOrigine.equals("CercaNome") || buttonOrigine.equals("CercaComune")) {
+			
+			List <String> centri = new ArrayList<String>();
+			List<List<String>> campo = new ArrayList<List<String>>();
+			int j=0;
+			
+			if(togliSpazi(this.viewRicercaCentro.retNomeCentro()).equals("")) {
+				
+			}
+			
 			mostraViewElencoCentri();
 		}
 		
