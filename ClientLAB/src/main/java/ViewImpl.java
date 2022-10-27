@@ -212,14 +212,35 @@ public class ViewImpl extends JFrame implements View{
 		this.viewAttuale = "ricercaCentro";
 	}
 	
-	private void mostraViewElencoCentri() {
+	private void mostraViewElencoCentri( /*List<String> centri, List<List<String>> dati*/) {
 		this.setVisible(false);
 		this.getContentPane().removeAll();
 		this.getBack().setVisible(true);
+		this.viewElencoCentri.resetComboBox();
 		this.getContentPane().add(this.viewElencoCentri.retIntestazione(), BorderLayout.PAGE_START);
 		this.getContentPane().add(this.viewElencoCentri.retContenitore(), BorderLayout.CENTER);
 		this.setVisible(true);
 		this.viewAttuale = "elencoCentri";
+		
+		//inserisci centri trovati nella combobox
+		/*for(String centro : centri) {
+			this.viewElencoCentri.aggiungiCentroInComboBox(centro);;
+		}*/
+		
+		//recupera valori da lista e inserisce nelle label
+		/*this.viewElencoCentri.setNomeCentroNOVISUAL("index: " + this.viewElencoCentri.retIndiceCentroSelezionatoComboBox());
+		this.viewElencoCentri.setTipologiaCentroNOVISUAL(dati.get(this.viewElencoCentri.retIndiceCentroSelezionatoComboBox()).get(0));
+		this.viewElencoCentri.setIndirizzoCentroNOVISUAL(dati.get(this.viewElencoCentri.retIndiceCentroSelezionatoComboBox()).get(1));
+		this.viewElencoCentri.setNumeroSegnalazioniNOVISUAL(dati.get(this.viewElencoCentri.retIndiceCentroSelezionatoComboBox()).get(2));
+		
+		
+		this.viewElencoCentri.setMalDiTestaNOVISUAL(dati.get(this.viewElencoCentri.retIndiceCentroSelezionatoComboBox()).get(3));
+		this.viewElencoCentri.setFebbreNOVISUAL(dati.get(this.viewElencoCentri.retIndiceCentroSelezionatoComboBox()).get(4));
+		this.viewElencoCentri.setDoloriNOVISUAL(dati.get(this.viewElencoCentri.retIndiceCentroSelezionatoComboBox()).get(5));
+		this.viewElencoCentri.setLinfoadenopatiaNOVISUAL(dati.get(this.viewElencoCentri.retIndiceCentroSelezionatoComboBox()).get(6));
+		this.viewElencoCentri.setTachicardiaNOVISUAL(dati.get(this.viewElencoCentri.retIndiceCentroSelezionatoComboBox()).get(7));
+		this.viewElencoCentri.setCrisiNOVISUAL(dati.get(this.viewElencoCentri.retIndiceCentroSelezionatoComboBox()).get(8));*/
+		
 	}
 	
 	
@@ -348,8 +369,9 @@ public class ViewImpl extends JFrame implements View{
 	public List<String> getDatiComuneTipologiaPerConsultareInfo() {
 		List <String> risultato = new ArrayList<String>();
 		risultato.add(this.viewRicercaCentro.retComuneCentro());
-		//String Tipologia
-		return null;
+		String Tipologia = (String) this.viewRicercaCentro.retTipologiaCentro();
+		risultato.add(Tipologia);
+		return risultato;
 	}
 
 	public List<String> getDatiRegistraNuovoCentro() {
@@ -460,6 +482,34 @@ public class ViewImpl extends JFrame implements View{
 	public String getCfPerRecuperoIdVacc() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	
+	
+	
+	//utile per eliminare spazi aggiuntivi di una stringa
+	private String togliSpazi(String p) {
+	String esito = "";
+		
+	for(int i=0; i<p.length(); i++) {
+				
+		if(p.charAt(i) != ' ') {
+			esito = esito + p.charAt(i);
+		}
+		else {
+			while(i<p.length() && p.charAt(i) == ' ') {
+				i++;
+			}
+			
+			if(i != p.length()) {
+				i--;
+				esito = esito + " ";
+			}
+		}
+	}
+			
+	return esito;
+			
 	}
 
 }

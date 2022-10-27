@@ -182,13 +182,13 @@ public class ElencoCentriGUI {
 	}
 	
 	//ritorna indice elemento selezionato della ComboBox
-	public void retIndiceCentroSelezionatoComboBox() {
-		this.sceltaCentro.getSelectedIndex();
+	public int retIndiceCentroSelezionatoComboBox() {
+		return this.sceltaCentro.getSelectedIndex();
 	}
 	
 	//ritorna elemento selezionato della ComboBox
-	public void retCentroSelezionatoComboBox() {
-		this.sceltaCentro.getSelectedItem();
+	public Object retCentroSelezionatoComboBox() {
+		return this.sceltaCentro.getSelectedItem();
 	}
 	
 	
