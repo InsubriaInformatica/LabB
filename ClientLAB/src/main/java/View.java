@@ -21,7 +21,7 @@ public interface View {
 	
 	
 	//CENTRI VACCINALI
-	public JButton getCercaInfoCentriVaccinali();//restituisce il riferimento al Jbutton per cercare info dei centri vaccinali	
+	public JButton[] getCercaInfoCentriVaccinali();//restituisce il riferimento al Jbutton per cercare info dei centri vaccinali	
 	
 	public JComboBox boxSceltaCentroGetInfo(); //restituisce il riferimento alla JComboBox per la scelta del centro di cui ottenere le informazioni
 	

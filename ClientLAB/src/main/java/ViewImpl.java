@@ -1,7 +1,8 @@
+import java.util.*;
 import java.util.List;
+
 import javax.swing.*;
 import javax.swing.border.Border;
-
 import java.awt.*;
 
 //questa classe gestisce tutte le componenti grafiche dell'applicazione, aggiornanando anche i singoli elementi
@@ -39,6 +40,8 @@ public class ViewImpl extends JFrame implements View{
 	private RegisterGUI viewRegistrazione;
 	//schermata di ricerca del centro vaccinale
 	private CercaCentroGUI viewRicercaCentro;
+	//schermata elenco centri
+	private ElencoCentriGUI viewElencoCentri;
 	
 	//costruttore che realizza la view
 	public ViewImpl() {
@@ -118,7 +121,8 @@ public class ViewImpl extends JFrame implements View{
 		this.viewRegistrazione = new RegisterGUI(altezza, larghezza, this.intestazione);
 		//ricerca centro
 		this.viewRicercaCentro = new CercaCentroGUI(altezza, larghezza, this.intestazione);
-		
+		//elenco centri
+		this.viewElencoCentri = new ElencoCentriGUI(altezza, larghezza, this.intestazione);
 		
 		this.mostraSceltaUtenteView(); //mostra a video
 	}
@@ -208,6 +212,16 @@ public class ViewImpl extends JFrame implements View{
 		this.viewAttuale = "ricercaCentro";
 	}
 	
+	private void mostraViewElencoCentri() {
+		this.setVisible(false);
+		this.getContentPane().removeAll();
+		this.getBack().setVisible(true);
+		this.getContentPane().add(this.viewElencoCentri.retIntestazione(), BorderLayout.PAGE_START);
+		this.getContentPane().add(this.viewElencoCentri.retContenitore(), BorderLayout.CENTER);
+		this.setVisible(true);
+		this.viewAttuale = "elencoCentri";
+	}
+	
 	
 	
 	//metodo che riceve dati del model e aggiorna in base al componente che ha generato evento
@@ -232,6 +246,10 @@ public class ViewImpl extends JFrame implements View{
 			
 			if(this.viewAttuale.equals("registrazione") || this.viewAttuale.equals("ricercaCentro")) {
 				mostraViewCittadino(); //torna alla schermata cittadino
+			}
+			
+			if(this.viewAttuale.equals("elencoCentri")) {
+				mostraViewRicercaCentro(); //torna alla schermata di ricerca
 			}
 		}
 		
@@ -259,7 +277,9 @@ public class ViewImpl extends JFrame implements View{
 			mostraViewRicercaCentro(); //va alla schermata dove il cittadino può visualizzare la ricerca del centro vaccinale
 		}
 		
-		
+		if(buttonOrigine.equals("CercaNome") || buttonOrigine.equals("CercaComune")) {
+			mostraViewElencoCentri();
+		}
 		
 		
 	}
@@ -293,12 +313,19 @@ public class ViewImpl extends JFrame implements View{
 	public JButton getBack() {
 		return this.indietro;
 	}
-
 	
+	//ritorna riferimento al titolo
+	private JLabel getTitolo() {
+		return this.titolo;
+		
+	}
 
-	public JButton getCercaInfoCentriVaccinali() {
-		// TODO Auto-generated method stub
-		return null;
+
+	public JButton[] getCercaInfoCentriVaccinali() {
+		JButton[] ret = new JButton[2];
+		ret[0] = this.viewRicercaCentro.retButtonCercaNome();
+		ret[1] = this.viewRicercaCentro.retButtonCercaComune();
+		return ret;
 	}
 
 	public JComboBox boxSceltaCentroGetInfo() {
@@ -311,13 +338,17 @@ public class ViewImpl extends JFrame implements View{
 		return null;
 	}
 
+	//restituisce una stringa con il nome del centro inserito x ricerca
 	public String getDatiNomeCentroPerConsultareInfo() {
-		// TODO Auto-generated method stub
-		return null;
+		String risultato = this.viewRicercaCentro.retNomeCentro();
+		return risultato;
 	}
 
+	//restituisce una lista contente comune e tipologia per ricerca
 	public List<String> getDatiComuneTipologiaPerConsultareInfo() {
-		// TODO Auto-generated method stub
+		List <String> risultato = new ArrayList<String>();
+		risultato.add(this.viewRicercaCentro.retComuneCentro());
+		//String Tipologia
 		return null;
 	}
 

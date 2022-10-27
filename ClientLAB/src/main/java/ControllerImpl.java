@@ -1,5 +1,7 @@
 import java.awt.event.*;
-import javax.swing.JButton;
+import java.util.*;
+
+import javax.swing.*;
 
 //classe che gestisce gli eventi generati dall'utente
 public class ControllerImpl implements ActionListener{
@@ -29,8 +31,13 @@ public class ControllerImpl implements ActionListener{
 		funzionalitaCittadino[1].addActionListener(this);
 		funzionalitaCittadino[2].addActionListener(this);
 		
+		JButton[] cercaCentri = this.v.getCercaInfoCentriVaccinali();
+		cercaCentri[0].addActionListener(this);
+		cercaCentri[1].addActionListener(this);
+		
 	}
 
+	//e --> evento generato
 	public void actionPerformed(ActionEvent e) {
 		
 		String source = null;
@@ -41,40 +48,111 @@ public class ControllerImpl implements ActionListener{
 			source = bottoneOrigine.getName();
 		}
 		
-		String button = (String)source;
+		if(e.getSource() instanceof JTextField) {
+			JTextField textFieldOrigine = (JTextField) e.getSource(); //recupera origine
+			source = textFieldOrigine.getName();
+		}
 		
-		if(button.equals("INDIETRO")) {
+		if(e.getSource() instanceof JComboBox) {
+			JComboBox comboBoxOrigine = (JComboBox) e.getSource(); //recupera origine
+			source = comboBoxOrigine.getName();
+		}
+		
+		if(e.getSource() instanceof JRadioButton) {
+			JRadioButton radioButtonOrigine = (JRadioButton) e.getSource(); //recupera origine
+			source = radioButtonOrigine.getName();
+		}
+		
+		
+		String click = (String)source;
+		
+		if(click.equals("INDIETRO")) {
 			dati = null; //non serve passare nulla
 		}
 		
-		if(button.equals("OPERATORE")) {
+		if(click.equals("OPERATORE")) {
 			dati = null; //non serve passare nulla
 		}
 		
-		if(button.equals("CITTADINO")) {
+		if(click.equals("CITTADINO")) {
 			dati = null; //non serve passare nulla
 		}
 		
-		if(button.equals("REGISTRA NUOVO CENTRO")) {
+		if(click.equals("REGISTRA NUOVO CENTRO")) {
 			dati = null;
 		}
 		
-		if(button.equals("REGISTRA NUOVO VACCINATO")) {
+		if(click.equals("REGISTRA NUOVO VACCINATO")) {
 			dati = null;
 		}
 		
-		if(button.equals("REGISTRATI")) {
+		if(click.equals("REGISTRATI")) {
 			dati = null;
 		}
 		
-		if(button.equals("INFO CENTRI VACCINALI")) {
+		if(click.equals("INFO CENTRI VACCINALI")) {
 			dati = null;
 		}
+		
+		if(click.equals("CercaNome")) {
+			/*List<String> esito = new ArrayList<String>();
+			esito.add(togliSpazi(this.v.getDatiNomeCentroPerConsultareInfo()));
+			esito.add(togliSpazi(this.v.getDatiComuneTipologiaPerConsultareInfo().get(0)));
+			esito.add(this.v.getDatiComuneTipologiaPerConsultareInfo().get(1));
+			dati = esito;*/
+			dati = null;
+		}
+		
+		if(click.equals("CercaComune")) {
+			/*List<String> esito = new ArrayList<String>();
+			esito.add(togliSpazi(this.v.getDatiNomeCentroPerConsultareInfo()));
+			esito.add(togliSpazi(this.v.getDatiComuneTipologiaPerConsultareInfo().get(0)));
+			esito.add(this.v.getDatiComuneTipologiaPerConsultareInfo().get(1));
+			dati = esito;*/
+			dati = null;
+		}
+		
+		if(click.equals("ComboBoxCentroInfo")) {
+			/*List<String> risultato = new ArrayList<String>();
+			risultato.add(togliSpazi(this.v.getDatiNomeCentroPerConsultareInfo()));
+			risultato.add(togliSpazi(this.v.getDatiComuneTipologiaPerConsultareInfo().get(0)));
+			risultato.add(this.v.getDatiComuneTipologiaPerConsultareInfo().get(1));
+			dati = risultato;*/
+			dati = null;
+			
+		}
+		
+		
 		
 		
 		
 		
 		m.updateModel(source, null); //elabora dati sul bottone d'origine
+		
+	}
+	
+	//utile per eliminare spazi aggiuntivi di una stringa
+	private String togliSpazi(String p) {
+		String esito = "";
+	
+		for(int i=0; i<p.length(); i++) {
+			
+			if(p.charAt(i) != ' ') {
+				esito = esito + p.charAt(i);
+			}
+			else {
+				while(i<p.length() && p.charAt(i) == ' ') {
+					i++;
+				}
+				
+				if(i != p.length()) {
+					i--;
+					esito = esito + " ";
+				}
+			}
+		}
+		
+		return esito;
 		
 	}
 
