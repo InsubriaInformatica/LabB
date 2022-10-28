@@ -48,16 +48,11 @@ public class ViewImpl extends JFrame implements View{
 		
 		//FRAME
 		this.viewAttuale = null;
-		//this.size = Toolkit.getDefaultToolkit().getScreenSize(); //dimensione schermo
-		//this.larghezza = this.size.width/10*5;
-		//this.altezza = this.size.height/10*5;
-		//this.setPreferredSize(new Dimension(altezza/2, larghezza/10*7)); //setta dimensioni schermata
 		this.setTitle("VACCINIAMO");
 		this.setLayout(null);
         this.setSize(FRAME_WIDTH, FRAME_HEIGHT);
         this.setLocationRelativeTo(null);
-        //this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        //this.setResizable(false);
+       
 		
 		/////////INIZIO INTESTAZIONE--> comune a tutti 
 		
@@ -80,7 +75,6 @@ public class ViewImpl extends JFrame implements View{
 		this.indietro.setHorizontalTextPosition(JButton.CENTER);
 		this.indietro.setVerticalTextPosition(JButton.TOP);
 		this.indietro.setIconTextGap(10); //distanza tra immagine e testo
-		//this.indietro.setBorder(bordo);
 		
 		this.intestazione = new JPanel(); //inizializza contenitore intestazione
 		this.intestazione.setLayout(new BorderLayout());
@@ -100,7 +94,7 @@ public class ViewImpl extends JFrame implements View{
 		titolo.setVerticalTextPosition(JLabel.TOP); //setta il testo TOP,CX,BOTTOM rispetto a immagine
 		titolo.setFont(new Font("MV Boli", Font.BOLD, 30));
 		titolo.setForeground(Colori.purple); //colore testo
-		//titolo.setBorder(bordo); //aggiunge bordo
+		
 		
 		this.intestazione.add(this.titolo, BorderLayout.CENTER); //aggiungi titolo
 		this.intestazione.add(this.indietro, BorderLayout.EAST); //aggiungi bottono indietro
@@ -412,12 +406,11 @@ public class ViewImpl extends JFrame implements View{
 			this.viewElencoCentri.setNumeroSegnalazioni(campo.get(indice).get(2));
 			
 			this.viewElencoCentri.setMalDiTesta(campo.get(indice).get(3));
-			this.viewElencoCentri.setTipologiaCentro(campo.get(indice).get(0));
-			this.viewElencoCentri.setTipologiaCentro(campo.get(indice).get(0));
-			this.viewElencoCentri.setTipologiaCentro(campo.get(indice).get(0));
-			this.viewElencoCentri.setTipologiaCentro(campo.get(indice).get(0));
-			this.viewElencoCentri.setTipologiaCentro(campo.get(indice).get(0));*/
-			
+			this.viewElencoCentri.setFebbre(campo.get(indice).get(4));
+			this.viewElencoCentri.setDolori(campo.get(indice).get(5));
+			this.viewElencoCentri.setLinfoadenopatia(campo.get(indice).get(6));
+			this.viewElencoCentri.setTachicardia(campo.get(indice).get(7));
+			this.viewElencoCentri.setCrisi(campo.get(indice).get(8));*/
 			
 		}
 		
