@@ -52,15 +52,13 @@ public class ViewImpl extends JFrame implements View{
 		this.setLayout(null);
         this.setSize(FRAME_WIDTH, FRAME_HEIGHT);
         this.setLocationRelativeTo(null);
-        
-       
-   
-		/////////INIZIO INTESTAZIONE--> comune a tutti 
-		
-		this.setSize(new Dimension(FRAME_WIDTH, FRAME_HEIGHT));
+          
+        this.setSize(new Dimension(FRAME_WIDTH, FRAME_HEIGHT));
 		this.setResizable(false);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
 		this.setLayout(new BorderLayout());
+   
+		/////////INIZIO INTESTAZIONE--> comune a tutti 
 		
 		Border bordoIntestazione = BorderFactory.createLineBorder(Colori.purple, 3); //crea bordo
 
