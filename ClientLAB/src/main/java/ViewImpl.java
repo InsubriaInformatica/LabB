@@ -23,6 +23,7 @@ public class ViewImpl extends JFrame implements View{
 	
 	private ImageIcon immagine;
 	private ImageIcon back;
+	private ImageIcon logoApp;
 	private JButton indietro;
 	
 	
@@ -47,13 +48,18 @@ public class ViewImpl extends JFrame implements View{
 	public ViewImpl() {
 		
 		//FRAME
+		
+		//this.logoApp = new ImageIcon(getClass().getClassLoader().getResource("logovaccino.png"));
+		 
 		this.viewAttuale = null;
 		this.setTitle("VACCINIAMO");
+		//this.setIconImage(logoApp.getImage());
 		this.setLayout(null);
         this.setSize(FRAME_WIDTH, FRAME_HEIGHT);
         this.setLocationRelativeTo(null);
+        
        
-		
+   
 		/////////INIZIO INTESTAZIONE--> comune a tutti 
 		
 		this.setSize(new Dimension(FRAME_WIDTH, FRAME_HEIGHT));
