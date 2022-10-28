@@ -49,11 +49,11 @@ public class ViewImpl extends JFrame implements View{
 		
 		//FRAME
 		
-		//this.logoApp = new ImageIcon(getClass().getClassLoader().getResource("logovaccino.png"));
+		this.logoApp = new ImageIcon("img/logovaccino.png");
 		 
 		this.viewAttuale = null;
 		this.setTitle("VACCINIAMO");
-		//this.setIconImage(logoApp.getImage());
+		this.setIconImage(logoApp.getImage());
 		this.setLayout(null);
         this.setSize(FRAME_WIDTH, FRAME_HEIGHT);
         this.setLocationRelativeTo(null);
