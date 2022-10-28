@@ -300,15 +300,125 @@ public class ViewImpl extends JFrame implements View{
 		
 		if(buttonOrigine.equals("CercaNome") || buttonOrigine.equals("CercaComune")) {
 			
-			List <String> centri = new ArrayList<String>();
+			/*List <String> centri = new ArrayList<String>();
 			List<List<String>> campo = new ArrayList<List<String>>();
 			int j=0;
 			
+			//se non cè inserito il nome, si cerca per comune e tipologia
 			if(togliSpazi(this.viewRicercaCentro.retNomeCentro()).equals("")) {
+				List<List<String>> datiComuneTipo = (List<List<String>>) dati; //dati passati dal model
 				
+				//cicla nella lista per estrarre dati di ogni centro trovato
+				for(List<String> centroComTipo : datiComuneTipo) {
+					centri.add(centroComTipo.get(0)); //nome centro
+					campo.add(new ArrayList<String>()); //lista info per quello specifico centro
+					campo.get(j).add(centroComTipo.get(1)); //indirizzo
+					campo.get(j).add(centroComTipo.get(2)); //tipologia
+					campo.get(j).add(centroComTipo.get(3)); //numero segnalazioni
+					
+					campo.get(j).add(centroComTipo.get(4)); //medie avversità
+					campo.get(j).add(centroComTipo.get(5)); 
+					campo.get(j).add(centroComTipo.get(6));
+					campo.get(j).add(centroComTipo.get(7)); 
+					campo.get(j).add(centroComTipo.get(8)); 
+					campo.get(j).add(centroComTipo.get(9));
+					
+					j++;
+					
+				}
+			} 
+			//ricerca per nome
+			else {
+				List<String> datiNomeCentro = (List<String>) dati; //dati passati dal model
+				centri.add(datiNomeCentro.get(0));  //nome centro
+				campo.add(new ArrayList<String>()); //lista info per quel centro
+				campo.get(j).add(datiNomeCentro.get(1)); //indirizzo
+				campo.get(j).add(datiNomeCentro.get(2)); //tipologia
+				campo.get(j).add(datiNomeCentro.get(3)); //numero segnalazioni
+				
+				campo.get(j).add(datiNomeCentro.get(4)); //medie avversità
+				campo.get(j).add(datiNomeCentro.get(5)); 
+				campo.get(j).add(datiNomeCentro.get(6));
+				campo.get(j).add(datiNomeCentro.get(7)); 
+				campo.get(j).add(datiNomeCentro.get(8)); 
+				campo.get(j).add(datiNomeCentro.get(9));
+			}*/
+			
+			mostraViewElencoCentri(/*centri, campo*/);
+		}
+		
+		if(buttonOrigine.equals("ComboBoxCentroInfo")) {
+			
+			/*List <String> centri = new ArrayList<String>();
+			List<List<String>> campo = new ArrayList<List<String>>();
+			int j=0;
+			
+			//se non cè inserito il nome, si cerca per comune e tipologia
+			if(togliSpazi(this.viewRicercaCentro.retNomeCentro()).equals("")) {
+				List<List<String>> datiComuneTipo = (List<List<String>>) dati; //dati passati dal model
+				
+				//cicla nella lista per estrarre dati di ogni centro trovato
+				for(List<String> centroComTipo : datiComuneTipo) {
+					centri.add(centroComTipo.get(0)); //nome centro
+					campo.add(new ArrayList<String>()); //lista info per quello specifico centro
+					campo.get(j).add(centroComTipo.get(1)); //indirizzo
+					campo.get(j).add(centroComTipo.get(2)); //tipologia
+					campo.get(j).add(centroComTipo.get(3)); //numero segnalazioni
+					
+					campo.get(j).add(centroComTipo.get(4)); //medie avversità
+					campo.get(j).add(centroComTipo.get(5)); 
+					campo.get(j).add(centroComTipo.get(6));
+					campo.get(j).add(centroComTipo.get(7)); 
+					campo.get(j).add(centroComTipo.get(8)); 
+					campo.get(j).add(centroComTipo.get(9));
+					
+					j++;
+					
+				}
+			} 
+			//ricerca per nome
+			else {
+				List<String> datiNomeCentro = (List<String>) dati; //dati passati dal model
+				centri.add(datiNomeCentro.get(0));  //nome centro
+				campo.add(new ArrayList<String>()); //lista info per quel centro
+				campo.get(j).add(datiNomeCentro.get(1)); //indirizzo
+				campo.get(j).add(datiNomeCentro.get(2)); //tipologia
+				campo.get(j).add(datiNomeCentro.get(3)); //numero segnalazioni
+				
+				campo.get(j).add(datiNomeCentro.get(4)); //medie avversità
+				campo.get(j).add(datiNomeCentro.get(5)); 
+				campo.get(j).add(datiNomeCentro.get(6));
+				campo.get(j).add(datiNomeCentro.get(7)); 
+				campo.get(j).add(datiNomeCentro.get(8)); 
+				campo.get(j).add(datiNomeCentro.get(9));
+			}*/
+			
+			//centro selezionato
+			/*String InfoDaVisualizzare = (String) this.viewElencoCentri.retCentroSelezionatoComboBox();
+			
+			int indice = 0;
+			
+			//salva indice di quel centro per scorrere nella lista
+			for(int i = 0; i<centri.size(); i++) {
+				if(centri.get(i).equals(InfoDaVisualizzare)) {
+					indice = i;
+				}
 			}
 			
-			mostraViewElencoCentri();
+			//inserisce e VISUALIZZA info dei centri
+			this.viewElencoCentri.setNomeCentro(InfoDaVisualizzare);
+			this.viewElencoCentri.setTipologiaCentro(campo.get(indice).get(0));
+			this.viewElencoCentri.setIndirizzoCentro(campo.get(indice).get(1));
+			this.viewElencoCentri.setNumeroSegnalazioni(campo.get(indice).get(2));
+			
+			this.viewElencoCentri.setMalDiTesta(campo.get(indice).get(3));
+			this.viewElencoCentri.setTipologiaCentro(campo.get(indice).get(0));
+			this.viewElencoCentri.setTipologiaCentro(campo.get(indice).get(0));
+			this.viewElencoCentri.setTipologiaCentro(campo.get(indice).get(0));
+			this.viewElencoCentri.setTipologiaCentro(campo.get(indice).get(0));
+			this.viewElencoCentri.setTipologiaCentro(campo.get(indice).get(0));*/
+			
+			
 		}
 		
 		
