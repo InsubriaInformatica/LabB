@@ -61,7 +61,7 @@ public class CercaCentroGUI {
 		this.labelVuoto.setHorizontalAlignment(JLabel.CENTER);
 		this.labelVuoto.setVerticalAlignment(JLabel.CENTER);
 		this.panelVuoto.add(labelVuoto);
-		this.panelVuoto.setPreferredSize(new Dimension(700, 50)); //larghezza, altezza
+		this.panelVuoto.setPreferredSize(new Dimension(700, 35)); //larghezza, altezza
 		
 		//PANEL PER SPAZIO
 		this.panelVuoto1 = new JPanel();
@@ -70,7 +70,7 @@ public class CercaCentroGUI {
 		this.labelVuoto1.setHorizontalAlignment(JLabel.CENTER);
 		this.labelVuoto1.setVerticalAlignment(JLabel.CENTER);
 		this.panelVuoto1.add(labelVuoto1);
-		this.panelVuoto1.setPreferredSize(new Dimension(700, 50)); //larghezza, altezza
+		this.panelVuoto1.setPreferredSize(new Dimension(700, 35)); //larghezza, altezza
 		
 		//SOTTOTITOLO 1
 		this.panelSottoTitolo1 = new JPanel();
@@ -98,7 +98,7 @@ public class CercaCentroGUI {
 		this.panelSottoTitolo2 = new JPanel();
 		this.panelSottoTitolo2.setLayout(new GridLayout(1,1));
 		this.labelSottoTitolo2 = new JLabel("Cerca i centri nel tuo comune:");
-		this.labelSottoTitolo2.setFont(new Font("Arial", Font.BOLD, 24));
+		this.labelSottoTitolo2.setFont(new Font("Arial", Font.BOLD, 23));
 		this.labelSottoTitolo2.setHorizontalAlignment(JLabel.CENTER);
 		this.labelSottoTitolo2.setVerticalAlignment(JLabel.CENTER);
 		this.panelSottoTitolo2.add(this.labelSottoTitolo2);

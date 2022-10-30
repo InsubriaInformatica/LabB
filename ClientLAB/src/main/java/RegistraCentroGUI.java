@@ -73,7 +73,7 @@ public class RegistraCentroGUI {
 		this.labelVuoto.setHorizontalAlignment(JLabel.CENTER);
 		this.labelVuoto.setVerticalAlignment(JLabel.CENTER);
 		this.panelVuoto.add(labelVuoto);
-		this.panelVuoto.setPreferredSize(new Dimension(700, 50)); //larghezza, altezza
+		this.panelVuoto.setPreferredSize(new Dimension(700, 35)); //larghezza, altezza
 		
 		//NOME CENTRO
 		this.panelNomeCentro = new JPanel();
@@ -170,7 +170,8 @@ public class RegistraCentroGUI {
 		this.panelBottone = new JPanel();
 		this.buttonRegistra = new JButton("REGISTRA CENTRO");
 		this.buttonRegistra.setName("REGISTRA CENTRO");
-		this.panelBottone.setPreferredSize(new Dimension(500, 35));
+		this.panelBottone.setPreferredSize(new Dimension(500, 60));
+		this.buttonRegistra.setPreferredSize(new Dimension(200, 50));
 		this.panelBottone.add(this.buttonRegistra);
 		
 		//CONTENITORE PRINCIPALE

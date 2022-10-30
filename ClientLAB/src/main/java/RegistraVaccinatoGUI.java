@@ -72,7 +72,7 @@ public class RegistraVaccinatoGUI {
 		this.labelVuoto.setHorizontalAlignment(JLabel.CENTER);
 		this.labelVuoto.setVerticalAlignment(JLabel.CENTER);
 		this.panelVuoto.add(labelVuoto);
-		this.panelVuoto.setPreferredSize(new Dimension(700, 50)); //larghezza, altezza
+		this.panelVuoto.setPreferredSize(new Dimension(700, 35)); //larghezza, altezza
 		
 		//LISTA CENTRI REGISTRATI --> deve prenderli dal database e inserirli  nella combobox
 		this.panelSceltacentro = new JPanel();
@@ -166,7 +166,8 @@ public class RegistraVaccinatoGUI {
         this.panelBottone = new JPanel();
 		this.buttonRegistraVacc = new JButton("REGISTRA VACCINATO");
 		this.buttonRegistraVacc.setName("REGISTRA VACCINATO");
-		this.panelBottone.setPreferredSize(new Dimension(500, 35));
+		this.panelBottone.setPreferredSize(new Dimension(500, 60));
+		this.buttonRegistraVacc.setPreferredSize(new Dimension(200, 50)); 
 		this.panelBottone.add(this.buttonRegistraVacc);
 		
 		//INSERIMENTO NEL PANEL PRINCIPALE

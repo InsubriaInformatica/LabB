@@ -69,7 +69,7 @@ public class RegisterGUI {
 		this.labelVuoto.setHorizontalAlignment(JLabel.CENTER);
 		this.labelVuoto.setVerticalAlignment(JLabel.CENTER);
 		this.panelVuoto.add(labelVuoto);
-		this.panelVuoto.setPreferredSize(new Dimension(700, 50)); //larghezza, altezza
+		this.panelVuoto.setPreferredSize(new Dimension(700, 35)); //larghezza, altezza
 		
 		//NOME 
 		this.panelNome = new JPanel();
@@ -139,7 +139,8 @@ public class RegisterGUI {
 		this.panelBottone = new JPanel();
 		this.buttonRegistra = new JButton("REGISTRATI");
 		this.buttonRegistra.setName("REGISTRATI");
-		this.panelBottone.setPreferredSize(new Dimension(500, 35));
+		this.panelBottone.setPreferredSize(new Dimension(500, 60));
+		this.buttonRegistra.setPreferredSize(new Dimension(200, 50)); 
 		this.panelBottone.add(this.buttonRegistra);
 
 		this.contenitorePrincipale = new JPanel();

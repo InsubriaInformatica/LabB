@@ -69,7 +69,7 @@ public class LoginGUI {
 		this.labelVuoto.setHorizontalAlignment(JLabel.CENTER);
 		this.labelVuoto.setVerticalAlignment(JLabel.CENTER);
 		this.panelVuoto.add(labelVuoto);
-		this.panelVuoto.setPreferredSize(new Dimension(700, 50)); //larghezza, altezza
+		this.panelVuoto.setPreferredSize(new Dimension(700, 35)); //larghezza, altezza
 
 		
 		//USERNAME
