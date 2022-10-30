@@ -42,6 +42,8 @@ public class ViewImpl extends JFrame implements View{
 	private CercaCentroGUI viewRicercaCentro;
 	//schermata elenco centri
 	private ElencoCentriGUI viewElencoCentri;
+	//schermata login
+	private LoginGUI viewLogin;
 	
 	//costruttore che realizza la view
 	public ViewImpl() {
@@ -116,6 +118,8 @@ public class ViewImpl extends JFrame implements View{
 		this.viewRicercaCentro = new CercaCentroGUI(altezza, larghezza, this.intestazione);
 		//elenco centri
 		this.viewElencoCentri = new ElencoCentriGUI(altezza, larghezza, this.intestazione);
+		//login
+		this.viewLogin = new LoginGUI(altezza, larghezza, this.intestazione);
 		
 		this.mostraSceltaUtenteView(); //mostra a video
 	}
@@ -236,6 +240,17 @@ public class ViewImpl extends JFrame implements View{
 		
 	}
 	
+	private void mostraViewLogin() {
+		this.setVisible(false);
+		this.getContentPane().removeAll();
+		this.getBack().setVisible(true);
+		this.viewLogin.pulisciCampi();
+		this.getContentPane().add(this.viewLogin.retIntestazione(), BorderLayout.PAGE_START);
+		this.getContentPane().add(this.viewLogin.retContenitore(), BorderLayout.CENTER);
+		this.setVisible(true);
+		this.viewAttuale = "login";
+	}
+	
 	
 	
 	//metodo che riceve dati del model e aggiorna in base al componente che ha generato evento
@@ -258,7 +273,7 @@ public class ViewImpl extends JFrame implements View{
 				mostraViewOperatore(); //torna alla schermata dell'operatore
 			}
 			
-			if(this.viewAttuale.equals("registrazione") || this.viewAttuale.equals("ricercaCentro")) {
+			if(this.viewAttuale.equals("registrazione") || this.viewAttuale.equals("ricercaCentro") || this.viewAttuale.equals("login")) {
 				mostraViewCittadino(); //torna alla schermata cittadino
 			}
 			
@@ -289,6 +304,10 @@ public class ViewImpl extends JFrame implements View{
 		
 		if(buttonOrigine.equals("INFO CENTRI VACCINALI")) {
 			mostraViewRicercaCentro(); //va alla schermata dove il cittadino può visualizzare la ricerca del centro vaccinale
+		}
+		
+		if(buttonOrigine.equals("INSERISCI EVENTI AVVERSI")) {
+			mostraViewLogin(); //prima di inserire evento deve autenticarsi
 		}
 		
 		if(buttonOrigine.equals("CercaNome") || buttonOrigine.equals("CercaComune")) {

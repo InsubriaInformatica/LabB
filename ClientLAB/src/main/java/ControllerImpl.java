@@ -94,6 +94,10 @@ public class ControllerImpl implements ActionListener{
 			dati = null;
 		}
 		
+		if(click.equals("INSERISCI EVENTI AVVERSI")) {
+			dati = null;
+		}
+		
 		if(click.equals("CercaNome")) {
 			/*List<String> esito = new ArrayList<String>();
 			esito.add(togliSpazi(this.v.getDatiNomeCentroPerConsultareInfo()));
