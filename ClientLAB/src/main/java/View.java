@@ -35,7 +35,7 @@ public interface View {
 	
 	
 	//EVENTI AVVERSI
-	public JButton[] getJButtonPerEventiAvversi(); //restituisce un array di button che contengono riferimenti per la gestione degli eventi avversi
+	public JButton[] getBottonePerEventiAvversi(); //restituisce un array di button che contengono riferimenti per la gestione degli eventi avversi
 	
 	public JButton getBottonePerAggiungereEventoAvverso(); //restituisce il riferimento al JButton per confermare l'aggiunta di un evento avverso
 	
@@ -55,11 +55,11 @@ public interface View {
 	//VACCINATO
 	public JButton getBottoneAggiungiNuovoVaccinato(); //restituisce il riferimento al JButton per confermare l'inserimento di un nuovo vaccinato
 	
-	public JButton getBottoneRegistraione(); //restituisce il riferimento al JButton per confermare la registrazione
+	public JButton getBottoneRegistrazione(); //restituisce il riferimento al JButton per confermare la registrazione
 	
 	public JButton getBottonePerLogin(); // restituisce il riferimento al JButton per confermare il login
 	
-	public JButton getBottonePerEffettuareRegistrazione(); //restituisce il riferimento al JButton per registrarsi dalla schermata di login
+	public JButton getBottoneRegistrazioneDaLogin(); //restituisce il riferimento al JButton per registrarsi dalla schermata di login
 	
 	public JButton getBottoneRecuperoIdVaccinazione(); //restituisce il riferimento al JButton per la funzionalità di recuperare id vaccinazione
 	

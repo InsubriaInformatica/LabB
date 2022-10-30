@@ -4,7 +4,6 @@ import javax.swing.*;
 
 public class LoginGUI {
 	
-	
 	private JPanel intestazione;
 	
 	private JPanel contenitorePrincipale;
@@ -155,11 +154,33 @@ public class LoginGUI {
 		return this.contenitorePrincipale;
 	}
 
+	//pulisce i campi di testo
 	public void pulisciCampi() {
-		// TODO Auto-generated method stub
-		
+		this.textFieldUsername.setText("");
+		this.textFieldPsw.setText("");
 	}
 	
+	//ritorna username inserito
+	public String retUsernameInserito() {
+		return textFieldUsername.getText();
+	}
+	
+	//ritorna un char di password inserita che viene convertito in stringa
+	public String retPswInserita() {
+		char[] charPassword = textFieldPsw.getPassword();
+		String password = String.valueOf(charPassword);
+		return password;
+	}
+	
+	//riferimento a button accedi
+	public JButton retButtonAccedi() {
+		return this.buttonAccedi;
+	}
+	
+	//riferimento al button registrati
+	public JButton retButtonLoginRegistrati() {
+		return this.buttonLoginRegistrati;
+	}
 	
 
 }

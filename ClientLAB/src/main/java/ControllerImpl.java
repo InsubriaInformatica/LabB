@@ -35,6 +35,12 @@ public class ControllerImpl implements ActionListener{
 		cercaCentri[0].addActionListener(this);
 		cercaCentri[1].addActionListener(this);
 		
+		JButton accedi = this.v.getBottonePerLogin();
+		accedi.addActionListener(this);
+		
+		JButton registratiDaLogin = this.v.getBottoneRegistrazioneDaLogin();
+		registratiDaLogin.addActionListener(this);
+		
 	}
 
 	//e --> evento generato
@@ -126,9 +132,14 @@ public class ControllerImpl implements ActionListener{
 			
 		}
 		
+		if(click.equals("ACCEDI")) {
+			//dati = this.v.getDatiPerLogin();
+			dati = null;
+		}
 		
-		
-		
+		if(click.equals("REGISTRATI-Login")) {
+			dati = null;
+		}
 		
 		
 		m.updateModel(source, null); //elabora dati sul bottone d'origine

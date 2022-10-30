@@ -44,6 +44,8 @@ public class ViewImpl extends JFrame implements View{
 	private ElencoCentriGUI viewElencoCentri;
 	//schermata login
 	private LoginGUI viewLogin;
+	//schermata inserimento eventi avversi
+	private EventiAvversiGUI viewInserimentoEA;
 	
 	//costruttore che realizza la view
 	public ViewImpl() {
@@ -120,6 +122,8 @@ public class ViewImpl extends JFrame implements View{
 		this.viewElencoCentri = new ElencoCentriGUI(altezza, larghezza, this.intestazione);
 		//login
 		this.viewLogin = new LoginGUI(altezza, larghezza, this.intestazione);
+		//inserimento eventi avversi
+		this.viewInserimentoEA = new EventiAvversiGUI(altezza, larghezza, this.intestazione);
 		
 		this.mostraSceltaUtenteView(); //mostra a video
 	}
@@ -251,6 +255,16 @@ public class ViewImpl extends JFrame implements View{
 		this.viewAttuale = "login";
 	}
 	
+	private void mostraViewInserimentoEA() {
+		this.setVisible(false);
+		this.getContentPane().removeAll();
+		this.getBack().setVisible(true);
+		this.getContentPane().add(this.viewInserimentoEA.retIntestazione(), BorderLayout.PAGE_START);
+		this.getContentPane().add(this.viewInserimentoEA.retContenitore(), BorderLayout.CENTER);
+		this.setVisible(true);
+		this.viewAttuale = "inserimentoEventiAvversi";
+	}
+	
 	
 	
 	//metodo che riceve dati del model e aggiorna in base al componente che ha generato evento
@@ -273,13 +287,14 @@ public class ViewImpl extends JFrame implements View{
 				mostraViewOperatore(); //torna alla schermata dell'operatore
 			}
 			
-			if(this.viewAttuale.equals("registrazione") || this.viewAttuale.equals("ricercaCentro") || this.viewAttuale.equals("login")) {
+			if(this.viewAttuale.equals("registrazione") || this.viewAttuale.equals("ricercaCentro") || this.viewAttuale.equals("login") || this.viewAttuale.equals("inserimentoEventiAvversi")) {
 				mostraViewCittadino(); //torna alla schermata cittadino
 			}
 			
 			if(this.viewAttuale.equals("elencoCentri")) {
 				mostraViewRicercaCentro(); //torna alla schermata di ricerca
 			}
+			
 		}
 		
 		if(buttonOrigine.equals("OPERATORE")) {
@@ -309,6 +324,17 @@ public class ViewImpl extends JFrame implements View{
 		if(buttonOrigine.equals("INSERISCI EVENTI AVVERSI")) {
 			mostraViewLogin(); //prima di inserire evento deve autenticarsi
 		}
+		
+		if(buttonOrigine.equals("ACCEDI")) {
+			//IMPLEMENTA
+			mostraViewInserimentoEA(); //va alla pagina di inserimento eventi avversi
+		}
+		
+		if(buttonOrigine.equals("REGISTRATI-Login")) {
+			mostraViewRegistrazione(); //va alla schermata dove il cittadino può registrarsi presso il proprio centro di competenza
+		}
+		
+		
 		
 		if(buttonOrigine.equals("CercaNome") || buttonOrigine.equals("CercaComune")) {
 			
@@ -465,13 +491,8 @@ public class ViewImpl extends JFrame implements View{
 		return this.indietro;
 	}
 	
-	//ritorna riferimento al titolo
-	private JLabel getTitolo() {
-		return this.titolo;
-		
-	}
 
-
+	//riferimento a bottoni di ricerca info
 	public JButton[] getCercaInfoCentriVaccinali() {
 		JButton[] ret = new JButton[2];
 		ret[0] = this.viewRicercaCentro.retButtonCercaNome();
@@ -479,6 +500,7 @@ public class ViewImpl extends JFrame implements View{
 		return ret;
 	}
 
+	//IMPLEMENTA
 	public JComboBox boxSceltaCentroGetInfo() {
 		// TODO Auto-generated method stub
 		return null;
@@ -509,7 +531,7 @@ public class ViewImpl extends JFrame implements View{
 		return null;
 	}
 
-	public JButton[] getJButtonPerEventiAvversi() {
+	public JButton[] getBottonePerEventiAvversi() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -554,19 +576,16 @@ public class ViewImpl extends JFrame implements View{
 		return null;
 	}
 
-	public JButton getBottoneRegistraione() {
-		// TODO Auto-generated method stub
+	public JButton getBottoneRegistrazione() {
 		return null;
 	}
 
 	public JButton getBottonePerLogin() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.viewLogin.retButtonAccedi();
 	}
 
-	public JButton getBottonePerEffettuareRegistrazione() {
-		// TODO Auto-generated method stub
-		return null;
+	public JButton getBottoneRegistrazioneDaLogin() {
+		return this.viewLogin.retButtonLoginRegistrati();
 	}
 
 	public JButton getBottoneRecuperoIdVaccinazione() {
@@ -589,6 +608,7 @@ public class ViewImpl extends JFrame implements View{
 		return null;
 	}
 
+	//IMPLEMENTA
 	public List<String> getDatiPerLogin() {
 		// TODO Auto-generated method stub
 		return null;
