@@ -15,7 +15,8 @@ public class CittadinoGUI {
 	
 	private JLabel labelTitolo;
 	
-	private JLabel spazioVuoto1;
+	private JLabel sottoTitolo;
+	
 	private JLabel spazioVuoto2;
 	private JLabel spazioVuoto3;
 	private JLabel spazioVuoto4;
@@ -91,9 +92,9 @@ public class CittadinoGUI {
 		this.buttoninserisciAvversita.setIconTextGap(10); //distanza tra immagine e testo
 		this.buttoninserisciAvversita.setBorder(bordo);
 		
-		this.spazioVuoto1 = new JLabel("Seleziona Servizio");
-		this.spazioVuoto1.setFont(new Font("Arial", Font.PLAIN, 30));
-		this.spazioVuoto1.setForeground(Colori.arancione);
+		this.sottoTitolo = new JLabel("Seleziona Servizio");
+		this.sottoTitolo.setFont(new Font("Arial", Font.PLAIN, 30));
+		this.sottoTitolo.setForeground(Colori.arancione);
 		
 		spazioVuoto2 = new JLabel();
 		spazioVuoto3 = new JLabel();
@@ -101,7 +102,7 @@ public class CittadinoGUI {
 		spazioVuoto5 = new JLabel();
 		
 		this.contenitore.add(this.labelTitolo);
-		this.contenitore.add(this.spazioVuoto1);
+		this.contenitore.add(this.sottoTitolo);
 		this.contenitore.add(this.spazioVuoto2);
 		this.contenitore.add(this.buttonRegistrati);
 		this.contenitore.add(this.buttonConsultaInfo);
