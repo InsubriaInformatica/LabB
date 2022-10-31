@@ -479,7 +479,7 @@ public class ViewImpl extends JFrame implements View{
 		}
 		
 		if(buttonOrigine.equals("CONFERMA EVENTO AVVERSO")) {
-			mostraViewVisualizzaEA(); //va alla schermata di visualizzazione dell'eventi avversi
+			mostraViewVisualizzaEA(/*andrebbe passato un valore per visualizzare dati*/); //va alla schermata di visualizzazione dell'eventi avversi
 		}
 		
 		
