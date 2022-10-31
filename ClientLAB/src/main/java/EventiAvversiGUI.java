@@ -197,13 +197,6 @@ public class EventiAvversiGUI {
 		this.contenitorePrincipale.add(panelVuoto4);
 		this.contenitorePrincipale.add(panelBottone);
 		
-		
-		
-		
-		
-		
-		
-		
 	
 	}
 
@@ -217,5 +210,53 @@ public class EventiAvversiGUI {
 	public JPanel retContenitore() {
 		return this.contenitorePrincipale;
 	}
+	
+	//ritorna dai radio button il tipo di evento selezionato
+	public String retTipoEventoInserito() {
+		String evento = " ";
+		
+		if(radioButtonMalDiTesta.isSelected()) {
+			evento = "Mal di Testa";
+		}
+		
+		else if(radioButtonFebbre.isSelected()) {
+			evento = "Febbre";
+		}
+		
+		else if(radioButtonDolori.isSelected()) {
+			evento = "Dolori Muscolari/Articolari";
+		}
+		
+		else if(radioButtonLinfoadenopatia.isSelected()) {
+			evento = "Linfoadenopatia";
+		}
+		
+		else if(radioButtonTachicardia.isSelected()) {
+			evento = "Tachicardia";
+		}
+		
+		else if(radioButtonCrisi.isSelected()) {
+			evento = "Crisi Ipertensiva";
+		}
+		
+		return evento;
+		
+	}
+	
+	//ritorna dalla combo box la severità selezionata
+	public Object retSeveritàSelezionata() {
+		return this.Severita.getSelectedItem();
+	}
+	
+	//ritorna le note inserite 
+	public String retNote(){
+		return this.note.getText();
+	}
+	
+	//ritorna il bottone per inserire evento avverso
+	public JButton retButtonInserisciEA() {
+		return this.buttonConfermaEA;
+	}
+	
 	
 }
