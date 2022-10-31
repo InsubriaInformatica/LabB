@@ -103,13 +103,14 @@ public class EventiAvversiGUI {
 		this.radioButtonCrisi.setText("CRISI IPERTENSIVA");
 		
 		this.buttonGroupEventi = new ButtonGroup();
-		
+	
 		this.buttonGroupEventi.add(radioButtonMalDiTesta);
         this.buttonGroupEventi.add(radioButtonFebbre);
         this.buttonGroupEventi.add(radioButtonDolori);
         this.buttonGroupEventi.add(radioButtonLinfoadenopatia);
         this.buttonGroupEventi.add(radioButtonTachicardia);
         this.buttonGroupEventi.add(radioButtonCrisi);
+        
         
 		this.contenitoreEventi.add(radioButtonMalDiTesta);
 		this.contenitoreEventi.add(radioButtonFebbre);
@@ -209,6 +210,17 @@ public class EventiAvversiGUI {
 	//ritorna contenitore elementi
 	public JPanel retContenitore() {
 		return this.contenitorePrincipale;
+	}
+	
+	public void pulisciCampi() {
+		this.radioButtonMalDiTesta.setSelected(true);
+		this.radioButtonFebbre.setSelected(false);
+		this.radioButtonDolori.setSelected(false);
+		this.radioButtonLinfoadenopatia.setSelected(false);
+		this.radioButtonTachicardia.setSelected(false);
+		this.radioButtonCrisi.setSelected(false);
+		this.Severita.setSelectedIndex(0);
+		this.note.setText("");
 	}
 	
 	//ritorna dai radio button il tipo di evento selezionato

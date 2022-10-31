@@ -259,6 +259,7 @@ public class ViewImpl extends JFrame implements View{
 		this.setVisible(false);
 		this.getContentPane().removeAll();
 		this.getBack().setVisible(true);
+		this.viewInserimentoEA.pulisciCampi();
 		this.getContentPane().add(this.viewInserimentoEA.retIntestazione(), BorderLayout.PAGE_START);
 		this.getContentPane().add(this.viewInserimentoEA.retContenitore(), BorderLayout.CENTER);
 		this.setVisible(true);
