@@ -37,7 +37,7 @@ public interface View {
 	//EVENTI AVVERSI
 	public JButton[] getBottonePerEventiAvversi(); //restituisce un array di button che contengono riferimenti per la gestione degli eventi avversi
 	
-	public JButton getBottonePerAggiungereEventoAvverso(); //restituisce il riferimento al JButton per confermare l'aggiunta di un evento avverso
+	public JButton getBottonePerInserireEventoAvverso(); //restituisce il riferimento al JButton per confermare l'aggiunta di un evento avverso
 	
 	public JButton getBottonePerAggiornareEventoAvverso(); //restituisce il riferimento al JButton per confermare l'aggiornamento di un evento avverso
 	

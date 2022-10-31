@@ -41,6 +41,9 @@ public class ControllerImpl implements ActionListener{
 		JButton registratiDaLogin = this.v.getBottoneRegistrazioneDaLogin();
 		registratiDaLogin.addActionListener(this);
 		
+		JButton inserisciEA = this.v.getBottonePerInserireEventoAvverso();
+		inserisciEA.addActionListener(this);
+		
 	}
 
 	//e --> evento generato
@@ -141,6 +144,9 @@ public class ControllerImpl implements ActionListener{
 			dati = null;
 		}
 		
+		if(click.equals("CONFERMA EVENTO AVVERSO")) {
+			dati = null;
+		}
 		
 		m.updateModel(source, null); //elabora dati sul bottone d'origine
 		

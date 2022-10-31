@@ -268,7 +268,6 @@ public class EventiAvversiGUI {
 	//ritorna il bottone per inserire evento avverso
 	public JButton retButtonInserisciEA() {
 		return this.buttonConfermaEA;
-	}
-	
+	}	
 	
 }

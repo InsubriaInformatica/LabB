@@ -46,6 +46,8 @@ public class ViewImpl extends JFrame implements View{
 	private LoginGUI viewLogin;
 	//schermata inserimento eventi avversi
 	private EventiAvversiGUI viewInserimentoEA;
+	//schermata visualizzazione eventi avversi
+	private VisualizzaEventiAvversiGUI viewVisualizzaEA;
 	
 	//costruttore che realizza la view
 	public ViewImpl() {
@@ -124,6 +126,8 @@ public class ViewImpl extends JFrame implements View{
 		this.viewLogin = new LoginGUI(altezza, larghezza, this.intestazione);
 		//inserimento eventi avversi
 		this.viewInserimentoEA = new EventiAvversiGUI(altezza, larghezza, this.intestazione);
+		//visualizzazione eventi avversi
+		this.viewVisualizzaEA = new VisualizzaEventiAvversiGUI(altezza, larghezza, this.intestazione);
 		
 		this.mostraSceltaUtenteView(); //mostra a video
 	}
@@ -266,6 +270,18 @@ public class ViewImpl extends JFrame implements View{
 		this.viewAttuale = "inserimentoEventiAvversi";
 	}
 	
+	private void mostraViewVisualizzaEA(/*String [][]valoriTabella*/) {
+		this.setVisible(false);
+		this.getContentPane().removeAll();
+		this.getBack().setVisible(true);
+		//this.viewVisualizzaEA.creaTabella(valoriTabella);
+		//this.viewVisualizzaEA.ultimaView();
+		this.getContentPane().add(this.viewVisualizzaEA.retIntestazione(), BorderLayout.PAGE_START);
+		this.getContentPane().add(this.viewVisualizzaEA.retContenitore(), BorderLayout.CENTER);
+		this.setVisible(true);
+		this.viewAttuale = "visualizzaEventiAvversi";
+	}
+	
 	
 	
 	//metodo che riceve dati del model e aggiorna in base al componente che ha generato evento
@@ -294,6 +310,10 @@ public class ViewImpl extends JFrame implements View{
 			
 			if(this.viewAttuale.equals("elencoCentri")) {
 				mostraViewRicercaCentro(); //torna alla schermata di ricerca
+			}
+			
+			if(this.viewAttuale.equals("visualizzaEventiAvversi")) {
+				mostraViewInserimentoEA(); //va alla schermata di inserimento degli eventi avversi
 			}
 			
 		}
@@ -334,7 +354,6 @@ public class ViewImpl extends JFrame implements View{
 		if(buttonOrigine.equals("REGISTRATI-Login")) {
 			mostraViewRegistrazione(); //va alla schermata dove il cittadino può registrarsi presso il proprio centro di competenza
 		}
-		
 		
 		
 		if(buttonOrigine.equals("CercaNome") || buttonOrigine.equals("CercaComune")) {
@@ -459,6 +478,10 @@ public class ViewImpl extends JFrame implements View{
 			
 		}
 		
+		if(buttonOrigine.equals("CONFERMA EVENTO AVVERSO")) {
+			mostraViewVisualizzaEA(); //va alla schermata di visualizzazione dell'eventi avversi
+		}
+		
 		
 	}
 	
@@ -537,9 +560,8 @@ public class ViewImpl extends JFrame implements View{
 		return null;
 	}
 
-	public JButton getBottonePerAggiungereEventoAvverso() {
-		// TODO Auto-generated method stub
-		return null;
+	public JButton getBottonePerInserireEventoAvverso() {
+		return this.viewInserimentoEA.retButtonInserisciEA();
 	}
 
 	public JButton getBottonePerAggiornareEventoAvverso() {
