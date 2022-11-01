@@ -224,9 +224,24 @@ public class RegistraCentroGUI {
 		return this.textFieldNomeCentro.getText();
 	}
 	
-	//ritona il qualificatore selezionato
-	public Object retQualificatore() {
-		return this.buttonGroupViaVialePiazza.getSelection();
+	//ritona il qualificatore selezionato nel radio Button
+	public String retQualificatore() {
+		
+		String qualificatore = " " ;
+		
+		if(radioButtonVia.isSelected()) {
+			qualificatore = "via";
+		}
+		
+		else if(radioButtonViale.isSelected()) {
+			qualificatore = "viale";
+		}
+		
+		else if(radioButtonPiazza.isSelected()) {
+			qualificatore = "piazza";
+		}
+				
+		return qualificatore;
 	}
 	
 	//ritorna l'indirizzo del centro

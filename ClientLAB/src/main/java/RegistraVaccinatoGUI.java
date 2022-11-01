@@ -246,9 +246,24 @@ public class RegistraVaccinatoGUI {
 		return this.nomeVaccino.getSelectedItem();
 	}
 	
-	//ritona la dose selezionato
-	public Object retNdose() {
-		return this.buttonGroupDosi.getSelection();
+	//ritona la dose selezionata nei radiobutton
+	public String retNdose() {
+		
+		String dose= " ";
+		
+		if(radioButtonDoseN1.isSelected()) {
+			dose = "Prima";
+		}
+		
+		else if(radioButtonDoseN2.isSelected()) {
+			dose = "Seconda";
+		}
+		
+		else if(radioButtonDoseN3.isSelected() ){
+			dose = "Terza o successiva";
+		}
+		
+		return dose;
 	}
 	
 	//ritorna il bottone per registrare vaccinato
