@@ -46,6 +46,9 @@ public class RegistraVaccinatoGUI {
     private JRadioButton radioButtonDoseN2;
     private JRadioButton radioButtonDoseN3;
     private ButtonGroup buttonGroupDosi;
+    
+    private JPanel panelVuoto1;
+	private JLabel labelVuoto1;
 	
     private JPanel panelBottone;
     private JButton buttonRegistraVacc;
@@ -162,6 +165,15 @@ public class RegistraVaccinatoGUI {
         this.panelNdosi.add(radioButtonDoseN2);
         this.panelNdosi.add(radioButtonDoseN3);
         
+        //PANEL PER SPAZIO
+        this.panelVuoto1 = new JPanel();
+        this.panelVuoto1.setLayout(new GridLayout(1,1));
+        this.labelVuoto1 = new JLabel();
+        this.labelVuoto1.setHorizontalAlignment(JLabel.CENTER);
+        this.labelVuoto1.setVerticalAlignment(JLabel.CENTER);
+        this.panelVuoto1.add(labelVuoto1);
+        this.panelVuoto1.setPreferredSize(new Dimension(700, 25)); //larghezza, altezza
+     
         //BOTTONE REGISTRA
         this.panelBottone = new JPanel();
 		this.buttonRegistraVacc = new JButton("REGISTRA VACCINATO");
@@ -181,6 +193,7 @@ public class RegistraVaccinatoGUI {
 		this.contenitorePrincipale.add(this.panelData);
 		this.contenitorePrincipale.add(this.panelVaccino);
 		this.contenitorePrincipale.add(this.panelNdosi);
+		this.contenitorePrincipale.add(panelVuoto1);
 		this.contenitorePrincipale.add(this.panelBottone);
 		
 		

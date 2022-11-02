@@ -49,6 +49,9 @@ public class RegistraCentroGUI {
 	private JLabel labelTipoCentro;
 	private JComboBox<String> tipologiaCentro;
 	
+	private JPanel panelVuoto1;
+	private JLabel labelVuoto1;
+	
 	private JPanel panelBottone;
 	private JButton buttonRegistra;
 	
@@ -166,6 +169,16 @@ public class RegistraCentroGUI {
 		this.panelSceltaTipologiaCentro.add(this.tipologiaCentro);
 		this.panelSceltaTipologiaCentro.setPreferredSize(new Dimension(500, 25));
 		
+		//PANEL PER SPAZIO
+		this.panelVuoto1 = new JPanel();
+		this.panelVuoto1.setLayout(new GridLayout(1,1));
+		this.labelVuoto1 = new JLabel();
+		this.labelVuoto1.setHorizontalAlignment(JLabel.CENTER);
+		this.labelVuoto1.setVerticalAlignment(JLabel.CENTER);
+		this.panelVuoto1.add(labelVuoto1);
+		this.panelVuoto1.setPreferredSize(new Dimension(700, 25)); //larghezza, altezza
+		
+		
 		//BOTTONE
 		this.panelBottone = new JPanel();
 		this.buttonRegistra = new JButton("REGISTRA CENTRO");
@@ -186,6 +199,7 @@ public class RegistraCentroGUI {
 		this.contenitorePrincipale.add(panelProvincia);
 		this.contenitorePrincipale.add(panelCap);
 		this.contenitorePrincipale.add(panelSceltaTipologiaCentro);
+		this.contenitorePrincipale.add(panelVuoto1);
 		this.contenitorePrincipale.add(panelBottone);
 		
 	}

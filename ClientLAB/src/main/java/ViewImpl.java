@@ -381,7 +381,6 @@ public class ViewImpl extends JFrame implements View{
 		}
 		
 		if(buttonOrigine.equals("ACCEDI")) {
-			//IMPLEMENTA
 			mostraViewInserimentoEA(); //va alla pagina di inserimento eventi avversi
 		}
 		
@@ -615,6 +614,26 @@ public class ViewImpl extends JFrame implements View{
 		return cittadinoRegistrato;
 	}
 	
+	//ritorna bottone per permettere al cittadino di accedere
+	public JButton getBottonePerLogin() {
+		return this.viewLogin.retButtonAccedi();
+	}
+	
+	
+	public List<String> getDatiPerLogin() {
+		List <String> credenziali = new ArrayList<String>();
+		
+		credenziali.add(this.viewLogin.retUsernameInserito()); //0 username
+		credenziali.add(this.viewLogin.retPswInserita()); //1 password
+		
+		return credenziali;
+	}
+
+	//ritorna bottone per permettere al cittadino di andare alla schermata di registrazione se si trova nella schermata accedi
+	public JButton getBottoneRegistrazioneDaLogin() {
+			return this.viewLogin.retButtonLoginRegistrati();
+	}
+	
 
 	//riferimento a bottoni di ricerca info
 	public JButton[] getCercaInfoCentriVaccinali() {
@@ -688,18 +707,6 @@ public class ViewImpl extends JFrame implements View{
 	}
 
 	
-	
-
-	//ritorna bottone per permettere al cittadino di accedere
-	public JButton getBottonePerLogin() {
-		return this.viewLogin.retButtonAccedi();
-	}
-
-	//ritorna bottone per permettere al cittadino di andare alla schermata di registrazione se si trova nella schermata accedi
-	public JButton getBottoneRegistrazioneDaLogin() {
-		return this.viewLogin.retButtonLoginRegistrati();
-	}
-
 	public JButton getBottoneRecuperoIdVaccinazione() {
 		// TODO Auto-generated method stub
 		return null;
@@ -717,11 +724,7 @@ public class ViewImpl extends JFrame implements View{
 
 	
 
-	//IMPLEMENTA
-	public List<String> getDatiPerLogin() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 	
 

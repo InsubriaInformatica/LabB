@@ -44,6 +44,9 @@ public class RegisterGUI {
 	private JLabel labelIdUnivoco;
 	private JTextField textFieldIdUnivoco;
 	
+	private JPanel panelVuoto1;
+	private JLabel labelVuoto1;
+	
 	private JPanel panelBottone;
     private JButton buttonRegistra;
 	
@@ -135,6 +138,15 @@ public class RegisterGUI {
 		this.panelIdUnivoco.add(this.textFieldIdUnivoco);
 		this.panelIdUnivoco.setPreferredSize(new Dimension(600, 25));
 		
+		//PANEL PER SPAZIO
+        this.panelVuoto1 = new JPanel();
+        this.panelVuoto1.setLayout(new GridLayout(1,1));
+        this.labelVuoto1 = new JLabel();
+        this.labelVuoto1.setHorizontalAlignment(JLabel.CENTER);
+        this.labelVuoto1.setVerticalAlignment(JLabel.CENTER);
+        this.panelVuoto1.add(labelVuoto1);
+        this.panelVuoto1.setPreferredSize(new Dimension(700, 25)); //larghezza, altezza
+		
 		//BOTTONE REGISTRAZIONE
 		this.panelBottone = new JPanel();
 		this.buttonRegistra = new JButton("REGISTRATI");
@@ -153,6 +165,7 @@ public class RegisterGUI {
 		this.contenitorePrincipale.add(panelUsername);
 		this.contenitorePrincipale.add(panelPsw);
 		this.contenitorePrincipale.add(panelIdUnivoco);
+		this.contenitorePrincipale.add(panelVuoto1);
 		this.contenitorePrincipale.add(panelBottone);
 		
 	}
