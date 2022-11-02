@@ -11,27 +11,33 @@ public interface View {
 	
 	
 	
-	public JButton[] getBottoniFunzionalitaOperatore(); //serve al controller per aggiungersi come action listener --> restituisce un array di button con le funzionalità principali dell'operatore
-	
-	public JButton[] getBottoniFunzionalitaCittadino(); //serve al controller per aggiungersi come action listener --> restituisce un array di button con le funzionalità principali del cittadino
 	
 	public JButton getBack(); //riferimento al bottone "indietro"
 	
 	public JButton[] getSceltaTipoUtente(); //restituisce array contenente i riferimenti al Jbutton del tipo di utente selezionato (x ogni utente)
 	
 	
-	//CENTRI VACCINALI
+	//OPERATORE
+	public JButton[] getBottoniFunzionalitaOperatore(); //serve al controller per aggiungersi come action listener --> restituisce un array di button con le funzionalità principali dell'operatore
+	
+	public JButton getBottoneRegistraNuovoCentro(); //restituisce il riferimento al JButton per confermare l'inserimento di un nuovo centro
+	
+	public List<String> getDatiRegistraNuovoCentro(); //restituisce la lista di stringhe fornite durante la registrazione di un nuovo centro
+	
+	public JButton getBottoneRegistraNuovoVaccinato(); //restituisce il riferimento al JButton per confermare l'inserimento di un nuovo vaccinato
+	
+	public List<String> getDatiRegistraNuovoVaccinato(); //restituisce la lista di stringhe fornite durante la registrazione di un nuovo vaccinato
+	
 	public JButton[] getCercaInfoCentriVaccinali();//restituisce il riferimento al Jbutton per cercare info dei centri vaccinali	
 	
 	public JComboBox boxSceltaCentroGetInfo(); //restituisce il riferimento alla JComboBox per la scelta del centro di cui ottenere le informazioni
-	
-	public JButton getBottoneAggiungiNuovoCentro(); //restituisce il riferimento al JButton per confermare l'inserimento di un nuovo centro
 	
 	public String getDatiNomeCentroPerConsultareInfo(); //restituisce la stringa nomeCentro inserita per effettuare la ricerca di informazioni
 	
 	public List<String> getDatiComuneTipologiaPerConsultareInfo(); //restituisce una lista contenente il comune e la tipologia per effettuare la ricerca per comune/tipologia
 	
-	public List<String> getDatiRegistraNuovoCentro(); //restituisce la lista di stringhe fornite durante la registrazione di un nuovo centro
+	
+	
 	
 	
 	//EVENTI AVVERSI
@@ -52,8 +58,8 @@ public interface View {
 	public List<String> getDatiAggiornaEventoAvverso(); //restituisce una lista contenente i dati forniti nel momento di aggiornamento di un evento avverso
 	
 	
-	//VACCINATO
-	public JButton getBottoneAggiungiNuovoVaccinato(); //restituisce il riferimento al JButton per confermare l'inserimento di un nuovo vaccinato
+	//CITTADINO
+	public JButton[] getBottoniFunzionalitaCittadino(); //serve al controller per aggiungersi come action listener --> restituisce un array di button con le funzionalità principali del cittadino
 	
 	public JButton getBottoneRegistrazione(); //restituisce il riferimento al JButton per confermare la registrazione
 	
@@ -67,7 +73,6 @@ public interface View {
 	
 	public JTextField getTextFieldCodiceFiscale(); //restituisce il riferimento al JTextField per inserire il codice fiscale in fase di registrazione
 	
-	public List<String> getDatiRegistraNuovoVaccinato(); //restituisce la lista di stringhe fornite durante la registrazione di un nuovo vaccinato
 	
 	public List<String> getDatiPerLogin(); //restituisce una lista contenente username e password per effettuare il login 
 	

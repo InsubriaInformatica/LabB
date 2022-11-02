@@ -4,6 +4,7 @@ import java.util.List;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.text.*;
 
 //questa classe gestisce tutte le componenti grafiche dell'applicazione, aggiornanando anche i singoli elementi
 public class ViewImpl extends JFrame implements View{
@@ -183,11 +184,16 @@ public class ViewImpl extends JFrame implements View{
 		this.viewAttuale = "registraNuovoCentro";
 	}
 	
-	private void mostraViewRegistraVaccinato() {
+	private void mostraViewRegistraVaccinato(/*List<String> elencoCentri */) {
 		
 		this.setVisible(false);
 		this.getContentPane().removeAll();
 		this.getBack().setVisible(true); //mostra tasto indietro
+		this.viewRegistraVaccinato.resetComboBox();
+		//inserisce centri nella combobox
+		/*for(String centri : elencoCentri) {
+			this.viewRegistraVaccinato.aggiungiCentroComboBox(centri);
+		}*/
 		this.viewRegistraCentro.pulisciView(); //pulisce tutte caselle
 		this.getContentPane().add(this.viewRegistraVaccinato.retIntestazione(), BorderLayout.PAGE_START);
 		this.getContentPane().add(this.viewRegistraVaccinato.retContenitore(), BorderLayout.CENTER);
@@ -330,9 +336,30 @@ public class ViewImpl extends JFrame implements View{
 			mostraViewRegistraCentro(); //va alla schermata registrazione centro vaccinale
 		}
 		
-		if(buttonOrigine.equals("REGISTRA NUOVO VACCINATO")) {
-			mostraViewRegistraVaccinato(); //va alla schermata registrazione centro vaccinale
+		//conferma inserimento di un nuovo centro vaccinale
+		if(buttonOrigine.equals("REGISTRA CENTRO")) {
+			List <String> datiCentro = (List<String>) dati; //dati presi dal model
+
+			String nomeInserito = datiCentro.get(0); //estrae nome del centro
+	
+			JOptionPane.showMessageDialog(null, "nuovo centro: " + nomeInserito + " registrato");
 		}
+		
+		if(buttonOrigine.equals("REGISTRA NUOVO VACCINATO")) {
+			//List <String> datiMandati = (List <String> dati): per visualizzare elenco centri
+			mostraViewRegistraVaccinato(/*datiMandati*/); //va alla schermata registrazione del vaccinato
+		}
+		
+		//conferma inserimento di un nuovo vaccinato presso il centro vaccinale
+		if(buttonOrigine.equals("REGISTRA VACCINATO")) {
+			List <String> vaccinato = (List <String>) dati; //dati dal model
+			
+			String nomeVaccinato = vaccinato.get(1);
+			String idVaccinato = vaccinato.get(2);
+			
+			JOptionPane.showMessageDialog(null, "Nuovo vaccinato " + nomeVaccinato + " con ID " + idVaccinato + " inserito");
+		}
+		
 		
 		if(buttonOrigine.equals("REGISTRATI")) {
 			mostraViewRegistrazione(); //va alla schermata dove il cittadino può registrarsi presso il proprio centro di competenza
@@ -485,6 +512,12 @@ public class ViewImpl extends JFrame implements View{
 		
 	}
 	
+	//metodo che ritorna riferimento bottone indietro
+	public JButton getBack() {
+		return this.indietro;
+	}
+		
+	
 	//restituisce i riferimenti dei button alla scelta del tipo di utente
 	public JButton[] getSceltaTipoUtente() {
 		JButton[] ret = new JButton[2]; //bottoni usati con controller per eventi
@@ -501,6 +534,52 @@ public class ViewImpl extends JFrame implements View{
 		return ret;
 	}
 	
+	public JButton getBottoneRegistraNuovoCentro() {
+		return this.viewRegistraCentro.retBottoneRegistraCentro();
+	}
+
+	public List<String> getDatiRegistraNuovoCentro() {
+		List<String> centro = new ArrayList <String>();
+		
+		String tipoCentro = (String) this.viewRegistraCentro.retTipoCentro();
+		
+		centro.add(this.viewRegistraCentro.retNomeCentro()); //0 nome
+		centro.add(this.viewRegistraCentro.retQualificatore()); //1 qualificatore
+		centro.add(this.viewRegistraCentro.retNomeIndirizzo()); //2 indirizzo
+		centro.add(this.viewRegistraCentro.retNumeroCivico()); //3 numero civico
+		centro.add(this.viewRegistraCentro.retComune()); //4 comune
+		centro.add(this.viewRegistraCentro.retProvincia()); //5 provincia
+		centro.add(this.viewRegistraCentro.retCAP()); //6 cap
+		centro.add(tipoCentro); //7 tipo centro
+		
+		return centro;
+	}
+	
+	public JButton getBottoneRegistraNuovoVaccinato() {
+		return this.viewRegistraVaccinato.retButtonRegistraVaccinato();
+	}
+	
+	public List<String> getDatiRegistraNuovoVaccinato() {
+		
+		List<String> vaccinato = new ArrayList<String>();
+		
+		String centro = (String) this.viewRegistraVaccinato.retNomeCentro();
+		String data = StringData(this.viewRegistraVaccinato.retDataVaccinazione());
+		String vaccino = (String) this.viewRegistraVaccinato.retVaccinoComboBox();
+		
+		vaccinato.add(centro); //0 nome centro
+		vaccinato.add(this.viewRegistraVaccinato.retNomeVaccinato()); //1 nome
+		vaccinato.add(this.viewRegistraVaccinato.retCognomeVaccinato()); //2 cognome 
+		vaccinato.add(this.viewRegistraVaccinato.retCFVaccinato()); //3 codice fiscale
+		vaccinato.add(data); //4 data vaccinazione
+		vaccinato.add(vaccino); //5 tipo vaccino
+		vaccinato.add(this.viewRegistraVaccinato.retNdose()); //6 numero dose
+		
+		return vaccinato;
+	}
+	
+	
+
 	//cattura le funzionalità dei vari bottoni della schermata cittadino
 	public JButton[] getBottoniFunzionalitaCittadino() {
 		JButton[] ret = new JButton[3];
@@ -510,10 +589,6 @@ public class ViewImpl extends JFrame implements View{
 		return ret;
 	}
 
-	//metodo che ritorna riferimento bottone indietro
-	public JButton getBack() {
-		return this.indietro;
-	}
 	
 
 	//riferimento a bottoni di ricerca info
@@ -524,16 +599,12 @@ public class ViewImpl extends JFrame implements View{
 		return ret;
 	}
 
-	//IMPLEMENTA
+	//combobox con centro da visualizzare x ottenre info
 	public JComboBox boxSceltaCentroGetInfo() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.viewElencoCentri.retComboBox();
 	}
 
-	public JButton getBottoneAggiungiNuovoCentro() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 	//restituisce una stringa con il nome del centro inserito x ricerca
 	public String getDatiNomeCentroPerConsultareInfo() {
@@ -549,11 +620,8 @@ public class ViewImpl extends JFrame implements View{
 		risultato.add(Tipologia);
 		return risultato;
 	}
-
-	public List<String> getDatiRegistraNuovoCentro() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
+	
 
 	public JButton[] getBottonePerEventiAvversi() {
 		// TODO Auto-generated method stub
@@ -594,10 +662,7 @@ public class ViewImpl extends JFrame implements View{
 		return null;
 	}
 
-	public JButton getBottoneAggiungiNuovoVaccinato() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 	public JButton getBottoneRegistrazione() {
 		return null;
@@ -626,10 +691,7 @@ public class ViewImpl extends JFrame implements View{
 		return null;
 	}
 
-	public List<String> getDatiRegistraNuovoVaccinato() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 	//IMPLEMENTA
 	public List<String> getDatiPerLogin() {
@@ -658,6 +720,21 @@ public class ViewImpl extends JFrame implements View{
 	}
 	
 	
+	//utile per salvare la data in formato testuale
+	private String StringData(Date data) {
+		String risultato, b;
+		String [] a;
+		
+		StringBuffer memoria = new StringBuffer(); //buffer dove salvare
+		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+		sdf.format(data, memoria, new FieldPosition(0));
+		
+		b = memoria.toString();
+		a = b.split("-");
+		risultato = a[0] + "/" + a[1] + "/" + a[2];
+		
+		return risultato;
+	}
 	
 	
 	//utile per eliminare spazi aggiuntivi di una stringa

@@ -26,6 +26,12 @@ public class ControllerImpl implements ActionListener{
 		funzionalitaOperatore[0].addActionListener(this);
 		funzionalitaOperatore[1].addActionListener(this);
 		
+		JButton registraNuovoCentro = this.v.getBottoneRegistraNuovoCentro();
+		registraNuovoCentro.addActionListener(this);
+		
+		JButton registraNuovoVaccinato = this.v.getBottoneRegistraNuovoVaccinato();
+		registraNuovoVaccinato.addActionListener(this);
+		
 		JButton[] funzionalitaCittadino = this.v.getBottoniFunzionalitaCittadino();
 		funzionalitaCittadino[0].addActionListener(this);
 		funzionalitaCittadino[1].addActionListener(this);
@@ -91,8 +97,16 @@ public class ControllerImpl implements ActionListener{
 			dati = null;
 		}
 		
+		if(click.equals("REGISTRA CENTRO")) {
+			dati = this.v.getDatiRegistraNuovoCentro();
+		}
+		
 		if(click.equals("REGISTRA NUOVO VACCINATO")) {
 			dati = null;
+		}
+		
+		if(click.equals("REGISTRA VACCINATO")) {
+			dati = this.v.getDatiRegistraNuovoVaccinato();
 		}
 		
 		if(click.equals("REGISTRATI")) {

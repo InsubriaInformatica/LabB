@@ -197,6 +197,11 @@ public class RegistraVaccinatoGUI {
 		return this.contenitorePrincipale;
 	}
 	
+	//rimuove centri dalla combobox
+	public void resetComboBox() {
+		this.nomeCentroVaccinale.removeAllItems();
+	}
+	
 	public void pulisciView() {
 		this.textFieldNomeVaccinato.setText("");
 		this.textFieldCognomeVaccinato.setText("");
