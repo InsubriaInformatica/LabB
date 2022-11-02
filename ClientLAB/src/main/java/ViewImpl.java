@@ -343,6 +343,7 @@ public class ViewImpl extends JFrame implements View{
 			String nomeInserito = datiCentro.get(0); //estrae nome del centro
 	
 			JOptionPane.showMessageDialog(null, "nuovo centro: " + nomeInserito + " registrato");
+			
 		}
 		
 		if(buttonOrigine.equals("REGISTRA NUOVO VACCINATO")) {
