@@ -61,7 +61,7 @@ public interface View {
 	//CITTADINO
 	public JButton[] getBottoniFunzionalitaCittadino(); //serve al controller per aggiungersi come action listener --> restituisce un array di button con le funzionalità principali del cittadino
 	
-	public JButton getBottoneRegistrazione(); //restituisce il riferimento al JButton per confermare la registrazione
+	public JButton getBottoneRegistrati(); //restituisce il riferimento al JButton per confermare la registrazione
 	
 	public JButton getBottonePerLogin(); // restituisce il riferimento al JButton per confermare il login
 	

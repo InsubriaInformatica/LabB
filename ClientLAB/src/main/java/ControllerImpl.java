@@ -37,6 +37,9 @@ public class ControllerImpl implements ActionListener{
 		funzionalitaCittadino[1].addActionListener(this);
 		funzionalitaCittadino[2].addActionListener(this);
 		
+		JButton registrati = this.v.getBottoneRegistrati();
+		registrati.addActionListener(this);
+		
 		JButton[] cercaCentri = this.v.getCercaInfoCentriVaccinali();
 		cercaCentri[0].addActionListener(this);
 		cercaCentri[1].addActionListener(this);
@@ -111,6 +114,10 @@ public class ControllerImpl implements ActionListener{
 		
 		if(click.equals("REGISTRATI")) {
 			dati = null;
+		}
+		
+		if(click.equals("CONFERMA-REGISTRAZIONE")) {
+			dati = v.getDatiPerRegistrazione();
 		}
 		
 		if(click.equals("INFO CENTRI VACCINALI")) {

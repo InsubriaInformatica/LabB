@@ -138,7 +138,7 @@ public class RegisterGUI {
 		//BOTTONE REGISTRAZIONE
 		this.panelBottone = new JPanel();
 		this.buttonRegistra = new JButton("REGISTRATI");
-		this.buttonRegistra.setName("REGISTRATI");
+		this.buttonRegistra.setName("CONFERMA-REGISTRAZIONE");
 		this.panelBottone.setPreferredSize(new Dimension(500, 60));
 		this.buttonRegistra.setPreferredSize(new Dimension(200, 50)); 
 		this.panelBottone.add(this.buttonRegistra);
@@ -179,7 +179,7 @@ public class RegisterGUI {
 	}
 	
 	//ritorna il bottone per registrare 
-	public JButton retButtonRegistraVaccinato() {
+	public JButton retButtonRegistrati() {
 		return this.buttonRegistra;
 	}
 	

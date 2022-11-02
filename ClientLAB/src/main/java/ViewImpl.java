@@ -366,6 +366,12 @@ public class ViewImpl extends JFrame implements View{
 			mostraViewRegistrazione(); //va alla schermata dove il cittadino può registrarsi presso il proprio centro di competenza
 		}
 		
+		//conferma la registrazione del cittadino con i propri dati
+		if(buttonOrigine.equals("CONFERMA-REGISTRAZIONE")) {
+			JOptionPane.showMessageDialog(null, "Cittadino Registrato");
+			mostraViewCittadino(); 
+		}
+		
 		if(buttonOrigine.equals("INFO CENTRI VACCINALI")) {
 			mostraViewRicercaCentro(); //va alla schermata dove il cittadino può visualizzare la ricerca del centro vaccinale
 		}
@@ -590,6 +596,24 @@ public class ViewImpl extends JFrame implements View{
 		return ret;
 	}
 
+	//ritorna il bottone per permettere al cittadino di registrarsi 
+	public JButton getBottoneRegistrati() {
+		return this.viewRegistrazione.retButtonRegistrati();
+	}
+		
+	public List<String> getDatiPerRegistrazione() {
+		List<String> cittadinoRegistrato = new ArrayList<String>();
+		
+		cittadinoRegistrato.add(togliSpazi(this.viewRegistrazione.retNome())); //0 nome
+		cittadinoRegistrato.add(togliSpazi(this.viewRegistrazione.retCognome())); //1 cognome
+		cittadinoRegistrato.add(togliSpazi(this.viewRegistrazione.retCF())); //2 cf
+		cittadinoRegistrato.add(togliSpazi(this.viewRegistrazione.retEmail())); //3 mail
+		cittadinoRegistrato.add(togliSpazi(this.viewRegistrazione.retUsername())); //4 username
+		cittadinoRegistrato.add(togliSpazi(this.viewRegistrazione.retPsw())); //5 password
+		cittadinoRegistrato.add(togliSpazi(this.viewRegistrazione.retIDUnivoco())); //6 id 
+		
+		return cittadinoRegistrato;
+	}
 	
 
 	//riferimento a bottoni di ricerca info
@@ -664,15 +688,14 @@ public class ViewImpl extends JFrame implements View{
 	}
 
 	
+	
 
-	public JButton getBottoneRegistrazione() {
-		return null;
-	}
-
+	//ritorna bottone per permettere al cittadino di accedere
 	public JButton getBottonePerLogin() {
 		return this.viewLogin.retButtonAccedi();
 	}
 
+	//ritorna bottone per permettere al cittadino di andare alla schermata di registrazione se si trova nella schermata accedi
 	public JButton getBottoneRegistrazioneDaLogin() {
 		return this.viewLogin.retButtonLoginRegistrati();
 	}
@@ -700,10 +723,7 @@ public class ViewImpl extends JFrame implements View{
 		return null;
 	}
 
-	public List<String> getDatiPerRegistrazione() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 	//restituisce la view in mostra sullo schermo
 	public String getViewAttuale() {
