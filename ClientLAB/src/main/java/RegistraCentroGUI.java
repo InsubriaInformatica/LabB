@@ -1,5 +1,7 @@
 
 import javax.swing.*;
+import javax.swing.border.Border;
+
 import java.awt.*;
 
 public class RegistraCentroGUI {
@@ -59,11 +61,15 @@ public class RegistraCentroGUI {
 		
 		this.intestazione = intestazione;
 		
+		Border bordo = BorderFactory.createLineBorder(Colori.arancione, 3); //crea bordo
+		
 		//TITOLO
 		this.panelTitolo = new JPanel();
 		this.panelTitolo.setLayout(new GridLayout(1,1));
+		this.panelTitolo.setBackground(Colori.purple);
 		this.labelTitolo = new JLabel("REGISTRA CENTRO VACCINALE:");
 		this.labelTitolo.setFont(new Font("Arial", Font.BOLD, 30));
+		this.labelTitolo.setForeground(Colori.arancione);
 		this.labelTitolo.setHorizontalAlignment(JLabel.CENTER);
 		this.labelTitolo.setVerticalAlignment(JLabel.CENTER);
 		this.panelTitolo.add(this.labelTitolo);
@@ -72,6 +78,7 @@ public class RegistraCentroGUI {
 		//PANEL PER SPAZIO
 		this.panelVuoto = new JPanel();
 		this.panelVuoto.setLayout(new GridLayout(1,1));
+		this.panelVuoto.setBackground(Colori.purple);
 		this.labelVuoto = new JLabel();
 		this.labelVuoto.setHorizontalAlignment(JLabel.CENTER);
 		this.labelVuoto.setVerticalAlignment(JLabel.CENTER);
@@ -81,8 +88,11 @@ public class RegistraCentroGUI {
 		//NOME CENTRO
 		this.panelNomeCentro = new JPanel();
 		this.panelNomeCentro.setLayout(new GridLayout(1,2));
+		this.panelNomeCentro.setBackground(Colori.purple);
 		this.labelNomeCentro = new JLabel("Nome centro:");
+		this.labelNomeCentro.setForeground(Colori.light_grey);
 		this.textFieldNomeCentro = new JTextField("", 10);
+		this.textFieldNomeCentro.setBackground(Colori.light_grey);
 		this.panelNomeCentro.add(this.labelNomeCentro);
 		this.panelNomeCentro.add(this.textFieldNomeCentro);
 		this.panelNomeCentro.setPreferredSize(new Dimension(500, 25));
@@ -90,15 +100,20 @@ public class RegistraCentroGUI {
 		//QUALIFICATORE
 		this.panelQualificatore = new JPanel();
 		this.panelQualificatore.setLayout(new GridLayout(1,3));
+		this.panelQualificatore.setBackground(Colori.purple);
 		this.panelQualificatore.setPreferredSize(new Dimension(500, 25));
 		this.labelQulificatore = new JLabel("Qualificatore");
+		this.labelQulificatore.setForeground(Colori.light_grey);
 		
 		this.radioButtonVia = new JRadioButton();
 		this.radioButtonVia.setText("Via");
+		this.radioButtonVia.setForeground(Colori.light_grey);
 		this.radioButtonViale = new JRadioButton();
 		this.radioButtonViale.setText("Viale");
+		this.radioButtonViale.setForeground(Colori.light_grey);
 		this.radioButtonPiazza = new JRadioButton();
 		this.radioButtonPiazza.setText("Piazza");
+		this.radioButtonPiazza.setForeground(Colori.light_grey);
 		this.buttonGroupViaVialePiazza = new ButtonGroup();
         
         this.buttonGroupViaVialePiazza.add(radioButtonVia);
@@ -114,8 +129,11 @@ public class RegistraCentroGUI {
         //INDIRIZZO
         this.panelIndirizzo = new JPanel();
     	this.panelIndirizzo.setLayout(new GridLayout(1,2));
+    	this.panelIndirizzo.setBackground(Colori.purple);
 		this.labelIndirizzo = new JLabel("Indirizzo:");
+		this.labelIndirizzo.setForeground(Colori.light_grey);
 		this.textFieldIndirizzo = new JTextField("", 10);
+		this.textFieldIndirizzo.setBackground(Colori.light_grey);
 		this.panelIndirizzo.add(this.labelIndirizzo);
 		this.panelIndirizzo.add(this.textFieldIndirizzo);
 		this.panelIndirizzo.setPreferredSize(new Dimension(500, 25));
@@ -123,8 +141,11 @@ public class RegistraCentroGUI {
 		//NUMERO CIVICO
 		this.panelNumeroCivico = new JPanel();
     	this.panelNumeroCivico.setLayout(new GridLayout(1,2));
+    	this.panelNumeroCivico.setBackground(Colori.purple);
 		this.labelNumeroCivico = new JLabel("Numero Civico:");
+		this.labelNumeroCivico.setForeground(Colori.light_grey);
 		this.textFieldNumeroCivico = new JTextField("", 10);
+		this.textFieldNumeroCivico.setBackground(Colori.light_grey);
 		this.panelNumeroCivico.add(this.labelNumeroCivico);
 		this.panelNumeroCivico.add(this.textFieldNumeroCivico);
 		this.panelNumeroCivico.setPreferredSize(new Dimension(500, 25));
@@ -132,8 +153,11 @@ public class RegistraCentroGUI {
 		//COMUNE
 		this.panelComune = new JPanel();
 		this.panelComune.setLayout(new GridLayout(1,2));
+		this.panelComune.setBackground(Colori.purple);
 		this.labelComune = new JLabel("Comune:");
+		this.labelComune.setForeground(Colori.light_grey);
 		this.textFieldComune = new JTextField("", 10);
+		this.textFieldComune.setBackground(Colori.light_grey);
 		this.panelComune.add(this.labelComune);
 		this.panelComune.add(this.textFieldComune);
 		this.panelComune.setPreferredSize(new Dimension(500, 25));	
@@ -141,8 +165,11 @@ public class RegistraCentroGUI {
 		//PROVINCIA
 		this.panelProvincia = new JPanel();
 		this.panelProvincia.setLayout(new GridLayout(1,2));
+		this.panelProvincia.setBackground(Colori.purple);
 		this.labelProvincia = new JLabel("Provincia:");
+		this.labelProvincia.setForeground(Colori.light_grey);
 		this.textFieldProvincia = new JTextField("", 10);
+		this.textFieldProvincia.setBackground(Colori.light_grey);
 		this.panelProvincia.add(this.labelProvincia);
 		this.panelProvincia.add(this.textFieldProvincia);
 		this.panelProvincia.setPreferredSize(new Dimension(500, 25));
@@ -150,8 +177,11 @@ public class RegistraCentroGUI {
 		//CAP
 		this.panelCap = new JPanel();
 		this.panelCap.setLayout(new GridLayout(1,2));
+		this.panelCap.setBackground(Colori.purple);
 		this.labelCap = new JLabel("CAP:");
+		this.labelCap.setForeground(Colori.light_grey);
 		this.textFieldCap = new JTextField("", 10);
+		this.textFieldCap.setBackground(Colori.light_grey);
 		this.panelCap.add(this.labelCap);
 		this.panelCap.add(this.textFieldCap);
 		this.panelCap.setPreferredSize(new Dimension(500, 25));
@@ -159,12 +189,15 @@ public class RegistraCentroGUI {
 		//TIPOLOGIA CENTRO
 		this.panelSceltaTipologiaCentro = new JPanel();
 		this.panelSceltaTipologiaCentro.setLayout(new GridLayout(1,2));
+		this.panelSceltaTipologiaCentro.setBackground(Colori.purple);
 		this.labelTipoCentro = new JLabel("Tipologia centro Vaccinale:");
+		this.labelTipoCentro.setForeground(Colori.light_grey);
 		this.tipologiaCentro = new JComboBox<String>();
 		this.tipologiaCentro.addItem("Ospedaliero");
 		this.tipologiaCentro.addItem("Aziendale");
 		this.tipologiaCentro.addItem("Hub");
 		this.tipologiaCentro.setPreferredSize(new Dimension(500, 25));
+		this.tipologiaCentro.setBackground(Colori.light_grey);
 		this.panelSceltaTipologiaCentro.add(this.labelTipoCentro);
 		this.panelSceltaTipologiaCentro.add(this.tipologiaCentro);
 		this.panelSceltaTipologiaCentro.setPreferredSize(new Dimension(500, 25));
@@ -172,6 +205,7 @@ public class RegistraCentroGUI {
 		//PANEL PER SPAZIO
 		this.panelVuoto1 = new JPanel();
 		this.panelVuoto1.setLayout(new GridLayout(1,1));
+		this.panelVuoto1.setBackground(Colori.purple);
 		this.labelVuoto1 = new JLabel();
 		this.labelVuoto1.setHorizontalAlignment(JLabel.CENTER);
 		this.labelVuoto1.setVerticalAlignment(JLabel.CENTER);
@@ -181,14 +215,19 @@ public class RegistraCentroGUI {
 		
 		//BOTTONE
 		this.panelBottone = new JPanel();
+		this.panelBottone.setBackground(Colori.purple);
 		this.buttonRegistra = new JButton("REGISTRA CENTRO");
 		this.buttonRegistra.setName("REGISTRA CENTRO");
+		this.buttonRegistra.setBorder(bordo);
+		this.buttonRegistra.setForeground(Colori.light_grey);
+		this.buttonRegistra.setFont(new Font("Arial", Font.BOLD, 15));
 		this.panelBottone.setPreferredSize(new Dimension(500, 60));
 		this.buttonRegistra.setPreferredSize(new Dimension(200, 50));
 		this.panelBottone.add(this.buttonRegistra);
 		
 		//CONTENITORE PRINCIPALE
 		this.contenitorePrincipale = new JPanel();
+		this.contenitorePrincipale.setBackground(Colori.purple);
 		this.contenitorePrincipale.add(panelTitolo);
 		this.contenitorePrincipale.add(panelVuoto);
 		this.contenitorePrincipale.add(panelNomeCentro);
