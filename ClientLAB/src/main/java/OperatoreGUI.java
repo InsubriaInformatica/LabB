@@ -48,30 +48,32 @@ public class OperatoreGUI{
 		scalaRegVaccinato = new ImageIcon(immagineRegVaccinato.getImage().getScaledInstance(immagineRegVaccinato.getIconWidth()/20*3, immagineRegVaccinato.getIconHeight()/20*3, java.awt.Image.SCALE_SMOOTH)); //immagine in scala
 		
 		this.labelTitolo = new JLabel("FORM OPERATORE:");
-		this.labelTitolo.setFont(new Font("Arial", Font.BOLD, 28));
+		this.labelTitolo.setFont(new Font("Arial", Font.BOLD, 27));
 		this.labelTitolo.setForeground(Colori.arancione);
 		this.labelTitolo.setHorizontalAlignment(JLabel.CENTER);
 		this.labelTitolo.setVerticalAlignment(JLabel.CENTER);
 		
 		this.registraCentro = new JButton("REGISTRA NUOVO CENTRO"); //bottone centro
 		this.registraCentro.setName("REGISTRA NUOVO CENTRO");
-		this.registraCentro.setFont(new Font("Arial", Font.BOLD, 18)); //size
+		this.registraCentro.setFont(new Font("Arial", Font.BOLD, 16)); //size
 		this.registraCentro.setForeground(Colori.light_grey);
 		this.registraCentro.setIcon(scalaRegCentro);
 		this.registraCentro.setHorizontalTextPosition(JButton.CENTER);
 		this.registraCentro.setVerticalTextPosition(JButton.BOTTOM);
 		this.registraCentro.setIconTextGap(10); //distanza tra immagine e testo
 		this.registraCentro.setBorder(bordo);
+		this.registraCentro.setBackground(Colori.purple);
 		
 		this.registraVaccinato = new JButton("REGISTRA NUOVO VACCINATO"); //bottone vaccinato
 		this.registraVaccinato.setName("REGISTRA NUOVO VACCINATO");
-		this.registraVaccinato.setFont(new Font("Arial", Font.BOLD, 17)); //size
+		this.registraVaccinato.setFont(new Font("Arial", Font.BOLD, 16)); //size
 		this.registraVaccinato.setForeground(Colori.light_grey);
 		this.registraVaccinato.setIcon(scalaRegVaccinato);
 		this.registraVaccinato.setHorizontalTextPosition(JButton.CENTER);
 		this.registraVaccinato.setVerticalTextPosition(JButton.BOTTOM);
 		this.registraVaccinato.setIconTextGap(10); //distanza tra immagine e testo
 		this.registraVaccinato.setBorder(bordo);
+		this.registraVaccinato.setBackground(Colori.purple);
 		
 		
 		this.spazioVuoto1 = new JLabel("Seleziona Servizio");

@@ -43,7 +43,7 @@ public class SceltaUtenteGUI {
 		scalaCittadino = new ImageIcon(immagineCittadino.getImage().getScaledInstance(immagineCittadino.getIconWidth()/20*3, immagineCittadino.getIconHeight()/20*3, java.awt.Image.SCALE_SMOOTH)); //immagine in scala
 		
 		this.labelTitolo = new JLabel("SELEZIONA IL TIPO UTENTE:");
-		this.labelTitolo.setFont(new Font("Arial", Font.BOLD, 30));
+		this.labelTitolo.setFont(new Font("Arial", Font.BOLD, 28));
 		this.labelTitolo.setForeground(Colori.arancione);
 		this.labelTitolo.setHorizontalAlignment(JLabel.CENTER);
 		this.labelTitolo.setVerticalAlignment(JLabel.CENTER);
@@ -57,6 +57,7 @@ public class SceltaUtenteGUI {
 		this.operatore.setVerticalTextPosition(JButton.BOTTOM);
 		this.operatore.setIconTextGap(10); //distanza tra immagine e testo
 		this.operatore.setBorder(bordo);
+		this.operatore.setBackground(Colori.purple);
 		
 		
 		this.cittadino = new JButton("CITTADINO"); //bottone cittadino
@@ -68,6 +69,7 @@ public class SceltaUtenteGUI {
 		this.cittadino.setVerticalTextPosition(JButton.BOTTOM);
 		this.cittadino.setIconTextGap(10); //distanza tra immagine e testo
 		this.cittadino.setBorder(bordo);
+		this.cittadino.setBackground(Colori.purple);
 		
 		this.spazioVuoto = new JLabel();
 		

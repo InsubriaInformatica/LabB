@@ -55,7 +55,7 @@ public class CittadinoGUI {
 		scalaAvversi = new ImageIcon(immagineAvversi.getImage().getScaledInstance(immagineAvversi.getIconWidth()/20*2, immagineAvversi.getIconHeight()/20*2, java.awt.Image.SCALE_SMOOTH)); //immagine in scala
 		
 		this.labelTitolo = new JLabel("FORM CITTADINO:");
-		this.labelTitolo.setFont(new Font("Arial", Font.BOLD, 30));
+		this.labelTitolo.setFont(new Font("Arial", Font.BOLD, 28));
 		this.labelTitolo.setForeground(Colori.arancione);
 		this.labelTitolo.setHorizontalAlignment(JLabel.CENTER);
 		this.labelTitolo.setVerticalAlignment(JLabel.CENTER);
@@ -63,37 +63,40 @@ public class CittadinoGUI {
 		
 		this.buttonRegistrati = new JButton("REGISTRATI");
 		this.buttonRegistrati.setName("REGISTRATI");
-		this.buttonRegistrati.setFont(new Font("Arial", Font.BOLD, 20)); //size
+		this.buttonRegistrati.setFont(new Font("Arial", Font.BOLD, 18)); //size
 		this.buttonRegistrati.setForeground(Colori.light_grey);
 		this.buttonRegistrati.setIcon(scalaRegistrati);
 		this.buttonRegistrati.setHorizontalTextPosition(JButton.CENTER);
 		this.buttonRegistrati.setVerticalTextPosition(JButton.BOTTOM);
 		this.buttonRegistrati.setIconTextGap(10); //distanza tra immagine e testo
 		this.buttonRegistrati.setBorder(bordo);
+		this.buttonRegistrati.setBackground(Colori.purple);
 		
 		
 		this.buttonConsultaInfo = new JButton("INFO CENTRI VACCINALI");
 		this.buttonConsultaInfo.setName("INFO CENTRI VACCINALI");
-		this.buttonConsultaInfo.setFont(new Font("Arial", Font.BOLD, 20)); //size
+		this.buttonConsultaInfo.setFont(new Font("Arial", Font.BOLD, 18)); //size
 		this.buttonConsultaInfo.setForeground(Colori.light_grey);
 		this.buttonConsultaInfo.setIcon(scalaInfo);
 		this.buttonConsultaInfo.setHorizontalTextPosition(JButton.CENTER);
 		this.buttonConsultaInfo.setVerticalTextPosition(JButton.BOTTOM);
 		this.buttonConsultaInfo.setIconTextGap(10); //distanza tra immagine e testo
 		this.buttonConsultaInfo.setBorder(bordo);
+		this.buttonConsultaInfo.setBackground(Colori.purple);
 		
 		this.buttoninserisciAvversita = new JButton("INSERISCI EVENTI AVVERSI");
 		this.buttoninserisciAvversita.setName("INSERISCI EVENTI AVVERSI");
-		this.buttoninserisciAvversita.setFont(new Font("Arial", Font.BOLD, 20)); //size
+		this.buttoninserisciAvversita.setFont(new Font("Arial", Font.BOLD, 18)); //size
 		this.buttoninserisciAvversita.setForeground(Colori.light_grey);
 		this.buttoninserisciAvversita.setIcon(scalaAvversi);
 		this.buttoninserisciAvversita.setHorizontalTextPosition(JButton.CENTER);
 		this.buttoninserisciAvversita.setVerticalTextPosition(JButton.BOTTOM);
 		this.buttoninserisciAvversita.setIconTextGap(10); //distanza tra immagine e testo
 		this.buttoninserisciAvversita.setBorder(bordo);
+		this.buttoninserisciAvversita.setBackground(Colori.purple);
 		
 		this.sottoTitolo = new JLabel("Seleziona Servizio");
-		this.sottoTitolo.setFont(new Font("Arial", Font.PLAIN, 30));
+		this.sottoTitolo.setFont(new Font("Arial", Font.PLAIN, 28));
 		this.sottoTitolo.setForeground(Colori.arancione);
 		
 		spazioVuoto2 = new JLabel();

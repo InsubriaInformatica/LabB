@@ -81,6 +81,7 @@ public class ViewImpl extends JFrame implements View{
 		this.indietro.setHorizontalTextPosition(JButton.CENTER);
 		this.indietro.setVerticalTextPosition(JButton.TOP);
 		this.indietro.setIconTextGap(10); //distanza tra immagine e testo
+		this.indietro.setBackground(Colori.arancione);
 		
 		this.intestazione = new JPanel(); //inizializza contenitore intestazione
 		this.intestazione.setLayout(new BorderLayout());

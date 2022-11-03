@@ -115,6 +115,9 @@ public class RegistraCentroGUI {
 		this.radioButtonPiazza.setText("Piazza");
 		this.radioButtonPiazza.setForeground(Colori.light_grey);
 		this.buttonGroupViaVialePiazza = new ButtonGroup();
+		this.radioButtonPiazza.setBackground(Colori.purple);
+		this.radioButtonVia.setBackground(Colori.purple);
+		this.radioButtonViale.setBackground(Colori.purple);
         
         this.buttonGroupViaVialePiazza.add(radioButtonVia);
         this.buttonGroupViaVialePiazza.add(radioButtonViale);
@@ -223,6 +226,7 @@ public class RegistraCentroGUI {
 		this.buttonRegistra.setFont(new Font("Arial", Font.BOLD, 15));
 		this.panelBottone.setPreferredSize(new Dimension(500, 60));
 		this.buttonRegistra.setPreferredSize(new Dimension(200, 50));
+		this.buttonRegistra.setBackground(Colori.purple);
 		this.panelBottone.add(this.buttonRegistra);
 		
 		//CONTENITORE PRINCIPALE
