@@ -61,7 +61,7 @@ public class RegistraCentroGUI {
 		
 		this.intestazione = intestazione;
 		
-		Border bordo = BorderFactory.createLineBorder(Colori.arancione, 3); //crea bordo
+		Border bordo = BorderFactory.createLineBorder(Colori.light_grey, 1); //crea bordo
 		
 		//TITOLO
 		this.panelTitolo = new JPanel();
@@ -226,7 +226,7 @@ public class RegistraCentroGUI {
 		this.buttonRegistra.setFont(new Font("Arial", Font.BOLD, 15));
 		this.panelBottone.setPreferredSize(new Dimension(500, 60));
 		this.buttonRegistra.setPreferredSize(new Dimension(200, 50));
-		this.buttonRegistra.setBackground(Colori.purple);
+		this.buttonRegistra.setBackground(Colori.arancione);
 		this.panelBottone.add(this.buttonRegistra);
 		
 		//CONTENITORE PRINCIPALE
