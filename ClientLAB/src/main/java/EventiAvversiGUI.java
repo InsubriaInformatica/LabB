@@ -4,6 +4,7 @@ import java.awt.Font;
 import java.awt.GridLayout;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 
 public class EventiAvversiGUI {
 	
@@ -58,10 +59,14 @@ public class EventiAvversiGUI {
 		
 		this.intestazione = intestazione;
 		
+		Border bordo = BorderFactory.createLineBorder(Colori.light_grey, 1); //crea bordo
+		
 		//TITOLO
 		this.panelTitolo = new JPanel();
 		this.panelTitolo.setLayout(new GridLayout(1,1));
+		this.panelTitolo.setBackground(Colori.purple);
 		this.labelTitolo = new JLabel("SEGNALA EVENTO AVVERSO:");
+		this.labelTitolo.setForeground(Colori.arancione);
 		this.labelTitolo.setFont(new Font("Arial", Font.BOLD, 30));
 		this.labelTitolo.setHorizontalAlignment(JLabel.CENTER);
 		this.labelTitolo.setVerticalAlignment(JLabel.CENTER);
@@ -71,6 +76,7 @@ public class EventiAvversiGUI {
 		//SPAZIO
 		this.panelVuoto = new JPanel();
 		this.panelVuoto.setLayout(new GridLayout(1,1));
+		this.panelVuoto.setBackground(Colori.purple);
 		this.labelVuoto = new JLabel();
 		this.panelVuoto.add(labelVuoto);
 		this.panelVuoto.setPreferredSize(new Dimension(800, 22)); //larghezza, altezza
@@ -78,29 +84,44 @@ public class EventiAvversiGUI {
 		//TITOLO:TIPO EVENTO
 		this.panelTipoEvento = new JPanel();
 		this.panelTipoEvento.setLayout(new GridLayout(1,1));
+		this.panelTipoEvento.setBackground(Colori.purple);
 		this.labelTipoEvento = new JLabel("Tipo Evento");
 		this.labelTipoEvento.setFont(new Font("Arial", Font.BOLD, 18));
+		this.labelTipoEvento.setForeground(Colori.light_grey);
 		this.panelTipoEvento.add(labelTipoEvento);
 		this.panelTipoEvento.setPreferredSize(new Dimension(800, 35)); //larghezza, altezza
 		
 		// SCELTA EVENTI
 		this.contenitoreEventi = new JPanel();
 		this.contenitoreEventi.setLayout(new GridLayout(2,3));
+		this.contenitoreEventi.setBackground(Colori.purple);
 		this.contenitoreEventi.setPreferredSize(new Dimension(800, 50));
 		
 		this.radioButtonMalDiTesta = new JRadioButton();
 		this.radioButtonMalDiTesta.setText("MAL DI TESTA");
+		this.radioButtonMalDiTesta.setBackground(Colori.purple);
+		this.radioButtonMalDiTesta.setForeground(Colori.light_grey);
 		this.radioButtonFebbre = new JRadioButton();
 		this.radioButtonFebbre.setText("FEBBRE");
+		this.radioButtonFebbre.setBackground(Colori.purple);
+		this.radioButtonFebbre.setForeground(Colori.light_grey);
 		this.radioButtonDolori = new JRadioButton();
 		this.radioButtonDolori.setText("DOLORI MUSCOLARI/ARTICOLARI");
+		this.radioButtonDolori.setBackground(Colori.purple);
+		this.radioButtonDolori.setForeground(Colori.light_grey);
 		
 		this.radioButtonLinfoadenopatia = new JRadioButton();
 		this.radioButtonLinfoadenopatia.setText("LINFOADENOPATIA");
+		this.radioButtonLinfoadenopatia.setBackground(Colori.purple);
+		this.radioButtonLinfoadenopatia.setForeground(Colori.light_grey);
 		this.radioButtonTachicardia = new JRadioButton();
 		this.radioButtonTachicardia.setText("TACHICARDIA");
+		this.radioButtonTachicardia.setBackground(Colori.purple);
+		this.radioButtonTachicardia.setForeground(Colori.light_grey);
 		this.radioButtonCrisi = new JRadioButton();
 		this.radioButtonCrisi.setText("CRISI IPERTENSIVA");
+		this.radioButtonCrisi.setBackground(Colori.purple);
+		this.radioButtonCrisi.setForeground(Colori.light_grey);
 		
 		this.buttonGroupEventi = new ButtonGroup();
 	
@@ -122,6 +143,7 @@ public class EventiAvversiGUI {
 		//SPAZIO
 		this.panelVuoto2 = new JPanel();
 		this.panelVuoto2.setLayout(new GridLayout(1,1));
+		this.panelVuoto2.setBackground(Colori.purple);
 		this.labelVuoto2 = new JLabel();
 		this.panelVuoto2.add(labelVuoto2);
 		this.panelVuoto2.setPreferredSize(new Dimension(800, 15)); //larghezza, altezza
@@ -129,14 +151,17 @@ public class EventiAvversiGUI {
 		//TITOLO:SEVERITA
 		this.panelSeverita = new JPanel();
 		this.panelSeverita.setLayout(new GridLayout(1,1));
+		this.panelSeverita.setBackground(Colori.purple);
 		this.labelSeverita = new JLabel("Severità (da 1 a 5)");
 		this.labelSeverita.setFont(new Font("Arial", Font.BOLD, 18));
+		this.labelSeverita.setForeground(Colori.light_grey);
 		this.panelSeverita.add(labelSeverita);
 		this.panelSeverita.setPreferredSize(new Dimension(800, 20)); //larghezza, altezza
 		
 		//CAMPO SEVERITA
 		this.panelCampoSeverità = new JPanel();
 		this.panelCampoSeverità.setLayout(new GridLayout(1,1));
+		this.panelCampoSeverità.setBackground(Colori.purple);
 		this.Severita = new JComboBox<String>();
 		this.Severita.addItem("1");
 		this.Severita.addItem("2");
@@ -149,6 +174,7 @@ public class EventiAvversiGUI {
 		//SPAZIO
 		this.panelVuoto3 = new JPanel();
 		this.panelVuoto3.setLayout(new GridLayout(1,1));
+		this.panelVuoto3.setBackground(Colori.purple);
 		this.labelVuoto3 = new JLabel();
 		this.panelVuoto3.add(labelVuoto3);
 		this.panelVuoto3.setPreferredSize(new Dimension(800, 15)); //larghezza, altezza
@@ -156,14 +182,17 @@ public class EventiAvversiGUI {
 		//TITOLO: NOTE OPZIONALI
 		this.panelNote = new JPanel();
 		this.panelNote.setLayout(new GridLayout(1,1));
+		this.panelNote.setBackground(Colori.purple);
 		this.labelNote = new JLabel("Note Opzionali (256 caratteri max)");
 		this.labelNote.setFont(new Font("Arial", Font.BOLD, 18));
+		this.labelNote.setForeground(Colori.light_grey);
 		this.panelNote.add(labelNote);
 		this.panelNote.setPreferredSize(new Dimension(800, 35)); //larghezza, altezza
 		
 		//CAMPO NOTE OPZIONALI
 		this.panelCampoNote = new JPanel();
 		this.panelCampoNote.setLayout(new GridLayout(1,1));
+		this.panelCampoNote.setBackground(Colori.purple);
 		this.note = new JTextField ("", 256);
 		this.panelCampoNote.add(note);
 		this.panelCampoNote.setPreferredSize(new Dimension(800, 35)); //larghezza, altezza
@@ -171,20 +200,26 @@ public class EventiAvversiGUI {
 		//SPAZIO
 		this.panelVuoto4 = new JPanel();
 		this.panelVuoto4.setLayout(new GridLayout(1,1));
+		this.panelVuoto4.setBackground(Colori.purple);
 		this.labelVuoto4 = new JLabel();
 		this.panelVuoto4.add(labelVuoto4);
 		this.panelVuoto4.setPreferredSize(new Dimension(800, 15)); //larghezza, altezza
 		
 		//BOTTONE CONFERMA
 	    this.panelBottone = new JPanel();
+	    this.panelBottone.setBackground(Colori.purple);
 		this.buttonConfermaEA = new JButton("CONFERMA EVENTO AVVERSO");
 		this.buttonConfermaEA.setName("CONFERMA EVENTO AVVERSO");
+		this.buttonConfermaEA.setBackground(Colori.arancione);
+		this.buttonConfermaEA.setForeground(Colori.light_grey);
+		this.buttonConfermaEA.setBorder(bordo);
 		this.panelBottone.setPreferredSize(new Dimension(500, 60));
-		this.buttonConfermaEA.setPreferredSize(new Dimension(200, 50)); 
+		this.buttonConfermaEA.setPreferredSize(new Dimension(225, 50)); 
 		this.panelBottone.add(this.buttonConfermaEA);
 		
 		
 		contenitorePrincipale = new JPanel();
+		this.contenitorePrincipale.setBackground(Colori.purple);
 		this.contenitorePrincipale.add(panelTitolo);
 		this.contenitorePrincipale.add(panelVuoto);
 		this.contenitorePrincipale.add(panelTipoEvento);

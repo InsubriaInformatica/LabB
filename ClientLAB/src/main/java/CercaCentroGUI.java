@@ -3,6 +3,7 @@ import java.awt.Font;
 import java.awt.GridLayout;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 
 public class CercaCentroGUI {
 	
@@ -43,12 +44,15 @@ public class CercaCentroGUI {
 		
 		this.intestazione = intestazione;
 		
+		Border bordo = BorderFactory.createLineBorder(Colori.light_grey, 1); //crea bordo
+		
 		//TITOLO
 		this.panelTitolo = new JPanel();
 		this.panelTitolo.setLayout(new GridLayout(1,1));
+		this.panelTitolo.setBackground(Colori.purple);
 		this.labelTitolo = new JLabel("RICERCA IL TUO CENTRO:");
 		this.labelTitolo.setFont(new Font("Arial", Font.BOLD, 30));
-		//this.labelTitolo.setForeground(Colori.arancione);
+		this.labelTitolo.setForeground(Colori.arancione);
 		this.labelTitolo.setHorizontalAlignment(JLabel.CENTER);
 		this.labelTitolo.setVerticalAlignment(JLabel.CENTER);
 		this.panelTitolo.add(this.labelTitolo);
@@ -57,6 +61,7 @@ public class CercaCentroGUI {
 		//PANEL PER SPAZIO
 		this.panelVuoto = new JPanel();
 		this.panelVuoto.setLayout(new GridLayout(1,1));
+		this.panelVuoto.setBackground(Colori.purple);
 		this.labelVuoto = new JLabel();
 		this.labelVuoto.setHorizontalAlignment(JLabel.CENTER);
 		this.labelVuoto.setVerticalAlignment(JLabel.CENTER);
@@ -66,6 +71,7 @@ public class CercaCentroGUI {
 		//PANEL PER SPAZIO
 		this.panelVuoto1 = new JPanel();
 		this.panelVuoto1.setLayout(new GridLayout(1,1));
+		this.panelVuoto1.setBackground(Colori.purple);
 		this.labelVuoto1 = new JLabel();
 		this.labelVuoto1.setHorizontalAlignment(JLabel.CENTER);
 		this.labelVuoto1.setVerticalAlignment(JLabel.CENTER);
@@ -75,7 +81,9 @@ public class CercaCentroGUI {
 		//SOTTOTITOLO 1
 		this.panelSottoTitolo1 = new JPanel();
 		this.panelSottoTitolo1.setLayout(new GridLayout(1,1));
+		this.panelSottoTitolo1.setBackground(Colori.purple);
 		this.labelSottoTitolo1 = new JLabel("Cerca il nome del centro:");
+		this.labelSottoTitolo1.setForeground(Colori.arancione);
 		this.labelSottoTitolo1.setFont(new Font("Arial", Font.BOLD, 25));
 		this.labelSottoTitolo1.setHorizontalAlignment(JLabel.CENTER);
 		this.labelSottoTitolo1.setVerticalAlignment(JLabel.CENTER);
@@ -85,10 +93,15 @@ public class CercaCentroGUI {
 		//NOME CENTRO RICERCA
 		this.panelNomeCentro = new JPanel();
 		this.panelNomeCentro.setLayout(new GridLayout(1,3));
+		this.panelNomeCentro.setBackground(Colori.purple);
 		this.labelNomeCentro = new JLabel("Nome Centro Vaccinale:");
+		this.labelNomeCentro.setForeground(Colori.light_grey);
 		this.textFieldNomeCentro = new JTextField("", 20); 
 		this.buttonCercaNome = new JButton("Cerca");
 		this.buttonCercaNome.setName("CercaNome");
+		this.buttonCercaNome.setBackground(Colori.arancione);
+		this.buttonCercaNome.setForeground(Colori.light_grey);
+		this.buttonCercaNome.setBorder(bordo);
 		this.panelNomeCentro.add(this.labelNomeCentro);
 		this.panelNomeCentro.add(this.textFieldNomeCentro);
 		this.panelNomeCentro.add(this.buttonCercaNome);
@@ -97,7 +110,9 @@ public class CercaCentroGUI {
 		//SOTTOTITOLO 2
 		this.panelSottoTitolo2 = new JPanel();
 		this.panelSottoTitolo2.setLayout(new GridLayout(1,1));
+		this.panelSottoTitolo2.setBackground(Colori.purple);
 		this.labelSottoTitolo2 = new JLabel("Cerca i centri nel tuo comune:");
+		this.labelSottoTitolo2.setForeground(Colori.arancione);
 		this.labelSottoTitolo2.setFont(new Font("Arial", Font.BOLD, 23));
 		this.labelSottoTitolo2.setHorizontalAlignment(JLabel.CENTER);
 		this.labelSottoTitolo2.setVerticalAlignment(JLabel.CENTER);
@@ -107,7 +122,9 @@ public class CercaCentroGUI {
 		//TIPOLOGIA CENTRO
 		this.panelTipologiaCentro = new JPanel();
 		this.panelTipologiaCentro.setLayout(new GridLayout(1,3));
+		this.panelTipologiaCentro.setBackground(Colori.purple);
 		this.labelTipologiaCentro = new JLabel("Tipologia:");
+		this.labelTipologiaCentro.setForeground(Colori.light_grey);
 		JLabel vuoto = new JLabel();
 		this.comboBoxTipologiaCentro = new JComboBox(); 
 		this.comboBoxTipologiaCentro.addItem("Ospedaliero");
@@ -121,10 +138,15 @@ public class CercaCentroGUI {
 		//COMUNE CENTRO RICERCA
 		this.panelComuneCentro = new JPanel();
 		this.panelComuneCentro.setLayout(new GridLayout(1,3));
+		this.panelComuneCentro.setBackground(Colori.purple);
 		this.labelComuneCentro = new JLabel("Comune Centro Vaccinale:");
+		this.labelComuneCentro.setForeground(Colori.light_grey);
 		this.textFieldComuneCentro = new JTextField("", 20); 
 		this.buttonCercaComune = new JButton("Cerca");
 		this.buttonCercaComune.setName("CercaComune");
+		this.buttonCercaComune.setBackground(Colori.arancione);
+		this.buttonCercaComune.setForeground(Colori.light_grey);
+		this.buttonCercaComune.setBorder(bordo);
 		this.panelComuneCentro.add(this.labelComuneCentro);
 		this.panelComuneCentro.add(this.textFieldComuneCentro);
 		this.panelComuneCentro.add(this.buttonCercaComune);
@@ -132,7 +154,7 @@ public class CercaCentroGUI {
 		
 		
 		this.contenitorePrincipale = new JPanel();
-		//this.contenitorePrincipale.setBackground(Colori.purple);
+		this.contenitorePrincipale.setBackground(Colori.purple);
 		this.contenitorePrincipale.add(panelTitolo);
 		this.contenitorePrincipale.add(panelVuoto); //spazio
 		this.contenitorePrincipale.add(panelSottoTitolo1);

@@ -3,6 +3,7 @@ import java.awt.Font;
 import java.awt.GridLayout;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 
 public class RegisterGUI {
 	
@@ -55,19 +56,24 @@ public class RegisterGUI {
 		
 		this.intestazione = intestazione;
 		
+		Border bordo = BorderFactory.createLineBorder(Colori.light_grey, 1); //crea bordo
+		
 		//TITOLO
 		this.panelTitolo = new JPanel();
 		this.panelTitolo.setLayout(new GridLayout(1,1));
+		this.panelTitolo.setBackground(Colori.purple);
 		this.labelTitolo = new JLabel("FORM DI REGISTRAZIONE:");
 		this.labelTitolo.setFont(new Font("Arial", Font.BOLD, 30));
 		this.labelTitolo.setHorizontalAlignment(JLabel.CENTER);
 		this.labelTitolo.setVerticalAlignment(JLabel.CENTER);
+		this.labelTitolo.setForeground(Colori.arancione);
 		this.panelTitolo.add(this.labelTitolo);
 		this.panelTitolo.setPreferredSize(new Dimension(700, 35)); //larghezza, altezza
 		
 		//PANEL PER SPAZIO
 		this.panelVuoto = new JPanel();
 		this.panelVuoto.setLayout(new GridLayout(1,1));
+		this.panelVuoto.setBackground(Colori.purple);
 		this.labelVuoto = new JLabel();
 		this.labelVuoto.setHorizontalAlignment(JLabel.CENTER);
 		this.labelVuoto.setVerticalAlignment(JLabel.CENTER);
@@ -77,7 +83,9 @@ public class RegisterGUI {
 		//NOME 
 		this.panelNome = new JPanel();
 		this.panelNome.setLayout(new GridLayout(1,2));
+		this.panelNome.setBackground(Colori.purple);
 		this.labelNome = new JLabel("Nome:");
+		this.labelNome.setForeground(Colori.light_grey);
 		this.textFieldNome = new JTextField("", 20); 
 		this.panelNome.add(this.labelNome);
 		this.panelNome.add(this.textFieldNome);
@@ -86,7 +94,9 @@ public class RegisterGUI {
 		//COGNOME 
 		this.panelCognome = new JPanel();
 		this.panelCognome.setLayout(new GridLayout(1,2));
+		this.panelCognome.setBackground(Colori.purple);
 		this.labelCognome = new JLabel("Cognome:");
+		this.labelCognome.setForeground(Colori.light_grey);
 		this.textFieldCognome = new JTextField("", 20); 
 		this.panelCognome.add(this.labelCognome);
 		this.panelCognome.add(this.textFieldCognome);
@@ -95,7 +105,9 @@ public class RegisterGUI {
 		//CODICE FISCALE 
 		this.panelCF = new JPanel();
 		this.panelCF.setLayout(new GridLayout(1,2));
+		this.panelCF.setBackground(Colori.purple);
 		this.labelCF = new JLabel("Codice Fiscale:");
+		this.labelCF.setForeground(Colori.light_grey);
 		this.textFieldCF = new JTextField("", 20); 
 		this.textFieldCF.setName("CampoCF");
 		this.panelCF.add(this.labelCF);
@@ -105,7 +117,9 @@ public class RegisterGUI {
 		//E-MAIL
 		this.panelEmail = new JPanel();
 		this.panelEmail.setLayout(new GridLayout(1,2));
+		this.panelEmail.setBackground(Colori.purple);
 		this.labelEmail = new JLabel("E-mail:");
+		this.labelEmail.setForeground(Colori.light_grey);
 		this.textFieldEmail= new JTextField("", 20); 
 		this.panelEmail.add(this.labelEmail);
 		this.panelEmail.add(this.textFieldEmail);
@@ -114,7 +128,9 @@ public class RegisterGUI {
 		//USERNAME
 		this.panelUsername = new JPanel();
 		this.panelUsername.setLayout(new GridLayout(1,2));
+		this.panelUsername.setBackground(Colori.purple);
 		this.labelUsername = new JLabel("Username:");
+		this.labelUsername.setForeground(Colori.light_grey);
 		this.textFieldUsername= new JTextField("", 20); 
 		this.panelUsername.add(this.labelUsername);
 		this.panelUsername.add(this.textFieldUsername);
@@ -123,7 +139,9 @@ public class RegisterGUI {
 		//PASSWORD
 		this.panelPsw = new JPanel();
 		this.panelPsw.setLayout(new GridLayout(1,2));
+		this.panelPsw.setBackground(Colori.purple);
 		this.labelPsw = new JLabel("Password:");
+		this.labelPsw.setForeground(Colori.light_grey);
 		this.textFieldPsw = new JTextField("", 20); 
 		this.panelPsw.add(this.labelPsw);
 		this.panelPsw.add(this.textFieldPsw);
@@ -132,7 +150,9 @@ public class RegisterGUI {
 		//ID UNIVOCO
 		this.panelIdUnivoco = new JPanel();
 		this.panelIdUnivoco.setLayout(new GridLayout(1,2));
+		this.panelIdUnivoco.setBackground(Colori.purple);
 		this.labelIdUnivoco = new JLabel("ID Univoco:");
+		this.labelIdUnivoco.setForeground(Colori.light_grey);
 		this.textFieldIdUnivoco = new JTextField("", 20); 
 		this.panelIdUnivoco.add(this.labelIdUnivoco);
 		this.panelIdUnivoco.add(this.textFieldIdUnivoco);
@@ -141,6 +161,7 @@ public class RegisterGUI {
 		//PANEL PER SPAZIO
         this.panelVuoto1 = new JPanel();
         this.panelVuoto1.setLayout(new GridLayout(1,1));
+        this.panelVuoto1.setBackground(Colori.purple);
         this.labelVuoto1 = new JLabel();
         this.labelVuoto1.setHorizontalAlignment(JLabel.CENTER);
         this.labelVuoto1.setVerticalAlignment(JLabel.CENTER);
@@ -149,13 +170,18 @@ public class RegisterGUI {
 		
 		//BOTTONE REGISTRAZIONE
 		this.panelBottone = new JPanel();
+		this.panelBottone.setBackground(Colori.purple);
 		this.buttonRegistra = new JButton("REGISTRATI");
 		this.buttonRegistra.setName("CONFERMA-REGISTRAZIONE");
+		this.buttonRegistra.setBorder(bordo);
+		this.buttonRegistra.setBackground(Colori.arancione);
+		this.buttonRegistra.setForeground(Colori.light_grey);
 		this.panelBottone.setPreferredSize(new Dimension(500, 60));
 		this.buttonRegistra.setPreferredSize(new Dimension(200, 50)); 
 		this.panelBottone.add(this.buttonRegistra);
 
 		this.contenitorePrincipale = new JPanel();
+		this.contenitorePrincipale.setBackground(Colori.purple);
 		this.contenitorePrincipale.add(panelTitolo);
 		this.contenitorePrincipale.add(panelVuoto);
 		this.contenitorePrincipale.add(panelNome);

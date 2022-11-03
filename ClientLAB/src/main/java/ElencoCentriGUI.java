@@ -1,6 +1,7 @@
 
 import java.awt.*;
 import javax.swing.*;
+import javax.swing.border.Border;
 
 public class ElencoCentriGUI {
 	
@@ -47,9 +48,12 @@ public class ElencoCentriGUI {
 		
 		this.intestazione = intestazione;
 		
+		Border bordo = BorderFactory.createLineBorder(Colori.light_grey, 1); //crea bordo
+		
 		//TITOLO
 		this.panelTitolo = new JPanel();
 		this.panelTitolo.setLayout(new GridLayout(1,1));
+		this.panelTitolo.setBackground(Colori.purple);
 		this.labelTitolo = new JLabel("SELEZIONA IL TUO CENTRO:");
 		this.labelTitolo.setFont(new Font("Arial", Font.BOLD, 30));
 		this.labelTitolo.setForeground(Colori.purple);
@@ -62,6 +66,7 @@ public class ElencoCentriGUI {
 		//COMBOBOX X VISUALIZZARE CENTRI CERCATI
 		this.panelBox = new JPanel();
 		this.panelBox.setLayout(new BorderLayout());
+		this.panelBox.setBackground(Colori.purple);
 		this.sceltaCentro = new JComboBox<String>();
 		this.sceltaCentro.setName("ComboBoxCentroInfo");
 		this.panelBox.add(this.sceltaCentro);
@@ -70,6 +75,7 @@ public class ElencoCentriGUI {
 		//PANEL CHE CONTIENE INFO CENTRI
 		this.panelInformazioni = new JPanel();
 		this.panelInformazioni.setLayout(new GridLayout(4,2));
+		this.panelInformazioni.setBackground(Colori.purple);
 		
 		this.nome = new JLabel("Nome Centro:");
 		this.infoNome = new JLabel("Default");
@@ -98,9 +104,10 @@ public class ElencoCentriGUI {
 		//TITOLO 1 
 		this.panelTitolo1 = new JPanel();
 		this.panelTitolo1.setLayout(new BorderLayout());
+		this.panelTitolo1.setBackground(Colori.purple);
 		this.labelTitolo1 = new JLabel("Severità Media dei Sintomi:");
 		this.labelTitolo1.setFont(new Font("Arial", Font.PLAIN, 30));
-		//this.labelTitolo.setForeground(Colori.arancione);
+		this.labelTitolo1.setForeground(Colori.arancione);
 		this.labelTitolo1.setHorizontalAlignment(JLabel.CENTER);
 		this.labelTitolo1.setVerticalAlignment(JLabel.CENTER);
 		this.panelTitolo1.add(this.labelTitolo1);
@@ -110,6 +117,7 @@ public class ElencoCentriGUI {
 		this.panelSintomi = new JPanel();
 		this.panelSintomi.setLayout(new GridLayout(3,2));
 		this.panelSintomi.setPreferredSize(new Dimension(800, 130));
+		this.panelSintomi.setBackground(Colori.purple);
 		
 		this.maleTesta = new JLabel("- Mal di Testa:");
 		this.infoMaleTesta = new JLabel("--/5");

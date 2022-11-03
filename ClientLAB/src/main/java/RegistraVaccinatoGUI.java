@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.border.Border;
 
 import com.toedter.calendar.JDateChooser;
 import java.awt.*;
@@ -58,29 +59,37 @@ public class RegistraVaccinatoGUI {
 		
 		this.intestazione = intestazione;
 		
+		Border bordo = BorderFactory.createLineBorder(Colori.light_grey, 1); //crea bordo
+		
 		//TITOLO
 		this.panelTitolo = new JPanel();
 		this.panelTitolo.setLayout(new GridLayout(1,1));
+		this.panelTitolo.setBackground(Colori.purple);
 		this.labelTitolo = new JLabel("REGISTRA VACCINATO:");
 		this.labelTitolo.setFont(new Font("Arial", Font.BOLD, 30));
 		this.labelTitolo.setHorizontalAlignment(JLabel.CENTER);
 		this.labelTitolo.setVerticalAlignment(JLabel.CENTER);
+		this.labelTitolo.setForeground(Colori.arancione);
 		this.panelTitolo.add(this.labelTitolo);
 		this.panelTitolo.setPreferredSize(new Dimension(700, 35)); //larghezza, altezza
 		
 		//PANEL PER SPAZIO
 		this.panelVuoto = new JPanel();
 		this.panelVuoto.setLayout(new GridLayout(1,1));
+		this.panelVuoto.setBackground(Colori.purple);
 		this.labelVuoto = new JLabel();
 		this.labelVuoto.setHorizontalAlignment(JLabel.CENTER);
 		this.labelVuoto.setVerticalAlignment(JLabel.CENTER);
+		this.labelVuoto.setBackground(Colori.purple);
 		this.panelVuoto.add(labelVuoto);
 		this.panelVuoto.setPreferredSize(new Dimension(700, 35)); //larghezza, altezza
 		
 		//LISTA CENTRI REGISTRATI --> deve prenderli dal database e inserirli  nella combobox
 		this.panelSceltacentro = new JPanel();
 		this.panelSceltacentro.setLayout(new GridLayout(1,2));
+		this.panelSceltacentro.setBackground(Colori.purple);
 		this.labelNomeCentro = new JLabel("Seleziona Centro:");
+		this.labelNomeCentro.setForeground(Colori.light_grey);
 		this.nomeCentroVaccinale = new JComboBox<String>();
 		this.nomeCentroVaccinale.setPreferredSize(new Dimension(600, 25));
 		this.panelSceltacentro.add(this.labelNomeCentro);
@@ -90,7 +99,9 @@ public class RegistraVaccinatoGUI {
 		//NOME VACCINATO
 		this.panelNomeVaccinato = new JPanel();
 		this.panelNomeVaccinato.setLayout(new GridLayout(1,2));
+		this.panelNomeVaccinato.setBackground(Colori.purple);
 		this.labelNomeVaccinato = new JLabel("Nome:");
+		this.labelNomeVaccinato.setForeground(Colori.light_grey);
 		this.textFieldNomeVaccinato = new JTextField("", 20); 
 		this.panelNomeVaccinato.add(this.labelNomeVaccinato);
 		this.panelNomeVaccinato.add(this.textFieldNomeVaccinato);
@@ -99,7 +110,9 @@ public class RegistraVaccinatoGUI {
 		//COGNOME VACCINATO
 		this.panelCognomeVaccinato = new JPanel();
 		this.panelCognomeVaccinato.setLayout(new GridLayout(1,2));
+		this.panelCognomeVaccinato.setBackground(Colori.purple);
 		this.labelCognomeVaccinato = new JLabel("Cognome:");
+		this.labelCognomeVaccinato.setForeground(Colori.light_grey);
 		this.textFieldCognomeVaccinato = new JTextField("", 20); 
 		this.panelCognomeVaccinato.add(this.labelCognomeVaccinato);
 		this.panelCognomeVaccinato.add(this.textFieldCognomeVaccinato);
@@ -108,7 +121,9 @@ public class RegistraVaccinatoGUI {
 		//CODICE FISCALE 
 		this.panelCFVaccinato = new JPanel();
 		this.panelCFVaccinato.setLayout(new GridLayout(1,2));
+		this.panelCFVaccinato.setBackground(Colori.purple);
 		this.labelCFVaccinato = new JLabel("Codice Fiscale:");
+		this.labelCFVaccinato.setForeground(Colori.light_grey);
 		this.textFieldCFVaccinato = new JTextField("", 20); 
 		this.panelCFVaccinato.add(this.labelCFVaccinato);
 		this.panelCFVaccinato.add(this.textFieldCFVaccinato);
@@ -117,7 +132,9 @@ public class RegistraVaccinatoGUI {
 		//DATA SOMMINISTRAZIONE
 		this.panelData = new JPanel();
 		this.panelData.setLayout(new GridLayout(1,2));
+		this.panelData.setBackground(Colori.purple);
 		this.labelData = new JLabel("Data somministrazione:");
+		this.labelData.setForeground(Colori.light_grey);
 		this.dataSomministrazione = new JDateChooser();
 		this.dataSomministrazione.setPreferredSize(new Dimension(600, 25));
 		this.dataSomministrazione.setDateFormatString("dd/MM/yyyy");
@@ -130,7 +147,10 @@ public class RegistraVaccinatoGUI {
 		//TIPO DI VACCINO
 		this.panelVaccino = new JPanel();
 		this.panelVaccino.setLayout(new GridLayout(1,2));
+		this.panelVaccino.setBackground(Colori.purple);
 		this.labelVaccino = new JLabel("Vaccino somministrato:");
+		this.labelVaccino.setForeground(Colori.light_grey);
+		this.labelVaccino.setBackground(Colori.purple);
 		this.nomeVaccino = new JComboBox<String>();
 		this.nomeVaccino.addItem("AstraZeneca");
 		this.nomeVaccino.addItem("Pfizer");
@@ -145,14 +165,22 @@ public class RegistraVaccinatoGUI {
 		this.panelNdosi = new JPanel();
 		this.panelNdosi.setLayout(new GridLayout(1,3));
 		this.panelNdosi.setPreferredSize(new Dimension(600, 25));
+		this.panelNdosi.setBackground(Colori.purple);
 		this.labelNdosi = new JLabel("N.Dose");
+		this.labelNdosi.setForeground(Colori.light_grey);
 		
 		this.radioButtonDoseN1 = new JRadioButton();
 		this.radioButtonDoseN1.setText("Prima");
+		this.radioButtonDoseN1.setForeground(Colori.light_grey);
+		this.radioButtonDoseN1.setBackground(Colori.purple);
 		this.radioButtonDoseN2 = new JRadioButton();
 		this.radioButtonDoseN2.setText("Seconda");
+		this.radioButtonDoseN2.setForeground(Colori.light_grey);
+		this.radioButtonDoseN2.setBackground(Colori.purple);
 		this.radioButtonDoseN3 = new JRadioButton();
 		this.radioButtonDoseN3.setText("Terza o Successiva");
+		this.radioButtonDoseN3.setForeground(Colori.light_grey);
+		this.radioButtonDoseN3.setBackground(Colori.purple);
 		this.buttonGroupDosi = new ButtonGroup();
         
         this.buttonGroupDosi.add(radioButtonDoseN1);
@@ -168,22 +196,29 @@ public class RegistraVaccinatoGUI {
         //PANEL PER SPAZIO
         this.panelVuoto1 = new JPanel();
         this.panelVuoto1.setLayout(new GridLayout(1,1));
+        this.panelVuoto1.setBackground(Colori.purple);
         this.labelVuoto1 = new JLabel();
         this.labelVuoto1.setHorizontalAlignment(JLabel.CENTER);
         this.labelVuoto1.setVerticalAlignment(JLabel.CENTER);
+        this.labelVuoto1.setBackground(Colori.purple);
         this.panelVuoto1.add(labelVuoto1);
         this.panelVuoto1.setPreferredSize(new Dimension(700, 25)); //larghezza, altezza
      
         //BOTTONE REGISTRA
         this.panelBottone = new JPanel();
+        this.panelBottone.setBackground(Colori.purple);
 		this.buttonRegistraVacc = new JButton("REGISTRA VACCINATO");
 		this.buttonRegistraVacc.setName("REGISTRA VACCINATO");
+		this.buttonRegistraVacc.setBackground(Colori.arancione);
+		this.buttonRegistraVacc.setForeground(Colori.light_grey);
+		this.buttonRegistraVacc.setBorder(bordo);
 		this.panelBottone.setPreferredSize(new Dimension(500, 60));
 		this.buttonRegistraVacc.setPreferredSize(new Dimension(200, 50)); 
 		this.panelBottone.add(this.buttonRegistraVacc);
 		
 		//INSERIMENTO NEL PANEL PRINCIPALE
 		this.contenitorePrincipale = new JPanel();
+		this.contenitorePrincipale.setBackground(Colori.purple);
 		this.contenitorePrincipale.add(this.panelTitolo);
 		this.contenitorePrincipale.add(panelVuoto);
 		this.contenitorePrincipale.add(this.panelSceltacentro);

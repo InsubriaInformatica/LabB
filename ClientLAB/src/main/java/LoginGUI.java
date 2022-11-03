@@ -1,6 +1,7 @@
 
 import java.awt.*;
 import javax.swing.*;
+import javax.swing.border.Border;
 
 public class LoginGUI {
 	
@@ -50,11 +51,14 @@ public class LoginGUI {
 		immaginePsw = new ImageIcon("img/password.png");
 		scalaPsw = new ImageIcon(immaginePsw.getImage().getScaledInstance(immaginePsw.getIconWidth()/20, immaginePsw.getIconHeight()/20, java.awt.Image.SCALE_SMOOTH)); //immagine in scala
 		
+		Border bordo = BorderFactory.createLineBorder(Colori.light_grey, 1); //crea bordo
 		
 		//TITOLO
 		this.panelTitolo = new JPanel();
 		this.panelTitolo.setLayout(new GridLayout(1,1));
+		this.panelTitolo.setBackground(Colori.purple);
 		this.labelTitolo = new JLabel("ACCEDI ALL'AREA PERSONALE:");
+		this.labelTitolo.setForeground(Colori.arancione);
 		this.labelTitolo.setFont(new Font("Arial", Font.BOLD, 30));
 		this.labelTitolo.setHorizontalAlignment(JLabel.CENTER);
 		this.labelTitolo.setVerticalAlignment(JLabel.CENTER);
@@ -64,6 +68,7 @@ public class LoginGUI {
 		//SPAZIO VUOTO
 		this.panelVuoto = new JPanel();
 		this.panelVuoto.setLayout(new GridLayout(1,1));
+		this.panelVuoto.setBackground(Colori.purple);
 		this.labelVuoto = new JLabel();
 		this.labelVuoto.setHorizontalAlignment(JLabel.CENTER);
 		this.labelVuoto.setVerticalAlignment(JLabel.CENTER);
@@ -74,7 +79,9 @@ public class LoginGUI {
 		//USERNAME
 		this.panelUsername = new JPanel();
 		this.panelUsername.setLayout(new GridLayout(1,2));
+		this.panelUsername.setBackground(Colori.purple);
 		this.labelUsername = new JLabel("Username:");
+		this.labelUsername.setForeground(Colori.light_grey);
 		this.labelUsername.setIcon(scalaUser);
 		this.labelUsername.setIconTextGap(10); //distanza tra immagine e testo
 		this.textFieldUsername= new JTextField("", 20); 
@@ -86,7 +93,9 @@ public class LoginGUI {
 		//PASSWORD
 		this.panelPsw = new JPanel();
 		this.panelPsw.setLayout(new GridLayout(1,2));
+		this.panelPsw.setBackground(Colori.purple);
 		this.labelPsw = new JLabel("Password:");
+		this.labelPsw.setForeground(Colori.light_grey);
 		this.labelPsw.setIcon(scalaPsw);
 		this.labelPsw.setIconTextGap(10); //distanza tra immagine e testo
 		this.textFieldPsw = new JPasswordField("", 20); 
@@ -97,7 +106,10 @@ public class LoginGUI {
 		//BOTTONE ACCEDI
 		this.panelBottone = new JPanel();
 		this.buttonAccedi = new JButton("ACCEDI");
+		this.buttonAccedi.setBackground(Colori.arancione);
 		this.buttonAccedi.setName("ACCEDI");
+		this.buttonAccedi.setForeground(Colori.light_grey);
+		this.buttonAccedi.setBorder(bordo);
 		this.panelBottone.setPreferredSize(new Dimension(200, 50));
 		this.buttonAccedi.setPreferredSize(new Dimension(200, 50)); 
 		this.panelBottone.add(this.buttonAccedi);
@@ -105,6 +117,7 @@ public class LoginGUI {
 		//SPAZIO VUOTO
 		this.panelVuoto2 = new JPanel();
 		this.panelVuoto2.setLayout(new GridLayout(1,1));
+		this.panelVuoto2.setBackground(Colori.purple);
 		this.labelVuoto2 = new JLabel();
 		this.labelVuoto2.setHorizontalAlignment(JLabel.CENTER);
 		this.labelVuoto2.setVerticalAlignment(JLabel.CENTER);
@@ -114,7 +127,9 @@ public class LoginGUI {
 		//TITOLO 1
 		this.panelTitolo1 = new JPanel();
 		this.panelTitolo1.setLayout(new GridLayout(1,1));
+		this.panelTitolo1.setBackground(Colori.purple);
 		this.labelTitolo1 = new JLabel("Non sei registrato?");
+		this.labelTitolo1.setForeground(Colori.arancione);
 		this.labelTitolo1.setFont(new Font("Arial", Font.BOLD, 30));
 		this.labelTitolo1.setHorizontalAlignment(JLabel.CENTER);
 		this.labelTitolo1.setVerticalAlignment(JLabel.CENTER);
@@ -123,8 +138,12 @@ public class LoginGUI {
 		
 		//BOTTONE REGISTRATI
 		this.panelBottone1 = new JPanel();
+		this.panelBottone1.setBackground(Colori.purple);
 		this.buttonLoginRegistrati = new JButton("REGISTRATI");
 		this.buttonLoginRegistrati.setName("REGISTRATI-Login");
+		this.buttonLoginRegistrati.setBackground(Colori.arancione);
+		this.buttonLoginRegistrati.setForeground(Colori.light_grey);
+		this.buttonLoginRegistrati.setBorder(bordo);
 		this.panelBottone1.setPreferredSize(new Dimension(200, 60)); //dimensioni panel
 		this.buttonLoginRegistrati.setPreferredSize(new Dimension(200, 50)); //dimensioni bottone
 		//this.panelBottone1.setBackground(Colori.purple);
@@ -132,6 +151,7 @@ public class LoginGUI {
 	
 		
 		this.contenitorePrincipale = new JPanel();
+		this.contenitorePrincipale.setBackground(Colori.purple);
 		this.contenitorePrincipale.add(panelTitolo);
 		this.contenitorePrincipale.add(panelVuoto);
 		this.contenitorePrincipale.add(panelUsername);
