@@ -14,7 +14,10 @@ public class DataBaseConnessione {
 	private static String porta = "";
 	
 	private static String username = "postgres";
-	private static String password = "admin";
+	// PASSWORD DATABASE
+	// Lele: Sirmione2020!
+	// Aldo: admin
+	private static String password = "admin"; 
 	
 	private static Connection connection = null;
 	private static Statement statement = null;
