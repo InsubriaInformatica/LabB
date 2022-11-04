@@ -7,10 +7,10 @@ public class Controller implements ActionListener{
 
 	
 	private ModelInterface model;
-	private ServerGUI view;
+	private ViewInterface view;
 	
 	//COSTRUTTORE --> salva riferimenti view e model e aggiunge bottone avvia server per gestire evento
-	public Controller(ModelInterface model,ServerGUI view ) {
+	public Controller(ModelInterface model,ViewInterface view ) {
 		this.model = model;
 		this.view = view;
 		
