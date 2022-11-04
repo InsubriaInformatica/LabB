@@ -5,7 +5,7 @@ import javax.swing.*;
 import javax.swing.border.Border;
 
 //GESTIONE DEI COMPONENTI GRAFICI X AVVIO SERVER
-public class ViewImpl extends JFrame implements ViewInterface{
+public class ViewImpl extends JFrame implements ServerGUI{
 	private static final long serialVersionUID = 1L;
 	
 	private String viewAttuale;

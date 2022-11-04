@@ -1,9 +1,9 @@
 
 public class ModelImpl implements ModelInterface{
 	
-	ViewInterface v;
+	ServerGUI v;
 
-	public ModelImpl(ViewInterface v) {
+	public ModelImpl(ServerGUI v) {
 		this.v = v;
 	}
 

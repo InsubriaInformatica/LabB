@@ -2,7 +2,7 @@ import java.util.List;
 import javax.swing.JButton;
 
 //PATTERN MVC --> interfaccia che fornisce elementi necessari all'implementazione
-public interface ViewInterface {
+public interface ServerGUI {
 	
 	public void updateView(Object dati); //aggiorna i componenti grafici come per il client
 	
