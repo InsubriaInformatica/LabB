@@ -14,15 +14,14 @@ public class Controller implements ActionListener{
 		this.model = model;
 		this.view = view;
 		
-		JButton buttonAvvia = this.view.retButtonAvvia();
-		buttonAvvia.addActionListener(this);
+		//JButton buttonAvvia = this.view.retButtonAvvia();
+		//buttonAvvia.addActionListener(this);
 		
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
-		
+		this.model.updateModel(e);
 	}
 	
 }

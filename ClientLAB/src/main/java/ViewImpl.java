@@ -56,10 +56,8 @@ public class ViewImpl extends JFrame implements View{
 		//FRAME 
 		this.viewAttuale = null;
 		this.setTitle("VACCINIAMO");
-		this.setLayout(null);
         this.setSize(FRAME_WIDTH, FRAME_HEIGHT);
         this.setLocationRelativeTo(null);
-          
         this.setSize(new Dimension(FRAME_WIDTH, FRAME_HEIGHT));
 		this.setResizable(false);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
