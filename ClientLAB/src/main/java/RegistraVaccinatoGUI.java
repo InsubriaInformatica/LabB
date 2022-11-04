@@ -139,6 +139,7 @@ public class RegistraVaccinatoGUI {
 		this.dataSomministrazione.setPreferredSize(new Dimension(600, 25));
 		this.dataSomministrazione.setDateFormatString("dd/MM/yyyy");
 		this.dataSomministrazione.setDate(new Date());
+		this.dataSomministrazione.setBackground(Colori.purple);
 		this.panelData.add(this.labelData);
 		this.panelData.add(this.dataSomministrazione);
 		this.panelData.setPreferredSize(new Dimension(600, 25));
