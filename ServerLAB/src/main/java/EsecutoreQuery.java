@@ -10,7 +10,10 @@ public class EsecutoreQuery {
 		ResultSet rs; //risultato query organizzato in tabella
 		String query = "select * from Cittadini";
 		
-		Connection c = DataBaseConnessione.getConnection("postgres", "Sirmione2020!", "localhost", "5432", "LabB"); //prende connessione al database
+		// PASSWORD DATABASE
+		// Lele: Sirmione2020!
+		// Aldo: admin
+		Connection c = DataBaseConnessione.getConnection("postgres", "admin", "localhost", "5432", "LabB"); //prende connessione al database
 		Statement s = (Statement) c.createStatement(); //statement per eseguire query
 		
 	
