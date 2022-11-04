@@ -94,7 +94,7 @@ public class ViewImpl extends JFrame implements View{
 		
 		
 		//TITOLO
-		this.titolo = new JLabel(new ImageIcon(immagine.getImage().getScaledInstance(immagine.getIconWidth()/20*4, immagine.getIconHeight()/20*4, java.awt.Image.SCALE_SMOOTH)));
+		this.titolo = new JLabel(new ImageIcon(immagine.getImage().getScaledInstance(immagine.getIconWidth()/20*3, immagine.getIconHeight()/20*3, java.awt.Image.SCALE_SMOOTH)));
 		titolo.setText("VACCINIAMO");
 		//titolo.setIcon(immagine);
 		titolo.setHorizontalTextPosition(JLabel.CENTER); //setta il testo DX,CX,SX rispetto a immagine
@@ -104,7 +104,7 @@ public class ViewImpl extends JFrame implements View{
 		
 		
 		this.intestazione.add(this.titolo, BorderLayout.CENTER); //aggiungi titolo
-		this.intestazione.add(this.indietro, BorderLayout.EAST); //aggiungi bottono indietro
+		this.intestazione.add(this.indietro, BorderLayout.EAST); //aggiungi bottone indietro
 		
 		//////////FINE INTESTAZIONE
 		
