@@ -1,31 +1,30 @@
-import java.sql.Statement;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
-public class EsecutoreQuery {
+import java.sql.*;
+
+//RISORSA CONDIVISA CHE SI INTERFACCIERA' CON IL NOSTRO SERVER
+public class EsecutoreQuery implements ServerWorkerInterface{
 	
-	public static void main(String[] args) throws SQLException {
-		
-		ResultSet rs; //risultato query organizzato in tabella
-		String query = "select * from Cittadini";
-		
-		// PASSWORD DATABASE
-		// Lele: Sirmione2020!
-		// Aldo: admin
-		Connection c = DataBaseConnessione.getConnection("postgres", "admin", "localhost", "5432", "LabB"); //prende connessione al database
-		Statement s = (Statement) c.createStatement(); //statement per eseguire query
-		
+	private Connection connessione;
+	private Statement istruzione;
+	private ResultSet rs;
+	private ViewInterface view;
 	
-		rs = s.executeQuery(query);
-		
-		//se ci sono dei dati nel result set
-		while(rs.next()) {
-			System.out.print(rs.getString(1) + " "); //in questo caso stampa la stringa in posizione 0esima ecc..
-			System.out.print(rs.getString(2));
-			System.out.print(rs.getString(3));
-			System.out.println("");
-		}
+	//costruttore che instanzia connessione a database
+	public EsecutoreQuery(String username, String password, String host, String port, String nomeDB) {
+		try {
+			this.connessione = DataBaseConnessione.getConnection(username, password, host, port , nomeDB); //prende connessione al database
+			this.istruzione = (Statement) connessione.createStatement(); //statement per eseguire query
+			
+		} catch (SQLException e) {
+			System.out.println("ESECUTORE QUERY: connessione al DB non riuscita " + e.toString());
+		} 
+	}
+	
+
+
+	//registra nel database il centro vaccinale
+	public synchronized int registraCentroVaccinale(String nome, String qualificatore, String indirizzo, String numeroCivico, String comune, String provincia, String Cap, String tipologia) throws SQLException {
+		return 0;
 	}
 
 }

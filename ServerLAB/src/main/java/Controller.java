@@ -25,11 +25,15 @@ public class Controller implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		
 		JButton buttonOrigine = (JButton) e.getSource(); //recupera origine cliccata del bottone
-		List <String> listaButt = new ArrayList<String>();
+		List <String> listaButteInfo = new ArrayList<String>(); //questa lista conterrà info del server + origine bottone, che serve al model
+		List <String> datiDaServerGUI = this.view.txtInfoServer();
 		
-		listaButt.add(buttonOrigine.getName()); //stringa "avvio server"
+		listaButteInfo.add(buttonOrigine.getName()); //stringa "avvio server" //indice 0
+		for(String i : datiDaServerGUI ) {
+			listaButteInfo.add(i); //aggiunge alla lista le info di quella vecchia
+		}
 		
-		this.model.updateModel(listaButt);
+		this.model.updateModel(listaButteInfo);
 		
 	}
 	

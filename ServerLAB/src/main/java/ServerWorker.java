@@ -5,14 +5,16 @@ import java.net.*;
 public class ServerWorker extends Thread{
 
 	private Socket socket;
+	private ServerWorkerInterface swi;
 	
 	private ObjectInput in;
 	private ObjectOutput out;
 	
-	public ServerWorker(Socket socket) {
+	public ServerWorker(Socket socket, ServerWorkerInterface swi) {
 		
 		try {
 			this.socket = socket;
+			this.swi = swi;
 			this.out = new ObjectOutputStream(this.socket.getOutputStream());
 			this.in = new ObjectInputStream(this.socket.getInputStream());
 			
@@ -23,7 +25,17 @@ public class ServerWorker extends Thread{
 	
 	//ereditato dalla classe thread --> metodo che gestisce le task del client
 	public void run() {
+		String inputClient;
 		
+		while(true) {
+			try {
+				inputClient = (String) this.in.readObject();
+				
+				
+			} catch (ClassNotFoundException | IOException e) {
+				e.printStackTrace();
+			}
+		}
 		
 		
 	}
