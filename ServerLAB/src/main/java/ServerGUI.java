@@ -1,10 +1,11 @@
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
 import javax.swing.border.Border;
 
-//GESTIONE DEI COMPONENTI GRAFICI X AVVIO SERVER
+//PATTERN MVC --> GESTIONE DEI COMPONENTI GRAFICI X AVVIO SERVER
 public class ServerGUI extends JFrame implements ViewInterface{
 	private static final long serialVersionUID = 1L;
 	
@@ -221,13 +222,23 @@ public class ServerGUI extends JFrame implements ViewInterface{
 	public JButton retButtonSpegni() {
 		return this.buttonSpegnimento;
 	}
+	
+	public String retPsw() {
+		char[] charPassword = txtPsw.getPassword();
+		String password = String.valueOf(charPassword);
+		return password;
+	}
+	
 
 	@Override
 	public List<String> txtInfoServer() {
-		
-		return null;
+		List<String> datiServer = new ArrayList<String>();
+		datiServer.add(this.txtUsername.getText());
+		datiServer.add(this.retPsw());
+		datiServer.add(this.txtHost.getText());
+		datiServer.add(this.txtPorta.getText());
+		datiServer.add(this.txtNomeDB.getText());
+		return datiServer;
 	}
-
-	
 
 }
