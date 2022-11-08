@@ -26,10 +26,30 @@ public class Proxy implements ServerInterface{
 	
 	
 	
-	public int registraCentroVaccinale(String nome, String qualificatore, String indirizzo, String numeroCivico,
-			String comune, String provincia, String cap, String tipologia) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int registraCentroVaccinale(String nome, String qualificatore, String indirizzo, String numeroCivico, String comune, String provincia, String cap, String tipologia) {
+		Integer res = 0; //segnale restituito dal server con callBack
+		
+		try {
+			
+			this.out.writeObject("registraCentro");
+			this.out.writeObject(nome);
+			this.out.writeObject(qualificatore);
+			this.out.writeObject(indirizzo);
+			this.out.writeObject(numeroCivico);
+			this.out.writeObject(comune);
+			this.out.writeObject(provincia);
+			this.out.writeObject(cap);
+			this.out.writeObject(tipologia);
+			
+			res = (Integer) this.in.readObject(); //ascolta risposta da server
+			
+		} catch (IOException e) {
+			System.err.println("Proxy: problemi nell'acquisizione: " + e.toString());
+		} catch (ClassNotFoundException e) {
+			System.err.println("Proxy: problemi con salvataggio: " + e.toString());
+		}
+		
+		return res.intValue(); //se maggiore di zero aggiunto, se = o < no perchè gia esiste
 	}
 
 	public int registraVaccinato(String nomeCentro, String nome, String cognome, String codiceFiscale,

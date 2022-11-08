@@ -169,7 +169,7 @@ public class ControllerImpl implements ActionListener{
 			dati = null;
 		}
 		
-		m.updateModel(source, null); //elabora dati sul bottone d'origine
+		m.updateModel(source, dati); //elabora dati sul bottone d'origine
 		
 	}
 	

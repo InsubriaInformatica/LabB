@@ -1,5 +1,6 @@
 import java.io.*;
 import java.net.*;
+import java.sql.SQLException;
 
 //classe THREAD che svolge task client
 public class ServerWorker extends Thread{
@@ -32,9 +33,26 @@ public class ServerWorker extends Thread{
 			try {
 				inputClient = (String) this.in.readObject();
 				
+				if(inputClient.equals("registraCentro")) {
+					String nome = (String) this.in.readObject();
+					String qualificatore = (String) this.in.readObject();
+					String indirizzo = (String) this.in.readObject();
+					String numeroCivico = (String) this.in.readObject();
+					String comune = (String) this.in.readObject();
+					String provincia = (String) this.in.readObject();
+					String cap = (String) this.in.readObject();
+					String tipologia = (String) this.in.readObject();
+					
+					//chiamata il metodo per eseguire query
+					int esito = this.swi.registraCentroVaccinale(nome, qualificatore, indirizzo, numeroCivico, comune, provincia, cap, tipologia);
+					
+					this.out.writeObject(esito); //comunica al client esito
+				}
 				
 			} catch (ClassNotFoundException | IOException e) {
-				e.printStackTrace();
+				System.err.println("THREAD: problemi invio dato: " + e.toString());
+			} catch (SQLException e) {
+				System.err.println("THREAD: query non eseguita: " + e.toString());
 			}
 		}
 		
