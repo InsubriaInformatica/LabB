@@ -16,7 +16,7 @@ public class ModelImpl implements ModelInterface{
 		this.v = v; //instanzia view per inviare dati da mostrare 
 	}
 	
-	//metodo utile per accettare ed avviare il server thread che si occuperano di lavorare per il client
+	//metodo utile per ACCETTARE ed AVVIARE il server thread che si occuperano di lavorare per il client
 	public void avvioServer(Object dati) {
 		try {
 				
@@ -31,10 +31,16 @@ public class ModelImpl implements ModelInterface{
 				
 		} catch (IOException e) {
 			e.printStackTrace();
-			System.out.println("MODEL: Server non avviato: " + e.toString());
+			System.err.println("MODEL: Server non avviato: " + e.toString());
 		} 
 	}
-
+	
+	
+	public void spegniServer() {
+	
+		
+	}
+	
 	
 	public void updateModel(Object dati) {
 		
@@ -47,6 +53,7 @@ public class ModelImpl implements ModelInterface{
 		}
 		
 		this.v.updateView(dati); //aggiorna view in base all'elaborazione
+		
 		
 	}
 

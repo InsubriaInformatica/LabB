@@ -4,5 +4,7 @@ public interface ModelInterface {
 	public void updateModel(Object dati); //aggiorna il model in base all'evento generato
 	
 	public void avvioServer(Object dati); //contiene dati per avvio del server
+	
+	public void spegniServer(); //spegne server
 
 }

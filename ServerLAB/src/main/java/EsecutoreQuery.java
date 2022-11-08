@@ -16,7 +16,7 @@ public class EsecutoreQuery implements SkeletonInterface{
 			this.istruzione = (Statement) connessione.createStatement(); //statement per eseguire query
 			
 		} catch (SQLException e) {
-			System.out.println("ESECUTORE QUERY: connessione al DB non riuscita " + e.toString());
+			System.err.println("ESECUTORE QUERY: connessione al DB non riuscita " + e.toString());
 		} 
 	}
 	
