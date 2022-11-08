@@ -21,7 +21,7 @@ public class ModelImpl implements ModelInterface{
 		try {
 				
 			theServerSocket = new ServerSocket(ModelImpl.PORT); //porta di ascolto 
-			System.out.println("Server Started");
+			System.out.println("Server Started... waiting connection");
 				
 			while(true) {
 				socket = theServerSocket.accept(); //attende connessione --> ritorna oggetto socket quando si connette
