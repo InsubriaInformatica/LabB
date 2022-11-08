@@ -7,7 +7,7 @@ public class ModelImpl implements ModelInterface{
 	public static int PORT = 8080;
 	
 	ViewInterface v;
-	ServerWorkerInterface swi;
+	SkeletonInterface swi;
 	ServerSocket theServerSocket;
 	Socket socket;
 	

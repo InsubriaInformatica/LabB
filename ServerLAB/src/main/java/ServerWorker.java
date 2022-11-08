@@ -1,16 +1,17 @@
 import java.io.*;
 import java.net.*;
 
-//classe thread che svolge task client
+//classe THREAD che svolge task client
 public class ServerWorker extends Thread{
 
 	private Socket socket;
-	private ServerWorkerInterface swi;
+	private SkeletonInterface swi; //oggetto di comunicazione locale 
 	
 	private ObjectInput in;
 	private ObjectOutput out;
 	
-	public ServerWorker(Socket socket, ServerWorkerInterface swi) {
+	//COSTRUTTORE --> stabilisce buffer di comunicazione, prende il socket di connessione e lo skeleton per comunicare
+	public ServerWorker(Socket socket, SkeletonInterface swi) {
 		
 		try {
 			this.socket = socket;

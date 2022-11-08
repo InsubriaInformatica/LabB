@@ -1,8 +1,8 @@
 
 import java.sql.*;
 
-//RISORSA CONDIVISA CHE SI INTERFACCIERA' CON IL NOSTRO SERVER
-public class EsecutoreQuery implements ServerWorkerInterface{
+//RISORSA CONDIVISA CHE SI INTERFACCIERA' LOCALMENTE CON IL NOSTRO SKELETON e CON IL DB per eseguire query
+public class EsecutoreQuery implements SkeletonInterface{
 	
 	private Connection connessione;
 	private Statement istruzione;
