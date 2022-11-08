@@ -45,7 +45,7 @@ public class EsecutoreQuery implements SkeletonInterface{
 			
 			if(rs.next()==false) {
 				
-				String queryPerInserireIndirizzo = "INSERT INTO indirizzo VALUES ('"+ idIndirizzoDaAggiungere +"', '"+qualificatore+"', '"+ indirizzo +"', '"+ numeroCivico +"', '"+ provincia +"', '"+ Cap +"', '"+ comune +"');";
+				String queryPerInserireIndirizzo = "INSERT INTO indirizzo VALUES ('"+ idIndirizzoDaAggiungere +"', '"+qualificatore+"', '"+ indirizzo +"', '"+ numeroCivico +"', '"+ comune +"', '"+ Cap +"', '"+ provincia +"');";
 				brs = istruzione.executeUpdate(queryPerInserireIndirizzo);
 				String queryPerInserireCentro = "INSERT INTO centrivaccinali VALUES ('"+ nome +"', '"+ tipologia +"', '"+ idIndirizzoDaAggiungere +"');";
 				brs = istruzione.executeUpdate(queryPerInserireCentro);
