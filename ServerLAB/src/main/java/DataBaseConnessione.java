@@ -17,7 +17,7 @@ public class DataBaseConnessione {
 	// PASSWORD DATABASE
 	// Lele: Sirmione2020!
 	// Aldo: admin
-	private static String password = "admin"; 
+	private static String password; 
 	
 	private static Connection connection = null;
 	private static Statement statement = null;
