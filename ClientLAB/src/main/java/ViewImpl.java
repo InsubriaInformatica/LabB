@@ -298,7 +298,19 @@ public class ViewImpl extends JFrame implements View{
 		String buttonOrigine = (String) source;
 		
 		//IMPLEMENTA FUNZIONALITA ERRORE
+		if(flagErrore == true) {
+			String errore = "";
+			List <String> listaErrori = (List<String>) dati;
+			
+			for(String e: listaErrori) {
+				errore = errore + "\n" + e;
+			}
+			
+			JOptionPane.showMessageDialog(null, errore);
+		}
 		
+		else {
+			
 		if(buttonOrigine.equals("INDIETRO")) {
 			
 			if(this.viewAttuale.equals("viewOperatore") || this.viewAttuale.equals("viewCittadino")) {
@@ -514,6 +526,7 @@ public class ViewImpl extends JFrame implements View{
 			mostraViewVisualizzaEA(/*andrebbe passato un valore per visualizzare dati*/); //va alla schermata di visualizzazione dell'eventi avversi
 		}
 		
+		}
 		
 	}
 	

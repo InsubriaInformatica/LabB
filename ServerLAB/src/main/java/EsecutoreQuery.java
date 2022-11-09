@@ -22,18 +22,20 @@ public class EsecutoreQuery implements SkeletonInterface{
 	
 
 
-	//registra nel database il centro vaccinale
+	//registra nel database il centro vaccinale --> METODI SYCHORNIZED, si accede ai dati in modo concorrente
 	public synchronized int registraCentroVaccinale(String nome, String qualificatore, String indirizzo, String numeroCivico, String comune, String provincia, String Cap, String tipologia) throws SQLException {
 		int ret = 0;
-		String queryPerIdMax = "SELECT i.id  FROM indirizzo i WHERE i.id >=ALL(SELECT id FROM indirizzo)";
+		String queryUltimoID = "SELECT i.id  FROM indirizzo i WHERE i.id >=ALL(SELECT id FROM indirizzo)";
+		
 		ResultSet rs;
 		int brs = 0;
-		rs = istruzione.executeQuery(queryPerIdMax);
 		
-		int idIndirizzoDaAggiungere = 0;
+		rs = istruzione.executeQuery(queryUltimoID);
+		
+		int idIndirizzoNuovo = 0;
 		
 		while(rs.next()) {
-			idIndirizzoDaAggiungere = rs.getInt("id") + 1;
+			idIndirizzoNuovo = rs.getInt("id") + 1; //aggioramento id indirizzo progressivo
 		}
 		
 		String queryPerVerificareEsistenzaCentro = "SELECT nome FROM centrivaccinali WHERE nome = '"+ nome +"';";
@@ -45,9 +47,9 @@ public class EsecutoreQuery implements SkeletonInterface{
 			
 			if(rs.next()==false) {
 				
-				String queryPerInserireIndirizzo = "INSERT INTO indirizzo VALUES ('"+ idIndirizzoDaAggiungere +"', '"+qualificatore+"', '"+ indirizzo +"', '"+ numeroCivico +"', '"+ comune +"', '"+ Cap +"', '"+ provincia +"');";
+				String queryPerInserireIndirizzo = "INSERT INTO indirizzo VALUES ('"+ idIndirizzoNuovo +"', '"+qualificatore+"', '"+ indirizzo +"', '"+ numeroCivico +"', '"+ comune +"', '"+ Cap +"', '"+ provincia +"');";
 				brs = istruzione.executeUpdate(queryPerInserireIndirizzo);
-				String queryPerInserireCentro = "INSERT INTO centrivaccinali VALUES ('"+ nome +"', '"+ tipologia +"', '"+ idIndirizzoDaAggiungere +"');";
+				String queryPerInserireCentro = "INSERT INTO centrivaccinali VALUES ('"+ nome +"', '"+ tipologia +"', '"+ idIndirizzoNuovo +"');";
 				brs = istruzione.executeUpdate(queryPerInserireCentro);
 			}
 			else {
@@ -56,11 +58,12 @@ public class EsecutoreQuery implements SkeletonInterface{
 				brs = istruzione.executeUpdate(queryPerInserireCentro);
 			}
 			
-			ret = 1;
+			ret = 1; //operazione e buon fine
 		}
 		else {
-			ret = -1; 
+			ret = -1; //operazione non a buon fine
 		}
+		
 		return ret;
 	}
 

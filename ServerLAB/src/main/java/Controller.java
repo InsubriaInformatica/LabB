@@ -19,23 +19,34 @@ public class Controller implements ActionListener{
 		//cattura e aggiunge ad eventi bottone accendi server
 		JButton buttonAvvia = this.view.retButtonAvvia();
 		buttonAvvia.addActionListener(this);	
+		
+		JButton buttonSpegni = this.view.retButtonSpegni();
+		buttonSpegni.addActionListener(this);
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
 		JButton buttonOrigine = (JButton) e.getSource(); //recupera origine cliccata del bottone
-	
-			
+		String click = buttonOrigine.getName();
+		
 		List <String> listaButteInfo = new ArrayList<String>(); //questa lista conterrà info del server + origine bottone, che serve al model
-		List <String> datiDaServerGUI = this.view.txtInfoServer();
-			
-		listaButteInfo.add(buttonOrigine.getName()); //stringa "avvio server" //indice 0
-			
-		for(String i : datiDaServerGUI ) {
-				listaButteInfo.add(i); //aggiunge alla lista le info di quella vecchia
+	
+		if(click.equals("AVVIO SERVER")) {
+			List <String> datiDaServerGUI = this.view.txtInfoServer();
+				
+			listaButteInfo.add(buttonOrigine.getName()); //stringa "avvio server" //indice 0
+				
+			for(String i : datiDaServerGUI ) {
+					listaButteInfo.add(i); //aggiunge alla lista le info di quella vecchia
+			}
 		}
-			
+		
+		if(click.equals("SPEGNI SERVER")) {
+			System.out.println("spengo");
+			listaButteInfo.add(buttonOrigine.getName()); //stringa "spegni server" //indice 0
+		}
+		
 		this.model.updateModel(listaButteInfo);
 	}
 	

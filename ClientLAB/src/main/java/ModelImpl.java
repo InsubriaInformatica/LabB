@@ -1,5 +1,6 @@
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
 import java.util.List;
 
 //gestisce la logica di funzionamento dell'applicazione
@@ -85,24 +86,20 @@ public class ModelImpl implements Model{
 	
 	public Object registraCentroVaccinale(List<String> datiCentroVaccinale) {
 		
-		Object ret = null;
+		List<String> ret = new ArrayList <String>();
+	
 		
-		/*boolean verificaNomeCentro = false;
-		boolean verificaNomeIndirizzo = false;
-		boolean verificaNCivico = false;
-		boolean verificaCaratteriNCivico = false;
-		boolean verificaComune = false;
-		boolean verificaProvincia = false;
-		boolean verificaDatiProvinciaLunghezza = false;
-		boolean checkDatiProvinciaCaratteri = false;
-		boolean checkCAP = false;
-		boolean checkDatiCap = false;*/
+		if(controlloDatiNuovoCentro(datiCentroVaccinale)) {
+			this.proxy.registraCentroVaccinale(datiCentroVaccinale.get(0), datiCentroVaccinale.get(1), datiCentroVaccinale.get(2), datiCentroVaccinale.get(3), datiCentroVaccinale.get(4), datiCentroVaccinale.get(5), datiCentroVaccinale.get(6), datiCentroVaccinale.get(7));
+			ret = datiCentroVaccinale;
+		}
 		
-		//ret = controlloDatiNuovoCentro(datiCentroVaccinale); //controlla dati inseriti
-		
-		
-		this.proxy.registraCentroVaccinale(datiCentroVaccinale.get(0), datiCentroVaccinale.get(1), datiCentroVaccinale.get(2), datiCentroVaccinale.get(3), datiCentroVaccinale.get(4), datiCentroVaccinale.get(5), datiCentroVaccinale.get(6), datiCentroVaccinale.get(7));
-		ret = datiCentroVaccinale;
+		else {
+			if(datiCentroVaccinale.get(0).equals("") || datiCentroVaccinale.get(2).equals("") || datiCentroVaccinale.get(3).equals("") || datiCentroVaccinale.get(4).equals("") || datiCentroVaccinale.get(5).equals("") || datiCentroVaccinale.get(6).equals("")){
+				ret.add("ERRORE");
+				ret.add("INSERISCI TUTTI I CAMPI OBBLIGATORI (*)");
+			}
+		}
 		
 		return ret;
 		
@@ -111,13 +108,17 @@ public class ModelImpl implements Model{
 	public void updateModel(String source, Object dati) {
 		
 		String button = source;
-		Object datiPerModel = null;
+		List <String> datiPerModel = null;
 		this.flag = false;
 		
 		if(button.equals("REGISTRA CENTRO")) {
 			List<String> datiCentro = (List<String>) dati;
 			
-			datiPerModel = registraCentroVaccinale(datiCentro);
+			datiPerModel = (List<String>) registraCentroVaccinale(datiCentro);
+			
+			if(datiPerModel.get(0).equals("ERRORE")){
+				this.flag = true;
+			}
 		}
 		
 		this.v.updateView(button, datiPerModel, this.flag); //aggiorna view in base all'elaborazione
