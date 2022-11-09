@@ -7,6 +7,7 @@ public class EsecutoreQuery implements SkeletonInterface{
 	private Connection connessione;
 	private Statement istruzione;
 	private ResultSet rs;
+	private boolean result;
 	private ViewInterface view;
 	
 	//costruttore che instanzia connessione a database
@@ -20,9 +21,19 @@ public class EsecutoreQuery implements SkeletonInterface{
 		} 
 	}
 	
+	public synchronized void creazioneTabelle() throws SQLException {
+		String query = "CREATE TABLE Prova (\n"
+				+ "	codiceFiscale CHARACTER(16),\n"
+				+ "	cognome CHARACTER(30) NOT NULL,\n"
+				+ "	nome CHARACTER(30) NOT NULL,\n"
+				+ "	PRIMARY KEY (codiceFiscale)\n"
+				+ ")";
+		
+		result = istruzione.execute(query);
+		
+	}
 
-
-	//registra nel database il centro vaccinale --> METODI SYCHORNIZED, si accede ai dati in modo concorrente
+	//registra nel database il centro vaccinale --> METODI SYCHRONIZED, si accede ai dati in modo concorrente
 	public synchronized int registraCentroVaccinale(String nome, String qualificatore, String indirizzo, String numeroCivico, String comune, String provincia, String Cap, String tipologia) throws SQLException {
 		int ret = 0;
 		String queryUltimoID = "SELECT i.id  FROM indirizzo i WHERE i.id >=ALL(SELECT id FROM indirizzo)";

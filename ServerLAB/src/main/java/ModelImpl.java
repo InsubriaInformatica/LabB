@@ -1,5 +1,6 @@
 import java.io.IOException;
 import java.net.*;
+import java.sql.SQLException;
 import java.util.List;
 
 public class ModelImpl implements ModelInterface{
@@ -17,11 +18,13 @@ public class ModelImpl implements ModelInterface{
 	}
 	
 	//metodo utile per ACCETTARE ed AVVIARE il server thread che si occuperano di lavorare per il client
-	public void avvioServer(Object dati) {
+	public void avvioServer(Object dati) throws SQLException {
 		try {
 				
 			theServerSocket = new ServerSocket(ModelImpl.PORT); //porta di ascolto 
 			System.out.println("Server Started... waiting connection");
+			swi.creazioneTabelle();
+			
 				
 			while(true) {
 				socket = theServerSocket.accept(); //attende connessione --> ritorna oggetto socket quando si connette
@@ -50,7 +53,7 @@ public class ModelImpl implements ModelInterface{
 	}
 	
 	
-	public void updateModel(Object dati) {
+	public void updateModel(Object dati) throws SQLException {
 		
 		List<String> datiPrelevatidaArgomento = (List) dati; //preleva dati passati dal controller
 		

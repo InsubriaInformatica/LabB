@@ -1,5 +1,6 @@
 
 import java.awt.event.*;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
@@ -47,7 +48,12 @@ public class Controller implements ActionListener{
 			listaButteInfo.add(buttonOrigine.getName()); //stringa "spegni server" //indice 0
 		}
 		
-		this.model.updateModel(listaButteInfo);
+		try {
+			this.model.updateModel(listaButteInfo);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	}
 	
 }
