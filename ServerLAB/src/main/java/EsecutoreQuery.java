@@ -22,14 +22,93 @@ public class EsecutoreQuery implements SkeletonInterface{
 	}
 	
 	public synchronized void creazioneTabelle() throws SQLException {
-		String query = "CREATE TABLE Prova (\n"
+		String query = "CREATE TABLE Cittadini (\n"
 				+ "	codiceFiscale CHARACTER(16),\n"
 				+ "	cognome CHARACTER(30) NOT NULL,\n"
 				+ "	nome CHARACTER(30) NOT NULL,\n"
 				+ "	PRIMARY KEY (codiceFiscale)\n"
 				+ ")";
+		try {
+			result = istruzione.execute(query);
+			System.out.println("Tabella Cittadini creata con successo!");
+		} catch (Exception e) {
+			System.out.println("La tabella cittadini esiste già!");
+		}
 		
-		result = istruzione.execute(query);
+		String query1 = "CREATE TABLE Indirizzo (\n"
+				+ "	id NUMERIC,		\n"
+				+ "	qualificatore CHARACTER(6) NOT NULL CHECK(qualificatore IN ('Via', 'Viale', 'Piazza')),\n"
+				+ "	nome CHARACTER(40) NOT NULL, \n"
+				+ "	numeroCivico CHARACTER(6) NOT NULL,\n"
+				+ "	comune CHARACTER(30) NOT NULL,\n"
+				+ "	cap NUMERIC NOT NULL CHECK(cap BETWEEN 0 AND 99999),\n"
+				+ "	siglaProvincia CHARACTER(2) NOT NULL, \n"
+				+ "	PRIMARY KEY (id)\n"
+				+ ")";
+		try {
+			result = istruzione.execute(query1);
+			System.out.println("Tabella Indirizzo creata con successo!");
+		} catch (Exception e) {
+			System.out.println("La tabella Indirizzo esiste già!");
+		}
+		
+		String query2 = "CREATE TABLE CentriVaccinali (\n"
+				+ "	nome CHARACTER(40),\n"
+				+ "	tipologia CHARACTER(11) NOT NULL CHECK(tipologia IN ('Ospedaliero', 'Hub', 'Aziendale')),\n"
+				+ "	idIndirizzo NUMERIC NOT NULL REFERENCES Indirizzo(id),\n"
+				+ "	PRIMARY KEY (nome)\n"
+				+ ")";
+		try {
+			result = istruzione.execute(query2);
+			System.out.println("Tabella centrivaccinali creata con successo!");
+		} catch (Exception e) {
+			System.out.println("La tabella centrivaccinali esiste già!");
+		}
+		
+		String query3 = "CREATE TABLE Vaccinazione (\n"
+				+ "	id SMALLINT,\n"
+				+ "	codiceFiscale CHARACTER(16) REFERENCES Cittadini(codiceFiscale),\n"
+				+ "	data DATE NOT NULL, \n"
+				+ "	tipoVaccino CHARACTER(11) NOT NULL CHECK(tipoVaccino IN ('Pfizer', 'Moderna', 'J&J', 'AstraZeneca')),\n"
+				+ "	nomeCentro CHARACTER(40) NOT NULL REFERENCES CentriVaccinali(nome),\n"
+				+ "	PRIMARY KEY (id)\n"
+				+ ")";
+		try {
+			result = istruzione.execute(query3);
+			System.out.println("Tabella Vaccinazione creata con successo!");
+		} catch (Exception e) {
+			System.out.println("La tabella Vaccinazione esiste già!");
+		}
+		
+		String query4 = "CREATE TABLE Cittadini_Registrati (\n"
+				+ "	codiceFiscale CHARACTER(16) REFERENCES Cittadini(codiceFiscale),\n"
+				+ "	username CHARACTER(50) NOT NULL, \n"
+				+ "	password CHARACTER(50) NOT NULL,\n"
+				+ "	email CHARACTER(60) NOT NULL,\n"
+				+ "	idVaccinazione SMALLINT UNIQUE REFERENCES Vaccinazione(id),\n"
+				+ "	PRIMARY KEY(codiceFiscale)\n"
+				+ ")";
+		try {
+			result = istruzione.execute(query4);
+			System.out.println("Tabella Cittadini_Registrati creata con successo!");
+		} catch (Exception e) {
+			System.out.println("La tabella Cittadini_Registrati esiste già!");
+		}
+		
+		String query5 = "CREATE TABLE Eventi_Avversi (\n"
+				+ "	codiceFiscale CHARACTER(16) REFERENCES Cittadini_Registrati(codiceFiscale),\n"
+				+ "	evento CHARACTER(30),\n"
+				+ "	severita NUMERIC CHECK(severita BETWEEN 1 AND 5),\n"
+				+ "	note CHARACTER(256),\n"
+				+ "	nomeCentro CHARACTER(40) REFERENCES CentriVaccinali(nome), \n"
+				+ "	PRIMARY KEY (codiceFiscale, evento)\n"
+				+ ")";
+		try {
+			result = istruzione.execute(query5);
+			System.out.println("Tabella Eventi_Avversi creata con successo!");
+		} catch (Exception e) {
+			System.out.println("La tabella Eventi_Avversi esiste già!");
+		}
 		
 	}
 
