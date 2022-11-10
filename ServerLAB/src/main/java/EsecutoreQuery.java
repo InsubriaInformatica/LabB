@@ -21,7 +21,11 @@ public class EsecutoreQuery implements SkeletonInterface{
 		} 
 	}
 	
+	
 	public synchronized void creazioneTabelle() throws SQLException {
+		
+		System.out.println("ESECUTORE QUERY: Inizializzo DataBase");
+		
 		String query = "CREATE TABLE Cittadini (\n"
 				+ "	codiceFiscale CHARACTER(16),\n"
 				+ "	cognome CHARACTER(30) NOT NULL,\n"
@@ -30,9 +34,9 @@ public class EsecutoreQuery implements SkeletonInterface{
 				+ ")";
 		try {
 			result = istruzione.execute(query);
-			System.out.println("Tabella Cittadini creata con successo!");
+			System.out.println("ESECUTORE QUERY: Tabella Cittadini creata con successo!");
 		} catch (Exception e) {
-			System.out.println("La tabella cittadini esiste già!");
+			System.out.println("ESECUTORE QUERY: La tabella cittadini esiste già!");
 		}
 		
 		String query1 = "CREATE TABLE Indirizzo (\n"
@@ -47,9 +51,9 @@ public class EsecutoreQuery implements SkeletonInterface{
 				+ ")";
 		try {
 			result = istruzione.execute(query1);
-			System.out.println("Tabella Indirizzo creata con successo!");
+			System.out.println("ESECUTORE QUERY: Tabella Indirizzo creata con successo!");
 		} catch (Exception e) {
-			System.out.println("La tabella Indirizzo esiste già!");
+			System.out.println("ESECUTORE QUERY: La tabella Indirizzo esiste già!");
 		}
 		
 		String query2 = "CREATE TABLE CentriVaccinali (\n"
@@ -60,9 +64,9 @@ public class EsecutoreQuery implements SkeletonInterface{
 				+ ")";
 		try {
 			result = istruzione.execute(query2);
-			System.out.println("Tabella centrivaccinali creata con successo!");
+			System.out.println("ESECUTORE QUERY: Tabella centrivaccinali creata con successo!");
 		} catch (Exception e) {
-			System.out.println("La tabella centrivaccinali esiste già!");
+			System.out.println("ESECUTORE QUERY: La tabella centrivaccinali esiste già!");
 		}
 		
 		String query3 = "CREATE TABLE Vaccinazione (\n"
@@ -75,9 +79,9 @@ public class EsecutoreQuery implements SkeletonInterface{
 				+ ")";
 		try {
 			result = istruzione.execute(query3);
-			System.out.println("Tabella Vaccinazione creata con successo!");
+			System.out.println("ESECUTORE QUERY: Tabella Vaccinazione creata con successo!");
 		} catch (Exception e) {
-			System.out.println("La tabella Vaccinazione esiste già!");
+			System.out.println("ESECUTORE QUERY: La tabella Vaccinazione esiste già!");
 		}
 		
 		String query4 = "CREATE TABLE Cittadini_Registrati (\n"
@@ -90,9 +94,9 @@ public class EsecutoreQuery implements SkeletonInterface{
 				+ ")";
 		try {
 			result = istruzione.execute(query4);
-			System.out.println("Tabella Cittadini_Registrati creata con successo!");
+			System.out.println("ESECUTORE QUERY: Tabella Cittadini_Registrati creata con successo!");
 		} catch (Exception e) {
-			System.out.println("La tabella Cittadini_Registrati esiste già!");
+			System.out.println("ESECUTORE QUERY: La tabella Cittadini_Registrati esiste già!");
 		}
 		
 		String query5 = "CREATE TABLE Eventi_Avversi (\n"
@@ -105,9 +109,9 @@ public class EsecutoreQuery implements SkeletonInterface{
 				+ ")";
 		try {
 			result = istruzione.execute(query5);
-			System.out.println("Tabella Eventi_Avversi creata con successo!");
+			System.out.println("ESECUTORE QUERY: Tabella Eventi_Avversi creata con successo!");
 		} catch (Exception e) {
-			System.out.println("La tabella Eventi_Avversi esiste già!");
+			System.out.println("ESECUTORE QUERY: La tabella Eventi_Avversi esiste già!");
 		}
 		
 	}

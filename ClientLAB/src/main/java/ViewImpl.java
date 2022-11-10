@@ -292,21 +292,23 @@ public class ViewImpl extends JFrame implements View{
 	//metodo che riceve dati del model e aggiorna in base al componente che ha generato evento
 	//source --> valore riferito al componente origine che ha generato evento
 	//dati --> con cui aggiornare componenti view
-	//flagerrore --> booleano per indicare se ci sono errori
+	//flagerrore --> booleano per indicare se ci sono errori --> li mostra con JPane
 	public void updateView(Object source, Object dati, boolean flagErrore) {
 		
 		String buttonOrigine = (String) source;
 		
-		//IMPLEMENTA FUNZIONALITA ERRORE
+		//IMPLEMENTA FUNZIONALITA ERRORE, nel caso i campi violano i requisiti
 		if(flagErrore == true) {
 			String errore = "";
 			List <String> listaErrori = (List<String>) dati;
 			
+			//ciclo che mostra gli errori 
 			for(String e: listaErrori) {
-				errore = errore + "\n" + e;
+				errore = errore + "\n" + e + "\n";
 			}
 			
-			JOptionPane.showMessageDialog(null, errore);
+			//mostra con schermata popup
+			JOptionPane.showMessageDialog(null, errore, "VACCINIamo", JOptionPane.ERROR_MESSAGE);
 		}
 		
 		else {

@@ -95,15 +95,52 @@ public class ModelImpl implements Model{
 		}
 		
 		else {
+			
+			ret.add("ERRORE:");
+			
+			//campi obbligatori (*)
 			if(datiCentroVaccinale.get(0).equals("") || datiCentroVaccinale.get(2).equals("") || datiCentroVaccinale.get(3).equals("") || datiCentroVaccinale.get(4).equals("") || datiCentroVaccinale.get(5).equals("") || datiCentroVaccinale.get(6).equals("")){
-				ret.add("ERRORE");
-				ret.add("INSERISCI TUTTI I CAMPI OBBLIGATORI (*)");
+				ret.add("-INSERISCI TUTTI I CAMPI OBBLIGATORI");
 			}
+			
+			//lunghezza sigla provincia 2
+			if(datiCentroVaccinale.get(5).length() != 2) {
+				ret.add("-ATTENZIONE: PROVINCIA DI TIPO: 'VA'");
+			}
+			
+			
+			//provincia deve contenere solo lettere 
+			for(int i=0; i<datiCentroVaccinale.get(5).length(); i++) {
+				if((!('a' <= datiCentroVaccinale.get(5).charAt(i) && datiCentroVaccinale.get(5).charAt(i) <= 'z')) && (!('A' <= datiCentroVaccinale.get(5).charAt(i) && datiCentroVaccinale.get(5).charAt(i) <= 'Z'))) {
+					ret.add("-PROVINCIA CON SOLO LETTERE");
+				}
+				
+				break;
+			}
+			
+			//cap lunghezza 5
+			if(datiCentroVaccinale.get(6).length() != 5) {
+				//ret.add("ERRORE:");
+				ret.add("-IL CAP DEVE CONTENERE 5 CIFRE");
+			}
+			
+			//cap deve avere solo caratteri numerici
+			for(int i=0; i<datiCentroVaccinale.get(6).length(); i++) {
+				if(!('0' <= datiCentroVaccinale.get(6).charAt(i) && datiCentroVaccinale.get(6).charAt(i) <= '9')) {
+					//ret.add("ERRORE:");
+					ret.add("-IL CAP DEVE CONTENERE SOLO CIFRE");
+				}
+				break;
+			}
+		
 		}
 		
 		return ret;
 		
 	}
+	
+	
+	
 	
 	public void updateModel(String source, Object dati) {
 		
@@ -116,7 +153,7 @@ public class ModelImpl implements Model{
 			
 			datiPerModel = (List<String>) registraCentroVaccinale(datiCentro);
 			
-			if(datiPerModel.get(0).equals("ERRORE")){
+			if(datiPerModel.get(0).equals("ERRORE:")){
 				this.flag = true;
 			}
 		}
