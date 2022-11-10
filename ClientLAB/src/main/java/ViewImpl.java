@@ -183,16 +183,16 @@ public class ViewImpl extends JFrame implements View{
 		this.viewAttuale = "registraNuovoCentro";
 	}
 	
-	private void mostraViewRegistraVaccinato(/*List<String> elencoCentri */) {
+	private void mostraViewRegistraVaccinato(List<String> elencoCentri) {
 		
 		this.setVisible(false);
 		this.getContentPane().removeAll();
 		this.getBack().setVisible(true); //mostra tasto indietro
 		this.viewRegistraVaccinato.resetComboBox();
 		//inserisce centri nella combobox
-		/*for(String centri : elencoCentri) {
+		for(String centri : elencoCentri) {
 			this.viewRegistraVaccinato.aggiungiCentroComboBox(centri);
-		}*/
+		}
 		this.viewRegistraCentro.pulisciView(); //pulisce tutte caselle
 		this.getContentPane().add(this.viewRegistraVaccinato.retIntestazione(), BorderLayout.PAGE_START);
 		this.getContentPane().add(this.viewRegistraVaccinato.retContenitore(), BorderLayout.CENTER);
@@ -360,16 +360,16 @@ public class ViewImpl extends JFrame implements View{
 		}
 		
 		if(buttonOrigine.equals("REGISTRA NUOVO VACCINATO")) {
-			//List <String> datiMandati = (List <String> dati): per visualizzare elenco centri
-			mostraViewRegistraVaccinato(/*datiMandati*/); //va alla schermata registrazione del vaccinato
+			List <String> datiMandati = (List <String>) dati; // per visualizzare elenco centri
+			mostraViewRegistraVaccinato(datiMandati); //va alla schermata registrazione del vaccinato
 		}
 		
 		//conferma inserimento di un nuovo vaccinato presso il centro vaccinale
 		if(buttonOrigine.equals("REGISTRA VACCINATO")) {
 			List <String> vaccinato = (List <String>) dati; //dati dal model
 			
-			String nomeVaccinato = vaccinato.get(1);
-			String idVaccinato = vaccinato.get(2);
+			String nomeVaccinato = vaccinato.get(0);
+			String idVaccinato = vaccinato.get(1);
 			
 			JOptionPane.showMessageDialog(null, "Nuovo vaccinato " + nomeVaccinato + " con ID " + idVaccinato + " inserito");
 		}

@@ -287,15 +287,15 @@ public class RegistraCentroGUI {
 		String qualificatore = " " ;
 		
 		if(radioButtonVia.isSelected()) {
-			qualificatore = "via";
+			qualificatore = "Via";
 		}
 		
 		else if(radioButtonViale.isSelected()) {
-			qualificatore = "viale";
+			qualificatore = "Viale";
 		}
 		
 		else if(radioButtonPiazza.isSelected()) {
-			qualificatore = "piazza";
+			qualificatore = "Piazza";
 		}
 				
 		return qualificatore;

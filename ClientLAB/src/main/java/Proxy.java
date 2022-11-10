@@ -119,9 +119,21 @@ public class Proxy implements ServerInterface{
 		return false;
 	}
 
+	//ritorna elenco centri vaccinali registrati
 	public List<String> retElencoCentriVaccinali() {
-		// TODO Auto-generated method stub
-		return null;
+		List<String> res = null;
+		
+		try {
+			this.out.writeObject("elencoCentriVaccinali");
+			res = (List<String>) this.in.readObject();
+			
+		} catch (IOException e) {
+			System.err.println("Proxy: problemi nell'acquisizione: " + e.toString());
+		} catch (ClassNotFoundException e) {
+			System.err.println("Proxy: problemi nell'acquisizione: " + e.toString());
+		}
+		
+		return res;
 	}
 
 	public List<String> retElencoEventiAvversi() {
@@ -133,7 +145,20 @@ public class Proxy implements ServerInterface{
 
 	public List<String> IdUnivoco(String codiceFiscale) {
 		
-		return null;
+		List<String> res = null;
+		
+		try {
+			this.out.writeObject("retIdUnivoco");
+			this.out.writeObject(codiceFiscale);
+			
+			res = (List<String>) this.in.readObject(); //ritorna nome e idUnivoco mandato dal server
+			
+		} catch (IOException e) {
+			System.err.println("Proxy: problemi nell'acquisizione: " + e.toString());
+		} catch (ClassNotFoundException e) {
+			System.err.println("Proxy: problemi nell'acquisizione: " + e.toString());
+		}
+		return res;
 	}
 	
 	

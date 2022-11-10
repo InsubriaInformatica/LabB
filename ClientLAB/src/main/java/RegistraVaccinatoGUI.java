@@ -314,7 +314,7 @@ public class RegistraVaccinatoGUI {
 		}
 		
 		else if(radioButtonDoseN3.isSelected() ){
-			dose = "Terza o successiva";
+			dose = "Terza o Successiva";
 		}
 		
 		return dose;

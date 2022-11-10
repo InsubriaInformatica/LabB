@@ -1,5 +1,7 @@
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 //RISORSA CONDIVISA CHE SI INTERFACCIERA' LOCALMENTE CON IL NOSTRO SKELETON e CON IL DB per eseguire query
 public class EsecutoreQuery implements SkeletonInterface{
@@ -75,14 +77,14 @@ public class EsecutoreQuery implements SkeletonInterface{
 				+ "	data DATE NOT NULL, \n"
 				+ "	tipoVaccino CHARACTER(11) NOT NULL CHECK(tipoVaccino IN ('Pfizer', 'Moderna', 'J&J', 'AstraZeneca')),\n"
 				+ "	nomeCentro CHARACTER(40) NOT NULL REFERENCES CentriVaccinali(nome),\n"
+				+ "	nDosi CHARACTER(20) CHECK (nDosi IN ('Prima', 'Seconda', 'Terza o Successiva')),\n"
 				+ "	PRIMARY KEY (id)\n"
-				+ "	nDosi SMALLINT, NOT NULL CHECK (nDosi IN('Prima', 'Seconda', 'Terza o Successiva')\n" 
 				+ ")";
 		try {
 			result = istruzione.execute(query3);
 			System.out.println("ESECUTORE QUERY: Tabella Vaccinazione creata con successo!");
 		} catch (Exception e) {
-			System.out.println("ESECUTORE QUERY: La tabella Vaccinazione esiste già!");
+			System.out.println("ESECUTORE QUERY: La tabella Vaccinazione esiste già! " + e.toString() );
 		}
 		
 		String query4 = "CREATE TABLE Cittadini_Registrati (\n"
@@ -97,7 +99,7 @@ public class EsecutoreQuery implements SkeletonInterface{
 			result = istruzione.execute(query4);
 			System.out.println("ESECUTORE QUERY: Tabella Cittadini_Registrati creata con successo!");
 		} catch (Exception e) {
-			System.out.println("ESECUTORE QUERY: La tabella Cittadini_Registrati esiste già!");
+			System.out.println("ESECUTORE QUERY: La tabella Cittadini_Registrati esiste già! " + e.toString());
 		}
 		
 		String query5 = "CREATE TABLE Eventi_Avversi (\n"
@@ -112,7 +114,7 @@ public class EsecutoreQuery implements SkeletonInterface{
 			result = istruzione.execute(query5);
 			System.out.println("ESECUTORE QUERY: Tabella Eventi_Avversi creata con successo!");
 		} catch (Exception e) {
-			System.out.println("ESECUTORE QUERY: La tabella Eventi_Avversi esiste già!");
+			System.out.println("ESECUTORE QUERY: La tabella Eventi_Avversi esiste già! " + e.toString());
 		}
 		
 	}
@@ -163,11 +165,95 @@ public class EsecutoreQuery implements SkeletonInterface{
 	}
 
 
-	@Override
-	public int registraVaccinato(String nomeCentro, String nome, String cognome, String codiceFiscale,
-			String dataSomministrazione, String tipoVaccino, String nDosi) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
+	//metodo che permette di registrare un vaccinato nel DB
+	public synchronized int registraVaccinato(String nomeCentro, String nome, String cognome, String codiceFiscale,String dataSomministrazione, String tipoVaccino, String nDosi) throws SQLException {
+		int ret = 0;
+		
+		//cerca l'ultimo identificativo
+		String queryPerIdMax = "SELECT id FROM vaccinazione WHERE id >= ALL(SELECT id FROM vaccinazione)";
+		ResultSet rs = istruzione.executeQuery(queryPerIdMax);
+		int brs;
+		int idVacMax = 0;
+		
+		//genera identificativo univoco per il vaccinato
+		while(rs.next()) {
+			idVacMax = rs.getInt("id") + 1;
+		}
+		
+		String queryPerVerificareEsistenzaCittadino = "SELECT * FROM cittadini WHERE codicefiscale = '"+ codiceFiscale +"'";
+		rs = istruzione.executeQuery(queryPerVerificareEsistenzaCittadino);
+		
+		//se il cittadino non è nel DB
+		if(rs.next()==false) {
+			String queryPerVerificareVaccinato = "SELECT * FROM vaccinazione WHERE codiceFiscale = '"+ codiceFiscale +"'";
+			rs = istruzione.executeQuery(queryPerVerificareVaccinato);
+			
+			//se non è nella tabella dei vaccinati, lo aggiungo sia nei cittadini che nei vaccinati
+			if(rs.next()==false) {
+				System.out.println("ESECUTORE QUERY: aggiungo: " + nomeCentro + " " + nome + " " + cognome + " " + codiceFiscale + " " + dataSomministrazione + " " + tipoVaccino + " " + nDosi);
+				String queryPerInserireCittadino = "INSERT INTO cittadini VALUES ('"+codiceFiscale+"', '"+cognome+"', '"+nome+"');";
+				brs = istruzione.executeUpdate(queryPerInserireCittadino);
+				System.out.println("cittadino ok aggiunto");
+				
+				String queryPerInserireVaccinato = "SET datestyle = \"ISO, DMY\";INSERT INTO vaccinazione VALUES('"+ idVacMax +"', '"+ codiceFiscale+"', '"+ dataSomministrazione +"', '"+ tipoVaccino +"', '"+ nomeCentro+"' , '"+ nDosi+"')";
+				brs = istruzione.executeUpdate(queryPerInserireVaccinato);
+				System.out.println("vaccinato ok aggiunto");
+				ret = 1; //operazione e buon fine
+			}
+			else {
+				ret = -1;
+			}
+		}
+		
+		else {
+			String queryPerVerificareVaccinato = "SELECT * FROM vaccinazione WHERE codiceFiscale = '"+ codiceFiscale +"'";
+			rs = istruzione.executeQuery(queryPerVerificareVaccinato);
+			if(rs.next()==false) {
+				String queryPerInserireVaccinato = "INSERT INTO vaccinazione VALUES('"+ idVacMax +"', '"+ codiceFiscale+"', '"+ dataSomministrazione  +"', '"+ tipoVaccino +"', '"+ nomeCentro+"' , '"+ nDosi+"')";
+				brs = istruzione.executeUpdate(queryPerInserireVaccinato);
+				ret = 1; //operazione e buon fine
+			}
+			else {
+				ret = 0;
+			}
+		}
+		
+		return ret;
 	}
+
+
+	//questo metodo Cerca nel DB : nome, cognome, id univoco, il nome del centro dove è stato vaccinato
+	public synchronized List<String> IdUnivoco(String codiceFiscale) throws SQLException {
+		List<String> ret = new ArrayList<String>();
+		
+		String queryRicerca = "SELECT nome, cognome, id, nomeCentro FROM cittadini c JOIN vaccinazione v ON c.codiceFiscale = v.codiceFiscale WHERE c.codicefiscale = '"+codiceFiscale+"'";
+		ResultSet rs = istruzione.executeQuery(queryRicerca);
+		
+		while(rs.next()) {
+			ret.add(rs.getString("nome"));
+			ret.add(rs.getString("cognome"));
+			ret.add(String.valueOf(rs.getInt("id"))); //indice 2
+			ret.add(rs.getString("nomecentro"));
+		}
+		
+		return ret;
+	}
+
+
+	//questo metodo ritorna i centri vaccinali aggiunti al DB
+	public synchronized List<String> retElencoCentriVaccinali() throws SQLException {
+		
+		List<String> ret = new ArrayList<String>();
+		
+		String query = "SELECT nome FROM centrivaccinali ORDER BY nome ASC";
+		ResultSet rs = istruzione.executeQuery(query);
+		
+		while(rs.next()) {
+			ret.add(rs.getString("nome"));
+		}
+		
+		return ret;
+	}
+	
 
 }

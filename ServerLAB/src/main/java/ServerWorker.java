@@ -1,6 +1,7 @@
 import java.io.*;
 import java.net.*;
 import java.sql.SQLException;
+import java.util.List;
 
 //classe THREAD che svolge task client
 public class ServerWorker extends Thread{
@@ -60,9 +61,18 @@ public class ServerWorker extends Thread{
 					String ndosi = (String) this.in.readObject();
 					
 					int esito = this.swi.registraVaccinato(nomeCentro, nome, cognome, codiceFiscale, data, tipoVaccino, ndosi);
-					
 					this.out.writeObject(esito);
+				}
+				
+				else if(inputClient.equals("retIdUnivoco")) {
+					String codiceFiscale = (String) this.in.readObject();
 					
+					List<String> esito = swi.IdUnivoco(codiceFiscale);
+					this.out.writeObject(esito);
+				}
+				
+				else if(inputClient.equals("elencoCentriVaccinali")) {
+					this.out.writeObject(this.swi.retElencoCentriVaccinali());
 				}
 				
 			} catch (ClassNotFoundException | IOException e) {

@@ -21,11 +21,9 @@ public class ModelImpl implements Model{
 		} catch (UnknownHostException e) {
 			System.err.println("CLIENT MODEL: host sconosciuto " + e.toString());
 		}
-		
 	}
 	
 	//METODI PER VERIFICARE I CAMPI INSERITI
-	
 	//controlla se ci sono campi vuoti
 	public boolean controlloStringheVuote(List<String> daControllare) {
 		
@@ -34,7 +32,6 @@ public class ModelImpl implements Model{
 				return true; //se non contiene stringhe vuote
 			}
 		}
-		
 		return false; //se contiene stringhe vuote
 	}
 	
@@ -61,8 +58,7 @@ public class ModelImpl implements Model{
 		for(int i=0; i<datiCentro.get(5).length(); i++) {
 			if((!('a' <= datiCentro.get(5).charAt(i) && datiCentro.get(5).charAt(i) <= 'z')) && (!('A' <= datiCentro.get(5).charAt(i) && datiCentro.get(5).charAt(i) <= 'Z'))) {
 				return false;
-			}
-				
+			}	
 		}
 		
 		//cap lunghezza 5
@@ -75,27 +71,19 @@ public class ModelImpl implements Model{
 			if(!('0' <= datiCentro.get(6).charAt(i) && datiCentro.get(6).charAt(i) <= '9')) {
 				return false;
 			}
-				
 		}
-		
 		return res;
-		
 	}
-	
-	
-	
+
 	public Object registraCentroVaccinale(List<String> datiCentroVaccinale) {
 		
 		List<String> ret = new ArrayList <String>();
-	
-		
+
 		if(controlloDatiNuovoCentro(datiCentroVaccinale)) {
 			this.proxy.registraCentroVaccinale(datiCentroVaccinale.get(0), datiCentroVaccinale.get(1), datiCentroVaccinale.get(2), datiCentroVaccinale.get(3), datiCentroVaccinale.get(4), datiCentroVaccinale.get(5), datiCentroVaccinale.get(6), datiCentroVaccinale.get(7));
 			ret = datiCentroVaccinale;
 		}
-		
 		else {
-			
 			ret.add("ERRORE:");
 			
 			//campi obbligatori (*)
@@ -108,13 +96,11 @@ public class ModelImpl implements Model{
 				ret.add("-ATTENZIONE: PROVINCIA DI TIPO: 'VA'");
 			}
 			
-			
 			//provincia deve contenere solo lettere 
 			for(int i=0; i<datiCentroVaccinale.get(5).length(); i++) {
 				if((!('a' <= datiCentroVaccinale.get(5).charAt(i) && datiCentroVaccinale.get(5).charAt(i) <= 'z')) && (!('A' <= datiCentroVaccinale.get(5).charAt(i) && datiCentroVaccinale.get(5).charAt(i) <= 'Z'))) {
 					ret.add("-PROVINCIA CON SOLO LETTERE");
 				}
-				
 				break;
 			}
 			
@@ -134,17 +120,16 @@ public class ModelImpl implements Model{
 			}
 		
 		}
-		
 		return ret;
-		
 	}
 	
 	
 	public Object registraVaccinato(List<String> datiVaccinato) {
 		List<String> ret = new ArrayList <String>();
 		
-		
 		this.proxy.registraVaccinato(datiVaccinato.get(0), datiVaccinato.get(1), datiVaccinato.get(2), datiVaccinato.get(3), datiVaccinato.get(4), datiVaccinato.get(5), datiVaccinato.get(6));
+		
+		//QUESTO serve per prendere i dati da mostrare una volta inserito il vaccinato
 		List<String> retIdUnivocoeCf = (List<String>) retIdUnivoco(datiVaccinato.get(3));
 		ret = retIdUnivocoeCf; //ritorna una lista contenente Cf e IdUnivoco del vaccinato
 		
@@ -152,15 +137,20 @@ public class ModelImpl implements Model{
 		
 	}
 	
-	
-	
-	//ritorna Id Univoco di vaccinazione, in base al codice fiscale del vaccinato
+	//ritorna codice fiscale e id Univoco di vaccinazione, in base al codice fiscale del vaccinato
 	private Object retIdUnivoco(String codiceFiscale) {
 		List<String> res = new ArrayList <String> ();
 		
 		List<String> dati = this.proxy.IdUnivoco(codiceFiscale);
-		return null;
+		
+		if(dati.size() != 0) {
+			res.add(codiceFiscale);
+			res.add(dati.get(2));
+		}
+		
+		return res;
 	}
+	
 
 	public void updateModel(String source, Object dati) {
 		
@@ -176,6 +166,16 @@ public class ModelImpl implements Model{
 			if(datiPerModel.get(0).equals("ERRORE:")){
 				this.flag = true;
 			}
+		}
+		
+		if(button.equals("REGISTRA NUOVO VACCINATO")) {
+			List<String> datiDaMandareAview = this.proxy.retElencoCentriVaccinali();
+			datiPerModel = datiDaMandareAview;
+		}
+		
+		if(button.equals("REGISTRA VACCINATO")) {
+			List<String> datiVaccinato = (List<String>) dati;
+			datiPerModel = (List<String>) registraVaccinato(datiVaccinato);
 		}
 		
 		this.v.updateView(button, datiPerModel, this.flag); //aggiorna view in base all'elaborazione
