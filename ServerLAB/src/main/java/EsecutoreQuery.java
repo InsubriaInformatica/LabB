@@ -76,6 +76,7 @@ public class EsecutoreQuery implements SkeletonInterface{
 				+ "	tipoVaccino CHARACTER(11) NOT NULL CHECK(tipoVaccino IN ('Pfizer', 'Moderna', 'J&J', 'AstraZeneca')),\n"
 				+ "	nomeCentro CHARACTER(40) NOT NULL REFERENCES CentriVaccinali(nome),\n"
 				+ "	PRIMARY KEY (id)\n"
+				+ "	nDosi SMALLINT, NOT NULL CHECK (nDosi IN('Prima', 'Seconda', 'Terza o Successiva')\n" 
 				+ ")";
 		try {
 			result = istruzione.execute(query3);
@@ -159,6 +160,14 @@ public class EsecutoreQuery implements SkeletonInterface{
 		}
 		
 		return ret;
+	}
+
+
+	@Override
+	public int registraVaccinato(String nomeCentro, String nome, String cognome, String codiceFiscale,
+			String dataSomministrazione, String tipoVaccino, String nDosi) throws SQLException {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

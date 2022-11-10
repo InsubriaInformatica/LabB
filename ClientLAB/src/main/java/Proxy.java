@@ -52,10 +52,29 @@ public class Proxy implements ServerInterface{
 		return res.intValue(); //se maggiore di zero aggiunto, se = o < no perchè gia esiste
 	}
 
-	public int registraVaccinato(String nomeCentro, String nome, String cognome, String codiceFiscale,
-			String dataSomministrazione, String tipoVaccino, String nDosi) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int registraVaccinato(String nomeCentro, String nome, String cognome, String codiceFiscale,String dataSomministrazione, String tipoVaccino, String nDosi) {
+		Integer res = 0; //segnale restituito dal server con callBack
+		
+		try {
+			
+			this.out.writeObject("registraVaccinato");
+			this.out.writeObject(nomeCentro);
+			this.out.writeObject(nome);
+			this.out.writeObject(cognome);
+			this.out.writeObject(codiceFiscale);
+			this.out.writeObject(dataSomministrazione);
+			this.out.writeObject(tipoVaccino);
+			this.out.writeObject(nDosi);
+			
+			res = (Integer) this.in.readObject(); //ascolta risposta da server
+			
+		} catch (IOException e) {
+			System.err.println("Proxy: problemi nell'acquisizione: " + e.toString());
+		} catch (ClassNotFoundException e) {
+			System.err.println("Proxy: problemi con salvataggio: " + e.toString());
+		}
+		
+		return res.intValue(); //se maggiore di zero aggiunto, se = o < no perchè gia esiste
 	}
 
 	public int registrazione(String nome, String cognome, String codiceFiscale, String eMail, String username,
@@ -75,7 +94,7 @@ public class Proxy implements ServerInterface{
 	}
 
 	public boolean EsisteCentroNome(String nome) {
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
 
@@ -107,6 +126,13 @@ public class Proxy implements ServerInterface{
 
 	public List<String> retElencoEventiAvversi() {
 		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	public List<String> IdUnivoco(String codiceFiscale) {
+		
 		return null;
 	}
 	

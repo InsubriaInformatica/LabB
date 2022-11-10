@@ -140,8 +140,28 @@ public class ModelImpl implements Model{
 	}
 	
 	
+	public Object registraVaccinato(List<String> datiVaccinato) {
+		List<String> ret = new ArrayList <String>();
+		
+		
+		this.proxy.registraVaccinato(datiVaccinato.get(0), datiVaccinato.get(1), datiVaccinato.get(2), datiVaccinato.get(3), datiVaccinato.get(4), datiVaccinato.get(5), datiVaccinato.get(6));
+		List<String> retIdUnivocoeCf = (List<String>) retIdUnivoco(datiVaccinato.get(3));
+		ret = retIdUnivocoeCf; //ritorna una lista contenente Cf e IdUnivoco del vaccinato
+		
+		return ret;
+		
+	}
 	
 	
+	
+	//ritorna Id Univoco di vaccinazione, in base al codice fiscale del vaccinato
+	private Object retIdUnivoco(String codiceFiscale) {
+		List<String> res = new ArrayList <String> ();
+		
+		List<String> dati = this.proxy.IdUnivoco(codiceFiscale);
+		return null;
+	}
+
 	public void updateModel(String source, Object dati) {
 		
 		String button = source;

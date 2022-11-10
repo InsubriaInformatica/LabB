@@ -38,6 +38,9 @@ public interface ServerInterface {
 	
 	//ritorna elenco eventi avversi inseriti nel DB
 	public List<String> retElencoEventiAvversi();
+
+	
+	public List<String> IdUnivoco(String codiceFiscale);
 	
 	
 	

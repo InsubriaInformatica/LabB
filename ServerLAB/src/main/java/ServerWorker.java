@@ -49,6 +49,22 @@ public class ServerWorker extends Thread{
 					this.out.writeObject(esito); //comunica al client esito
 				}
 				
+				else if(inputClient.equals("registraVaccinato")) {
+					
+					String nomeCentro = (String) this.in.readObject();
+					String nome = (String) this.in.readObject();
+					String cognome = (String) this.in.readObject();
+					String codiceFiscale = (String) this.in.readObject();
+					String data = (String) this.in.readObject();
+					String tipoVaccino = (String) this.in.readObject();
+					String ndosi = (String) this.in.readObject();
+					
+					int esito = this.swi.registraVaccinato(nomeCentro, nome, cognome, codiceFiscale, data, tipoVaccino, ndosi);
+					
+					this.out.writeObject(esito);
+					
+				}
+				
 			} catch (ClassNotFoundException | IOException e) {
 				System.err.println("THREAD: problemi invio dato: " + e.toString());
 			} catch (SQLException e) {
