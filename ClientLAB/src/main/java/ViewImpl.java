@@ -297,7 +297,7 @@ public class ViewImpl extends JFrame implements View{
 		
 		String buttonOrigine = (String) source;
 		
-		//IMPLEMENTA FUNZIONALITA ERRORE, nel caso i campi violano i requisiti
+		//FUNZIONALITA ERRORE, nel caso i campi violano i requisiti stabiliti 
 		if(flagErrore == true) {
 			String errore = "";
 			List <String> listaErrori = (List<String>) dati;
@@ -355,7 +355,7 @@ public class ViewImpl extends JFrame implements View{
 
 			String nomeInserito = datiCentro.get(0); //estrae nome del centro
 	
-			JOptionPane.showMessageDialog(null, "nuovo centro: " + nomeInserito + " registrato");
+			JOptionPane.showMessageDialog(null, "Nuovo Centro registrato: " + nomeInserito, "OPERATORE", JOptionPane.INFORMATION_MESSAGE);
 			
 		}
 		
@@ -371,7 +371,7 @@ public class ViewImpl extends JFrame implements View{
 			String nomeVaccinato = vaccinato.get(0);
 			String idVaccinato = vaccinato.get(1);
 			
-			JOptionPane.showMessageDialog(null, "Nuovo vaccinato " + nomeVaccinato + " con ID " + idVaccinato + " inserito");
+			JOptionPane.showMessageDialog(null, "Nuovo vaccinato " + nomeVaccinato + " con ID " + idVaccinato + " inserito", "OPERATORE", JOptionPane.INFORMATION_MESSAGE);
 		}
 		
 		
@@ -381,7 +381,7 @@ public class ViewImpl extends JFrame implements View{
 		
 		//conferma la registrazione del cittadino con i propri dati
 		if(buttonOrigine.equals("CONFERMA-REGISTRAZIONE")) {
-			JOptionPane.showMessageDialog(null, "Cittadino Registrato", "Registrazione", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Cittadino Registrato", "CITTADINO", JOptionPane.INFORMATION_MESSAGE);
 			mostraViewCittadino(); 
 		}
 		

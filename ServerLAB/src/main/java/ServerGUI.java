@@ -210,7 +210,11 @@ public class ServerGUI extends JFrame implements ViewInterface{
 
 	@Override
 	public void updateView(Object dati) {
+		String s = (String) dati;
 		
+		if(s.equals("avvio")) {
+			JOptionPane.showMessageDialog(null, "SERVER AVVIATO", "SERVER", JOptionPane.INFORMATION_MESSAGE);
+		}
 	}
 
 	@Override
