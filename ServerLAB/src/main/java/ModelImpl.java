@@ -30,7 +30,7 @@ public class ModelImpl implements ModelInterface{
 				socket = theServerSocket.accept(); //attende connessione --> ritorna oggetto socket quando si connette
 				System.out.println("Server: connessione accettata " + socket);
 				new ServerWorker(socket, swi); //lancia un server thread che gestisce task
-				break;
+//				break;
 			}
 				
 		} catch (IOException e) {

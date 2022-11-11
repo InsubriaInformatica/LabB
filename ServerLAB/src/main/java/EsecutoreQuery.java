@@ -28,20 +28,15 @@ public class EsecutoreQuery implements SkeletonInterface{
 		
 		System.out.println("ESECUTORE QUERY: Inizializzo DataBase");
 		
-		String query = "CREATE TABLE Cittadini (\n"
+		String queryCreazione
+				= "CREATE TABLE if not exists Cittadini (\n"
 				+ "	codiceFiscale CHARACTER(16),\n"
 				+ "	cognome CHARACTER(30) NOT NULL,\n"
 				+ "	nome CHARACTER(30) NOT NULL,\n"
 				+ "	PRIMARY KEY (codiceFiscale)\n"
-				+ ")";
-		try {
-			result = istruzione.execute(query);
-			System.out.println("ESECUTORE QUERY: Tabella Cittadini creata con successo!");
-		} catch (Exception e) {
-			System.out.println("ESECUTORE QUERY: La tabella cittadini esiste già!");
-		}
+				+ ");"
 		
-		String query1 = "CREATE TABLE Indirizzo (\n"
+				+	"CREATE TABLE if not exists Indirizzo (\n"
 				+ "	id NUMERIC,		\n"
 				+ "	qualificatore CHARACTER(6) NOT NULL CHECK(qualificatore IN ('Via', 'Viale', 'Piazza')),\n"
 				+ "	nome CHARACTER(40) NOT NULL, \n"
@@ -50,28 +45,16 @@ public class EsecutoreQuery implements SkeletonInterface{
 				+ "	cap NUMERIC NOT NULL CHECK(cap BETWEEN 0 AND 99999),\n"
 				+ "	siglaProvincia CHARACTER(2) NOT NULL, \n"
 				+ "	PRIMARY KEY (id)\n"
-				+ ")";
-		try {
-			result = istruzione.execute(query1);
-			System.out.println("ESECUTORE QUERY: Tabella Indirizzo creata con successo!");
-		} catch (Exception e) {
-			System.out.println("ESECUTORE QUERY: La tabella Indirizzo esiste già!");
-		}
+				+ ");"
 		
-		String query2 = "CREATE TABLE CentriVaccinali (\n"
+				+ "CREATE TABLE if not exists CentriVaccinali (\n"
 				+ "	nome CHARACTER(40),\n"
 				+ "	tipologia CHARACTER(11) NOT NULL CHECK(tipologia IN ('Ospedaliero', 'Hub', 'Aziendale')),\n"
 				+ "	idIndirizzo NUMERIC NOT NULL REFERENCES Indirizzo(id),\n"
 				+ "	PRIMARY KEY (nome)\n"
-				+ ")";
-		try {
-			result = istruzione.execute(query2);
-			System.out.println("ESECUTORE QUERY: Tabella centrivaccinali creata con successo!");
-		} catch (Exception e) {
-			System.out.println("ESECUTORE QUERY: La tabella centrivaccinali esiste già!");
-		}
+				+ ");"
 		
-		String query3 = "CREATE TABLE Vaccinazione (\n"
+				+ "CREATE TABLE if not exists Vaccinazione (\n"
 				+ "	id SMALLINT,\n"
 				+ "	codiceFiscale CHARACTER(16) REFERENCES Cittadini(codiceFiscale),\n"
 				+ "	data DATE NOT NULL, \n"
@@ -79,30 +62,18 @@ public class EsecutoreQuery implements SkeletonInterface{
 				+ "	nomeCentro CHARACTER(40) NOT NULL REFERENCES CentriVaccinali(nome),\n"
 				+ "	nDosi CHARACTER(20) CHECK (nDosi IN ('Prima', 'Seconda', 'Terza o Successiva')),\n"
 				+ "	PRIMARY KEY (id)\n"
-				+ ")";
-		try {
-			result = istruzione.execute(query3);
-			System.out.println("ESECUTORE QUERY: Tabella Vaccinazione creata con successo!");
-		} catch (Exception e) {
-			System.out.println("ESECUTORE QUERY: La tabella Vaccinazione esiste già! " + e.toString() );
-		}
+				+ ");"
 		
-		String query4 = "CREATE TABLE Cittadini_Registrati (\n"
+				+ "CREATE TABLE if not exists Cittadini_Registrati (\n"
 				+ "	codiceFiscale CHARACTER(16) REFERENCES Cittadini(codiceFiscale),\n"
 				+ "	username CHARACTER(50) NOT NULL, \n"
 				+ "	password CHARACTER(50) NOT NULL,\n"
 				+ "	email CHARACTER(60) NOT NULL,\n"
 				+ "	idVaccinazione SMALLINT UNIQUE REFERENCES Vaccinazione(id),\n"
 				+ "	PRIMARY KEY(codiceFiscale)\n"
-				+ ")";
-		try {
-			result = istruzione.execute(query4);
-			System.out.println("ESECUTORE QUERY: Tabella Cittadini_Registrati creata con successo!");
-		} catch (Exception e) {
-			System.out.println("ESECUTORE QUERY: La tabella Cittadini_Registrati esiste già! " + e.toString());
-		}
+				+ ");"
 		
-		String query5 = "CREATE TABLE Eventi_Avversi (\n"
+				+ "CREATE TABLE if not exists Eventi_Avversi (\n"
 				+ "	codiceFiscale CHARACTER(16) REFERENCES Cittadini_Registrati(codiceFiscale),\n"
 				+ "	evento CHARACTER(30),\n"
 				+ "	severita NUMERIC CHECK(severita BETWEEN 1 AND 5),\n"
@@ -110,12 +81,8 @@ public class EsecutoreQuery implements SkeletonInterface{
 				+ "	nomeCentro CHARACTER(40) REFERENCES CentriVaccinali(nome), \n"
 				+ "	PRIMARY KEY (codiceFiscale, evento)\n"
 				+ ")";
-		try {
-			result = istruzione.execute(query5);
-			System.out.println("ESECUTORE QUERY: Tabella Eventi_Avversi creata con successo!");
-		} catch (Exception e) {
-			System.out.println("ESECUTORE QUERY: La tabella Eventi_Avversi esiste già! " + e.toString());
-		}
+
+			result = istruzione.execute(queryCreazione);
 		
 	}
 

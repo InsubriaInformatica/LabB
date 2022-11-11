@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
 import javax.swing.border.Border;
+import javax.swing.text.View;
 
 //PATTERN MVC --> GESTIONE DEI COMPONENTI GRAFICI X AVVIO SERVER
 public class ServerGUI extends JFrame implements ViewInterface{
@@ -60,7 +61,7 @@ public class ServerGUI extends JFrame implements ViewInterface{
 		this.setLocationRelativeTo(null); 
 		this.setSize(new Dimension(FRAME_WIDTH, FRAME_HEIGHT));
 		this.setResizable(false);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(new BorderLayout());
 		
 		//INTESTAZIONE
