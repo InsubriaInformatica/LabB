@@ -2,6 +2,7 @@ import java.io.IOException;
 import java.net.*;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Timer;
 
 public class ModelImpl implements ModelInterface{
 	
@@ -24,7 +25,6 @@ public class ModelImpl implements ModelInterface{
 			theServerSocket = new ServerSocket(ModelImpl.PORT); //porta di ascolto 
 			System.out.println("Server Started... waiting connection");
 			swi.creazioneTabelle();
-			
 				
 			while(true) {
 				socket = theServerSocket.accept(); //attende connessione --> ritorna oggetto socket quando si connette
