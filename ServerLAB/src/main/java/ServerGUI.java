@@ -214,6 +214,8 @@ public class ServerGUI extends JFrame implements ViewInterface{
 		
 		if(s.equals("avvio")) {
 			JOptionPane.showMessageDialog(null, "SERVER AVVIATO", "SERVER", JOptionPane.INFORMATION_MESSAGE);
+		}else if (s.equals("spento")) {
+			JOptionPane.showMessageDialog(null, "SERVER SPENTO", "SERVER", JOptionPane.INFORMATION_MESSAGE);
 		}
 	}
 

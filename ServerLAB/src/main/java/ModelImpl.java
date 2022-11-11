@@ -66,15 +66,17 @@ public class ModelImpl implements ModelInterface{
 		
 		List<String> datiPrelevatidaArgomento = (List) dati; //preleva dati passati dal controller
 		
-		this.v.updateView("avvio"); //aggiorna view in base all'elaborazione
+//		this.v.updateView("avvio"); //aggiorna view in base all'elaborazione
 		
 		if(datiPrelevatidaArgomento.get(0).equals("AVVIO SERVER")) {
+			this.v.updateView("avvio"); //aggiorna view in base all'elaborazione
 			List <String> lista = (List) dati;
 			swi = new EsecutoreQuery(lista.get(1), lista.get(2), lista.get(3), lista.get(4), lista.get(5));
 			avvioServer(null); //avvia il server
 		}
 		
 		if(datiPrelevatidaArgomento.get(0).equals("SPEGNI SERVER")) {
+			this.v.updateView("spento");
 			spegniServer();
 		}
 		

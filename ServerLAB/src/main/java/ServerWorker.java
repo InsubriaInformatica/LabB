@@ -77,8 +77,10 @@ public class ServerWorker extends Thread{
 				
 			} catch (ClassNotFoundException | IOException e) {
 				System.err.println("THREAD: problemi invio dato: " + e.toString());
+				break;
 			} catch (SQLException e) {
 				System.err.println("THREAD: query non eseguita: " + e.toString());
+				break;
 			}
 		}
 		
