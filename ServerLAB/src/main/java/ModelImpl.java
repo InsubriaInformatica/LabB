@@ -20,6 +20,7 @@ public class ModelImpl implements ModelInterface{
 	
 	//metodo utile per ACCETTARE ed AVVIARE il server thread che si occuperano di lavorare per il client
 	public void avvioServer(Object dati) throws SQLException {
+		int cont = 0;
 		try {
 				
 			theServerSocket = new ServerSocket(ModelImpl.PORT); //porta di ascolto 
@@ -28,9 +29,8 @@ public class ModelImpl implements ModelInterface{
 				
 			while(true) {
 				socket = theServerSocket.accept(); //attende connessione --> ritorna oggetto socket quando si connette
-				System.out.println("Server: connessione accettata " + socket);
+				System.out.println("Server: connessione accettata " + socket + ", numero connessioni: " + cont);
 				new ServerWorker(socket, swi); //lancia un server thread che gestisce task
-//				break;
 			}
 				
 		} catch (IOException e) {

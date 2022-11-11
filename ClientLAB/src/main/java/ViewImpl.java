@@ -60,7 +60,7 @@ public class ViewImpl extends JFrame implements View{
         this.setLocationRelativeTo(null);
         this.setSize(new Dimension(FRAME_WIDTH, FRAME_HEIGHT));
 		this.setResizable(false);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(new BorderLayout());
    
 		/////////INIZIO INTESTAZIONE--> comune a tutti 
