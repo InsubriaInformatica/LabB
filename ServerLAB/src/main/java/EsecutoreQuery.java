@@ -207,7 +207,7 @@ public class EsecutoreQuery implements SkeletonInterface{
 	}
 
 
-	//questo metodo ritorna i centri vaccinali aggiunti al DB
+	//questo metodo ritorna i centri vaccinali aggiunti al DB nella combox box
 	public synchronized List<String> retElencoCentriVaccinali() throws SQLException {
 		
 		List<String> ret = new ArrayList<String>();
@@ -220,6 +220,37 @@ public class EsecutoreQuery implements SkeletonInterface{
 		}
 		
 		return ret;
+	}
+
+
+	//cerca nel DB il centro selezionato
+	public synchronized boolean esisteCentroNome(String nomeCentro) throws SQLException {
+		
+		boolean ret = false;
+		String query = "SELECT nome FROM centrivaccinali WHERE nome = '"+ nomeCentro +"';";
+		ResultSet rs = istruzione.executeQuery(query);
+		
+		while(rs.next()) {
+			ret = true;
+		}
+		
+		return ret;
+	}
+
+
+	//cerca nel DB il cittadino vaccinato
+	public synchronized boolean checkCittadinoVaccinato(String codiceFiscale) throws SQLException {
+		
+		String query = "SELECT * \n"
+				+ "FROM cittadini c JOIN vaccinazione v ON c.codicefiscale = v.codicefiscale\n"
+				+ "WHERE c.codicefiscale = '"+ codiceFiscale +"'";
+		
+		ResultSet rs = this.istruzione.executeQuery(query);
+		
+		while(rs.next()) {
+			return true;
+		}
+		return false;
 	}
 	
 

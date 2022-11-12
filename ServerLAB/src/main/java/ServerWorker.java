@@ -46,8 +46,14 @@ public class ServerWorker extends Thread{
 					
 					//chiamata il metodo per eseguire query
 					int esito = this.swi.registraCentroVaccinale(nome, qualificatore, indirizzo, numeroCivico, comune, provincia, cap, tipologia);
-					
 					this.out.writeObject(esito); //comunica al client esito
+				}
+				
+				else if(inputClient.equals("esisteCentroNome")) {
+					String nomeCentro = (String) this.in.readObject();
+					
+					boolean esito = this.swi.esisteCentroNome(nomeCentro);
+					this.out.writeObject(esito);
 				}
 				
 				else if(inputClient.equals("registraVaccinato")) {
@@ -62,6 +68,14 @@ public class ServerWorker extends Thread{
 					
 					int esito = this.swi.registraVaccinato(nomeCentro, nome, cognome, codiceFiscale, data, tipoVaccino, ndosi);
 					this.out.writeObject(esito);
+				}
+				
+				else if(inputClient.equals("verificaCittadinoVaccinato")) {
+					
+					String cf = (String) this.in.readObject();
+					
+					Boolean esito = this.swi.checkCittadinoVaccinato(cf);
+					this.out.writeObject(esito.booleanValue());
 				}
 				
 				else if(inputClient.equals("retIdUnivoco")) {

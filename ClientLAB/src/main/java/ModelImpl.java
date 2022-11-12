@@ -34,7 +34,7 @@ public class ModelImpl implements Model{
 		}
 		return false; //se contiene stringhe vuote
 	}
-	
+
 	//controlla dati inseriti per registrare il centro vaccinale
 	public boolean controlloDatiNuovoCentro(List <String> datiCentro) {
 		boolean res = true;
@@ -74,6 +74,93 @@ public class ModelImpl implements Model{
 		}
 		return res;
 	}
+	
+	//metodo che verifica la correttezza del modello del codice fiscale inserito: AAAAAA00A00A000A
+	public boolean controlloCodiceFiscale(String codiceFiscale) {
+		
+		boolean res = false;
+		if(codiceFiscale.length()==16) {
+			res = true;
+		}
+		else {
+			return false;
+		}
+		for(int i=0; i<6; i++) {
+			if(('A'<=codiceFiscale.charAt(i) && codiceFiscale.charAt(i)<='Z') || ('a'<=codiceFiscale.charAt(i) && codiceFiscale.charAt(i)<='z')) {
+				res = true;
+			}
+			else {
+				return false;
+			}
+		}
+		if(('A'<=codiceFiscale.charAt(8) && codiceFiscale.charAt(8)<='Z') || ('a'<=codiceFiscale.charAt(8) && codiceFiscale.charAt(8)<='z')) {
+			res = true;
+		} 
+		else {
+			return false;
+		}
+		if(('A'<=codiceFiscale.charAt(11) && codiceFiscale.charAt(11)<='Z') || ('a'<=codiceFiscale.charAt(11) && codiceFiscale.charAt(11)<='z')) {
+			res = true;
+		}
+		else {
+			return false;
+		}
+		if(('A'<=codiceFiscale.charAt(15) && codiceFiscale.charAt(15)<='Z') || ('a'<=codiceFiscale.charAt(15) && codiceFiscale.charAt(15)<='z')) {
+			res = true;
+		}
+		else {
+			return false; 
+		}
+		if('0'<=codiceFiscale.charAt(6) && codiceFiscale.charAt(6)<='9') {
+			res = true;
+		}
+		else {
+			return false;
+		}
+		if('0'<=codiceFiscale.charAt(7) && codiceFiscale.charAt(7)<='9') {
+			res = true;
+		}
+		else {
+			return false;
+		}
+		if('0'<=codiceFiscale.charAt(9) && codiceFiscale.charAt(9)<='9') {
+			res = true;
+		}
+		else {
+			return false;
+		}
+		if('0'<=codiceFiscale.charAt(10) && codiceFiscale.charAt(10)<='9') {
+			res = true;
+		}
+		else {
+			return false;
+		}
+		if('0'<=codiceFiscale.charAt(12) && codiceFiscale.charAt(12)<='9') {
+			res = true;
+		}
+		else {
+			return false;
+		}
+		if('0'<=codiceFiscale.charAt(13) && codiceFiscale.charAt(13)<='9') {
+			res = true;
+		}
+		else {
+			return false;
+		}
+		if('0'<=codiceFiscale.charAt(14) && codiceFiscale.charAt(14)<='9') {
+			res = true;
+		}
+		else {
+			return false;
+		}
+		
+		return true; //rispetta lo standard
+	}
+	
+	//verifica se cittadino è vaccinato
+	public boolean isVaccinato(String cf) {
+		return this.proxy.checkCittadinoVaccinato(cf);
+	}
 
 	public Object registraCentroVaccinale(List<String> datiCentroVaccinale) {
 		
@@ -89,6 +176,10 @@ public class ModelImpl implements Model{
 			//campi obbligatori (*)
 			if(datiCentroVaccinale.get(0).equals("") || datiCentroVaccinale.get(2).equals("") || datiCentroVaccinale.get(3).equals("") || datiCentroVaccinale.get(4).equals("") || datiCentroVaccinale.get(5).equals("") || datiCentroVaccinale.get(6).equals("")){
 				ret.add("-INSERISCI TUTTI I CAMPI OBBLIGATORI");
+			}
+			
+			if(this.proxy.EsisteCentroNome(datiCentroVaccinale.get(0))){
+				ret.add("-CENTRO GIA' ESISTENTE");
 			}
 			
 			//lunghezza sigla provincia 2
@@ -126,15 +217,30 @@ public class ModelImpl implements Model{
 	
 	public Object registraVaccinato(List<String> datiVaccinato) {
 		List<String> ret = new ArrayList <String>();
+		boolean controlloCF = controlloCodiceFiscale(datiVaccinato.get(3)); //controllo CF inserito
+		boolean isVaccinato = isVaccinato(datiVaccinato.get(3)); //controlla se cittadino è vaccinato con CF
 		
-		this.proxy.registraVaccinato(datiVaccinato.get(0), datiVaccinato.get(1), datiVaccinato.get(2), datiVaccinato.get(3), datiVaccinato.get(4), datiVaccinato.get(5), datiVaccinato.get(6));
-		
-		//QUESTO serve per prendere i dati da mostrare una volta inserito il vaccinato
-		List<String> retIdUnivocoeCf = (List<String>) retIdUnivoco(datiVaccinato.get(3));
-		ret = retIdUnivocoeCf; //ritorna una lista contenente Cf e IdUnivoco del vaccinato
-		
+		if(!isVaccinato && controlloCF) { //se CF inserito corretto e cittadino non ancora vaccinato
+			
+			this.proxy.registraVaccinato(datiVaccinato.get(0), datiVaccinato.get(1), datiVaccinato.get(2), datiVaccinato.get(3), datiVaccinato.get(4), datiVaccinato.get(5), datiVaccinato.get(6));
+			
+			//QUESTO serve per prendere i dati da mostrare una volta inserito il vaccinato
+			List<String> retIdUnivocoeCf = (List<String>) retIdUnivoco(datiVaccinato.get(3));
+			ret = retIdUnivocoeCf; //ritorna una lista contenente Cf e IdUnivoco del vaccinato
+		} 
+	
+		else {
+			ret.add("ERRORE:");
+			
+			if(!controlloCF) {
+				ret.add("-CODICE FISCALE NON RISPETTA STANDARD");
+			}
+			
+			if(isVaccinato) {
+				ret.add("-CITTADINO GIA' VACCINATO");
+			}			
+		}
 		return ret;
-		
 	}
 	
 	//ritorna codice fiscale e id Univoco di vaccinazione, in base al codice fiscale del vaccinato
@@ -160,7 +266,6 @@ public class ModelImpl implements Model{
 		
 		if(button.equals("REGISTRA CENTRO")) {
 			List<String> datiCentro = (List<String>) dati;
-			
 			datiPerModel = (List<String>) registraCentroVaccinale(datiCentro);
 			
 			if(datiPerModel.get(0).equals("ERRORE:")){
@@ -168,6 +273,7 @@ public class ModelImpl implements Model{
 			}
 		}
 		
+		//manda dati alla combobox per visualizzare centro vaccinali
 		if(button.equals("REGISTRA NUOVO VACCINATO")) {
 			List<String> datiDaMandareAview = this.proxy.retElencoCentriVaccinali();
 			datiPerModel = datiDaMandareAview;
@@ -176,6 +282,10 @@ public class ModelImpl implements Model{
 		if(button.equals("REGISTRA VACCINATO")) {
 			List<String> datiVaccinato = (List<String>) dati;
 			datiPerModel = (List<String>) registraVaccinato(datiVaccinato);
+			
+			if(datiPerModel.get(0).equals("ERRORE:")){
+				this.flag = true;
+			}
 		}
 		
 		this.v.updateView(button, datiPerModel, this.flag); //aggiorna view in base all'elaborazione

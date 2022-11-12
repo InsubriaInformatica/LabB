@@ -93,9 +93,22 @@ public class Proxy implements ServerInterface{
 		return 0;
 	}
 
-	public boolean EsisteCentroNome(String nome) {
+	//verifica l'esistenza di una centro vaccinale nel DB
+	public boolean EsisteCentroNome(String nomeCentro) {
+		boolean res = false;
 		
-		return false;
+		try {
+			this.out.writeObject("esisteCentroNome");
+			this.out.writeObject(nomeCentro);
+			
+			res = (Boolean) this.in.readObject();
+			
+		} catch (IOException e) {
+			System.err.println("Proxy: problemi nell'acquisizione: " + e.toString());
+		} catch (ClassNotFoundException e) {
+			System.err.println("Proxy: problemi con salvataggio: " + e.toString());
+		}
+		return res;
 	}
 
 	public boolean EsisteCentroCeT(String comune, String tipologia) {
@@ -114,9 +127,23 @@ public class Proxy implements ServerInterface{
 		return false;
 	}
 
-	public boolean checkCittadinoVaccinato(String nomeCittadino) {
-		// TODO Auto-generated method stub
-		return false;
+	//questo metodo verifica che un cittadino sia stato vaccinato, controllando il CF
+	public boolean checkCittadinoVaccinato(String codiceFiscale) {
+		
+		boolean res = false;
+		
+		try {
+			this.out.writeObject("verificaCittadinoVaccinato");
+			this.out.writeObject(codiceFiscale);
+			
+			res = ((Boolean) this.in.readObject()).booleanValue();
+			
+		} catch (IOException e) {
+			System.err.println("Proxy: problemi nell'acquisizione: " + e.toString());
+		} catch (ClassNotFoundException e) {
+			System.err.println("Proxy: problemi con salvataggio: " + e.toString());
+		}
+		return res;
 	}
 
 	//ritorna elenco centri vaccinali registrati
