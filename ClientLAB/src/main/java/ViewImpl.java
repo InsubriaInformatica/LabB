@@ -381,7 +381,7 @@ public class ViewImpl extends JFrame implements View{
 		
 		//conferma la registrazione del cittadino con i propri dati
 		if(buttonOrigine.equals("CONFERMA-REGISTRAZIONE")) {
-			JOptionPane.showMessageDialog(null, "Cittadino Registrato", "CITTADINO", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Cittadino Registrato con successo", "CITTADINO", JOptionPane.INFORMATION_MESSAGE);
 			mostraViewCittadino(); 
 		}
 		

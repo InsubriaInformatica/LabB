@@ -39,7 +39,7 @@ public class RegisterGUI {
 	
 	private JPanel panelPsw;
 	private JLabel labelPsw;
-	private JTextField textFieldPsw;
+	private JPasswordField textFieldPsw;
 	
 	private JPanel panelIdUnivoco;
 	private JLabel labelIdUnivoco;
@@ -142,7 +142,7 @@ public class RegisterGUI {
 		this.panelPsw.setBackground(Colori.purple);
 		this.labelPsw = new JLabel("Password:");
 		this.labelPsw.setForeground(Colori.light_grey);
-		this.textFieldPsw = new JTextField("", 20); 
+		this.textFieldPsw = new JPasswordField("", 20); 
 		this.panelPsw.add(this.labelPsw);
 		this.panelPsw.add(this.textFieldPsw);
 		this.panelPsw.setPreferredSize(new Dimension(600, 25));
@@ -245,14 +245,13 @@ public class RegisterGUI {
 		
 	
 	public String retPsw() {
-		return textFieldPsw.getText();
+		char[] charPassword = textFieldPsw.getPassword();
+		String password = String.valueOf(charPassword);
+		return password;
 	}
 	
 	public String retIDUnivoco() {
 		return textFieldIdUnivoco.getText();
 	}
 		
-		
-		
-
 }

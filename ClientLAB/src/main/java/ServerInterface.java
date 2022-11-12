@@ -10,7 +10,7 @@ public interface ServerInterface {
 	public int registraVaccinato(String nomeCentro, String nome, String cognome, String codiceFiscale, String dataSomministrazione, String tipoVaccino, String nDosi);
 	
 	//effettua inserimento nel DB di un cittadino vaccinato
-	public int registrazione(String nome, String cognome, String codiceFiscale, String eMail, String username, String password, String IdUnivoco);
+	public int registrazioneCittadino(String nome, String cognome, String codiceFiscale, String eMail, String username, String password, String IdUnivoco);
 	
 	//verifica l'esistenza con il db di un username o password registrata
 	public boolean login(String username, String password);

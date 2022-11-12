@@ -24,6 +24,7 @@ public class ModelImpl implements Model{
 	}
 	
 	//METODI PER VERIFICARE I CAMPI INSERITI
+	
 	//controlla se ci sono campi vuoti
 	public boolean controlloStringheVuote(List<String> daControllare) {
 		
@@ -161,6 +162,18 @@ public class ModelImpl implements Model{
 	public boolean isVaccinato(String cf) {
 		return this.proxy.checkCittadinoVaccinato(cf);
 	}
+	
+	//controlla che id sia su base numeri di 16 bit
+	public boolean controlloIdUnivoco(String idVaccinato) {
+		
+		boolean res = true;
+		for(int i=0; i<idVaccinato.length(); i++) {
+			if(!('0' <= idVaccinato.charAt(i) && idVaccinato.charAt(i) <= '9')) {
+				return false;
+			}
+		}
+		return res;
+	};
 
 	public Object registraCentroVaccinale(List<String> datiCentroVaccinale) {
 		
@@ -257,6 +270,34 @@ public class ModelImpl implements Model{
 		return res;
 	}
 	
+	
+	//questo metodo permette al cittadino di registrarsi dopo aver affettuato la vaccinazione
+	public Object registrazioneCittadino(List<String> datiRegistrazione) {
+		List<String> ret = new ArrayList <String>();
+		
+		
+		//boolean stringheVuote = controlloStringheVuote(datiRegistrazione); // controllo stringhe vuote
+		//boolean idValido = controlloIdUnivoco(datiRegistrazione.get(6)); //controllo id numerico
+		boolean isVaccinato = isVaccinato(datiRegistrazione.get(2)); //controlla se cittadino è vaccinato con CF
+		
+		if(isVaccinato) {
+			this.proxy.registrazioneCittadino(datiRegistrazione.get(0), datiRegistrazione.get(1), datiRegistrazione.get(2), datiRegistrazione.get(3), datiRegistrazione.get(4), datiRegistrazione.get(5), datiRegistrazione.get(6));
+			ret = datiRegistrazione;
+		}
+		
+		else {
+			ret.add("ERRORE:");
+			ret.add("-CITTADINO NON VACCINATO");
+		}
+			
+			
+				//boolean CfValido = controlloCodiceFiscale(datiRegistrazione.get(2)); //controllo cf valido
+			
+		return ret;
+		
+	}
+	
+	
 
 	public void updateModel(String source, Object dati) {
 		
@@ -286,6 +327,16 @@ public class ModelImpl implements Model{
 			if(datiPerModel.get(0).equals("ERRORE:")){
 				this.flag = true;
 			}
+		}
+		
+		if(button.equals("CONFERMA-REGISTRAZIONE")) {
+			List<String> datiRegistrazione = (List<String>) dati;
+			datiPerModel = (List<String>) registrazioneCittadino(datiRegistrazione);
+			
+			if(datiPerModel.get(0).equals("ERRORE:")){
+				this.flag = true;
+			}
+			
 		}
 		
 		this.v.updateView(button, datiPerModel, this.flag); //aggiorna view in base all'elaborazione

@@ -16,6 +16,9 @@ public interface SkeletonInterface {
 	//verifica se cittadino si è vaccinato
 	public boolean checkCittadinoVaccinato(String codiceFiscale) throws SQLException;
 	
+	//permette di registrare il cittadino se vaccinato
+	public int registrazioneCittadino(String nome, String cognome, String codiceFiscale, String eMail, String username, String password, String IdUnivoco) throws SQLException;
+	
 	//restituisce una lista contenente in posizione 0 il nome e in posizione 1 idUnivoco del vaccinato
 	public List<String> IdUnivoco(String codiceFiscale) throws SQLException ; 
 	

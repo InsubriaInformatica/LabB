@@ -89,6 +89,19 @@ public class ServerWorker extends Thread{
 					this.out.writeObject(this.swi.retElencoCentriVaccinali());
 				}
 				
+				else if(inputClient.equals("registrazione")) {
+					String nome = (String) this.in.readObject();
+					String cognome = (String) this.in.readObject();
+					String codiceFiscale = (String) this.in.readObject();
+					String eMail = (String) this.in.readObject();
+					String username = (String) this.in.readObject();
+					String password = (String) this.in.readObject();
+					String idUnivoco = (String) this.in.readObject();
+					
+					int ret = this.swi.registrazioneCittadino(nome, cognome, codiceFiscale, eMail, username, password, idUnivoco);
+					this.out.writeObject(ret);
+				}
+				
 			} catch (ClassNotFoundException | IOException e) {
 				System.err.println("THREAD: problemi invio dato: " + e.toString());
 				break;

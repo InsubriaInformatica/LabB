@@ -51,6 +51,25 @@ public class Proxy implements ServerInterface{
 		
 		return res.intValue(); //se maggiore di zero aggiunto, se = o < no perchè gia esiste
 	}
+	
+
+	//verifica l'esistenza di una centro vaccinale nel DB
+	public boolean EsisteCentroNome(String nomeCentro) {
+		boolean res = false;
+		
+		try {
+			this.out.writeObject("esisteCentroNome");
+			this.out.writeObject(nomeCentro);
+			
+			res = (Boolean) this.in.readObject();
+			
+		} catch (IOException e) {
+			System.err.println("Proxy: problemi nell'acquisizione: " + e.toString());
+		} catch (ClassNotFoundException e) {
+			System.err.println("Proxy: problemi con salvataggio: " + e.toString());
+		}
+		return res;
+	}
 
 	public int registraVaccinato(String nomeCentro, String nome, String cognome, String codiceFiscale,String dataSomministrazione, String tipoVaccino, String nDosi) {
 		Integer res = 0; //segnale restituito dal server con callBack
@@ -76,11 +95,48 @@ public class Proxy implements ServerInterface{
 		
 		return res.intValue(); //se maggiore di zero aggiunto, se = o < no perchè gia esiste
 	}
+	
+	//questo metodo verifica che un cittadino sia stato vaccinato, controllando il CF
+	public boolean checkCittadinoVaccinato(String codiceFiscale) {
+			
+		boolean res = false;
+			
+		try {
+			this.out.writeObject("verificaCittadinoVaccinato");
+			this.out.writeObject(codiceFiscale);
+				
+			res = ((Boolean) this.in.readObject()).booleanValue();
+				
+		} catch (IOException e) {
+			System.err.println("Proxy: problemi nell'acquisizione: " + e.toString());
+		} catch (ClassNotFoundException e) {
+			System.err.println("Proxy: problemi con salvataggio: " + e.toString());
+		}
+		return res;
+	}
 
-	public int registrazione(String nome, String cognome, String codiceFiscale, String eMail, String username,
-			String password, String IdUnivoco) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int registrazioneCittadino(String nome, String cognome, String codiceFiscale, String eMail, String username, String password, String IdUnivoco) {
+		Integer res = 0;
+		
+		try {
+			this.out.writeObject("registrazione");
+			this.out.writeObject(nome);
+			this.out.writeObject(cognome);
+			this.out.writeObject(codiceFiscale);
+			this.out.writeObject(eMail);
+			this.out.writeObject(username);
+			this.out.writeObject(password);
+			this.out.writeObject(IdUnivoco);
+			
+			res = (Integer) this.in.readObject();
+			
+		} catch (IOException e) {
+			System.err.println("Proxy: problemi nell'acquisizione: " + e.toString());
+		} catch (ClassNotFoundException e) {
+			System.err.println("Proxy: problemi con salvataggio: " + e.toString());
+		}
+		
+		return res.intValue();
 	}
 
 	public boolean login(String username, String password) {
@@ -93,23 +149,6 @@ public class Proxy implements ServerInterface{
 		return 0;
 	}
 
-	//verifica l'esistenza di una centro vaccinale nel DB
-	public boolean EsisteCentroNome(String nomeCentro) {
-		boolean res = false;
-		
-		try {
-			this.out.writeObject("esisteCentroNome");
-			this.out.writeObject(nomeCentro);
-			
-			res = (Boolean) this.in.readObject();
-			
-		} catch (IOException e) {
-			System.err.println("Proxy: problemi nell'acquisizione: " + e.toString());
-		} catch (ClassNotFoundException e) {
-			System.err.println("Proxy: problemi con salvataggio: " + e.toString());
-		}
-		return res;
-	}
 
 	public boolean EsisteCentroCeT(String comune, String tipologia) {
 		// TODO Auto-generated method stub
@@ -127,24 +166,6 @@ public class Proxy implements ServerInterface{
 		return false;
 	}
 
-	//questo metodo verifica che un cittadino sia stato vaccinato, controllando il CF
-	public boolean checkCittadinoVaccinato(String codiceFiscale) {
-		
-		boolean res = false;
-		
-		try {
-			this.out.writeObject("verificaCittadinoVaccinato");
-			this.out.writeObject(codiceFiscale);
-			
-			res = ((Boolean) this.in.readObject()).booleanValue();
-			
-		} catch (IOException e) {
-			System.err.println("Proxy: problemi nell'acquisizione: " + e.toString());
-		} catch (ClassNotFoundException e) {
-			System.err.println("Proxy: problemi con salvataggio: " + e.toString());
-		}
-		return res;
-	}
 
 	//ritorna elenco centri vaccinali registrati
 	public List<String> retElencoCentriVaccinali() {
@@ -163,13 +184,7 @@ public class Proxy implements ServerInterface{
 		return res;
 	}
 
-	public List<String> retElencoEventiAvversi() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-
+	//ritorna id univoco del vaccinato in base al codice fiscale
 	public List<String> IdUnivoco(String codiceFiscale) {
 		
 		List<String> res = null;
@@ -187,6 +202,15 @@ public class Proxy implements ServerInterface{
 		}
 		return res;
 	}
+	
+	public List<String> retElencoEventiAvversi() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	
 	
 	
 

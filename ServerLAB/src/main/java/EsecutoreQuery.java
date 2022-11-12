@@ -252,6 +252,39 @@ public class EsecutoreQuery implements SkeletonInterface{
 		}
 		return false;
 	}
+
+
+	//registra al portale cittadini l'utente vaccinato
+	public int registrazioneCittadino(String nome, String cognome, String codiceFiscale, String eMail, String username, String password, String IdUnivoco) throws SQLException {
+
+		int ret = 0;
+		int brs;
+		String queryControlloCittadino = "SELECT * FROM cittadini WHERE codiceFiscale = '"+ codiceFiscale +"'";
+		ResultSet rs = istruzione.executeQuery(queryControlloCittadino);
+		
+		if(rs.next()) {
+			String queryControlloRegistrato = "SELECT * FROM cittadini_registrati WHERE codiceFiscale = '"+ codiceFiscale +"'";
+			rs = istruzione.executeQuery(queryControlloRegistrato);
+			
+			if(rs.next()==false) { 
+				String queryInsert = "INSERT INTO cittadini_registrati VALUES('"+ codiceFiscale +"', '"+ username +"', '"+ password+"', '"+ eMail +"', '"+ IdUnivoco +"');";
+				brs = istruzione.executeUpdate(queryInsert);
+				System.out.println("cittadino registrato");
+				ret = 1; //buon fine
+			}
+			
+			else {
+				System.out.println("Cittadino non inserito, già presente");
+				ret = 0; //query buon fine ma cittadino non inserito
+			}
+		}
+		else {
+			System.out.println("cittadino fantastico");
+			ret = -1;
+		}
+		
+		return ret;
+	}
 	
 
 }
