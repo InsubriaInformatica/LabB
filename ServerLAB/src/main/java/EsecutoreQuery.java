@@ -255,8 +255,7 @@ public class EsecutoreQuery implements SkeletonInterface{
 
 
 	//registra al portale cittadini l'utente vaccinato
-	public int registrazioneCittadino(String nome, String cognome, String codiceFiscale, String eMail, String username, String password, String IdUnivoco) throws SQLException {
-
+	public int registrazioneCittadino(String nome, String cognome, String codiceFiscale, String eMail, String username, String password, String IdUnivoco) throws SQLException{
 		int ret = 0;
 		int brs;
 		String queryControlloCittadino = "SELECT * FROM cittadini WHERE codiceFiscale = '"+ codiceFiscale +"'";
@@ -282,7 +281,19 @@ public class EsecutoreQuery implements SkeletonInterface{
 			System.out.println("cittadino fantastico");
 			ret = -1;
 		}
+		return ret;
+	}
+
+
+	//cerca nel DB se trova un utente con lo stesso nome
+	public boolean esisteUtente(String username) throws SQLException {
+		boolean ret = false;
+		String query = "SELECT username, password FROM cittadini_registrati WHERE username = '"+username+"'";
+		ResultSet rs = istruzione.executeQuery(query);
 		
+		while(rs.next()) {
+			ret = true;
+		}
 		return ret;
 	}
 	

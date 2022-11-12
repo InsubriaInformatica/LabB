@@ -138,7 +138,26 @@ public class Proxy implements ServerInterface{
 		
 		return res.intValue();
 	}
-
+	
+	//verifica se username esiste controllando nome utente
+	public boolean esisteUtente(String username) {
+		
+		boolean res = false;
+		
+		try {
+			this.out.writeObject("esisteUtente");
+			this.out.writeObject(username);
+			
+			res = (Boolean) this.in.readObject();
+			
+		} catch (IOException e) {
+			System.err.println("Proxy: problemi nell'acquisizione: " + e.toString());
+		} catch (ClassNotFoundException e) {
+			System.err.println("Proxy: problemi con salvataggio: " + e.toString());
+		}
+		return res;
+	}
+	
 	public boolean login(String username, String password) {
 		// TODO Auto-generated method stub
 		return false;
@@ -208,6 +227,9 @@ public class Proxy implements ServerInterface{
 		return null;
 	}
 
+
+
+	
 
 
 	

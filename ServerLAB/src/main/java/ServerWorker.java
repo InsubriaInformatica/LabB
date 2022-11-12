@@ -102,6 +102,13 @@ public class ServerWorker extends Thread{
 					this.out.writeObject(ret);
 				}
 				
+				else if(inputClient.equals("esisteUtente")) {
+					String username = (String) this.in.readObject();
+					
+					boolean ret = this.swi.esisteUtente(username);
+					this.out.writeObject(ret);
+				}
+				
 			} catch (ClassNotFoundException | IOException e) {
 				System.err.println("THREAD: problemi invio dato: " + e.toString());
 				break;

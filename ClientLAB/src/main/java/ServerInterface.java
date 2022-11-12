@@ -12,6 +12,9 @@ public interface ServerInterface {
 	//effettua inserimento nel DB di un cittadino vaccinato
 	public int registrazioneCittadino(String nome, String cognome, String codiceFiscale, String eMail, String username, String password, String IdUnivoco);
 	
+	//controlla se utente esiste verificando username
+	public boolean esisteUtente(String username);
+	
 	//verifica l'esistenza con il db di un username o password registrata
 	public boolean login(String username, String password);
 	

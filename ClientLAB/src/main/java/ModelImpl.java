@@ -173,7 +173,31 @@ public class ModelImpl implements Model{
 			}
 		}
 		return res;
-	};
+	}
+	
+	//controlla modello e-mail --> nome@dominio.it/com ecc..
+	public boolean controlloEmail(String eMail) {
+		String emailControllo = eMail;
+		String[] nome = emailControllo.split("@");
+		boolean res = false;
+		if(nome.length>1) {
+			for(int i=0; i<nome[1].length(); i++) {
+				if(nome[1].charAt(i) == '.') {
+					res = true;
+					if(i<nome[1].length()-1) {
+						res = true; //se rispetta modello
+					}
+					else {
+						res = false;
+					}
+				}
+			}
+		}
+		else {
+			res = false;
+		}
+		return res;
+	}
 
 	public Object registraCentroVaccinale(List<String> datiCentroVaccinale) {
 		
@@ -275,28 +299,59 @@ public class ModelImpl implements Model{
 	public Object registrazioneCittadino(List<String> datiRegistrazione) {
 		List<String> ret = new ArrayList <String>();
 		
+		boolean stringheVuote = controlloStringheVuote(datiRegistrazione); // controllo stringhe vuote nella lista
+		boolean idValido = controlloIdUnivoco(datiRegistrazione.get(6)); //controllo id numerico
 		
-		//boolean stringheVuote = controlloStringheVuote(datiRegistrazione); // controllo stringhe vuote
-		//boolean idValido = controlloIdUnivoco(datiRegistrazione.get(6)); //controllo id numerico
-		boolean isVaccinato = isVaccinato(datiRegistrazione.get(2)); //controlla se cittadino è vaccinato con CF
+		if(!stringheVuote) { //verifica che non ci siano stringhe vuote
+			
+			if(idValido) {
+				boolean isVaccinato = isVaccinato(datiRegistrazione.get(2)); //controlla se cittadino è vaccinato con CF
+				boolean controlloCF = controlloCodiceFiscale(datiRegistrazione.get(2)); //controlla modello CF 
+				boolean controlloEmail = controlloEmail(datiRegistrazione.get(3)); //controlla modello e-mail
+				boolean utenteEsistente = this.proxy.esisteUtente(datiRegistrazione.get(4)); //controlla se utente esiste
+				
+				if(isVaccinato){ //se utente è vaccinato
+					
+					if(controlloCF && controlloEmail && !utenteEsistente) { //controlla campi inseriti, se ok registra
+						this.proxy.registrazioneCittadino(datiRegistrazione.get(0), datiRegistrazione.get(1), datiRegistrazione.get(2), datiRegistrazione.get(3), datiRegistrazione.get(4), datiRegistrazione.get(5), datiRegistrazione.get(6));
+						ret = datiRegistrazione;
+					}
+					else {
+						ret.add("ERRORE:");
+						
+						if(!controlloCF)
+							ret.add("-VERIFICA CODICE FISCALE INSERITO");
+						
+						if(!controlloEmail) {
+							ret.add("-VERIFICA E-MAIL INSERITA");
+						}
+						
+						if(utenteEsistente) {
+							ret.add("-NOME UTENTE GIA' ESISTENTE");
+						}
+					}
+					
+				}
+				else {
+					ret.add("ERRORE:");
+					ret.add("-UTENTE NON VACCINATO:");
+				}
+			}
+			
+			else {
+				ret.add("ERRORE:");
+				ret.add("-ID VACCINAZIONE NON VALIDO");
+			}
 		
-		if(isVaccinato) {
-			this.proxy.registrazioneCittadino(datiRegistrazione.get(0), datiRegistrazione.get(1), datiRegistrazione.get(2), datiRegistrazione.get(3), datiRegistrazione.get(4), datiRegistrazione.get(5), datiRegistrazione.get(6));
-			ret = datiRegistrazione;
 		}
-		
 		else {
 			ret.add("ERRORE:");
-			ret.add("-CITTADINO NON VACCINATO");
+			ret.add("-INSERISCI TUTTI I CAMPI");
 		}
-			
-			
-				//boolean CfValido = controlloCodiceFiscale(datiRegistrazione.get(2)); //controllo cf valido
-			
+				
 		return ret;
-		
 	}
-	
+		
 	
 
 	public void updateModel(String source, Object dati) {
