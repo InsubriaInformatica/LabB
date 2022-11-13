@@ -1,3 +1,4 @@
+import java.sql.SQLException;
 import java.util.List;
 
 //FORNISCE I METODI NECESSARI DEL SERVER, in base alle richieste del client
@@ -15,6 +16,9 @@ public interface ServerInterface {
 	//controlla se utente esiste verificando username
 	public boolean esisteUtente(String username);
 	
+	//verifica che id in fase di registrazione corrisponde all'utente realmente assegnato
+	public boolean verificaCorrispondenzaId(String codiceFiscale, String idVaccinato);
+	
 	//verifica l'esistenza con il db di un username o password registrata
 	public boolean login(String username, String password);
 	
@@ -26,13 +30,7 @@ public interface ServerInterface {
 	
 	//verifica se esiste un centro Vaccinale nel comune e tipologia specificata
 	public boolean EsisteCentroCeT(String comune, String tipologia);
-	
-	//verifica esistenza di username del cittadino
-	public boolean esisteUsername(String username);
-	
-	//controlla se il cittadino si è vaccinato per effettuare registrazione
-	public boolean checkCittadinoVaccinatoPerRegistrazione(String codiceFiscale, String cognome, String nome, String idUnivoco, String nomeCentro);
-	
+		
 	//controlla se cittadino si è effettivamente registrato
 	public boolean checkCittadinoVaccinato(String nomeCittadino);
 	
@@ -42,8 +40,10 @@ public interface ServerInterface {
 	//ritorna elenco eventi avversi inseriti nel DB
 	public List<String> retElencoEventiAvversi();
 
-	
+	//restituisce una lista contenente in posizione 0 il nome e in posizione 1 idUnivoco del vaccinato
 	public List<String> IdUnivoco(String codiceFiscale);
+
+	
 	
 	
 	

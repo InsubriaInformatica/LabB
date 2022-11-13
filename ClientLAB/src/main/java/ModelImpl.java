@@ -163,16 +163,9 @@ public class ModelImpl implements Model{
 		return this.proxy.checkCittadinoVaccinato(cf);
 	}
 	
-	//controlla che id sia su base numeri di 16 bit
-	public boolean controlloIdUnivoco(String idVaccinato) {
-		
-		boolean res = true;
-		for(int i=0; i<idVaccinato.length(); i++) {
-			if(!('0' <= idVaccinato.charAt(i) && idVaccinato.charAt(i) <= '9')) {
-				return false;
-			}
-		}
-		return res;
+	//verifica che id in fase di registrazione corrisponde all'utente realmente assegnato
+	public boolean controlloIdUnivoco(String codiceFiscale, String idVaccinato) {
+		return this.proxy.verificaCorrispondenzaId(codiceFiscale, idVaccinato);
 	}
 	
 	//controlla modello e-mail --> nome@dominio.it/com ecc..
@@ -298,11 +291,11 @@ public class ModelImpl implements Model{
 	//questo metodo permette al cittadino di registrarsi dopo aver affettuato la vaccinazione
 	public Object registrazioneCittadino(List<String> datiRegistrazione) {
 		List<String> ret = new ArrayList <String>();
-		
 		boolean stringheVuote = controlloStringheVuote(datiRegistrazione); // controllo stringhe vuote nella lista
-		boolean idValido = controlloIdUnivoco(datiRegistrazione.get(6)); //controllo id numerico
 		
 		if(!stringheVuote) { //verifica che non ci siano stringhe vuote
+			
+			boolean idValido = controlloIdUnivoco(datiRegistrazione.get(2), datiRegistrazione.get(6)); //controllo id numerico
 			
 			if(idValido) {
 				boolean isVaccinato = isVaccinato(datiRegistrazione.get(2)); //controlla se cittadino è vaccinato con CF
@@ -340,7 +333,7 @@ public class ModelImpl implements Model{
 			
 			else {
 				ret.add("ERRORE:");
-				ret.add("-ID VACCINAZIONE NON VALIDO");
+				ret.add("-ID VACCINAZIONE NON CORRISPONDENTE");
 			}
 		
 		}

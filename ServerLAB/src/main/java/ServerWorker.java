@@ -98,15 +98,23 @@ public class ServerWorker extends Thread{
 					String password = (String) this.in.readObject();
 					String idUnivoco = (String) this.in.readObject();
 					
-					int ret = this.swi.registrazioneCittadino(nome, cognome, codiceFiscale, eMail, username, password, idUnivoco);
-					this.out.writeObject(ret);
+					int esito = this.swi.registrazioneCittadino(nome, cognome, codiceFiscale, eMail, username, password, idUnivoco);
+					this.out.writeObject(esito);
 				}
 				
 				else if(inputClient.equals("esisteUtente")) {
 					String username = (String) this.in.readObject();
 					
-					boolean ret = this.swi.esisteUtente(username);
-					this.out.writeObject(ret);
+					boolean esito = this.swi.esisteUtente(username);
+					this.out.writeObject(esito);
+				}
+				
+				else if(inputClient.equals("corrispondenzaId")) {
+					String codiceFiscale = (String) this.in.readObject();
+					String idUnivoco = (String) this.in.readObject();
+					
+					boolean esito = this.swi.verificaCorrispondenzaId(codiceFiscale, idUnivoco);
+					this.out.writeObject(esito);
 				}
 				
 			} catch (ClassNotFoundException | IOException e) {

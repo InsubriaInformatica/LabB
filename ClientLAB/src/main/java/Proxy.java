@@ -158,6 +158,25 @@ public class Proxy implements ServerInterface{
 		return res;
 	}
 	
+	public boolean verificaCorrispondenzaId(String codiceFiscale, String idVaccinato) {
+		
+		boolean res = false;
+		
+		try {
+			this.out.writeObject("corrispondenzaId");
+			this.out.writeObject(codiceFiscale);
+			this.out.writeObject(idVaccinato);
+			
+			res = (Boolean) this.in.readObject();
+			
+		} catch (IOException e) {
+			System.err.println("Proxy: problemi nell'acquisizione: " + e.toString());
+		} catch (ClassNotFoundException e) {
+			System.err.println("Proxy: problemi con salvataggio: " + e.toString());
+		}
+		return res;
+	}
+	
 	public boolean login(String username, String password) {
 		// TODO Auto-generated method stub
 		return false;
@@ -226,6 +245,10 @@ public class Proxy implements ServerInterface{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
+
+	
 
 
 

@@ -255,7 +255,7 @@ public class EsecutoreQuery implements SkeletonInterface{
 
 
 	//registra al portale cittadini l'utente vaccinato
-	public int registrazioneCittadino(String nome, String cognome, String codiceFiscale, String eMail, String username, String password, String IdUnivoco) throws SQLException{
+	public synchronized int registrazioneCittadino(String nome, String cognome, String codiceFiscale, String eMail, String username, String password, String IdUnivoco) throws SQLException{
 		int ret = 0;
 		int brs;
 		String queryControlloCittadino = "SELECT * FROM cittadini WHERE codiceFiscale = '"+ codiceFiscale +"'";
@@ -266,23 +266,10 @@ public class EsecutoreQuery implements SkeletonInterface{
 			rs = istruzione.executeQuery(queryControlloRegistrato);
 			
 			if(rs.next()==false) { 
-				String queryControlloId = "SELECT id FROM vaccinazione NATURAL JOIN cittadini\n"
-						+ "WHERE codicefiscale = '"+ codiceFiscale +"'";
-				rs = istruzione.executeQuery(queryControlloId);
-				
-				if(rs.next()) {
-					String idQuery = rs.getString(1);
-					System.out.println("L'id della query è: " + idQuery + ", l'id inserito dall'utente è: " + IdUnivoco);
-					
-					if(idQuery.equals(IdUnivoco)) {
-						String queryInsert = "INSERT INTO cittadini_registrati VALUES('"+ codiceFiscale +"', '"+ username +"', '"+ password+"', '"+ eMail +"', '"+ IdUnivoco +"');";
-						brs = istruzione.executeUpdate(queryInsert);
-						System.out.println("cittadino registrato");
-						ret = 1; //buon fine
-					}else {
-						System.out.println("L'ID NON è UGUALE CAMBIARE!!!!");
-					}
-				}
+				String queryInsert = "INSERT INTO cittadini_registrati VALUES('"+ codiceFiscale +"', '"+ username +"', '"+ password+"', '"+ eMail +"', '"+ IdUnivoco +"');";
+				brs = istruzione.executeUpdate(queryInsert);
+				System.out.println("cittadino registrato");
+				ret = 1; //buon fine
 			}
 			
 			else {
@@ -299,7 +286,7 @@ public class EsecutoreQuery implements SkeletonInterface{
 
 
 	//cerca nel DB se trova un utente con lo stesso nome
-	public boolean esisteUtente(String username) throws SQLException {
+	public synchronized boolean esisteUtente(String username) throws SQLException {
 		boolean ret = false;
 		String query = "SELECT username, password FROM cittadini_registrati WHERE username = '"+username+"'";
 		ResultSet rs = istruzione.executeQuery(query);
@@ -309,6 +296,29 @@ public class EsecutoreQuery implements SkeletonInterface{
 		}
 		return ret;
 	}
-	
+
+
+	//verifica che id corrisponde ad utente registrato
+	public synchronized boolean verificaCorrispondenzaId(String codiceFiscale, String idVaccinato) throws SQLException {
+		
+		String queryControlloId = "SELECT id FROM vaccinazione NATURAL JOIN cittadini\n"
+				+ "WHERE codicefiscale = '"+ codiceFiscale +"'";
+		rs = istruzione.executeQuery(queryControlloId);
+		
+		if(rs.next()) {
+			String idQuery = rs.getString(1);
+			System.out.println("L'id della query è: " + idQuery + ", l'id inserito dall'utente è: " + idVaccinato);
+			
+			if(idQuery.equals(idVaccinato)) {
+				return true; //buon fine 
+			}
+			else {
+				System.out.println("L'ID NON è UGUALE CAMBIARE!!!!");
+				return false;
+			}
+		}
+		
+		else {return false;}
+	}
 
 }
