@@ -345,7 +345,24 @@ public class ModelImpl implements Model{
 		return ret;
 	}
 		
+	public Object login(List <String> datiLogin) {
+		
+		List<String> ret = new ArrayList <String>();
+		boolean checkUsername = false;
+		boolean checkPassword = false;
+		
+		if(datiLogin.get(0).equals("")) {
+			checkUsername = true;
+		}
+		
+		if(datiLogin.get(1).equals("")) {
+			checkPassword = true;
+		}
+		
 	
+		return ret;
+		
+	}
 
 	public void updateModel(String source, Object dati) {
 		
