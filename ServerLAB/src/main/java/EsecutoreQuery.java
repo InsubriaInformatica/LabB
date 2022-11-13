@@ -266,10 +266,23 @@ public class EsecutoreQuery implements SkeletonInterface{
 			rs = istruzione.executeQuery(queryControlloRegistrato);
 			
 			if(rs.next()==false) { 
-				String queryInsert = "INSERT INTO cittadini_registrati VALUES('"+ codiceFiscale +"', '"+ username +"', '"+ password+"', '"+ eMail +"', '"+ IdUnivoco +"');";
-				brs = istruzione.executeUpdate(queryInsert);
-				System.out.println("cittadino registrato");
-				ret = 1; //buon fine
+				String queryControlloId = "SELECT id FROM vaccinazione NATURAL JOIN cittadini\n"
+						+ "WHERE codicefiscale = '"+ codiceFiscale +"'";
+				rs = istruzione.executeQuery(queryControlloId);
+				
+				if(rs.next()) {
+					String idQuery = rs.getString(1);
+					System.out.println("L'id della query è: " + idQuery + ", l'id inserito dall'utente è: " + IdUnivoco);
+					
+					if(idQuery.equals(IdUnivoco)) {
+						String queryInsert = "INSERT INTO cittadini_registrati VALUES('"+ codiceFiscale +"', '"+ username +"', '"+ password+"', '"+ eMail +"', '"+ IdUnivoco +"');";
+						brs = istruzione.executeUpdate(queryInsert);
+						System.out.println("cittadino registrato");
+						ret = 1; //buon fine
+					}else {
+						System.out.println("L'ID NON è UGUALE CAMBIARE!!!!");
+					}
+				}
 			}
 			
 			else {
