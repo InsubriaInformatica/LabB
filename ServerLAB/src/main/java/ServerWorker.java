@@ -117,6 +117,14 @@ public class ServerWorker extends Thread{
 					this.out.writeObject(esito);
 				}
 				
+				else if(inputClient.equals("login")) {
+					String username = (String) this.in.readObject();
+					String password = (String) this.in.readObject();
+					
+					boolean esito = this.swi.login(username, password);
+					this.out.writeObject(esito);
+				}
+				
 			} catch (ClassNotFoundException | IOException e) {
 				System.err.println("THREAD: problemi invio dato: " + e.toString());
 				break;

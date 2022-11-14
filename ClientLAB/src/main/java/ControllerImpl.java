@@ -157,8 +157,7 @@ public class ControllerImpl implements ActionListener{
 		}
 		
 		if(click.equals("ACCEDI")) {
-			//dati = this.v.getDatiPerLogin();
-			dati = null;
+			dati = this.v.getDatiPerLogin();
 		}
 		
 		if(click.equals("REGISTRATI-Login")) {

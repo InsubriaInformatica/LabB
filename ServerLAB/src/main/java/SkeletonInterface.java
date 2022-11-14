@@ -25,6 +25,9 @@ public interface SkeletonInterface {
 	//verifica che id in fase di registrazione corrisponde all'utente realmente assegnato
 	public boolean verificaCorrispondenzaId(String codiceFiscale, String idVaccinato)throws SQLException;
 	
+	//verifica se dati login sono corretti
+	public boolean login(String username, String password)throws SQLException;
+	
 	//restituisce una lista contenente in posizione 0 il nome e in posizione 1 idUnivoco del vaccinato
 	public List<String> IdUnivoco(String codiceFiscale) throws SQLException ; 
 	

@@ -394,6 +394,11 @@ public class ViewImpl extends JFrame implements View{
 		}
 		
 		if(buttonOrigine.equals("ACCEDI")) {
+			
+			List <String> datiUtente = (List<String>) dati;
+			
+			String utente = datiUtente.get(0);
+			JOptionPane.showMessageDialog(null, "Benvenuto " + utente, "CITTADINO", JOptionPane.INFORMATION_MESSAGE);
 			mostraViewInserimentoEA(); //va alla pagina di inserimento eventi avversi
 		}
 		

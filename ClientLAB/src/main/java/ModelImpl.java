@@ -8,6 +8,7 @@ public class ModelImpl implements Model{
 	
 	private View v;
 	private ServerInterface proxy; //chiamata locale 
+	String utenteConnesso; //utente al momento loggato
 	private boolean flag;
 
 	//riferimento a view dove model dovrà operare, instanzia riferimento proxy server locale dove andrà ad operare
@@ -16,6 +17,7 @@ public class ModelImpl implements Model{
 		try {
 			
 			this.v = v; //instanzia view
+			this.utenteConnesso = null;
 			this.proxy = new Proxy(InetAddress.getByName(null), 8080); //local host e porta
 			
 		} catch (UnknownHostException e) {
@@ -346,22 +348,47 @@ public class ModelImpl implements Model{
 	}
 		
 	public Object login(List <String> datiLogin) {
-		
 		List<String> ret = new ArrayList <String>();
-		boolean checkUsername = false;
-		boolean checkPassword = false;
 		
-		if(datiLogin.get(0).equals("")) {
-			checkUsername = true;
+		if(datiLogin.get(0).equals("") || datiLogin.get(1).equals("")) {
+			ret.add("ERRORE:");
+			
+			if(datiLogin.get(0).equals("")) {
+				ret.add("-INSERISCI USERNAME");
+			}
+			
+			if(datiLogin.get(1).equals("")) {
+				ret.add("-INSERISCI PASSWORD");
+			}
+			
 		}
-		
-		if(datiLogin.get(1).equals("")) {
-			checkPassword = true;
+		else {
+			boolean successo = this.proxy.login(datiLogin.get(0), datiLogin.get(1));
+			
+			if(successo == true) {
+				this.utenteConnesso = datiLogin.get(0); //memorizza utente connesso per visualizza in seguito gli eventi avversi da lui inseriti
+				System.out.println("Login effettuato da: " + utenteConnesso );
+				ret = datiLogin;
+			}
+			else {
+				ret.add("ERRORE:");
+				ret.add("-UTENTE NON REGISTRATO");
+			}
+				
 		}
-		
-	
 		return ret;
+	}
+	
+	//metodo che rimette a null l'utente connesso se torna alla schermata di login
+	public Object esciDaEA() {
+		List<String> ret = null;
 		
+		if(this.v.getViewAttuale().equals("inserimentoEventiAvversi")) {
+			this.utenteConnesso = null;
+			System.out.println("utente sconnesso: " + utenteConnesso);
+		}
+		
+		return ret;
 	}
 
 	public void updateModel(String source, Object dati) {
@@ -402,6 +429,19 @@ public class ModelImpl implements Model{
 				this.flag = true;
 			}
 			
+		}
+		
+		if(button.equals("ACCEDI")) {
+			List<String> datiLogin = (List<String>) dati;
+			datiPerModel = (List<String>) login(datiLogin);
+			
+			if(datiPerModel.get(0).equals("ERRORE:")){
+				this.flag = true;
+			}
+		}
+		
+		if(button.equals("INDIETRO")) {
+			datiPerModel = (List<String>) esciDaEA();
 		}
 		
 		this.v.updateView(button, datiPerModel, this.flag); //aggiorna view in base all'elaborazione

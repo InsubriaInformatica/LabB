@@ -321,4 +321,17 @@ public class EsecutoreQuery implements SkeletonInterface{
 		else {return false;}
 	}
 
+
+	//verifica nel DB esistenza dati per effettuare login
+	public synchronized boolean login(String username, String password) throws SQLException {
+		boolean ret = false;
+		
+		String verificaRegistrazione = "SELECT username, password FROM cittadini_registrati WHERE username = '"+ username +"' AND password = '"+ password +"'";
+		ResultSet rs = istruzione.executeQuery(verificaRegistrazione);
+		
+		ret = rs.next();
+		
+		return ret;
+	}
+
 }

@@ -158,6 +158,7 @@ public class Proxy implements ServerInterface{
 		return res;
 	}
 	
+	//verifica se id inserito in fase di registrazione è quello dell' utente vaccinato effettivo
 	public boolean verificaCorrispondenzaId(String codiceFiscale, String idVaccinato) {
 		
 		boolean res = false;
@@ -177,9 +178,24 @@ public class Proxy implements ServerInterface{
 		return res;
 	}
 	
+	//verifica se dati inseriti sono corretti per accedere
 	public boolean login(String username, String password) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		Boolean res = false;
+		
+		try {
+			this.out.writeObject("login");
+			this.out.writeObject(username);
+			this.out.writeObject(password);
+			
+			res = (Boolean) this.in.readObject();
+			
+		} catch (IOException e) {
+			System.err.println("Proxy: problemi nell'acquisizione: " + e.toString());
+		} catch (ClassNotFoundException e) {
+			System.err.println("Proxy: problemi con salvataggio: " + e.toString());
+		}
+		return res.booleanValue();
 	}
 
 	public int inserisciEventoAvverso(String codiceFiscale, String evento, String severità, String note) {
