@@ -23,7 +23,7 @@ public interface ServerInterface {
 	public boolean login(String username, String password);
 	
 	//registra nel DB un nuovo evento avverso di un cittadino
-	public int inserisciEventoAvverso(String codiceFiscale, String evento, String severità, String note);
+	public int inserisciEventoAvverso(String codiceFiscale, String evento, String severita, String note);
 	
 	//verifica se esiste un centro Vaccinale con quel nome
 	public boolean EsisteCentroNome(String nome);
@@ -43,8 +43,7 @@ public interface ServerInterface {
 	//restituisce una lista contenente in posizione 0 il nome e in posizione 1 idUnivoco del vaccinato
 	public List<String> IdUnivoco(String codiceFiscale);
 
-	
-	
-	
+	//ritorna il codice fiscale di quell'utente che ne fa richiesta
+	public String retCfUtente(String username);
 	
 }

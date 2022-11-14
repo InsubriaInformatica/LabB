@@ -334,4 +334,48 @@ public class EsecutoreQuery implements SkeletonInterface{
 		return ret;
 	}
 
+
+	//cerca nel DB in Cf corrispondente all'utente
+	public synchronized String retCfUtente(String username) throws SQLException {
+		String ret = "";
+		
+		String query = "SELECT codicefiscale\n"
+				+ "FROM cittadini_registrati\n"
+				+ "WHERE username = '"+ username +"';";
+		ResultSet rs = this.istruzione.executeQuery(query);
+		
+		while(rs.next()) {
+			ret = rs.getString("codicefiscale");
+		}
+		return ret;
+	}
+
+
+	//questo metodo di occupa di inserire evento avverso della persona indicata dal codice fiscale
+	public int inserisciEventoAvverso(String codiceFiscale, String evento, String severita, String note)throws SQLException {
+		int ret = 0;
+
+		String queryPerVerificareEsistenzaEvento = "SELECT codiceFiscale FROM eventi_avversi WHERE codiceFiscale = '"+ codiceFiscale +"' AND evento = '"+ evento +"';";
+		ResultSet rs = istruzione.executeQuery(queryPerVerificareEsistenzaEvento);
+		int brs = 0;
+
+		if(rs.next()==false) {
+			String queryPerPrendereCentro = "SELECT nomecentro FROM vaccinazione WHERE codicefiscale = '"+ codiceFiscale +"'";
+			String nomeCentro = null;
+			rs = istruzione.executeQuery(queryPerPrendereCentro);
+			while(rs.next()) {
+				nomeCentro = rs.getString("nomecentro");
+			}
+			
+			String queryPerInserire = "INSERT INTO eventi_avversi VALUES('"+ codiceFiscale +"', '"+ evento +"', '"+ severita +"', '"+ note +"', '"+ nomeCentro +"');";
+			brs = istruzione.executeUpdate(queryPerInserire);
+			ret = 1;
+		}
+		else {
+			ret = 0;
+		}
+		
+		return ret;
+	}
+
 }

@@ -28,11 +28,17 @@ public interface SkeletonInterface {
 	//verifica se dati login sono corretti
 	public boolean login(String username, String password)throws SQLException;
 	
+	//inserisce evento avverso dell'utente connesso
+	public int inserisciEventoAvverso(String codiceFiscale, String evento, String severita, String note)throws SQLException;
+	
 	//restituisce una lista contenente in posizione 0 il nome e in posizione 1 idUnivoco del vaccinato
 	public List<String> IdUnivoco(String codiceFiscale) throws SQLException ; 
 	
 	//ritorna l'elenco dei centri vaccinali registrati nel DB
 	public List<String> retElencoCentriVaccinali() throws SQLException ;
+	
+	//ritorna il codice fiscale di quell'utente
+	public String retCfUtente(String username)throws SQLException;
 	
 	//crea tabelle nel DB
 	public void creazioneTabelle() throws SQLException;

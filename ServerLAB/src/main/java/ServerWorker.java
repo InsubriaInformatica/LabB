@@ -125,6 +125,26 @@ public class ServerWorker extends Thread{
 					this.out.writeObject(esito);
 				}
 				
+				else if(inputClient.equals("retMyCodiceFiscale")) {
+					
+					String username = (String) this.in.readObject();
+					
+					String codiceFiscale = this.swi.retCfUtente(username);
+					this.out.writeObject(codiceFiscale);
+				}
+				
+				else if(inputClient.equals("inserisciEventroAvverso")) {
+					
+					String codiceFiscale = (String) this.in.readObject();
+					String evento = (String) this.in.readObject();
+					String severita = (String) this.in.readObject();
+					String note = (String) this.in.readObject();
+					
+					int esito = this.swi.inserisciEventoAvverso(codiceFiscale, evento, severita, note);
+					
+					this.out.writeObject(esito);
+				}
+				
 			} catch (ClassNotFoundException | IOException e) {
 				System.err.println("THREAD: problemi invio dato: " + e.toString());
 				break;

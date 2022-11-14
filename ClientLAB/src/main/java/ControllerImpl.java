@@ -165,7 +165,7 @@ public class ControllerImpl implements ActionListener{
 		}
 		
 		if(click.equals("CONFERMA EVENTO AVVERSO")) {
-			dati = null;
+			dati = this.v.getDatiInserisciEventoAvverso();
 		}
 		
 		m.updateModel(source, dati); //elabora dati sul bottone d'origine

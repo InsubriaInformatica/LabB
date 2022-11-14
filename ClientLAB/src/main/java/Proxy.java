@@ -198,9 +198,26 @@ public class Proxy implements ServerInterface{
 		return res.booleanValue();
 	}
 
-	public int inserisciEventoAvverso(String codiceFiscale, String evento, String severità, String note) {
-		// TODO Auto-generated method stub
-		return 0;
+
+	public int inserisciEventoAvverso(String codiceFiscale, String evento, String severita, String note) {
+		Integer ret = 0;
+		
+		try {
+			this.out.writeObject("inserisciEventroAvverso");
+			this.out.writeObject(codiceFiscale);
+			this.out.writeObject(evento);
+			this.out.writeObject(severita);
+			this.out.writeObject(note);
+			
+			ret = (Integer) this.in.readObject();
+			
+		} catch (IOException e) {
+			System.err.println("Proxy: problemi nell'acquisizione: " + e.toString());
+		} catch (ClassNotFoundException e) {
+			System.err.println("Proxy: problemi con salvataggio: " + e.toString());
+		}
+		
+		return ret.intValue();
 	}
 
 
@@ -261,6 +278,26 @@ public class Proxy implements ServerInterface{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
+	//questo metodo ritorna il codice fiscale dell'utente passato come parametro
+	public String retCfUtente(String username) {
+		String res = "";
+		try {
+			this.out.writeObject("retMyCodiceFiscale");
+			this.out.writeObject(username);
+			
+			res = (String) this.in.readObject();
+			
+		} catch (IOException e) {
+			System.err.println("Proxy: problemi nell'acquisizione: " + e.toString());
+		} catch (ClassNotFoundException e) {
+			System.err.println("Proxy: problemi nell'acquisizione: " + e.toString());
+		}
+		return res;
+	}
+
+	
 
 
 
