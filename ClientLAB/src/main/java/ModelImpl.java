@@ -335,7 +335,7 @@ public class ModelImpl implements Model{
 			
 			else {
 				ret.add("ERRORE:");
-				ret.add("-ID VACCINAZIONE NON CORRISPONDENTE");
+				ret.add("-NESSUNA CORRISPONDENZA: VERIFICA ID UNIVOCO E CODICE FISCALE INSERITO");
 			}
 		
 		}
@@ -385,7 +385,7 @@ public class ModelImpl implements Model{
 		
 		if(this.v.getViewAttuale().equals("inserimentoEventiAvversi")) {
 			this.utenteConnesso = null;
-			System.out.println("utente sconnesso: " + utenteConnesso);
+			System.out.println("Utente sconnesso: " + utenteConnesso);
 		}
 		
 		return ret;
