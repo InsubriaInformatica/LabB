@@ -65,36 +65,37 @@ public class ServerGUI extends JFrame implements ViewInterface{
 		this.setLayout(new BorderLayout());
 		
 		//INTESTAZIONE
-		Border bordoIntestazione = BorderFactory.createLineBorder(Color.BLACK, 3); //crea bordo
+		Border bordoIntestazione = BorderFactory.createLineBorder(Colori.arancione, 6); //crea bordo
 
 		
 		//Titolo contenuto nell'intestazione
 		this.immagine = new ImageIcon("img/server.png"); // ../ serve per il jar
-		this.titolo = new JLabel(new ImageIcon(immagine.getImage().getScaledInstance(immagine.getIconWidth()/20*4, immagine.getIconHeight()/20*4, java.awt.Image.SCALE_SMOOTH)));
+		this.titolo = new JLabel(new ImageIcon(immagine.getImage().getScaledInstance(immagine.getIconWidth()/20*6, immagine.getIconHeight()/20*6, java.awt.Image.SCALE_SMOOTH)));
 		titolo.setText("AVVIO SERVER");
-		//titolo.setIcon(immagine);
+		titolo.setForeground(Colori.arancione);
 		titolo.setHorizontalTextPosition(JLabel.CENTER); //setta il testo DX,CX,SX rispetto a immagine
 		titolo.setVerticalTextPosition(JLabel.TOP); //setta il testo TOP,CX,BOTTOM rispetto a immagine
 		titolo.setFont(new Font("MV Boli", Font.BOLD, 30));
-		//titolo.setForeground(Colori.purple); //colore testo
 		
 		this.intestazione = new JPanel(); //inizializza contenitore intestazione
 		this.intestazione.setLayout(new BorderLayout());
-		this.intestazione.setPreferredSize(new Dimension(180, 160)); //size panel 
+		this.intestazione.setPreferredSize(new Dimension(180, 200)); //size panel 
 		this.intestazione.setOpaque(true);
-		//this.intestazione.setBackground(Colori.arancione);
+		this.intestazione.setBackground(Colori.purple);
 		this.intestazione.setBorder(bordoIntestazione);
 		this.intestazione.add(this.titolo, BorderLayout.CENTER); //aggiungi titolo
 		
 		//CONTENITORE PRINCIPALE 
 		this.contenitorePrincipale = new JPanel();
+		this.contenitorePrincipale.setBackground(Colori.arancione);
 		
 		//USERNAME 
 		this.panelUsername = new JPanel();
 		this.panelUsername.setLayout(new GridLayout(1,2));
-		//this.panelUsername.setBackground(Colori.purple);
-		this.labelUsername = new JLabel("USERNAME");
-		//this.labelUsername.setForeground(Colori.light_grey);
+		this.panelUsername.setBackground(Colori.arancione);
+		this.labelUsername = new JLabel("USERNAME:");
+		this.labelUsername.setFont(new Font("Arial", Font.BOLD, 20));
+		this.labelUsername.setForeground(Colori.purple);
 		this.txtUsername= new JTextField("postgres", 20); 
 		this.panelUsername.add(this.labelUsername);
 		this.panelUsername.add(this.txtUsername);
@@ -103,9 +104,10 @@ public class ServerGUI extends JFrame implements ViewInterface{
 		//PASSWORD
 		this.panelPsw = new JPanel();
 		this.panelPsw.setLayout(new GridLayout(1,2));
-		//this.panelUsername.setBackground(Colori.purple);
+		this.panelPsw.setBackground(Colori.arancione);
 		this.labelPsw = new JLabel("PASSWORD:");
-		//this.labelUsername.setForeground(Colori.light_grey);
+		this.labelPsw.setFont(new Font("Arial", Font.BOLD, 20));
+		this.labelPsw.setForeground(Colori.purple);
 		this.txtPsw= new JPasswordField("", 20); 
 		this.panelPsw.add(this.labelPsw);
 		this.panelPsw.add(this.txtPsw);
@@ -114,9 +116,10 @@ public class ServerGUI extends JFrame implements ViewInterface{
 		//HOST
 		this.panelHost = new JPanel();
 		this.panelHost.setLayout(new GridLayout(1,2));
-		//this.panelUsername.setBackground(Colori.purple);
+		this.panelHost.setBackground(Colori.arancione);
 		this.labelHost = new JLabel("HOST:");
-		//this.labelUsername.setForeground(Colori.light_grey);
+		this.labelHost.setFont(new Font("Arial", Font.BOLD, 20));
+		this.labelHost.setForeground(Colori.purple);
 		this.txtHost= new JTextField("localhost", 20); 
 		this.panelHost.add(this.labelHost);
 		this.panelHost.add(this.txtHost);
@@ -125,9 +128,10 @@ public class ServerGUI extends JFrame implements ViewInterface{
 		//HOST
 		this.panelPorta = new JPanel();
 		this.panelPorta.setLayout(new GridLayout(1,2));
-		//this.panelUsername.setBackground(Colori.purple);
+		this.panelPorta.setBackground(Colori.arancione);
 		this.labelPorta = new JLabel("PORTA:");
-		//this.labelUsername.setForeground(Colori.light_grey);
+		this.labelPorta.setFont(new Font("Arial", Font.BOLD, 20));
+		this.labelPorta.setForeground(Colori.purple);
 		this.txtPorta= new JTextField("5432", 20); 
 		this.panelPorta.add(this.labelPorta);
 		this.panelPorta.add(this.txtPorta);
@@ -136,9 +140,10 @@ public class ServerGUI extends JFrame implements ViewInterface{
 		//NOME DB
 		this.panelNomeDB = new JPanel();
 		this.panelNomeDB.setLayout(new GridLayout(1,2));
-		//this.panelUsername.setBackground(Colori.purple);
+		this.panelNomeDB.setBackground(Colori.arancione);
 		this.labelNomeDB = new JLabel("NOME DATABASE:");
-		//this.labelUsername.setForeground(Colori.light_grey);
+		this.labelNomeDB.setFont(new Font("Arial", Font.BOLD, 20));
+		this.labelNomeDB.setForeground(Colori.purple);
 		this.txtNomeDB= new JTextField("LabB", 20); 
 		this.panelNomeDB.add(this.labelNomeDB);
 		this.panelNomeDB.add(this.txtNomeDB);
@@ -147,8 +152,9 @@ public class ServerGUI extends JFrame implements ViewInterface{
 		//SPAZIO VUOTO
 		this.panelVuoto = new JPanel();
 		this.panelVuoto.setLayout(new GridLayout(1,1));
-		//this.panelVuoto.setBackground(Colori.purple);
+		this.panelVuoto.setBackground(Colori.arancione);
 		this.labelVuoto = new JLabel();
+		this.labelVuoto.setBackground(Colori.arancione);
 		this.labelVuoto.setHorizontalAlignment(JLabel.CENTER);
 		this.labelVuoto.setVerticalAlignment(JLabel.CENTER);
 		this.panelVuoto.add(labelVuoto);
@@ -160,33 +166,21 @@ public class ServerGUI extends JFrame implements ViewInterface{
 		
 		this.panelBottoni = new JPanel();
 		this.panelBottoni.setLayout(new GridLayout(1,2));
-		//this.panelBottoni.setBackground(Colori.purple);
+		this.panelBottoni.setBackground(Colori.arancione);
 		this.buttonAvvio = new JButton(new ImageIcon(avvio.getImage().getScaledInstance(avvio.getIconWidth()/20*2, avvio.getIconHeight()/20*2, java.awt.Image.SCALE_SMOOTH)));
 		this.buttonAvvio.setName("AVVIO SERVER");
 		this.buttonAvvio.setBorderPainted(false); //senza contorni
-		//this.buttonAvvio.setBackground(Colori.arancione);
-		//this.buttonAvvio.setForeground(Colori.light_grey);
-		//this.buttonAvvio.setBorder(bordo);
 		this.panelBottoni.setPreferredSize(new Dimension(200, 60)); //dimensioni panel
 		this.buttonAvvio.setPreferredSize(new Dimension(200, 50)); //dimensioni bottone
-		//this.panelBottone1.setBackground(Colori.purple);
 		this.panelBottoni.add(this.buttonAvvio);
 		
-		
-	
-				
 		//BOTTONE SPEGNI SERVER
 		this.buttonSpegnimento = new JButton(new ImageIcon(spegnimento.getImage().getScaledInstance(spegnimento.getIconWidth()/20*2, spegnimento.getIconHeight()/20*2, java.awt.Image.SCALE_SMOOTH)));
 		this.buttonSpegnimento.setName("SPEGNI SERVER");
 		this.buttonSpegnimento.setBorderPainted(false); //senza contorni
-		//this.buttonAvvio.setBackground(Colori.arancione);
-		//this.buttonAvvio.setForeground(Colori.light_grey);
-		//this.buttonAvvio.setBorder(bordo);
 		this.panelBottoni.setPreferredSize(new Dimension(200, 60)); //dimensioni panel
 		this.buttonSpegnimento.setPreferredSize(new Dimension(200, 50)); //dimensioni bottone
-		//this.panelBottone1.setBackground(Colori.purple);
 		this.panelBottoni.add(this.buttonSpegnimento);
-		
 		
 		this.contenitorePrincipale.add(panelUsername);
 		this.contenitorePrincipale.add(panelPsw);
