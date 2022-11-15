@@ -222,7 +222,7 @@ public class ViewImpl extends JFrame implements View{
 		this.viewAttuale = "ricercaCentro";
 	}
 	
-	private void mostraViewElencoCentri( /*List<String> centri, List<List<String>> dati*/) {
+	private void mostraViewElencoCentri( List<String> centri, List<List<String>> dati) {
 		this.setVisible(false);
 		this.getContentPane().removeAll();
 		this.getBack().setVisible(true);
@@ -233,23 +233,17 @@ public class ViewImpl extends JFrame implements View{
 		this.viewAttuale = "elencoCentri";
 		
 		//inserisci centri trovati nella combobox
-		/*for(String centro : centri) {
+		for(String centro : centri) {
 			this.viewElencoCentri.aggiungiCentroInComboBox(centro);;
-		}*/
+		}
 		
 		//recupera valori da lista e inserisce nelle label senza mostrarli
-		/*this.viewElencoCentri.setNomeCentroNOVISUAL("index: " + this.viewElencoCentri.retIndiceCentroSelezionatoComboBox());
+		this.viewElencoCentri.setNomeCentroNOVISUAL("index: " + this.viewElencoCentri.retIndiceCentroSelezionatoComboBox());
 		this.viewElencoCentri.setTipologiaCentroNOVISUAL(dati.get(this.viewElencoCentri.retIndiceCentroSelezionatoComboBox()).get(0));
 		this.viewElencoCentri.setIndirizzoCentroNOVISUAL(dati.get(this.viewElencoCentri.retIndiceCentroSelezionatoComboBox()).get(1));
 		this.viewElencoCentri.setNumeroSegnalazioniNOVISUAL(dati.get(this.viewElencoCentri.retIndiceCentroSelezionatoComboBox()).get(2));
-		
-		
-		this.viewElencoCentri.setMalDiTestaNOVISUAL(dati.get(this.viewElencoCentri.retIndiceCentroSelezionatoComboBox()).get(3));
-		this.viewElencoCentri.setFebbreNOVISUAL(dati.get(this.viewElencoCentri.retIndiceCentroSelezionatoComboBox()).get(4));
-		this.viewElencoCentri.setDoloriNOVISUAL(dati.get(this.viewElencoCentri.retIndiceCentroSelezionatoComboBox()).get(5));
-		this.viewElencoCentri.setLinfoadenopatiaNOVISUAL(dati.get(this.viewElencoCentri.retIndiceCentroSelezionatoComboBox()).get(6));
-		this.viewElencoCentri.setTachicardiaNOVISUAL(dati.get(this.viewElencoCentri.retIndiceCentroSelezionatoComboBox()).get(7));
-		this.viewElencoCentri.setCrisiNOVISUAL(dati.get(this.viewElencoCentri.retIndiceCentroSelezionatoComboBox()).get(8));*/
+		this.viewElencoCentri.setMediaSintomiNOVISUAL(dati.get(this.viewElencoCentri.retIndiceCentroSelezionatoComboBox()).get(3));
+
 		
 	}
 	
@@ -409,7 +403,7 @@ public class ViewImpl extends JFrame implements View{
 		
 		if(buttonOrigine.equals("CercaNome") || buttonOrigine.equals("CercaComune")) {
 			
-			/*List <String> centri = new ArrayList<String>();
+			List <String> centri = new ArrayList<String>();
 			List<List<String>> campo = new ArrayList<List<String>>();
 			int j=0;
 			
@@ -424,14 +418,7 @@ public class ViewImpl extends JFrame implements View{
 					campo.get(j).add(centroComTipo.get(1)); //indirizzo
 					campo.get(j).add(centroComTipo.get(2)); //tipologia
 					campo.get(j).add(centroComTipo.get(3)); //numero segnalazioni
-					
 					campo.get(j).add(centroComTipo.get(4)); //medie avversità
-					campo.get(j).add(centroComTipo.get(5)); 
-					campo.get(j).add(centroComTipo.get(6));
-					campo.get(j).add(centroComTipo.get(7)); 
-					campo.get(j).add(centroComTipo.get(8)); 
-					campo.get(j).add(centroComTipo.get(9));
-					
 					j++;
 					
 				}
@@ -444,21 +431,16 @@ public class ViewImpl extends JFrame implements View{
 				campo.get(j).add(datiNomeCentro.get(1)); //indirizzo
 				campo.get(j).add(datiNomeCentro.get(2)); //tipologia
 				campo.get(j).add(datiNomeCentro.get(3)); //numero segnalazioni
-				
 				campo.get(j).add(datiNomeCentro.get(4)); //medie avversità
-				campo.get(j).add(datiNomeCentro.get(5)); 
-				campo.get(j).add(datiNomeCentro.get(6));
-				campo.get(j).add(datiNomeCentro.get(7)); 
-				campo.get(j).add(datiNomeCentro.get(8)); 
-				campo.get(j).add(datiNomeCentro.get(9));
-			}*/
+				
+			}
 			
-			mostraViewElencoCentri(/*centri, campo*/);
+			mostraViewElencoCentri(centri, campo);
 		}
 		
 		if(buttonOrigine.equals("ComboBoxCentroInfo")) {
 			
-			/*List <String> centri = new ArrayList<String>();
+			List <String> centri = new ArrayList<String>();
 			List<List<String>> campo = new ArrayList<List<String>>();
 			int j=0;
 			
@@ -473,14 +455,7 @@ public class ViewImpl extends JFrame implements View{
 					campo.get(j).add(centroComTipo.get(1)); //indirizzo
 					campo.get(j).add(centroComTipo.get(2)); //tipologia
 					campo.get(j).add(centroComTipo.get(3)); //numero segnalazioni
-					
 					campo.get(j).add(centroComTipo.get(4)); //medie avversità
-					campo.get(j).add(centroComTipo.get(5)); 
-					campo.get(j).add(centroComTipo.get(6));
-					campo.get(j).add(centroComTipo.get(7)); 
-					campo.get(j).add(centroComTipo.get(8)); 
-					campo.get(j).add(centroComTipo.get(9));
-					
 					j++;
 					
 				}
@@ -495,15 +470,10 @@ public class ViewImpl extends JFrame implements View{
 				campo.get(j).add(datiNomeCentro.get(3)); //numero segnalazioni
 				
 				campo.get(j).add(datiNomeCentro.get(4)); //medie avversità
-				campo.get(j).add(datiNomeCentro.get(5)); 
-				campo.get(j).add(datiNomeCentro.get(6));
-				campo.get(j).add(datiNomeCentro.get(7)); 
-				campo.get(j).add(datiNomeCentro.get(8)); 
-				campo.get(j).add(datiNomeCentro.get(9));
-			}*/
+			}
 			
 			//centro selezionato
-			/*String InfoDaVisualizzare = (String) this.viewElencoCentri.retCentroSelezionatoComboBox();
+			String InfoDaVisualizzare = (String) this.viewElencoCentri.retCentroSelezionatoComboBox();
 			
 			int indice = 0;
 			
@@ -519,13 +489,8 @@ public class ViewImpl extends JFrame implements View{
 			this.viewElencoCentri.setTipologiaCentro(campo.get(indice).get(0));
 			this.viewElencoCentri.setIndirizzoCentro(campo.get(indice).get(1));
 			this.viewElencoCentri.setNumeroSegnalazioni(campo.get(indice).get(2));
+			this.viewElencoCentri.setMediaSintomi(campo.get(indice).get(3));
 			
-			this.viewElencoCentri.setMalDiTesta(campo.get(indice).get(3));
-			this.viewElencoCentri.setFebbre(campo.get(indice).get(4));
-			this.viewElencoCentri.setDolori(campo.get(indice).get(5));
-			this.viewElencoCentri.setLinfoadenopatia(campo.get(indice).get(6));
-			this.viewElencoCentri.setTachicardia(campo.get(indice).get(7));
-			this.viewElencoCentri.setCrisi(campo.get(indice).get(8));*/
 			
 		}
 		

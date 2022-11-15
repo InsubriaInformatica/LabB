@@ -129,31 +129,28 @@ public class ControllerImpl implements ActionListener{
 		}
 		
 		if(click.equals("CercaNome")) {
-			/*List<String> esito = new ArrayList<String>();
+			List<String> esito = new ArrayList<String>();
 			esito.add(togliSpazi(this.v.getDatiNomeCentroPerConsultareInfo()));
 			esito.add(togliSpazi(this.v.getDatiComuneTipologiaPerConsultareInfo().get(0)));
 			esito.add(this.v.getDatiComuneTipologiaPerConsultareInfo().get(1));
-			dati = esito;*/
-			dati = null;
+			dati = esito;
 		}
 		
 		if(click.equals("CercaComune")) {
-			/*List<String> esito = new ArrayList<String>();
+			List<String> esito = new ArrayList<String>();
 			esito.add(togliSpazi(this.v.getDatiNomeCentroPerConsultareInfo()));
 			esito.add(togliSpazi(this.v.getDatiComuneTipologiaPerConsultareInfo().get(0)));
 			esito.add(this.v.getDatiComuneTipologiaPerConsultareInfo().get(1));
-			dati = esito;*/
-			dati = null;
+			dati = esito;
+			
 		}
 		
 		if(click.equals("ComboBoxCentroInfo")) {
-			/*List<String> risultato = new ArrayList<String>();
+			List<String> risultato = new ArrayList<String>();
 			risultato.add(togliSpazi(this.v.getDatiNomeCentroPerConsultareInfo()));
 			risultato.add(togliSpazi(this.v.getDatiComuneTipologiaPerConsultareInfo().get(0)));
 			risultato.add(this.v.getDatiComuneTipologiaPerConsultareInfo().get(1));
-			dati = risultato;*/
-			dati = null;
-			
+			dati = risultato;	
 		}
 		
 		if(click.equals("ACCEDI")) {

@@ -25,24 +25,13 @@ public class ElencoCentriGUI {
 	private JLabel infoTipologia;
 	private JLabel indirizzo;
 	private JLabel infoIndirizzo;
-	private JLabel numeroSegnalazioni;
-	private JLabel infoNumeroSegnalazioni;
+	
 	
 	private JPanel panelSintomi;
-	private JLabel maleTesta;
-	private JLabel infoMaleTesta;
-	private JLabel febbre;
-	private JLabel infoFebrre;
-	private JLabel dolori;
-	private JLabel infoDolori;
-	private JLabel linfoadenopatia;
-	private JLabel infoLinfoadenopatia;
-	private JLabel tachicardia;
-	private JLabel infotachicardia;
-	private JLabel crisiIpertensiva;
-	private JLabel infoCrisiIpertensiva;
-	
-	
+	private JLabel numeroSegnalazioni;
+	private JLabel infoNumeroSegnalazioni;
+	private JLabel mediaSintomi;
+	private JLabel infoMediaSintomi;
 	
 	public ElencoCentriGUI(int larghezza, int altezza, JPanel intestazione){
 		
@@ -86,26 +75,20 @@ public class ElencoCentriGUI {
 		this.indirizzo = new JLabel("Indirizzo Centro:");
 		this.infoIndirizzo = new JLabel("Default");
 		
-		this.numeroSegnalazioni = new JLabel("Numero Segnalazioni:");
-		this.infoNumeroSegnalazioni = new JLabel("Default");
-		
 		this.panelInformazioni.add(nome);
 		this.panelInformazioni.add(infoNome);
 		this.panelInformazioni.add(tipologia);
 		this.panelInformazioni.add(infoTipologia);
 		this.panelInformazioni.add(indirizzo);
 		this.panelInformazioni.add(infoIndirizzo);
-		this.panelInformazioni.add(numeroSegnalazioni);
-		this.panelInformazioni.add(infoNumeroSegnalazioni);
 		
 		this.panelInformazioni.setPreferredSize(new Dimension(800, 180));
-		
 		
 		//TITOLO 1 
 		this.panelTitolo1 = new JPanel();
 		this.panelTitolo1.setLayout(new BorderLayout());
 		this.panelTitolo1.setBackground(Colori.purple);
-		this.labelTitolo1 = new JLabel("Severità Media dei Sintomi:");
+		this.labelTitolo1 = new JLabel("Prospetto rissuntivo sintomi:");
 		this.labelTitolo1.setFont(new Font("Arial", Font.PLAIN, 30));
 		this.labelTitolo1.setForeground(Colori.arancione);
 		this.labelTitolo1.setHorizontalAlignment(JLabel.CENTER);
@@ -115,42 +98,20 @@ public class ElencoCentriGUI {
 		
 		//PANEL CHE CONTIENE MEDIA SINTOMI
 		this.panelSintomi = new JPanel();
-		this.panelSintomi.setLayout(new GridLayout(3,2));
+		this.panelSintomi.setLayout(new GridLayout(1,2));
 		this.panelSintomi.setPreferredSize(new Dimension(800, 130));
 		this.panelSintomi.setBackground(Colori.purple);
 		
-		this.maleTesta = new JLabel("- Mal di Testa:");
-		this.infoMaleTesta = new JLabel("--/5");
+		this.numeroSegnalazioni = new JLabel("Numero Segnalazioni:");
+		this.infoNumeroSegnalazioni = new JLabel("Default");
 		
-		this.febbre = new JLabel("- Febbre:");
-		this.infoFebrre = new JLabel("--/5");
+		this.mediaSintomi = new JLabel("- Media Sintomi:");
+		this.infoMediaSintomi = new JLabel("--/5");
 		
-		this.dolori = new JLabel("- Dolori Muscolari e Articolari:");
-		this.infoDolori = new JLabel("--/5");
-		
-		this.linfoadenopatia = new JLabel("- Linfoadenopatia:");
-		this.infoLinfoadenopatia = new JLabel("--/5");
-		
-		this.tachicardia = new JLabel("- Tachicardia:");
-		this.infotachicardia = new JLabel("--/5");
-		
-		this.crisiIpertensiva = new JLabel("- Crisi Ipertensiva:");
-		this.infoCrisiIpertensiva = new JLabel("--/5");
-		
-		
-		this.panelSintomi.add(maleTesta);
-		this.panelSintomi.add(infoMaleTesta);
-		this.panelSintomi.add(febbre);
-		this.panelSintomi.add(infoFebrre);
-		this.panelSintomi.add(dolori);
-		this.panelSintomi.add(infoDolori);
-		this.panelSintomi.add(linfoadenopatia);
-		this.panelSintomi.add(infoLinfoadenopatia);
-		this.panelSintomi.add(tachicardia);
-		this.panelSintomi.add(infotachicardia);
-		this.panelSintomi.add(crisiIpertensiva);
-		this.panelSintomi.add(infoCrisiIpertensiva);
-		
+		this.panelSintomi.add(numeroSegnalazioni);
+		this.panelSintomi.add(infoNumeroSegnalazioni);
+		this.panelSintomi.add(mediaSintomi);
+		this.panelSintomi.add(infoMediaSintomi);
 		
 		this.contenitorePrincipale = new JPanel();
 		this.contenitorePrincipale.setBackground(Colori.purple);
@@ -159,7 +120,6 @@ public class ElencoCentriGUI {
 		this.contenitorePrincipale.add(panelInformazioni);
 		this.contenitorePrincipale.add(panelTitolo1);
 		this.contenitorePrincipale.add(panelSintomi);
-		
 		
 	}
 
@@ -225,45 +185,11 @@ public class ElencoCentriGUI {
 		this.infoNumeroSegnalazioni.setText(txt);
 	}
 	
-	
-	//SETTA INFO LABEL SEVERITA' CON PARAMETRO PASSATO
-	public void setMalDiTesta(String txt) {
-		this.maleTesta.setVisible(true);
-		this.infoMaleTesta.setVisible(true);
-		this.infoMaleTesta.setText(txt + "/5");
+	public void setMediaSintomi(String txt) {
+		this.mediaSintomi.setVisible(true);
+		this.infoMediaSintomi.setVisible(true);
+		this.infoMediaSintomi.setText(txt);
 	}
-	
-	public void setDolori(String txt) {
-		this.dolori.setVisible(true);
-		this.infoDolori.setVisible(true);
-		this.infoDolori.setText(txt + "/5");
-	}
-	
-	public void setFebbre(String txt) {
-		this.febbre.setVisible(true);
-		this.infoFebrre.setVisible(true);
-		this.infoFebrre.setText(txt + "/5");
-	}
-	
-	public void setLinfoadenopatia(String txt) {
-		this.linfoadenopatia.setVisible(true);
-		this.infoLinfoadenopatia.setVisible(true);
-		this.infoLinfoadenopatia.setText(txt + "/5");
-	}
-	
-	public void setTachicardia(String txt) {
-		this.maleTesta.setVisible(true);
-		this.infotachicardia.setVisible(true);
-		this.infotachicardia.setText(txt + "/5");
-	}
-	
-	public void setCrisi(String txt) {
-		this.crisiIpertensiva.setVisible(true);
-		this.infoCrisiIpertensiva.setVisible(true);
-		this.infoCrisiIpertensiva.setText(txt + "/5");
-	}
-	
-	
 	
 	//SETTA INFO LABEL CON PARAMETRO PASSATO --> NON VISUALIZZA INFO
 	public void setNomeCentroNOVISUAL(String txt) {
@@ -290,43 +216,11 @@ public class ElencoCentriGUI {
 		this.infoNumeroSegnalazioni.setText(txt);
 	}	
 	
-	
-	//SETTA INFO LABEL SEVERITA' CON PARAMETRO PASSATO --> NON VISUALIZZA INFO
-	public void setMalDiTestaNOVISUAL(String txt) {
-		this.maleTesta.setVisible(false);
-		this.infoMaleTesta.setVisible(false);
-		this.infoMaleTesta.setText(txt + "/5");
+	public void setMediaSintomiNOVISUAL(String txt) {
+		this.mediaSintomi.setVisible(false);
+		this.infoMediaSintomi.setVisible(false);
+		this.infoMediaSintomi.setText(txt);
 	}
 	
-	public void setDoloriNOVISUAL(String txt) {
-		this.dolori.setVisible(false);
-		this.infoDolori.setVisible(false);
-		this.infoDolori.setText(txt + "/5");
-	}
 	
-	public void setFebbreNOVISUAL(String txt) {
-		this.febbre.setVisible(false);
-		this.infoFebrre.setVisible(false);
-		this.infoFebrre.setText(txt + "/5");
-	}
-	
-	public void setLinfoadenopatiaNOVISUAL(String txt) {
-		this.linfoadenopatia.setVisible(false);
-		this.infoLinfoadenopatia.setVisible(false);
-		this.infoLinfoadenopatia.setText(txt + "/5");
-	}
-	
-	public void setTachicardiaNOVISUAL(String txt) {
-		this.maleTesta.setVisible(false);
-		this.infotachicardia.setVisible(false);
-		this.infotachicardia.setText(txt + "/5");
-	}
-	
-	public void setCrisiNOVISUAL(String txt) {
-		this.crisiIpertensiva.setVisible(false);
-		this.infoCrisiIpertensiva.setVisible(false);
-		this.infoCrisiIpertensiva.setText(txt + "/5");
-	}
-	
-
 }

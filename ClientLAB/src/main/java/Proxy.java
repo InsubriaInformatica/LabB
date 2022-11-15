@@ -70,7 +70,27 @@ public class Proxy implements ServerInterface{
 		}
 		return res;
 	}
+	
+	//verifica esistenza centro nel comune e tipologia specificata
+	public boolean EsisteCentroCeT(String comune, String tipologia) {
+		boolean res = false;
+		
+		try {
+			this.out.writeObject("esisteCentroComuneTipologia");
+			this.out.writeObject(comune);
+			this.out.writeObject(tipologia);
+			
+			res = (Boolean) this.in.readObject();
+			
+		} catch (IOException e) {
+			System.err.println("Proxy: problemi nell'acquisizione: " + e.toString());
+		} catch (ClassNotFoundException e) {
+			System.err.println("Proxy: problemi con salvataggio: " + e.toString());
+		}
+		return res;
+	}
 
+	//manda e legge info per registrare vaccinato
 	public int registraVaccinato(String nomeCentro, String nome, String cognome, String codiceFiscale,String dataSomministrazione, String tipoVaccino, String nDosi) {
 		Integer res = 0; //segnale restituito dal server con callBack
 		
@@ -221,10 +241,7 @@ public class Proxy implements ServerInterface{
 	}
 
 
-	public boolean EsisteCentroCeT(String comune, String tipologia) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	
 
 	public boolean esisteUsername(String username) {
 		// TODO Auto-generated method stub
@@ -297,6 +314,46 @@ public class Proxy implements ServerInterface{
 	public List<List<String>> retElencoEventiAvversi(String username) {
 		
 		return null;
+	}
+
+
+	//restituise le informazioni del centro ricercato mediante nome
+	public List<String> infoCentriVaccinaliNome(String nomeCentro) {
+		List<String> res = null;
+		
+		try {
+			this.out.writeObject("InfoCentroConNome");
+			this.out.writeObject(nomeCentro);
+			
+			res = (List<String>) this.in.readObject();
+			
+		} catch (IOException e) {
+			System.err.println("Proxy: problemi nell'acquisizione: " + e.toString());
+		} catch (ClassNotFoundException e) {
+			System.err.println("Proxy: problemi nell'acquisizione: " + e.toString());
+		}
+		
+		return res;
+	}
+
+	//restituisce le info del centro cercato mediante comune e tipologia
+	public List<List<String>> infoCentriVaccinaliCeT(String comune, String tipologia) {
+		List<List<String>> res = null;
+		
+		try {
+			this.out.writeObject("InfoCentroConComuneTipologia");
+			this.out.writeObject(comune);
+			this.out.writeObject(tipologia);
+			
+			res = (List<List<String>>) this.in.readObject();
+			
+		} catch (IOException e) {
+			System.err.println("Proxy: problemi nell'acquisizione: " + e.toString());
+		} catch (ClassNotFoundException e) {
+			System.err.println("Proxy: problemi nell'acquisizione: " + e.toString());
+		}
+		
+		return res;
 	}
 	
 

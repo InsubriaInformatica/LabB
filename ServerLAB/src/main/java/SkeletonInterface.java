@@ -10,6 +10,9 @@ public interface SkeletonInterface {
 	//verifica se il centro è inserito nel DB passando come parametro il nome di questo
 	public boolean esisteCentroNome(String nomeCentro) throws SQLException;
 	
+	//verifica se esiste un centro Vaccinale nel comune e tipologia specificata
+	public boolean EsisteCentroCeT(String comune, String tipologia)throws SQLException;
+	
 	//inserisce vaccinato nel DB
 	public int registraVaccinato(String nomeCentro, String nome, String cognome, String codiceFiscale, String dataSomministrazione, String tipoVaccino, String nDosi) throws SQLException ;
 	
@@ -39,6 +42,12 @@ public interface SkeletonInterface {
 	
 	//ritorna il codice fiscale di quell'utente
 	public String retCfUtente(String username)throws SQLException;
+	
+	//prende le info dei centri vaccinali tramite ricerca per nome
+	public List<String> infoCentriVaccinaliNome(String nomeCentro)throws SQLException;
+		
+	//prende le info dei centri vaccinali tramite ricerca per comune e tipologia
+	public List<List<String>> infoCentriVaccinaliCeT(String comune, String tipologia)throws SQLException;
 	
 	//crea tabelle nel DB
 	public void creazioneTabelle() throws SQLException;

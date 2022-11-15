@@ -397,6 +397,79 @@ public class ModelImpl implements Model{
 		return ret;
 	}
 	
+	//questo metodo si occupa di ricerca delle info del centro vaccinale, con i dati contenuti
+	public Object visualizzaInfoCentriVaccinali(List<String> infoDatiCentro){
+		
+		Object datiDaVisualizzare = null;
+		boolean nomeInserito = false;
+		boolean comuneEtipoInserito = false;
+		
+		
+		if(infoDatiCentro.get(0).equals("")) {
+			nomeInserito = true;
+		}
+		
+		if(infoDatiCentro.get(1).equals("")) {
+			comuneEtipoInserito = true;
+		}
+		
+		
+		if(!nomeInserito || !comuneEtipoInserito) { //se uno dei due è inserito
+			if(!infoDatiCentro.get(0).equals("")) { //se inserito nome 
+				
+				if(this.proxy.EsisteCentroNome(infoDatiCentro.get(0))) {
+					List<String> infoXnome = this.proxy.infoCentriVaccinaliNome(infoDatiCentro.get(0));
+					datiDaVisualizzare = infoXnome;
+					
+				}
+				else {
+					List<String> errore = new ArrayList<String>();
+					errore.add("ERRORE:");
+					errore.add("-CENTRO NON ESISTENTE");
+					datiDaVisualizzare = errore;
+				}
+			}
+			else { //si cerca per comune e tipologia
+				if(this.proxy.EsisteCentroCeT(infoDatiCentro.get(1), infoDatiCentro.get(2))) {
+					List<List<String>> infoXceT = this.proxy.infoCentriVaccinaliCeT(infoDatiCentro.get(1), infoDatiCentro.get(2));
+					datiDaVisualizzare = infoXceT;
+				}
+				else {
+					List<String> errore = new ArrayList<String>();
+					errore.add("ERRORE:");
+					errore.add("-NON ESISTONO CENTRI IN QUEL COMUNE DI QUELLA TIPOLOGIA");
+					datiDaVisualizzare = errore;
+				}
+				
+			}
+		}
+		
+		else {
+			List<String> errore = new ArrayList<String>();
+			errore.add("ERRORE:");
+			errore.add("-INSERISCI O NOME CENTRO O NOME COMUNE");
+			datiDaVisualizzare = errore;
+		}
+		return datiDaVisualizzare;
+	}
+	
+	
+	
+	public Object sceltaCentroVaccinalePerInfo(List<String> datiInfo) {
+		Object ret = null;
+		
+		if(!datiInfo.get(0).equals("")) {
+			List<String> esito = this.proxy.infoCentriVaccinaliNome(datiInfo.get(0));
+			ret = esito;
+		}
+		else {
+			List<List<String>> esito = this.proxy.infoCentriVaccinaliCeT(datiInfo.get(1), datiInfo.get(2));
+			ret = esito;
+		}
+		
+		return ret;
+	}
+	
 	
 	//metodo che rimette a null l'utente connesso se torna alla schermata di login
 	public Object esciDaEA() {
@@ -466,6 +539,26 @@ public class ModelImpl implements Model{
 			if(datiPerModel.get(0).equals("ERRORE:")){
 				this.flag = true;
 			}
+		}
+		
+		if(button.equals("ComboBoxCentroInfo")) {
+			List<String> info = (List<String>) dati;
+			datiPerModel = (List<String>) sceltaCentroVaccinalePerInfo(info);
+			
+			if(datiPerModel.get(0).equals("ERRORE:")){
+				this.flag = true;
+			}
+			
+		}
+		
+		if(button.equals("CercaNome") || button.equals("CercaComune")) {
+			List<String> info = (List<String>) dati;
+			datiPerModel = (List<String>) visualizzaInfoCentriVaccinali(info);
+			
+			if(datiPerModel.get(0).equals("ERRORE:")){
+				this.flag = true;
+			}
+			
 		}
 		
 		if(button.equals("INDIETRO")) {

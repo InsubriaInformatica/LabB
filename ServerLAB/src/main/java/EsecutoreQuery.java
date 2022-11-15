@@ -236,6 +236,18 @@ public class EsecutoreQuery implements SkeletonInterface{
 		
 		return ret;
 	}
+	
+	//verifica nel DB che esiste il centro nel comune e nella tipologia specificata
+	public synchronized boolean EsisteCentroCeT(String comune, String tipologia) throws SQLException {
+		boolean ret = false;
+		String query = "SELECT cv.tipologia, i.comune FROM centrivaccinali cv JOIN indirizzo i ON cv.idIndirizzo = i.id WHERE tipologia = '"+ tipologia +"' AND comune = '"+ comune +"';";
+		ResultSet rs = istruzione.executeQuery(query);
+		
+		while(rs.next()) {
+			ret = true;
+		}
+		return ret;
+	}
 
 
 	//cerca nel DB il cittadino vaccinato
@@ -278,7 +290,6 @@ public class EsecutoreQuery implements SkeletonInterface{
 			}
 		}
 		else {
-			System.out.println("cittadino fantastico");
 			ret = -1;
 		}
 		return ret;
@@ -352,7 +363,7 @@ public class EsecutoreQuery implements SkeletonInterface{
 
 
 	//questo metodo di occupa di inserire evento avverso della persona indicata dal codice fiscale
-	public int inserisciEventoAvverso(String codiceFiscale, String evento, String severita, String note)throws SQLException {
+	public synchronized int inserisciEventoAvverso(String codiceFiscale, String evento, String severita, String note)throws SQLException {
 		int ret = 0;
 
 		String queryPerVerificareEsistenzaEvento = "SELECT codiceFiscale FROM eventi_avversi WHERE codiceFiscale = '"+ codiceFiscale +"' AND evento = '"+ evento +"';";
@@ -378,4 +389,107 @@ public class EsecutoreQuery implements SkeletonInterface{
 		return ret;
 	}
 
+
+	//cerca nel DB info centri con parametro nome
+	public synchronized List<String> infoCentriVaccinaliNome(String nomeCentro) throws SQLException {
+		List<String> ret = new ArrayList<String>();
+
+		ret.add(nomeCentro);	
+		
+		String queryPerTipologia = "SELECT tipologia FROM centrivaccinali WHERE nome = '"+nomeCentro+"';";
+		ResultSet rs = istruzione.executeQuery(queryPerTipologia);
+		while(rs.next())
+			ret.add((rs.getString("tipologia"))); 
+		
+		String queryPerIndirizzo = "SELECT i.qualificatore, i.nome, i.numerocivico, i.comune, i.cap, i.siglaprovincia \n"
+				+ "FROM indirizzo i JOIN centrivaccinali cv ON cv.idIndirizzo = i.id WHERE cv.nome = '"+nomeCentro+"'";
+		rs = istruzione.executeQuery(queryPerIndirizzo);
+		while(rs.next()) {
+			ret.add(rs.getString("qualificatore") + " " + rs.getString("nome") + " " + rs.getString("numerocivico") + ", " + rs.getString("comune") + ", " + rs.getString("cap") + ", " + rs.getString("siglaprovincia"));
+		}
+		
+		String queryPerSegnalazioniSeverita = "SELECT cv.nome, COUNT(ea.codicefiscale) AS numeroSegnalazioni, AVG(ea.severita) AS severitaMedia"
+				+ " FROM centrivaccinali cv"
+				+ "    JOIN eventi_avversi ea ON cv.nome = ea.nomeCentro"
+				+ " WHERE cv.nome = '"+ nomeCentro +"'"
+				+ " GROUP BY cv.nome, cv.tipologia";
+		rs = istruzione.executeQuery(queryPerSegnalazioniSeverita);
+		
+		if(rs.next()!=false) {
+			ret.add(String.valueOf(rs.getInt("numerosegnalazioni"))); 
+			ret.add(String.valueOf(rs.getFloat("severitamedia")));	
+			while(rs.next()) {
+				ret.add(String.valueOf(rs.getInt("numerosegnalazioni")));
+				ret.add(String.valueOf(rs.getFloat("severitamedia")));	
+			}
+		}
+		else {
+			ret.add("0"); 
+			ret.add("0");
+		}
+
+		return ret;
+	}
+
+
+	//cerca nel DB info centri con parametro comune e tipologia
+	public synchronized List<List<String>> infoCentriVaccinaliCeT(String comune, String tipologia) throws SQLException {
+		List<List<String>> ret = new ArrayList<List<String>>();
+		List<String> tmp;
+		int i=0;
+		String queryPerNomiCentri = "SELECT cv.nome, cv.tipologia, i.comune FROM centrivaccinali cv JOIN indirizzo i ON cv.idindirizzo = i.id WHERE cv.tipologia = '"+ tipologia +"' AND i.comune = '"+ comune +"'; " ;
+		ResultSet rs = istruzione.executeQuery(queryPerNomiCentri);
+		ResultSet forRS;
+		String nomeCentro;
+		
+
+		System.out.println("eseguo ricerca comune e tipologia");
+		while(rs.next()) {
+			nomeCentro = rs.getString("nome");
+			
+			tmp = new ArrayList<String>();
+			tmp.add(nomeCentro);
+			ret.add(tmp);
+		}
+		
+		for(i=0; i<ret.size(); i++) {
+			String queryPerTipologia = "SELECT tipologia FROM centrivaccinali WHERE nome = '"+ret.get(i).get(0)+"';";
+			forRS = istruzione.executeQuery(queryPerTipologia);
+			while(forRS.next())
+				ret.get(i).add(forRS.getString("tipologia"));
+		}
+		
+		for(i=0; i<ret.size(); i++) {
+			String queryPerIndirizzo = "SELECT i.qualificatore, i.nome, i.numerocivico, i.comune, i.cap, i.siglaprovincia \n"
+					+ "FROM indirizzo i JOIN centrivaccinali cv ON cv.idIndirizzo = i.id WHERE cv.nome = '"+ret.get(i).get(0)+"'";
+			forRS = istruzione.executeQuery(queryPerIndirizzo);
+			while(forRS.next()) {
+				ret.get(i).add(forRS.getString("qualificatore") + " " + forRS.getString("nome") + " " + forRS.getString("numerocivico") + ", " + forRS.getString("comune") + ", " + forRS.getString("cap") + ", " + forRS.getString("siglaprovincia"));
+			}
+		}
+		
+		for(i=0; i<ret.size(); i++) {
+			String queryPerSegnalazioniSeverita = "SELECT cv.nome, COUNT(ea.codicefiscale) AS numeroSegnalazioni, AVG(ea.severita) AS severitaMedia"
+					+ " FROM centrivaccinali cv"
+					+ "    JOIN eventi_avversi ea ON cv.nome = ea.nomeCentro"
+					+ " WHERE cv.nome = '"+ ret.get(i).get(0) +"'"
+					+ " GROUP BY cv.nome, cv.tipologia";
+			forRS = istruzione.executeQuery(queryPerSegnalazioniSeverita);
+			
+			if(forRS.next()!=false) {
+				ret.get(i).add(String.valueOf(forRS.getInt("numerosegnalazioni")));
+				ret.get(i).add(String.valueOf(forRS.getFloat("severitamedia")));
+				while(forRS.next()) {
+					ret.get(i).add(String.valueOf(forRS.getInt("numerosegnalazioni")));
+					ret.get(i).add(String.valueOf(forRS.getFloat("severitamedia")));
+				}
+			}
+			else {
+				ret.get(i).add("0");
+				ret.get(i).add("0");
+			}
+		}
+
+		return ret;
+	}
 }

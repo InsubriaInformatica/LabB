@@ -56,6 +56,15 @@ public class ServerWorker extends Thread{
 					this.out.writeObject(esito);
 				}
 				
+				else if(inputClient.equals("esisteCentroComuneTipologia")) {
+					String comune = (String) this.in.readObject();
+					String tipologia = (String) this.in.readObject();
+					
+					boolean esito = this.swi.EsisteCentroCeT(comune, tipologia);
+					
+					this.out.writeObject(esito);
+				}
+				
 				else if(inputClient.equals("registraVaccinato")) {
 					
 					String nomeCentro = (String) this.in.readObject();
@@ -141,7 +150,21 @@ public class ServerWorker extends Thread{
 					String note = (String) this.in.readObject();
 					
 					int esito = this.swi.inserisciEventoAvverso(codiceFiscale, evento, severita, note);
+					this.out.writeObject(esito);
+				}
+				
+				else if(inputClient.equals("InfoCentroConNome")) {
+					String nomeCentroVaccinale = (String) this.in.readObject();
 					
+					List<String> esito = (List<String>) this.swi.infoCentriVaccinaliNome(nomeCentroVaccinale);
+					this.out.writeObject(esito);
+				}
+				
+				else if(inputClient.equals("InfoCentroConComuneTipologia")) {
+					String comune = (String) this.in.readObject();
+					String tipologia = (String) this.in.readObject();
+					
+					List<List<String>> esito = this.swi.infoCentriVaccinaliCeT(comune, tipologia);
 					this.out.writeObject(esito);
 				}
 				

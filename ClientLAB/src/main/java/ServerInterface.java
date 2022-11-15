@@ -30,6 +30,12 @@ public interface ServerInterface {
 	
 	//verifica se esiste un centro Vaccinale nel comune e tipologia specificata
 	public boolean EsisteCentroCeT(String comune, String tipologia);
+	
+	//prende le info dei centri vaccinali tramite ricerca per nome
+	public List<String> infoCentriVaccinaliNome(String nomeCentro);
+	
+	//prende le info dei centri vaccinali tramite ricerca per comune e tipologia
+	public List<List<String>> infoCentriVaccinaliCeT(String comune, String tipologia);
 		
 	//controlla se cittadino si è effettivamente registrato
 	public boolean checkCittadinoVaccinato(String nomeCittadino);
