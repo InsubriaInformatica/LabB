@@ -532,7 +532,7 @@ public class ViewImpl extends JFrame implements View{
 		if(buttonOrigine.equals("CONFERMA EVENTO AVVERSO")) {
 			List <String> datiEvento = (List <String>) dati;
 			String evento = datiEvento.get(0);
-			JOptionPane.showMessageDialog(null, "Evento: " + evento + " inserito", "CITTADINO", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Evento inserito: " + evento , "CITTADINO", JOptionPane.INFORMATION_MESSAGE);
 			
 			mostraViewVisualizzaEA(/*andrebbe passato un valore per visualizzare dati*/); //va alla schermata di visualizzazione dell'eventi avversi
 		}
@@ -723,7 +723,8 @@ public class ViewImpl extends JFrame implements View{
 		List <String> eventoAvverso = new ArrayList<String>();
 		
 		eventoAvverso.add(this.viewInserimentoEA.retTipoEventoInserito()); //0 evento
-		eventoAvverso.add((String) this.viewInserimentoEA.retSeveritàSelezionata()); //1 severita
+		String severita = (String) this.viewInserimentoEA.retSeveritaSelezionata();
+		eventoAvverso.add(severita); //1 severita
 		eventoAvverso.add(this.viewInserimentoEA.retNote()); //2 note
 	
 		return eventoAvverso;

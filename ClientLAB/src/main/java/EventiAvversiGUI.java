@@ -291,7 +291,7 @@ public class EventiAvversiGUI {
 	}
 	
 	//ritorna dalla combo box la severità selezionata
-	public Object retSeveritàSelezionata() {
+	public Object retSeveritaSelezionata() {
 		return this.Severita.getSelectedItem();
 	}
 	
