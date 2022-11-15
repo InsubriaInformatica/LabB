@@ -274,12 +274,7 @@ public class Proxy implements ServerInterface{
 		return res;
 	}
 	
-	public List<String> retElencoEventiAvversi() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
+	
 	//questo metodo ritorna il codice fiscale dell'utente passato come parametro
 	public String retCfUtente(String username) {
 		String res = "";
@@ -297,6 +292,12 @@ public class Proxy implements ServerInterface{
 		return res;
 	}
 
+
+
+	public List<List<String>> retElencoEventiAvversi(String username) {
+		
+		return null;
+	}
 	
 
 

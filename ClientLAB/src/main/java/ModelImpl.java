@@ -383,24 +383,16 @@ public class ModelImpl implements Model{
 	public Object inserisciEventoAvverso(List <String> datiEvento) {
 		List<String> ret = new ArrayList <String>();
 		
-		if(datiEvento.get(2).equals("") || datiEvento.get(2).length()>255) {
-			ret.add("ERRORE");
+		if(datiEvento.get(2).length()>255) {
+			ret.add("ERRORE:");
+			ret.add("-MASSIMO 256 CARATTERI");
 			
-			if(datiEvento.get(2).equals("")) {
-				ret.add("-INSERISCI NOTE");
-			}
-			
-			if(datiEvento.get(2).length()>255) {
-				ret.add("-MASSIMO 256 CARATTERI");
-			}
 		}
 		else {
 			String codiceFiscale = this.proxy.retCfUtente(this.utenteConnesso);
 			this.proxy.inserisciEventoAvverso(codiceFiscale, datiEvento.get(0), datiEvento.get(1), datiEvento.get(2));
 			ret = datiEvento;
 			System.out.println("Evento avverso inserito da: " + this.utenteConnesso);
-			
-			
 		}
 		return ret;
 	}
