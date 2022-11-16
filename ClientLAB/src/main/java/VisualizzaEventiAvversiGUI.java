@@ -106,7 +106,6 @@ public class VisualizzaEventiAvversiGUI {
 	public void creaTabella(String [][] inserimento) {
 		this.tabellaEA = new JTable(inserimento, this.colonne);
 		this.tabellaEA.setEnabled(false); //senza eventi
-		
 	}
 
 	//rende tabella scrollabile ed aggiunge elementi utili

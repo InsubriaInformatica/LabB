@@ -3,6 +3,8 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 //gestisce la logica di funzionamento dell'applicazione
 public class ModelImpl implements Model{
 	
@@ -10,6 +12,7 @@ public class ModelImpl implements Model{
 	private ServerInterface proxy; //chiamata locale 
 	String utenteConnesso; //utente al momento loggato
 	private boolean flag;
+	private boolean err;
 
 	//riferimento a view dove model dovrà operare, instanzia riferimento proxy server locale dove andrà ad operare
 	public ModelImpl(View v) {
@@ -445,6 +448,7 @@ public class ModelImpl implements Model{
 		}
 		
 		else {
+			err = true;
 			List<String> errore = new ArrayList<String>();
 			errore.add("ERRORE:");
 			errore.add("-INSERISCI O NOME CENTRO O NOME COMUNE");
@@ -470,6 +474,8 @@ public class ModelImpl implements Model{
 		return ret;
 	}
 	
+	//metodo che prende dati dal proxy (ritorna liste di liste di string)
+	
 	
 	//metodo che rimette a null l'utente connesso se torna alla schermata di login
 	public Object esciDaEA() {
@@ -486,14 +492,14 @@ public class ModelImpl implements Model{
 	public void updateModel(String source, Object dati) {
 		
 		String button = source;
-		List <String> datiPerModel = null;
+		Object datiPerModel = null;
 		this.flag = false;
 		
 		if(button.equals("REGISTRA CENTRO")) {
 			List<String> datiCentro = (List<String>) dati;
 			datiPerModel = (List<String>) registraCentroVaccinale(datiCentro);
 			
-			if(datiPerModel.get(0).equals("ERRORE:")){
+			if(((List<String>) datiPerModel).get(0).equals("ERRORE:")){
 				this.flag = true;
 			}
 		}
@@ -508,7 +514,7 @@ public class ModelImpl implements Model{
 			List<String> datiVaccinato = (List<String>) dati;
 			datiPerModel = (List<String>) registraVaccinato(datiVaccinato);
 			
-			if(datiPerModel.get(0).equals("ERRORE:")){
+			if(((List<String>) datiPerModel).get(0).equals("ERRORE:")){
 				this.flag = true;
 			}
 		}
@@ -517,7 +523,7 @@ public class ModelImpl implements Model{
 			List<String> datiRegistrazione = (List<String>) dati;
 			datiPerModel = (List<String>) registrazioneCittadino(datiRegistrazione);
 			
-			if(datiPerModel.get(0).equals("ERRORE:")){
+			if(((List<String>) datiPerModel).get(0).equals("ERRORE:")){
 				this.flag = true;
 			}
 			
@@ -527,7 +533,7 @@ public class ModelImpl implements Model{
 			List<String> datiLogin = (List<String>) dati;
 			datiPerModel = (List<String>) login(datiLogin);
 			
-			if(datiPerModel.get(0).equals("ERRORE:")){
+			if(((List<String>) datiPerModel).get(0).equals("ERRORE:")){
 				this.flag = true;
 			}
 		}
@@ -536,30 +542,40 @@ public class ModelImpl implements Model{
 			List<String> datiInserimentoEA = (List<String>) dati;
 			datiPerModel = (List <String>) inserisciEventoAvverso(datiInserimentoEA);
 			
-			if(datiPerModel.get(0).equals("ERRORE:")){
+			if(((List<String>) datiPerModel).get(0).equals("ERRORE:")){
 				this.flag = true;
 			}
 		}
 		
 		if(button.equals("ComboBoxCentroInfo")) {
 			List<String> info = (List<String>) dati;
-			datiPerModel = (List<String>) sceltaCentroVaccinalePerInfo(info);
+			datiPerModel = (List<String>) sceltaCentroVaccinalePerInfo(info);		
+		}
+		
+		
+		if(button.equals("CercaNome")) {
+			List<String> info = (List<String>) dati;
+			datiPerModel = (List<String>) visualizzaInfoCentriVaccinali(info);
 			
-			if(datiPerModel.get(0).equals("ERRORE:")){
+			
+			if(((List<String>) datiPerModel).get(0).equals("ERRORE:")){
 				this.flag = true;
+				
 			}
 			
 		}
 		
-		if(button.equals("CercaNome") || button.equals("CercaComune")) {
+		if(button.equals("CercaComune")) {
 			List<String> info = (List<String>) dati;
-			datiPerModel = (List<String>) visualizzaInfoCentriVaccinali(info);
+			datiPerModel = (List<List<String>>) visualizzaInfoCentriVaccinali(info);
 			
-			if(datiPerModel.get(0).equals("ERRORE:")){
+			if(err){
+				err = false;
 				this.flag = true;
 			}
-			
 		}
+		
+		//passo info eventi a view
 		
 		if(button.equals("INDIETRO")) {
 			datiPerModel = (List<String>) esciDaEA();
@@ -568,6 +584,4 @@ public class ModelImpl implements Model{
 		this.v.updateView(button, datiPerModel, this.flag); //aggiorna view in base all'elaborazione
 	}
 	
-	
-
 }

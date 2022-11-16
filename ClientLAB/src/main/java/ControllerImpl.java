@@ -53,6 +53,9 @@ public class ControllerImpl implements ActionListener{
 		JButton inserisciEA = this.v.getBottonePerInserireEventoAvverso();
 		inserisciEA.addActionListener(this);
 		
+		JComboBox visualizzaCentrixInfo = this.v.boxSceltaCentroGetInfo();
+		visualizzaCentrixInfo.addActionListener(this);
+		
 	}
 
 	//e --> evento generato

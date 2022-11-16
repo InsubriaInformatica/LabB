@@ -233,8 +233,10 @@ public class ViewImpl extends JFrame implements View{
 		this.viewAttuale = "elencoCentri";
 		
 		//inserisci centri trovati nella combobox
-		for(String centro : centri) {
-			this.viewElencoCentri.aggiungiCentroInComboBox(centro);;
+		if(centri.size() != 0) {
+			for(String centro : centri) {
+				this.viewElencoCentri.aggiungiCentroInComboBox(centro);
+			}
 		}
 		
 		//recupera valori da lista e inserisce nelle label senza mostrarli
@@ -499,12 +501,15 @@ public class ViewImpl extends JFrame implements View{
 			String evento = datiEvento.get(0);
 			JOptionPane.showMessageDialog(null, "Evento inserito: " + evento , "CITTADINO", JOptionPane.INFORMATION_MESSAGE);
 			
-			mostraViewVisualizzaEA(/*andrebbe passato un valore per visualizzare dati*/); //va alla schermata di visualizzazione dell'eventi avversi
+			mostraViewVisualizzaEA(/*chiamo metodo e passo come parametro list di list del model*/); //va alla schermata di visualizzazione dell'eventi avversi
 		}
 		
 		}
 		
 	}
+	
+	//converti lista di stringhe in una matrice di string
+	
 	
 	//metodo che ritorna riferimento bottone indietro
 	public JButton getBack() {

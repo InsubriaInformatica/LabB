@@ -393,8 +393,9 @@ public class EsecutoreQuery implements SkeletonInterface{
 	//cerca nel DB info centri con parametro nome
 	public synchronized List<String> infoCentriVaccinaliNome(String nomeCentro) throws SQLException {
 		List<String> ret = new ArrayList<String>();
-
 		ret.add(nomeCentro);	
+		
+		System.out.println("eseguo ricerca nome");
 		
 		String queryPerTipologia = "SELECT tipologia FROM centrivaccinali WHERE nome = '"+nomeCentro+"';";
 		ResultSet rs = istruzione.executeQuery(queryPerTipologia);
@@ -490,6 +491,29 @@ public class EsecutoreQuery implements SkeletonInterface{
 			}
 		}
 
+		return ret;
+	}
+	
+	//questo metodo si occupa di togliere gli spazi in piu all'inizio e alla fine di una stringa
+	private String togliSpazi(String dato) {
+		String ret = "";
+		int i;
+		
+		for(i = 0; i<dato.length(); i++) {
+			if(dato.charAt(i)!= ' ') {
+				ret = ret + dato.charAt(i);
+			}
+			else {
+				while(i<dato.length() && dato.charAt(i) == ' ') {
+					i++;
+				}
+				if(i!=dato.length()) {
+					i--;
+					ret = ret + " ";
+				}
+			}
+		}
+		
 		return ret;
 	}
 }
