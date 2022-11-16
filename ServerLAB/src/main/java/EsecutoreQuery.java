@@ -405,8 +405,9 @@ public class EsecutoreQuery implements SkeletonInterface{
 		String queryPerIndirizzo = "SELECT i.qualificatore, i.nome, i.numerocivico, i.comune, i.cap, i.siglaprovincia \n"
 				+ "FROM indirizzo i JOIN centrivaccinali cv ON cv.idIndirizzo = i.id WHERE cv.nome = '"+nomeCentro+"'";
 		rs = istruzione.executeQuery(queryPerIndirizzo);
+		
 		while(rs.next()) {
-			ret.add(rs.getString("qualificatore") + " " + rs.getString("nome") + " " + rs.getString("numerocivico") + ", " + rs.getString("comune") + ", " + rs.getString("cap") + ", " + rs.getString("siglaprovincia"));
+			ret.add(togliSpazi(rs.getString("qualificatore")) + " " + togliSpazi(rs.getString("nome")) + " " + togliSpazi(rs.getString("numerocivico")) + ", " + togliSpazi(rs.getString("comune")) + ", " + togliSpazi(rs.getString("cap")) + ", " + togliSpazi(rs.getString("siglaprovincia")));
 		}
 		
 		String queryPerSegnalazioniSeverita = "SELECT cv.nome, COUNT(ea.codicefiscale) AS numeroSegnalazioni, AVG(ea.severita) AS severitaMedia"
@@ -456,6 +457,7 @@ public class EsecutoreQuery implements SkeletonInterface{
 		for(i=0; i<ret.size(); i++) {
 			String queryPerTipologia = "SELECT tipologia FROM centrivaccinali WHERE nome = '"+ret.get(i).get(0)+"';";
 			forRS = istruzione.executeQuery(queryPerTipologia);
+			
 			while(forRS.next())
 				ret.get(i).add(forRS.getString("tipologia"));
 		}
@@ -464,8 +466,9 @@ public class EsecutoreQuery implements SkeletonInterface{
 			String queryPerIndirizzo = "SELECT i.qualificatore, i.nome, i.numerocivico, i.comune, i.cap, i.siglaprovincia \n"
 					+ "FROM indirizzo i JOIN centrivaccinali cv ON cv.idIndirizzo = i.id WHERE cv.nome = '"+ret.get(i).get(0)+"'";
 			forRS = istruzione.executeQuery(queryPerIndirizzo);
+			
 			while(forRS.next()) {
-				ret.get(i).add(forRS.getString("qualificatore") + " " + forRS.getString("nome") + " " + forRS.getString("numerocivico") + ", " + forRS.getString("comune") + ", " + forRS.getString("cap") + ", " + forRS.getString("siglaprovincia"));
+				ret.get(i).add(togliSpazi(forRS.getString("qualificatore")) + " " + togliSpazi(forRS.getString("nome")) + " " + togliSpazi(forRS.getString("numerocivico")) + ", " + togliSpazi(forRS.getString("comune")) + ", " + togliSpazi(forRS.getString("cap")) + ", " + togliSpazi(forRS.getString("siglaprovincia")));
 			}
 		}
 		
@@ -480,6 +483,7 @@ public class EsecutoreQuery implements SkeletonInterface{
 			if(forRS.next()!=false) {
 				ret.get(i).add(String.valueOf(forRS.getInt("numerosegnalazioni")));
 				ret.get(i).add(String.valueOf(forRS.getFloat("severitamedia")));
+				
 				while(forRS.next()) {
 					ret.get(i).add(String.valueOf(forRS.getInt("numerosegnalazioni")));
 					ret.get(i).add(String.valueOf(forRS.getFloat("severitamedia")));

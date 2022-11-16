@@ -102,7 +102,7 @@ public class RegistraCentroGUI {
 		this.panelQualificatore.setLayout(new GridLayout(1,3));
 		this.panelQualificatore.setBackground(Colori.purple);
 		this.panelQualificatore.setPreferredSize(new Dimension(500, 25));
-		this.labelQulificatore = new JLabel("Qualificatore");
+		this.labelQulificatore = new JLabel("Qualificatore:");
 		this.labelQulificatore.setForeground(Colori.light_grey);
 		
 		this.radioButtonVia = new JRadioButton();

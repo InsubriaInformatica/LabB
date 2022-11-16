@@ -167,7 +167,7 @@ public class RegistraVaccinatoGUI {
 		this.panelNdosi.setLayout(new GridLayout(1,3));
 		this.panelNdosi.setPreferredSize(new Dimension(600, 25));
 		this.panelNdosi.setBackground(Colori.purple);
-		this.labelNdosi = new JLabel("N.Dose");
+		this.labelNdosi = new JLabel("N.Dose:");
 		this.labelNdosi.setForeground(Colori.light_grey);
 		
 		this.radioButtonDoseN1 = new JRadioButton();

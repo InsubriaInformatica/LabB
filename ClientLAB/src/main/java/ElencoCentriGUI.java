@@ -12,6 +12,9 @@ public class ElencoCentriGUI {
 	private JPanel panelTitolo;
 	private JLabel labelTitolo;
 	
+	private JPanel panelSpazio;
+	private JLabel labelSpazio;
+	
 	private JPanel panelTitolo1;
 	private JLabel labelTitolo1;
 	
@@ -37,7 +40,7 @@ public class ElencoCentriGUI {
 		
 		this.intestazione = intestazione;
 		
-		Border bordo = BorderFactory.createLineBorder(Colori.light_grey, 1); //crea bordo
+		//Border bordo = BorderFactory.createLineBorder(Colori.light_grey, 1); //crea bordo
 		
 		//TITOLO
 		this.panelTitolo = new JPanel();
@@ -45,12 +48,12 @@ public class ElencoCentriGUI {
 		this.panelTitolo.setBackground(Colori.purple);
 		this.labelTitolo = new JLabel("SELEZIONA IL TUO CENTRO:");
 		this.labelTitolo.setFont(new Font("Arial", Font.BOLD, 30));
-		this.labelTitolo.setForeground(Colori.purple);
+		this.labelTitolo.setForeground(Colori.arancione);
 		this.labelTitolo.setHorizontalAlignment(JLabel.CENTER);
 		this.labelTitolo.setVerticalAlignment(JLabel.CENTER);
 		this.panelTitolo.add(this.labelTitolo);
 		this.panelTitolo.setPreferredSize(new Dimension(900, 35)); //larghezza, altezza
-		this.panelTitolo.setBackground(Colori.arancione);
+		
 		
 		//COMBOBOX X VISUALIZZARE CENTRI CERCATI
 		this.panelBox = new JPanel();
@@ -58,22 +61,46 @@ public class ElencoCentriGUI {
 		this.panelBox.setBackground(Colori.purple);
 		this.sceltaCentro = new JComboBox<String>();
 		this.sceltaCentro.setName("ComboBoxCentroInfo");
+		this.sceltaCentro.setForeground(Colori.purple);
 		this.panelBox.add(this.sceltaCentro);
 		this.panelBox.setPreferredSize(new Dimension(800, 25));
+		
+		//spazio
+		this.panelSpazio = new JPanel();
+		this.panelSpazio.setLayout(new GridLayout(1,1));
+		this.panelSpazio.setBackground(Colori.purple);
+		this.labelSpazio = new JLabel();
+		this.labelSpazio.setHorizontalAlignment(JLabel.CENTER);
+		this.labelSpazio.setVerticalAlignment(JLabel.CENTER);
+		this.labelSpazio.setBackground(Colori.purple);
+		this.panelSpazio.add(labelSpazio);
+		this.panelSpazio.setPreferredSize(new Dimension(700, 25)); //larghezza, altezza
 		
 		//PANEL CHE CONTIENE INFO CENTRI
 		this.panelInformazioni = new JPanel();
 		this.panelInformazioni.setLayout(new GridLayout(4,2));
 		this.panelInformazioni.setBackground(Colori.purple);
 		
-		this.nome = new JLabel("Nome Centro:");
+		this.nome = new JLabel("-Nome Centro:");
+		this.nome.setFont(new Font("Arial", Font.BOLD, 18));
+		this.nome.setForeground(Colori.light_grey);
 		this.infoNome = new JLabel("Default");
+		this.infoNome.setFont(new Font("Arial", Font.BOLD, 18));
+		this.infoNome.setForeground(Colori.light_grey);
 		
-		this.tipologia = new JLabel("Tipologia Centro:");
+		this.tipologia = new JLabel("-Tipologia Centro:");
+		this.tipologia.setFont(new Font("Arial", Font.BOLD, 18));
+		this.tipologia.setForeground(Colori.light_grey);
 		this.infoTipologia = new JLabel("Default");
+		this.infoTipologia.setFont(new Font("Arial", Font.BOLD, 18));
+		this.infoTipologia.setForeground(Colori.light_grey);
 		
-		this.indirizzo = new JLabel("Indirizzo Centro:");
+		this.indirizzo = new JLabel("-Indirizzo Centro:");
+		this.indirizzo.setFont(new Font("Arial", Font.BOLD, 18));
+		this.indirizzo.setForeground(Colori.light_grey);
 		this.infoIndirizzo = new JLabel("Default");
+		this.infoIndirizzo.setFont(new Font("Arial", Font.BOLD, 18));
+		this.infoIndirizzo.setForeground(Colori.light_grey);
 		
 		this.panelInformazioni.add(nome);
 		this.panelInformazioni.add(infoNome);
@@ -89,7 +116,7 @@ public class ElencoCentriGUI {
 		this.panelTitolo1.setLayout(new BorderLayout());
 		this.panelTitolo1.setBackground(Colori.purple);
 		this.labelTitolo1 = new JLabel("Prospetto rissuntivo sintomi:");
-		this.labelTitolo1.setFont(new Font("Arial", Font.PLAIN, 30));
+		this.labelTitolo1.setFont(new Font("Arial", Font.BOLD, 30));
 		this.labelTitolo1.setForeground(Colori.arancione);
 		this.labelTitolo1.setHorizontalAlignment(JLabel.CENTER);
 		this.labelTitolo1.setVerticalAlignment(JLabel.CENTER);
@@ -102,11 +129,19 @@ public class ElencoCentriGUI {
 		this.panelSintomi.setPreferredSize(new Dimension(800, 130));
 		this.panelSintomi.setBackground(Colori.purple);
 		
-		this.numeroSegnalazioni = new JLabel("Numero Segnalazioni:");
+		this.numeroSegnalazioni = new JLabel("-Numero Segnalazioni:");
+		this.numeroSegnalazioni.setFont(new Font("Arial", Font.BOLD, 18));
+		this.numeroSegnalazioni.setForeground(Colori.light_grey);
 		this.infoNumeroSegnalazioni = new JLabel("Default");
+		this.infoNumeroSegnalazioni.setFont(new Font("Arial", Font.BOLD, 18));
+		this.infoNumeroSegnalazioni.setForeground(Colori.light_grey);
 		
-		this.mediaSintomi = new JLabel("- Media Sintomi:");
+		this.mediaSintomi = new JLabel("-Media Sintomi:");
+		this.mediaSintomi.setFont(new Font("Arial", Font.BOLD, 18));
+		this.mediaSintomi.setForeground(Colori.light_grey);
 		this.infoMediaSintomi = new JLabel("--/5");
+		this.infoMediaSintomi.setFont(new Font("Arial", Font.BOLD, 18));
+		this.infoMediaSintomi.setForeground(Colori.light_grey);
 		
 		this.panelSintomi.add(numeroSegnalazioni);
 		this.panelSintomi.add(infoNumeroSegnalazioni);
@@ -117,6 +152,7 @@ public class ElencoCentriGUI {
 		this.contenitorePrincipale.setBackground(Colori.purple);
 		this.contenitorePrincipale.add(panelTitolo);
 		this.contenitorePrincipale.add(panelBox);
+		this.contenitorePrincipale.add(panelSpazio);
 		this.contenitorePrincipale.add(panelInformazioni);
 		this.contenitorePrincipale.add(panelTitolo1);
 		this.contenitorePrincipale.add(panelSintomi);
