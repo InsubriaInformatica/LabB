@@ -498,6 +498,29 @@ public class EsecutoreQuery implements SkeletonInterface{
 		return ret;
 	}
 	
+	//questo metodo cerca e ritorna dal DB elenco eventi avversi per l'utente specificato
+	public List<List<String>> retMyElencoEventiAvversi(String username) throws SQLException {
+		List<List<String>> ret = new ArrayList<List<String>>();
+		int i=0;
+		
+		String queryElencoEA = "SELECT evento, severita, note\n"
+				+ "FROM eventi_avversi ea\n"
+				+ "    JOIN cittadini_registrati cr ON ea.codicefiscale = cr.codicefiscale\n"
+				+ "WHERE cr.username = '"+ username +"';";
+		
+		ResultSet rs = istruzione.executeQuery(queryElencoEA);
+		
+		while(rs.next()) {
+			ret.add(new ArrayList<String>());
+			ret.get(i).add(togliSpazi(rs.getString("evento")));
+			ret.get(i).add(togliSpazi(rs.getString("severita")));
+			ret.get(i).add(togliSpazi(rs.getString("note")));
+			
+			i++;
+		}
+		return ret;
+	}
+	
 	//questo metodo si occupa di togliere gli spazi in piu all'inizio e alla fine di una stringa
 	private String togliSpazi(String dato) {
 		String ret = "";
@@ -520,4 +543,5 @@ public class EsecutoreQuery implements SkeletonInterface{
 		
 		return ret;
 	}
+
 }

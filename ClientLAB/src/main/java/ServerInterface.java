@@ -44,7 +44,7 @@ public interface ServerInterface {
 	public List<String> retElencoCentriVaccinali();
 	
 	//ritorna elenco eventi avversi inseriti nel DB per quell'utente
-	public List<List<String>> retElencoEventiAvversi(String username);
+	public List<List<String>> retMyElencoEventiAvversi(String username);
 
 	//restituisce una lista contenente in posizione 0 il nome e in posizione 1 idUnivoco del vaccinato
 	public List<String> IdUnivoco(String codiceFiscale);

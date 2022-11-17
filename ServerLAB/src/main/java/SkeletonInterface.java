@@ -35,13 +35,16 @@ public interface SkeletonInterface {
 	public int inserisciEventoAvverso(String codiceFiscale, String evento, String severita, String note)throws SQLException;
 	
 	//restituisce una lista contenente in posizione 0 il nome e in posizione 1 idUnivoco del vaccinato
-	public List<String> IdUnivoco(String codiceFiscale) throws SQLException ; 
+	public List<String> IdUnivoco(String codiceFiscale) throws SQLException; 
 	
 	//ritorna l'elenco dei centri vaccinali registrati nel DB
-	public List<String> retElencoCentriVaccinali() throws SQLException ;
+	public List<String> retElencoCentriVaccinali() throws SQLException;
 	
 	//ritorna il codice fiscale di quell'utente
 	public String retCfUtente(String username)throws SQLException;
+	
+	//metodo che ritorna list di list contenente elenco eventi avversi dell'utente connesso
+	public List<List<String>> retMyElencoEventiAvversi(String username)throws SQLException;
 	
 	//prende le info dei centri vaccinali tramite ricerca per nome
 	public List<String> infoCentriVaccinaliNome(String nomeCentro)throws SQLException;

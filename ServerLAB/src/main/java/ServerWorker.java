@@ -26,7 +26,7 @@ public class ServerWorker extends Thread{
 		start(); //lancia i thread per permettere di eseguire metodo run()
 	}
 	
-	//ereditato dalla classe thread --> metodo che gestisce le task del client
+	//ereditato dalla classe thread --> metodo che gestisce le task richieste del client
 	public void run() {
 		String inputClient;
 		
@@ -150,6 +150,14 @@ public class ServerWorker extends Thread{
 					String note = (String) this.in.readObject();
 					
 					int esito = this.swi.inserisciEventoAvverso(codiceFiscale, evento, severita, note);
+					this.out.writeObject(esito);
+				}
+				
+				else if(inputClient.equals("MyElencoEA")) {
+					
+					String username = (String) in.readObject();
+					
+					List<List<String>> esito = this.swi.retMyElencoEventiAvversi(username);
 					this.out.writeObject(esito);
 				}
 				

@@ -308,12 +308,23 @@ public class Proxy implements ServerInterface{
 		}
 		return res;
 	}
-
-
-
-	public List<List<String>> retElencoEventiAvversi(String username) {
+	
+	//richiede al server l'elenco degli eventi avversi dell'username attualmente connesso
+	public List<List<String>> retMyElencoEventiAvversi(String username) {
+		List<List<String>> res = null;
 		
-		return null;
+		try {
+			this.out.writeObject("MyElencoEA");
+			this.out.writeObject(username);
+			
+			res = (List<List<String>>) this.in.readObject();
+			
+		} catch (IOException e) {
+			System.err.println("Proxy: problemi nell'acquisizione: " + e.toString());
+		} catch (ClassNotFoundException e) {
+			System.err.println("Proxy: problemi nell'acquisizione: " + e.toString());
+		}
+		return res;
 	}
 
 

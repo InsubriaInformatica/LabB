@@ -69,13 +69,11 @@ public class VisualizzaEventiAvversiGUI {
 		this.tabellaEA.setSelectionBackground(Colori.arancione);
 		this.tabellaEA.setFont(new Font("Arial", 0, 15));
 		
-		
-		
+	
 		this.scrollPaneEA = new JScrollPane(this.tabellaEA);
 		this.scrollPaneEA.setBackground(Colori.arancione);
-		this.scrollPaneEA.setPreferredSize(new Dimension(800, 320));
+		this.scrollPaneEA.setPreferredSize(new Dimension(1000, 320));
 		this.scrollPaneEA.setBorder(bordo);
-		
 		
 		
 		contenitorePrincipale = new JPanel();
@@ -112,6 +110,11 @@ public class VisualizzaEventiAvversiGUI {
 	public void ultimaView() {
 		this.scrollPaneEA = new JScrollPane(this.tabellaEA);
 		this.contenitorePrincipale.add(this.scrollPaneEA);
+	}
+	
+	//reset view
+	public void pulisciView() {
+		this.contenitorePrincipale.removeAll();
 	}
 	
 	

@@ -384,17 +384,20 @@ public class ModelImpl implements Model{
 	
 	//questo metodo permette di inserire evento avverso
 	public Object inserisciEventoAvverso(List <String> datiEvento) {
-		List<String> ret = new ArrayList <String>();
+		Object ret = null;
 		
 		if(datiEvento.get(2).length()>255) {
-			ret.add("ERRORE:");
-			ret.add("-MASSIMO 256 CARATTERI");
+			err = true;
+			List <String> errore = new ArrayList<String>();
+			errore.add("ERRORE:");
+			errore.add("-MASSIMO 256 CARATTERI");
+			ret = errore;
 			
 		}
 		else {
 			String codiceFiscale = this.proxy.retCfUtente(this.utenteConnesso);
-			this.proxy.inserisciEventoAvverso(codiceFiscale, datiEvento.get(0), datiEvento.get(1), datiEvento.get(2));
-			ret = datiEvento;
+			this.proxy.inserisciEventoAvverso(codiceFiscale, datiEvento.get(0), datiEvento.get(1), datiEvento.get(2)); //inserisce evento avverso
+			ret = this.proxy.retMyElencoEventiAvversi(utenteConnesso); //restituisce lista con tutti eventi avversi da visualizzare sulla tabella 
 			System.out.println("Evento avverso inserito da: " + this.utenteConnesso);
 		}
 		return ret;
@@ -473,10 +476,7 @@ public class ModelImpl implements Model{
 		
 		return ret;
 	}
-	
-	//metodo che prende dati dal proxy (ritorna liste di liste di string)
-	
-	
+		
 	//metodo che rimette a null l'utente connesso se torna alla schermata di login
 	public Object esciDaEA() {
 		List<String> ret = null;
@@ -542,7 +542,8 @@ public class ModelImpl implements Model{
 			List<String> datiInserimentoEA = (List<String>) dati;
 			datiPerModel = (List <String>) inserisciEventoAvverso(datiInserimentoEA);
 			
-			if(((List<String>) datiPerModel).get(0).equals("ERRORE:")){
+			if(err){
+				err = false;
 				this.flag = true;
 			}
 		}

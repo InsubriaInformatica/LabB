@@ -271,12 +271,13 @@ public class ViewImpl extends JFrame implements View{
 		this.viewAttuale = "inserimentoEventiAvversi";
 	}
 	
-	private void mostraViewVisualizzaEA(/*String [][]valoriTabella*/) {
+	private void mostraViewVisualizzaEA(String [][]valoriTabella) {
 		this.setVisible(false);
 		this.getContentPane().removeAll();
 		this.getBack().setVisible(true);
-		//this.viewVisualizzaEA.creaTabella(valoriTabella);
-		//this.viewVisualizzaEA.ultimaView();
+		this.viewVisualizzaEA.pulisciView();
+		this.viewVisualizzaEA.creaTabella(valoriTabella);
+		this.viewVisualizzaEA.ultimaView();
 		this.getContentPane().add(this.viewVisualizzaEA.retIntestazione(), BorderLayout.PAGE_START);
 		this.getContentPane().add(this.viewVisualizzaEA.retContenitore(), BorderLayout.CENTER);
 		this.setVisible(true);
@@ -497,20 +498,27 @@ public class ViewImpl extends JFrame implements View{
 		}
 		
 		if(buttonOrigine.equals("CONFERMA EVENTO AVVERSO")) {
-			List <String> datiEvento = (List <String>) dati;
-			String evento = datiEvento.get(0);
-			JOptionPane.showMessageDialog(null, "Evento inserito: " + evento , "CITTADINO", JOptionPane.INFORMATION_MESSAGE);
+			List<List<String>> elencoEA = (List<List<String>>) dati;
 			
-			mostraViewVisualizzaEA(/*chiamo metodo e passo come parametro list di list del model*/); //va alla schermata di visualizzazione dell'eventi avversi
+			String[][] matricexTab = new String[1][3];
+			JOptionPane.showMessageDialog(null, "Evento registrato con successo", "CITTADINO", JOptionPane.INFORMATION_MESSAGE);
+			
+			int n;
+			int i;
+			
+			//cicla su elementi lista
+			for(i =0; i<elencoEA.size(); i++ ) {
+				matricexTab = matrice(matricexTab, elencoEA.get(i));
+			}
+				
+			mostraViewVisualizzaEA(matricexTab); //va alla schermata di visualizzazione dell'eventi avversi
 		}
 		
 		}
 		
 	}
 	
-	//converti lista di stringhe in una matrice di string
-	
-	
+
 	//metodo che ritorna riferimento bottone indietro
 	public JButton getBack() {
 		return this.indietro;
@@ -784,5 +792,23 @@ public class ViewImpl extends JFrame implements View{
 	return esito;
 			
 	}
-
+	
+	//converte lista di stringhe in una matrice di string per inserire nella tabella (requisito di tabella)
+	private String[][] matrice(String[][] old, List<String> elencoEa){
+		
+		int nRiga = old.length;
+		int nColonna = old[0].length;
+		String[][] matrice = new String[nRiga+1][nColonna];
+		
+		for(int i=0; i < nRiga; i++) {
+			for(int j=0; j < nColonna; j++) {
+				matrice[i][j] = old[i][j];
+			}
+		}
+		
+		for(int i=0; i<nColonna; i++) {
+			matrice[nRiga][i] = elencoEa.get(i);
+		}
+		return matrice;
+	}
 }
