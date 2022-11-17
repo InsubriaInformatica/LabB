@@ -21,7 +21,7 @@ public class ModelImpl implements Model{
 			
 			this.v = v; //instanzia view
 			this.utenteConnesso = null;
-			this.proxy = new Proxy(InetAddress.getByName(null), 8080); //local host e porta
+			this.proxy = new Proxy(InetAddress.getByName("localhost"), 8080); //local host e porta
 			
 		} catch (UnknownHostException e) {
 			System.err.println("CLIENT MODEL: host sconosciuto " + e.toString());
