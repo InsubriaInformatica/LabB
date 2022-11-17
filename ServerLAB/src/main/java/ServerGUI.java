@@ -170,6 +170,7 @@ public class ServerGUI extends JFrame implements ViewInterface{
 		this.buttonAvvio = new JButton(new ImageIcon(avvio.getImage().getScaledInstance(avvio.getIconWidth()/20*2, avvio.getIconHeight()/20*2, java.awt.Image.SCALE_SMOOTH)));
 		this.buttonAvvio.setName("AVVIO SERVER");
 		this.buttonAvvio.setBorderPainted(false); //senza contorni
+		this.buttonAvvio.setBackground(Colori.arancione);
 		this.panelBottoni.setPreferredSize(new Dimension(200, 60)); //dimensioni panel
 		this.buttonAvvio.setPreferredSize(new Dimension(200, 50)); //dimensioni bottone
 		this.panelBottoni.add(this.buttonAvvio);
@@ -178,6 +179,7 @@ public class ServerGUI extends JFrame implements ViewInterface{
 		this.buttonSpegnimento = new JButton(new ImageIcon(spegnimento.getImage().getScaledInstance(spegnimento.getIconWidth()/20*2, spegnimento.getIconHeight()/20*2, java.awt.Image.SCALE_SMOOTH)));
 		this.buttonSpegnimento.setName("SPEGNI SERVER");
 		this.buttonSpegnimento.setBorderPainted(false); //senza contorni
+		this.buttonSpegnimento.setBackground(Colori.arancione);
 		this.panelBottoni.setPreferredSize(new Dimension(200, 60)); //dimensioni panel
 		this.buttonSpegnimento.setPreferredSize(new Dimension(200, 50)); //dimensioni bottone
 		this.panelBottoni.add(this.buttonSpegnimento);

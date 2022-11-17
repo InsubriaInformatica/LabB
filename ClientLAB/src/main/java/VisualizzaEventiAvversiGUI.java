@@ -109,6 +109,7 @@ public class VisualizzaEventiAvversiGUI {
 	//rende tabella scrollabile ed aggiunge elementi utili
 	public void ultimaView() {
 		this.scrollPaneEA = new JScrollPane(this.tabellaEA);
+		this.scrollPaneEA.setBackground(Colori.purple);
 		this.contenitorePrincipale.add(this.scrollPaneEA);
 	}
 	
