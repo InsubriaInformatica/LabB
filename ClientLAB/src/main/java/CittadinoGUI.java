@@ -159,7 +159,7 @@ public class CittadinoGUI {
 	}
 	
 	/**
-	 * Metodo che ritorna riferimento al bottone visualizza info
+	 * Metodo che ritorna riferimento al bottone visualizza info centri vaccinali
 	 * @return
 	 */
 	public JButton retButtonVisualizzaInfo() {

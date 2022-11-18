@@ -537,13 +537,11 @@ public class ViewImpl extends JFrame implements View{
 		
 	}
 	
-
 	//metodo che ritorna riferimento bottone indietro
 	public JButton getBack() {
 		return this.indietro;
 	}
 		
-	
 	//restituisce i riferimenti dei button alla scelta del tipo di utente
 	public JButton[] getSceltaTipoUtente() {
 		JButton[] ret = new JButton[2]; //bottoni usati con controller per eventi
@@ -620,8 +618,6 @@ public class ViewImpl extends JFrame implements View{
 		return vaccinato;
 	}
 	
-	
-
 	//cattura le funzionalità dei vari bottoni della schermata cittadino
 	public JButton[] getBottoniFunzionalitaCittadino() {
 		JButton[] ret = new JButton[3];
@@ -655,7 +651,6 @@ public class ViewImpl extends JFrame implements View{
 		return this.viewLogin.retButtonAccedi();
 	}
 	
-	
 	public List<String> getDatiPerLogin() {
 		List <String> credenziali = new ArrayList<String>();
 		
@@ -670,7 +665,6 @@ public class ViewImpl extends JFrame implements View{
 			return this.viewLogin.retButtonLoginRegistrati();
 	}
 	
-
 	//riferimento a bottoni di ricerca info
 	public JButton[] getCercaInfoCentriVaccinali() {
 		JButton[] ret = new JButton[2];
@@ -683,8 +677,6 @@ public class ViewImpl extends JFrame implements View{
 	public JComboBox boxSceltaCentroGetInfo() {
 		return this.viewElencoCentri.retComboBox();
 	}
-
-	
 
 	//restituisce una stringa con il nome del centro inserito x ricerca
 	public String getDatiNomeCentroPerConsultareInfo() {
@@ -701,35 +693,8 @@ public class ViewImpl extends JFrame implements View{
 		return risultato;
 	}
 	
-	
-
-	public JButton[] getBottonePerEventiAvversi() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	public JButton getBottonePerInserireEventoAvverso() {
 		return this.viewInserimentoEA.retButtonInserisciEA();
-	}
-
-	public JButton getBottonePerAggiornareEventoAvverso() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public JButton getJButtonConfermaEliminareEventoAvverso() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public JComboBox getEventoDaAggiornare() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public String getDatiEliminaEventoAvverso() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	public List<String> getDatiInserisciEventoAvverso() {
@@ -742,49 +707,11 @@ public class ViewImpl extends JFrame implements View{
 	
 		return eventoAvverso;
 	}
-
-	public List<String> getDatiAggiornaEventoAvverso() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	
-	public JButton getBottoneRecuperoIdVaccinazione() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public JButton getBottoneConfermaRecuperoIdVaccinazione() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public JTextField getTextFieldCodiceFiscale() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	
-
-	
-
-	
-
 	//restituisce la view in mostra sullo schermo
 	public String getViewAttuale() {
 		return this.viewAttuale;
 	}
-
-	public String datiEventoDaAggiornare() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public String getCfPerRecuperoIdVacc() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
 	
 	//utile per salvare la data in formato testuale
 	private String StringData(Date data) {
@@ -847,9 +774,4 @@ public class ViewImpl extends JFrame implements View{
 		return matrice;
 	}
 
-	
-
-	
-
-	
 }
