@@ -39,7 +39,13 @@ public class CercaCentroGUI {
 	private JTextField textFieldComuneCentro;
 	private JButton buttonCercaComune;
 	
-	
+	/**
+	 * Metodo che crea la GUI per la ricerca del centro vaccinale
+	 * 
+	 * @param larghezza
+	 * @param altezza
+	 * @param intestazione
+	 */
 	public CercaCentroGUI(int larghezza, int altezza, JPanel intestazione) {
 		
 		this.intestazione = intestazione;
@@ -166,46 +172,70 @@ public class CercaCentroGUI {
 	
 	}
 	
-	//metodo che ritorna riferimento al Panel Intestazione della schermata
+	/**
+	 * Metodo che ritorna riferimento al Panel Intestazione della schermata
+	 * @return
+	 */
 	public JPanel retIntestazione() {
 		return this.intestazione;
 	}
 				
-	//metodo che ritorna riferimento al Panel contenitore, ovvero al corpo della schermata
+	/**
+	 *;Metodo che ritorna riferimento al Panel contenitore, ovvero al corpo della schermata
+	 * @return
+	 */
 	public JPanel retContenitore() {
 		return this.contenitorePrincipale;
 	}
 
+	/**
+	 * Metodo che setta a vuoto i campi nelle text field
+	 */
 	public void pulisciView() {
 		this.textFieldNomeCentro.setText("");
 		this.textFieldComuneCentro.setText("");
 		this.comboBoxTipologiaCentro.setSelectedIndex(0);
 	}
 	
-	//ritorna nome centro inserito
+	/**
+	 * Metodo che ritorna nome centro inserito
+	 * @return
+	 */
 	public String retNomeCentro() {
 		return this.textFieldNomeCentro.getText();
 		
 	}
 	
-	//ritorna comune centro inserito
+	/**
+	 * Metodo che ritorna comune centro inserito
+	 * @return
+	 */
 	public String retComuneCentro() {
 		return this.textFieldComuneCentro.getText();
 			
 	}
 	
-	//ritorna tipologia selezionata
+	/**
+	 * Metodo che ritorna tipologia selezionata
+	 * @return
+	 */
 	public Object retTipologiaCentro() {
 		return this.comboBoxTipologiaCentro.getSelectedItem();
 			
 	}
 	
-	//ritorna il bottone per cercare per nome
+	/**
+	 * Metodo che ritorna il bottone per cercare per nome un centro vaccinale
+	 * @return
+	 */
 	public JButton retButtonCercaNome() {
 		return this.buttonCercaNome;
 	}
 	
-	//ritorna il bottone per cercare per comune
+	/**
+	 * Metodo che ritorna il bottone per cercare per comune un centro vaccinale
+	 * @return
+	 */
 	public JButton retButtonCercaComune() {
 		return this.buttonCercaComune;
 	}
