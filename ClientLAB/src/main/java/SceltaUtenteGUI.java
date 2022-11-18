@@ -2,7 +2,6 @@
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.Border;
-import javax.swing.border.EmptyBorder;
 
 //in questa schermata viene selezionata la tipologia utente cui si vuole lavorare
 public class SceltaUtenteGUI {
@@ -16,6 +15,11 @@ public class SceltaUtenteGUI {
 	private ImageIcon immagineCittadino;
 	private ImageIcon scalaCittadino; //immagine in scala da inserire
 	
+	private ImageIcon immagineSetting;
+	private ImageIcon scalaSetting; //immagine in scala da inserire 
+	
+	private JPanel panelSetting;
+	private JButton buttonSetting;
 	
 	private JPanel contenitoreTipoUtente;
 	private JButton operatore;
@@ -32,7 +36,7 @@ public class SceltaUtenteGUI {
 		
 		
 		this.contenitoreTipoUtente = new JPanel(); //inizializza contenitore 
-		this.contenitoreTipoUtente.setLayout(new GridLayout(3,2, 20, 20)); //layout del panel, margine tra righe e colonne
+		this.contenitoreTipoUtente.setLayout(new GridLayout(3,3, 20, 20)); //layout del panel, margine tra righe e colonne
 		this.contenitoreTipoUtente.setPreferredSize(new Dimension(larghezza/2, altezza/10*7)); //size
 		this.contenitoreTipoUtente.setBackground(Colori.purple);
 			
@@ -42,11 +46,17 @@ public class SceltaUtenteGUI {
 		immagineCittadino = new ImageIcon("img/cittadino.png");
 		scalaCittadino = new ImageIcon(immagineCittadino.getImage().getScaledInstance(immagineCittadino.getIconWidth()/20*3, immagineCittadino.getIconHeight()/20*3, java.awt.Image.SCALE_SMOOTH)); //immagine in scala
 		
+		immagineSetting = new ImageIcon("img/impostazioni.png");
+		scalaSetting = new ImageIcon(immagineSetting.getImage().getScaledInstance(immagineSetting.getIconWidth()/20*3, immagineSetting.getIconHeight()/20*3, java.awt.Image.SCALE_SMOOTH)); //immagine in scala
+		
+
 		this.labelTitolo = new JLabel("SELEZIONA IL TIPO UTENTE:");
 		this.labelTitolo.setFont(new Font("Arial", Font.BOLD, 28));
 		this.labelTitolo.setForeground(Colori.arancione);
 		this.labelTitolo.setHorizontalAlignment(JLabel.CENTER);
 		this.labelTitolo.setVerticalAlignment(JLabel.CENTER);
+		
+		this.spazioVuoto = new JLabel();
 		
 		this.operatore = new JButton("OPERATORE"); //bottone operatore
 		this.operatore.setName("OPERATORE");
@@ -71,14 +81,24 @@ public class SceltaUtenteGUI {
 		this.cittadino.setBorder(bordo);
 		this.cittadino.setBackground(Colori.purple);
 		
-		this.spazioVuoto = new JLabel();
+	
+		this.panelSetting = new JPanel();
+		this.panelSetting.setLayout(new BorderLayout());
+		this.panelSetting.setPreferredSize(new Dimension(500,50));
+		this.panelSetting.setBackground(Colori.purple);
+		this.buttonSetting = new JButton();
+		this.buttonSetting.setName("IMPOSTAZINI-IP");
+		this.buttonSetting.setIcon(scalaSetting);
+		this.buttonSetting.setBorderPainted(false);
+		this.panelSetting.add(buttonSetting);
 		
 		
 		//aggiunta bottoni al Panel
 		this.contenitoreTipoUtente.add(this.labelTitolo);
-		this.contenitoreTipoUtente.add(this.spazioVuoto);
+		this.contenitoreTipoUtente.add(this.panelSetting);
 		this.contenitoreTipoUtente.add(this.operatore);
 		this.contenitoreTipoUtente.add(this.cittadino);
+		//this.contenitoreTipoUtente.add(this.panelSetting);
 		
 	}
 	
@@ -101,5 +121,10 @@ public class SceltaUtenteGUI {
 	//metodo che ritorna riferimento al button relativo alla scelta di essere cittadino
 	public JButton retButtonCittadino() {
 		return this.cittadino;
+	}
+	
+	//metodo che ritorna il pulsante per cambiare ip
+	public JButton retButtonImpostazioni() {
+		return this.buttonSetting;
 	}
 }

@@ -33,6 +33,8 @@ public class ViewImpl extends JFrame implements View{
 	private OperatoreGUI viewOperatore;
 	//schermata operatore
 	private CittadinoGUI viewCittadino;
+	//finestra cambio IP
+	private GUICambiaIP viewCambioIP;
 	//schermata registrazione centro
 	private RegistraCentroGUI viewRegistraCentro;
 	//schermata registrazione vaccinato
@@ -112,6 +114,8 @@ public class ViewImpl extends JFrame implements View{
 		this.viewOperatore = new OperatoreGUI(altezza,larghezza, this.intestazione);
 		//cittadino
 		this.viewCittadino = new CittadinoGUI(altezza,larghezza, this.intestazione);
+		//finestra cambio IP
+		this.viewCambioIP = new GUICambiaIP(altezza,larghezza, this.intestazione);
 		//registra centro vaccinale
 		this.viewRegistraCentro = new RegistraCentroGUI(altezza,larghezza, this.intestazione);
 		//registra vaccinato
@@ -168,6 +172,11 @@ public class ViewImpl extends JFrame implements View{
 		this.getContentPane().add(this.viewCittadino.retContenitore(), BorderLayout.CENTER); //aggiunge al panel corpo schermata
 		this.setVisible(true);
 		this.viewAttuale = "viewCittadino"; //imposta la schermata attuale
+	}
+	
+	//mostra l'option pane per cambiare ip del server
+	private void mostraViewCambioIP() {
+		this.viewCambioIP.mostraFinestraCambioIp();
 	}
 	
 	//mostra elementi per la view "registra centro vaccinale"
@@ -340,6 +349,10 @@ public class ViewImpl extends JFrame implements View{
 		
 		if(buttonOrigine.equals("CITTADINO")) {
 			mostraViewCittadino(); //va alla schermata cittadino
+		}
+		
+		if(buttonOrigine.equals("IMPOSTAZINI-IP")) {
+			mostraViewCambioIP(); //mostra JOptionPane per cambio ip
 		}
 		
 		if(buttonOrigine.equals("REGISTRA NUOVO CENTRO")) {
@@ -531,6 +544,11 @@ public class ViewImpl extends JFrame implements View{
 		ret[0] = this.viewSceltaUtente.retButtonOperatore();
 		ret[1] = this.viewSceltaUtente.retButtonCittadino();
 		return ret;
+	}
+	
+	//ritorna bottone per impostazioni ip
+	public JButton getButtonImpostazioni() {
+		return this.viewSceltaUtente.retButtonImpostazioni();
 	}
 
 	//cattura le funzionalità dei vari bottoni della schermata operatore
@@ -811,4 +829,6 @@ public class ViewImpl extends JFrame implements View{
 		}
 		return matrice;
 	}
+
+	
 }

@@ -22,6 +22,8 @@ public class ControllerImpl implements ActionListener{
 		sceltaUtente[0].addActionListener(this);
 		sceltaUtente[1].addActionListener(this);
 		
+		JButton impostazioni = this.v.getButtonImpostazioni();
+		
 		JButton[] funzionalitaOperatore = this.v.getBottoniFunzionalitaOperatore();
 		funzionalitaOperatore[0].addActionListener(this);
 		funzionalitaOperatore[1].addActionListener(this);
@@ -97,6 +99,10 @@ public class ControllerImpl implements ActionListener{
 		
 		if(click.equals("CITTADINO")) {
 			dati = null; //non serve passare nulla
+		}
+		
+		if(click.equals("IMPOSTAZINI-IP")) {
+			dati = null;
 		}
 		
 		if(click.equals("REGISTRA NUOVO CENTRO")) {

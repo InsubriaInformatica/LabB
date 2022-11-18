@@ -16,6 +16,7 @@ public interface View {
 	
 	public JButton[] getSceltaTipoUtente(); //restituisce array contenente i riferimenti al Jbutton del tipo di utente selezionato (x ogni utente)
 	
+	public JButton getButtonImpostazioni(); //restituisce button per cambiare ip
 	
 	//OPERATORE
 	public JButton[] getBottoniFunzionalitaOperatore(); //serve al controller per aggiungersi come action listener --> restituisce un array di button con le funzionalità principali dell'operatore
