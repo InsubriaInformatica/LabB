@@ -1,4 +1,9 @@
-
+/**
+ * Classe main del client
+ * 
+ * @author aldoademi
+ *
+ */
 public class ClientMain {
 
 	public static void main(String[] args) {
