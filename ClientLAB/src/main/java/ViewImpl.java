@@ -356,6 +356,7 @@ public class ViewImpl extends JFrame implements View{
 		}
 		
 		if(buttonOrigine.equals("cambiaIP")) {
+			this.viewCambioIP.nascondiFinestra();
 			JOptionPane.showMessageDialog(null, "IP Server cambiato", "IP SERVER", JOptionPane.INFORMATION_MESSAGE);
 			this.viewCambioIP.chiudiFinestra();
 		}

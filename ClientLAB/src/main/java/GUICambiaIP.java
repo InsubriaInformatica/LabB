@@ -50,6 +50,11 @@ public class GUICambiaIP {
 		this.finestraIP.getRootFrame().dispose();
 	}
 	
+	//nasconde finestra
+	public void nascondiFinestra() {
+		this.finestraIP.setVisible(false);;
+	}
+	
 	//prende IP inserito
 	public String getIPInserito() {
 		return this.txtIP.getText();
