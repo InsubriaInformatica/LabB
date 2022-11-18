@@ -550,6 +550,17 @@ public class ViewImpl extends JFrame implements View{
 	public JButton getButtonImpostazioni() {
 		return this.viewSceltaUtente.retButtonImpostazioni();
 	}
+	
+	//bottone per cambiare IP
+	public JButton getButtonCambioIP() {
+		return this.viewCambioIP.retButtonCambiaIP();
+		
+	}
+	
+	//recupera ID inserito
+	public String getNuovoIP() {
+		return this.viewCambioIP.getIPInserito();
+	}
 
 	//cattura le funzionalità dei vari bottoni della schermata operatore
 	public JButton[] getBottoniFunzionalitaOperatore() {
@@ -829,6 +840,10 @@ public class ViewImpl extends JFrame implements View{
 		}
 		return matrice;
 	}
+
+	
+
+	
 
 	
 }

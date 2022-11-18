@@ -14,6 +14,10 @@ public class Proxy implements ServerInterface{
 		
 		try {
 			
+			if(this.socket != null) {
+				this.socket.close();
+			}
+			
 			this.socket = new Socket(addr, port); //indirizzo e porta server
 			this.out = new ObjectOutputStream(this.socket.getOutputStream());
 			this.in = new ObjectInputStream(this.socket.getInputStream());

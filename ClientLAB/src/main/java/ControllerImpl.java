@@ -25,6 +25,9 @@ public class ControllerImpl implements ActionListener{
 		JButton impostazioni = this.v.getButtonImpostazioni();
 		impostazioni.addActionListener(this);
 		
+		JButton cambioIp = this.v.getButtonCambioIP();
+		cambioIp.addActionListener(this);
+		
 		JButton[] funzionalitaOperatore = this.v.getBottoniFunzionalitaOperatore();
 		funzionalitaOperatore[0].addActionListener(this);
 		funzionalitaOperatore[1].addActionListener(this);
@@ -104,6 +107,10 @@ public class ControllerImpl implements ActionListener{
 		
 		if(click.equals("IMPOSTAZINI-IP")) {
 			dati = null;
+		}
+		
+		if(click.equals("cambiaIP")) {
+			dati = this.v.getNuovoIP();
 		}
 		
 		if(click.equals("REGISTRA NUOVO CENTRO")) {

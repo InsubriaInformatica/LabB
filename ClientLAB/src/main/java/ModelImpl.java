@@ -576,6 +576,17 @@ public class ModelImpl implements Model{
 			}
 		}
 		
+		if(button.equals("cambiaIP")) {
+			String IP = (String) dati;
+			try {
+				
+				this.proxy = new Proxy(InetAddress.getByName(IP), 8080); //local host e porta
+			} catch (UnknownHostException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
+		}
+		
 		//passo info eventi a view
 		
 		if(button.equals("INDIETRO")) {
