@@ -33,7 +33,7 @@ public class EventiAvversiGUI {
 	private JPanel panelSeverita;
 	private JLabel labelSeverita;
 	
-	private JPanel panelCampoSeverità;
+	private JPanel panelCampoSeverita;
 	private JComboBox<String> Severita;
 	
 	private JPanel panelNote;
@@ -159,17 +159,17 @@ public class EventiAvversiGUI {
 		this.panelSeverita.setPreferredSize(new Dimension(800, 20)); //larghezza, altezza
 		
 		//CAMPO SEVERITA
-		this.panelCampoSeverità = new JPanel();
-		this.panelCampoSeverità.setLayout(new GridLayout(1,1));
-		this.panelCampoSeverità.setBackground(Colori.purple);
+		this.panelCampoSeverita = new JPanel();
+		this.panelCampoSeverita.setLayout(new GridLayout(1,1));
+		this.panelCampoSeverita.setBackground(Colori.purple);
 		this.Severita = new JComboBox<String>();
 		this.Severita.addItem("1");
 		this.Severita.addItem("2");
 		this.Severita.addItem("3");
 		this.Severita.addItem("4");
 		this.Severita.addItem("5");
-		this.panelCampoSeverità.add(Severita);
-		this.panelCampoSeverità.setPreferredSize(new Dimension(800, 35)); //larghezza, altezza
+		this.panelCampoSeverita.add(Severita);
+		this.panelCampoSeverita.setPreferredSize(new Dimension(800, 35)); //larghezza, altezza
 		
 		//SPAZIO
 		this.panelVuoto3 = new JPanel();
@@ -226,7 +226,7 @@ public class EventiAvversiGUI {
 		this.contenitorePrincipale.add(contenitoreEventi);
 		this.contenitorePrincipale.add(panelVuoto2);
 		this.contenitorePrincipale.add(panelSeverita);
-		this.contenitorePrincipale.add(panelCampoSeverità);
+		this.contenitorePrincipale.add(panelCampoSeverita);
 		this.contenitorePrincipale.add(panelVuoto3);
 		this.contenitorePrincipale.add(panelNote);
 		this.contenitorePrincipale.add(panelCampoNote);
