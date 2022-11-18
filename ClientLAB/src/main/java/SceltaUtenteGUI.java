@@ -90,6 +90,7 @@ public class SceltaUtenteGUI {
 		this.buttonSetting.setName("IMPOSTAZINI-IP");
 		this.buttonSetting.setIcon(scalaSetting);
 		this.buttonSetting.setBorderPainted(false);
+		this.buttonSetting.setBackground(Colori.purple);
 		this.panelSetting.add(buttonSetting);
 		
 		

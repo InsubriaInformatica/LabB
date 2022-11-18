@@ -23,6 +23,7 @@ public class ControllerImpl implements ActionListener{
 		sceltaUtente[1].addActionListener(this);
 		
 		JButton impostazioni = this.v.getButtonImpostazioni();
+		impostazioni.addActionListener(this);
 		
 		JButton[] funzionalitaOperatore = this.v.getBottoniFunzionalitaOperatore();
 		funzionalitaOperatore[0].addActionListener(this);
