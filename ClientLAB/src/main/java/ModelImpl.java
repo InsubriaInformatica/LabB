@@ -1,9 +1,7 @@
-import java.net.InetAddress;
+ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.swing.JOptionPane;
 
 //gestisce la logica di funzionamento dell'applicazione
 public class ModelImpl implements Model{
