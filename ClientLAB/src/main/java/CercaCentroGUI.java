@@ -5,6 +5,10 @@ import java.awt.GridLayout;
 import javax.swing.*;
 import javax.swing.border.Border;
 
+/**
+ * Classe che implementa la GUI per la ricerca del centro vaccinale
+ *
+ */
 public class CercaCentroGUI {
 	
 	private JPanel intestazione;

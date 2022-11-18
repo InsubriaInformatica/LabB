@@ -3,7 +3,10 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.*;
 
-//componenti grafici operatore
+/**
+ * Classe che implementa la GUI per i cittadini
+ *
+ */
 public class CittadinoGUI {
 	
 	private JPanel intestazione;
