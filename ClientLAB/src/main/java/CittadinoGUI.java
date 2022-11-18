@@ -1,10 +1,7 @@
-
-
 import java.awt.*;
 
 import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.border.EmptyBorder;
+import javax.swing.border.*;
 
 //componenti grafici operatore
 public class CittadinoGUI {
@@ -35,6 +32,13 @@ public class CittadinoGUI {
 	private ImageIcon immagineAvversi;
 	private ImageIcon scalaAvversi; //immagine in scala da inserire
 	
+	/**
+	 * Metodo che implementa l'interfaccia grafica del cittadino
+	 * 
+	 * @param larghezza
+	 * @param altezza
+	 * @param intestazione
+	 */
 	public CittadinoGUI(int larghezza, int altezza, JPanel intestazione) {
 		this.intestazione = intestazione;
 		
@@ -117,29 +121,44 @@ public class CittadinoGUI {
 		
 	}
 	
-	//metodo che ritorna riferimento al Panel Intestazione della schermata
+	/**
+	 * Metodo che ritorna riferimento al Panel Intestazione della schermata
+	 * @return
+	 */
 	public JPanel retIntestazione() {
 		return this.intestazione;
 	}
 			
-	//metodo che ritorna riferimento al Panel contenitore, ovvero al corpo della schermata
+	/**
+	 * Metodo che ritorna riferimento al Panel contenitore, ovvero al corpo della schermata
+	 * @return
+	 */
 	public JPanel retContenitore() {
 		return this.contenitore;
 	}
 	
-	//ritorna riferimento al bottone registrati
+	/**
+	 * Metodo che ritorna riferimento al bottone registrati
+	 * @return
+	 */
 	public JButton retButtonRegistrati() {
 		return this.buttonRegistrati;
 		
 	}
 	
-	//ritorna riferimento al bottone inserisci evento avverso
+	/**
+	 * Metodo che ritorna riferimento al bottone inserisci evento avverso
+	 * @return
+	 */
 	public JButton retButtonInserisciEvento() {
 		return this.buttoninserisciAvversita;
 		
 	}
 	
-	//ritorna riferimento al bottone visualizza info
+	/**
+	 * Metodo che ritorna riferimento al bottone visualizza info
+	 * @return
+	 */
 	public JButton retButtonVisualizzaInfo() {
 		return this.buttonConsultaInfo;
 		
