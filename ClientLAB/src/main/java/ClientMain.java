@@ -1,7 +1,5 @@
 /**
  * Classe main del client
- * 
- * @author aldoademi
  *
  */
 public class ClientMain {
