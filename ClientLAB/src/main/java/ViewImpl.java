@@ -355,6 +355,11 @@ public class ViewImpl extends JFrame implements View{
 			mostraViewCambioIP(); //mostra JOptionPane per cambio ip
 		}
 		
+		if(buttonOrigine.equals("cambiaIP")) {
+			JOptionPane.showMessageDialog(null, "IP Server cambiato", "IP SERVER", JOptionPane.INFORMATION_MESSAGE);
+			this.viewCambioIP.chiudiFinestra();
+		}
+		
 		if(buttonOrigine.equals("REGISTRA NUOVO CENTRO")) {
 			mostraViewRegistraCentro(); //va alla schermata registrazione centro vaccinale
 		}
