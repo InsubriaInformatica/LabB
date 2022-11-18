@@ -3,7 +3,10 @@ import java.util.*;
 
 import javax.swing.*;
 
-//classe che gestisce gli eventi generati dall'utente
+/**
+ * classe che gestisce gli eventi generati dall'utente
+ *
+ */
 public class ControllerImpl implements ActionListener{
 	
 	private View v;
@@ -64,7 +67,9 @@ public class ControllerImpl implements ActionListener{
 		
 	}
 
-	//e --> evento generato
+	/**
+	 * e --> evento generato
+	 */
 	public void actionPerformed(ActionEvent e) {
 		
 		String source = null;
@@ -186,7 +191,11 @@ public class ControllerImpl implements ActionListener{
 		
 	}
 	
-	//utile per eliminare spazi aggiuntivi di una stringa
+	/**
+	 * Metodo utile per eliminare spazi aggiuntivi di una stringa
+	 * @param p
+	 * @return
+	 */
 	private String togliSpazi(String p) {
 		String esito = "";
 	
