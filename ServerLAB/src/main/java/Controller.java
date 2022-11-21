@@ -34,9 +34,6 @@ public class Controller implements ActionListener{
 	}
 	
 	@Override
-	/**
-	 * 
-	 */
 	public void actionPerformed(ActionEvent e) {
 		
 		JButton buttonOrigine = (JButton) e.getSource(); //recupera origine cliccata del bottone
