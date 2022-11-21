@@ -1,8 +1,13 @@
-
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.Border;
 
+
+/**
+ * 
+ * Classe che implementa la GUI della pagina di visualizzazione dei centri vaccinali
+ *
+ */
 public class ElencoCentriGUI {
 	
 	private JPanel intestazione;
@@ -36,6 +41,13 @@ public class ElencoCentriGUI {
 	private JLabel mediaSintomi;
 	private JLabel infoMediaSintomi;
 	
+	/**
+	 * Costruttore della classe
+	 * 
+	 * @param larghezza
+	 * @param altezza
+	 * @param intestazione
+	 */
 	public ElencoCentriGUI(int larghezza, int altezza, JPanel intestazione){
 		
 		this.intestazione = intestazione;
@@ -160,98 +172,156 @@ public class ElencoCentriGUI {
 	}
 
 
-	//metodo che ritorna riferimento al Panel Intestazione della schermata
+	/**
+	 * Metodo che ritorna riferimento al Panel Intestazione della schermata
+	 * @return
+	 */
 	public JPanel retIntestazione() {
 		return this.intestazione;
 	}
 					
-	//metodo che ritorna riferimento al Panel contenitore, ovvero al corpo della schermata
+	/**
+	 * Metodo che ritorna riferimento al Panel contenitore, ovvero al corpo della schermata
+	 * @return
+	 */
 	public JPanel retContenitore() {
 		return this.contenitorePrincipale;
 	}
 	
-	//elenco dei centri
+	/**
+	 * Metodo che ritorna elenco dei centri
+	 * @return
+	 */
 	public JComboBox<String> retComboBox() {
 		return this.sceltaCentro;
 	}
 	
-	//resetta la combo box contenente i centri vaccinali
+	/**
+	 * Metodo che resetta la combo box contenente i centri vaccinali
+	 */
 	public void resetComboBox() {
 		this.sceltaCentro.removeAllItems();
 	}
 	
-	//inserisce nella comboBox centri ricercati
+	/**
+	 * Metodo che inserisce nella comboBox centri ricercati
+	 * @param centro
+	 */
 	public void aggiungiCentroInComboBox(String centro) {
 		this.sceltaCentro.addItem(centro);
 	}
 	
-	//ritorna indice elemento selezionato della ComboBox
+	/**
+	 * Metodo che ritorna indice elemento selezionato della ComboBox
+	 * @return
+	 */
 	public int retIndiceCentroSelezionatoComboBox() {
 		return this.sceltaCentro.getSelectedIndex();
 	}
 	
-	//ritorna elemento selezionato della ComboBox
+	/**
+	 * Metodo che ritorna elemento selezionato della ComboBox
+	 * @return
+	 */
 	public Object retCentroSelezionatoComboBox() {
 		return this.sceltaCentro.getSelectedItem();
 	}
 	
 	
-	//SETTA INFO LABEL CON PARAMETRO PASSATO
+	/**
+	 * Metodo che setta info label con parametro passato
+	 * @param txt
+	 */
 	public void setNomeCentro(String txt) {
 		this.nome.setVisible(true);
 		this.infoNome.setVisible(true);
 		this.infoNome.setText(txt);
 	}
 	
+	/**
+	 * Metodo che setta tipologia del centro
+	 * @param txt
+	 */
 	public void setTipologiaCentro(String txt) {
 		this.tipologia.setVisible(true);
 		this.infoTipologia.setVisible(true);
 		this.infoTipologia.setText(txt);
 	}
 	
+	/**
+	 * Metodo che setta l'indirizzo del centro
+	 * @param txt
+	 */
 	public void setIndirizzoCentro(String txt) {
 		this.indirizzo.setVisible(true);
 		this.infoIndirizzo.setVisible(true);
 		this.infoIndirizzo.setText(txt);
 	}
 	
+	/**
+	 * Metodo che setta il numero di segnalazioni di un centro
+	 * @param txt
+	 */
 	public void setNumeroSegnalazioni(String txt) {
 		this.numeroSegnalazioni.setVisible(true);
 		this.infoNumeroSegnalazioni.setVisible(true);
 		this.infoNumeroSegnalazioni.setText(txt);
 	}
 	
+	/**
+	 * Metodo che setta la media dei sintomi di un centro
+	 * @param txt
+	 */
 	public void setMediaSintomi(String txt) {
 		this.mediaSintomi.setVisible(true);
 		this.infoMediaSintomi.setVisible(true);
 		this.infoMediaSintomi.setText(txt);
 	}
 	
-	//SETTA INFO LABEL CON PARAMETRO PASSATO --> NON VISUALIZZA INFO
+	/**
+	 * Metodo che setta info label con parametro passato --> non visualizza info
+	 * @param txt
+	 */
 	public void setNomeCentroNOVISUAL(String txt) {
 		this.nome.setVisible(false);
 		this.infoNome.setVisible(false);
 		this.infoNome.setText(txt);
 	}
-		
+	
+	/**
+	 * Metodo che setta info label con parametro passato --> non visualizza info
+	 * @param txt
+	 */
 	public void setTipologiaCentroNOVISUAL(String txt) {
 		this.tipologia.setVisible(false);
 		this.infoTipologia.setVisible(false);
 		this.infoTipologia.setText(txt);
 	}
 	
+	/**
+	 * Metodo che setta info label con parametro passato --> non visualizza info
+	 * @param txt
+	 */
 	public void setIndirizzoCentroNOVISUAL(String txt) {
 		this.indirizzo.setVisible(false);
 		this.infoIndirizzo.setVisible(false);
 		this.infoIndirizzo.setText(txt);
 	}
 		
+	/**
+	 * Metodo che setta info label con parametro passato --> non visualizza info
+	 * @param txt
+	 */
 	public void setNumeroSegnalazioniNOVISUAL(String txt) {
 		this.numeroSegnalazioni.setVisible(false);
 		this.infoNumeroSegnalazioni.setVisible(false);
 		this.infoNumeroSegnalazioni.setText(txt);
 	}	
 	
+	/**
+	 * Metodo che setta info label con parametro passato --> non visualizza info
+	 * @param txt
+	 */
 	public void setMediaSintomiNOVISUAL(String txt) {
 		this.mediaSintomi.setVisible(false);
 		this.infoMediaSintomi.setVisible(false);

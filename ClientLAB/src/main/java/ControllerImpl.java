@@ -12,7 +12,11 @@ public class ControllerImpl implements ActionListener{
 	private View v;
 	private Model m; 
 	
-	
+	/**
+	 * Costruttore della classe
+	 * @param v
+	 * @param m
+	 */
 	public ControllerImpl(View v, Model m) {
 		this.v = v;
 		this.m = m;
