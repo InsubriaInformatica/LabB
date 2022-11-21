@@ -38,7 +38,7 @@ public class DataBaseConnessione {
 	 * @param user username con cui accedere al database
 	 * @param pass password con cui accedere al database
 	 * @param host2 indirizzo della macchina su cui &egrave; presente il database
-	 * @param port porta su cui gira il database
+	 * @param port porta sulla quale gira il database
 	 * @param name nome del database
 	 * 
 	 * @throws SQLException se ci sono problemi nella connessione al database

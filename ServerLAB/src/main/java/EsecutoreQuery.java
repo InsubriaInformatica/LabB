@@ -3,7 +3,11 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-//RISORSA CONDIVISA CHE SI INTERFACCIERA' LOCALMENTE CON IL NOSTRO SKELETON e CON IL DB per eseguire query
+/**
+ * risorsa condivisa che si interfaccia localmente con lo skeleton e con il db per eseguire le query.
+ * @author simon
+ *
+ */
 public class EsecutoreQuery implements SkeletonInterface{
 	
 	private Connection connessione;
@@ -12,7 +16,14 @@ public class EsecutoreQuery implements SkeletonInterface{
 	private boolean result;
 	private ViewInterface view;
 	
-	//costruttore che instanzia connessione a database
+	/**
+	 * costruttore che istanzia la connessione al database
+	 * @param username nome utente per accedere al database
+	 * @param password password associata all'utente scritto sopra
+	 * @param host indirizzo della macchina sulla quale è situato il database
+	 * @param port porta sulla quale gira il database
+	 * @param nomeDB nome del DataBase
+	 */
 	public EsecutoreQuery(String username, String password, String host, String port, String nomeDB) {
 		try {
 			this.connessione = DataBaseConnessione.getConnection(username, password, host, port , nomeDB); //prende connessione al database
