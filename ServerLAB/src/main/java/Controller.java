@@ -1,11 +1,13 @@
-
+/**
+ * La classe Controller utilizza il PATTERN MVC per gestire gli eventi generati dall'utente
+ */
 import java.awt.event.*;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
 
-//PATTERN MVC --> gestisce eventi generati dall'utente
+
 public class Controller implements ActionListener{
 
 	
