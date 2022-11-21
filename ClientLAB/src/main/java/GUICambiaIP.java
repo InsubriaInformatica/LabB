@@ -3,6 +3,11 @@ import java.awt.*;
 
 import javax.swing.*;
 
+/**
+ * 
+ * Classe che implementa la GUI per poter cambiare l'ip del server su cui connettersi
+ *
+ */
 public class GUICambiaIP {
 	
 	private JPanel intestazione;
@@ -14,7 +19,12 @@ public class GUICambiaIP {
 	private JButton buttonCambiaIP;
 	private JOptionPane finestraIP;
 	
-	
+	/**
+	 * Costruttore della classe
+	 * @param larghezza
+	 * @param altezza
+	 * @param intestazione
+	 */
 	public GUICambiaIP(int larghezza, int altezza, JPanel intestazione) {
 		this.intestazione = intestazione;
 		
@@ -40,27 +50,40 @@ public class GUICambiaIP {
 		
 	}
 	
-	//metodo che mostra finestra per cambio IP
+	/**
+	 * Metodo che mostra finestra per cambio IP
+	 */
 	public void mostraFinestraCambioIp() {
 		this.finestraIP.showOptionDialog(null, this.panelJOptionIP, "CAMBIA IP SERVER", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, new Object[]{}, null);
 	}
 	
-	//chiude JOption pane
+	/**
+	 * Metodo che chiude JOption pane
+	 */
 	public void chiudiFinestra() {
 		this.finestraIP.getRootFrame().dispose();
 	}
 	
-	//nasconde finestra
+	/**
+	 * Metodo che nasconde finestra
+	 */
 	public void nascondiFinestra() {
 		this.finestraIP.setVisible(false);;
 	}
 	
-	//prende IP inserito
+	/**
+	 * Metodo che prende IP inserito
+	 * @return
+	 */
 	public String getIPInserito() {
 		return this.txtIP.getText();
 	
 	}
 	
+	/**
+	 * Bottone per cambiare IP
+	 * @return
+	 */
 	public JButton retButtonCambiaIP() {
 		return this.buttonCambiaIP;
 	}
