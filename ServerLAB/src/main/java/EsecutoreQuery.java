@@ -492,7 +492,11 @@ public class EsecutoreQuery implements SkeletonInterface{
 	}
 
 
-	//cerca nel DB info centri con parametro comune e tipologia
+	/**
+	 * dati comune e tipologia ritorna le informazioni dei centri che soddisfano i criteri
+	 * @return <b>qualificatore, nome, numeroCivico, comune, CAP, provincia</b>;
+	 * <b>0 </b> se non esistono centri che soddisfano i requisiti 
+	 */
 	public synchronized List<List<String>> infoCentriVaccinaliCeT(String comune, String tipologia) throws SQLException {
 		List<List<String>> ret = new ArrayList<List<String>>();
 		List<String> tmp;
@@ -556,7 +560,10 @@ public class EsecutoreQuery implements SkeletonInterface{
 		return ret;
 	}
 	
-	//questo metodo cerca e ritorna dal DB elenco eventi avversi per l'utente specificato
+	/**
+	 * ritorna eventi avversi inseriti da un utente con un certo username
+	 * @return <b>evento</b>, <b>severità</b>, <b>note</b>
+	 */
 	public List<List<String>> retMyElencoEventiAvversi(String username) throws SQLException {
 		List<List<String>> ret = new ArrayList<List<String>>();
 		int i=0;
@@ -579,7 +586,11 @@ public class EsecutoreQuery implements SkeletonInterface{
 		return ret;
 	}
 	
-	//questo metodo si occupa di togliere gli spazi in piu all'inizio e alla fine di una stringa
+	/**
+	 * toglie gli spazi in più eventualmente presenti in una stringa
+	 * @param dato
+	 * @return stringa senza spazi
+	 */
 	private String togliSpazi(String dato) {
 		String ret = "";
 		int i;
