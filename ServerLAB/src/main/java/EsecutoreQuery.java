@@ -250,7 +250,10 @@ public class EsecutoreQuery implements SkeletonInterface{
 	}
 
 
-	//cerca nel DB il centro selezionato
+	/**
+	 * verifica l'esistenza di un centro vaccinale
+	 * @return true se esiste, false se non esiste. 
+	 */
 	public synchronized boolean esisteCentroNome(String nomeCentro) throws SQLException {
 		
 		boolean ret = false;
@@ -265,6 +268,10 @@ public class EsecutoreQuery implements SkeletonInterface{
 	}
 	
 	//verifica nel DB che esiste il centro nel comune e nella tipologia specificata
+	/**
+	 * verifica che nel DB esista in un certo comune un centro vaccinale con un certo nome. 
+	 * @return true se esiste, false se non esiste
+	 */
 	public synchronized boolean EsisteCentroCeT(String comune, String tipologia) throws SQLException {
 		boolean ret = false;
 		String query = "SELECT cv.tipologia, i.comune FROM centrivaccinali cv JOIN indirizzo i ON cv.idIndirizzo = i.id WHERE tipologia = '"+ tipologia +"' AND comune = '"+ comune +"';";
@@ -277,7 +284,10 @@ public class EsecutoreQuery implements SkeletonInterface{
 	}
 
 
-	//cerca nel DB il cittadino vaccinato
+/**
+ * dato il codice fiscale, ricerca l'esistenza di un cittadino vaccinato nel DB
+ * @return true se esiste, false se non esiste
+ */
 	public synchronized boolean checkCittadinoVaccinato(String codiceFiscale) throws SQLException {
 		
 		String query = "SELECT * \n"
@@ -293,7 +303,10 @@ public class EsecutoreQuery implements SkeletonInterface{
 	}
 
 
-	//registra al portale cittadini l'utente vaccinato
+	/**
+	 * registra l'utente vaccinato al portale cittadini
+	 * @return 1 se la registrazione è andata a buon fine, 0 se la query è andata a buon fine ma il cittadino non è stato inserito (già presente), -1 se la query non è andata a buon fine
+	 */
 	public synchronized int registrazioneCittadino(String nome, String cognome, String codiceFiscale, String eMail, String username, String password, String IdUnivoco) throws SQLException{
 		int ret = 0;
 		int brs;
@@ -323,7 +336,10 @@ public class EsecutoreQuery implements SkeletonInterface{
 	}
 
 
-	//cerca nel DB se trova un utente con lo stesso nome
+/**
+ * ricerca un utente nel DB in base al suo username
+ * @return true se esiste, false se non esiste
+ */
 	public synchronized boolean esisteUtente(String username) throws SQLException {
 		boolean ret = false;
 		String query = "SELECT username, password FROM cittadini_registrati WHERE username = '"+username+"'";
@@ -336,7 +352,10 @@ public class EsecutoreQuery implements SkeletonInterface{
 	}
 
 
-	//verifica che id corrisponde ad utente registrato
+	/**
+	 * verifica corrispondenza tra codice univoco e codice fiscale dell'utente
+	 * @return true se corrispondono, false se non corrispondono
+	 */
 	public synchronized boolean verificaCorrispondenzaId(String codiceFiscale, String idVaccinato) throws SQLException {
 		
 		String queryControlloId = "SELECT id FROM vaccinazione NATURAL JOIN cittadini\n"
