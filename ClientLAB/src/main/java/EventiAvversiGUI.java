@@ -6,6 +6,11 @@ import java.awt.GridLayout;
 import javax.swing.*;
 import javax.swing.border.Border;
 
+/**
+ * 
+ * Classe che implementa la GUI degli eventi avversi
+ *
+ */
 public class EventiAvversiGUI {
 	
 	private JPanel intestazione;
@@ -55,6 +60,12 @@ public class EventiAvversiGUI {
     private JButton buttonConfermaEA;
 	
 
+    /**
+     * Costruttore della classe
+     * @param altezza
+     * @param larghezza
+     * @param intestazione
+     */
 	public EventiAvversiGUI(int altezza, int larghezza, JPanel intestazione) {
 		
 		this.intestazione = intestazione;
@@ -237,16 +248,25 @@ public class EventiAvversiGUI {
 	}
 
 	
-	//ritorna intestazione della pagina
+	/**
+	 * Metodo che ritorna intestazione della pagina
+	 * @return
+	 */
 	public JPanel retIntestazione() {
 		return this.intestazione;
 	}
 
-	//ritorna contenitore elementi
+	/**
+	 * Metodo che ritorna contenitore elementi
+	 * @return
+	 */
 	public JPanel retContenitore() {
 		return this.contenitorePrincipale;
 	}
 	
+	/**
+	 * Metodo che pulisce i campi
+	 */
 	public void pulisciCampi() {
 		this.radioButtonMalDiTesta.setSelected(true);
 		this.radioButtonFebbre.setSelected(false);
@@ -258,7 +278,10 @@ public class EventiAvversiGUI {
 		this.note.setText("");
 	}
 	
-	//ritorna dai radio button il tipo di evento selezionato
+	/**
+	 * Metodo che ritorna dai radio button il tipo di evento selezionato
+	 * @return
+	 */
 	public String retTipoEventoInserito() {
 		String evento = " ";
 		
@@ -290,17 +313,26 @@ public class EventiAvversiGUI {
 		
 	}
 	
-	//ritorna dalla combo box la severità selezionata
+	/**
+	 * Metodo che ritorna dalla combo box la severità selezionata
+	 * @return
+	 */
 	public Object retSeveritaSelezionata() {
 		return this.Severita.getSelectedItem();
 	}
 	
-	//ritorna le note inserite 
+	/**
+	 * Metodo che ritorna le note inserite 
+	 * @return
+	 */
 	public String retNote(){
 		return this.note.getText();
 	}
 	
-	//ritorna il bottone per inserire evento avverso
+	/**
+	 * Metodo che ritorna il bottone per inserire evento avverso
+	 * @return
+	 */
 	public JButton retButtonInserisciEA() {
 		return this.buttonConfermaEA;
 	}	
