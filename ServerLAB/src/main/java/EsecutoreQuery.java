@@ -34,7 +34,9 @@ public class EsecutoreQuery implements SkeletonInterface{
 		} 
 	}
 	
-	
+	/**
+	 * questo metodo crea tutte le tabelle necessarie per il corretto funzionamento del programma (nel caso in cui queste non esistano)
+	 */
 	public synchronized void creazioneTabelle() throws SQLException {
 		
 		System.out.println("ESECUTORE QUERY: Inizializzo DataBase");
@@ -97,7 +99,11 @@ public class EsecutoreQuery implements SkeletonInterface{
 		
 	}
 
-	//registra nel database il centro vaccinale --> METODI SYCHRONIZED, si accede ai dati in modo concorrente
+	/**
+	 * metodo che inserisce i dati di un certo centro vaccinale dentro al DB
+	 * @return 1 se l'operazione è andata a buon fine
+	 */
+	//METODI SYCHRONIZED, si accede ai dati in modo concorrente
 	public synchronized int registraCentroVaccinale(String nome, String qualificatore, String indirizzo, String numeroCivico, String comune, String provincia, String Cap, String tipologia) throws SQLException {
 		int ret = 0;
 		String queryUltimoID = "SELECT i.id  FROM indirizzo i WHERE i.id >=ALL(SELECT id FROM indirizzo)";
@@ -143,17 +149,21 @@ public class EsecutoreQuery implements SkeletonInterface{
 	}
 
 
-	//metodo che permette di registrare un vaccinato nel DB
+	/**
+	 * metodo che inserisce i dati di un vaccinato nel DB, generandogli un codice univoco.
+	 * @return 1 se l'operazione è andata a buon fine
+	 * 
+	 */
 	public synchronized int registraVaccinato(String nomeCentro, String nome, String cognome, String codiceFiscale,String dataSomministrazione, String tipoVaccino, String nDosi) throws SQLException {
 		int ret = 0;
 		
-		//cerca l'ultimo identificativo
+		
 		String queryPerIdMax = "SELECT id FROM vaccinazione WHERE id >= ALL(SELECT id FROM vaccinazione)";
 		ResultSet rs = istruzione.executeQuery(queryPerIdMax);
 		int brs;
 		int idVacMax = 0;
 		
-		//genera identificativo univoco per il vaccinato
+		
 		while(rs.next()) {
 			idVacMax = rs.getInt("id") + 1;
 		}
@@ -200,7 +210,10 @@ public class EsecutoreQuery implements SkeletonInterface{
 	}
 
 
-	//questo metodo Cerca nel DB : nome, cognome, id univoco, il nome del centro dove Ã¨ stato vaccinato
+	/**
+	 * effettua una ricerca tramite il codice fiscale
+	 * @return nome, cognome, id e Luogo della vaccinazione della persona ricercata
+	 */
 	public synchronized List<String> IdUnivoco(String codiceFiscale) throws SQLException {
 		List<String> ret = new ArrayList<String>();
 		
@@ -218,7 +231,10 @@ public class EsecutoreQuery implements SkeletonInterface{
 	}
 
 
-	//questo metodo ritorna i centri vaccinali aggiunti al DB nella combox box
+
+	/**
+	 * @return centri vaccinali aggiunti al DB
+	 */
 	public synchronized List<String> retElencoCentriVaccinali() throws SQLException {
 		
 		List<String> ret = new ArrayList<String>();
