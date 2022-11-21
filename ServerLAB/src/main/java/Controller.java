@@ -14,12 +14,18 @@ public class Controller implements ActionListener{
 	private ModelInterface model;
 	private ViewInterface view;
 	
-	//COSTRUTTORE --> salva riferimenti view e model e aggiunge bottone avvia server per gestire evento
+	/**
+	 * salva riferimenti view e model, aggiunge bottone avvia server per gestire evento
+	 * @param model
+	 * @param view
+	 */
 	public Controller(ModelInterface model,ViewInterface view ) {
 		this.model = model;
 		this.view = view;
 		
-		//cattura e aggiunge ad eventi bottone accendi server
+		/**
+		 * cattura il bottone "Accendi Server" e lo aggiunge ad eventi
+		 */
 		JButton buttonAvvia = this.view.retButtonAvvia();
 		buttonAvvia.addActionListener(this);	
 		
