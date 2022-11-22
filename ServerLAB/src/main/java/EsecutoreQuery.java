@@ -11,7 +11,9 @@ import java.util.List;
 public class EsecutoreQuery implements SkeletonInterface{
 	
 	private Connection connessione;
+	private Connection conn;
 	private Statement istruzione;
+	private Statement istr;
 	private ResultSet rs;
 	private boolean result;
 	private ViewInterface view;
@@ -27,9 +29,9 @@ public class EsecutoreQuery implements SkeletonInterface{
 	 */
 	public EsecutoreQuery(String username, String password, String host, String port, String nomeDB) {
 		try {
+			this.nomeDataB = nomeDB;
 			LoginServer(host, port, username, password);
 			creazioneDB();
-			this.nomeDataB = nomeDB;
 			this.connessione = DataBaseConnessione.getConnection(username, password, host, port , nomeDB); //prende connessione al database
 			this.istruzione = (Statement) connessione.createStatement(); //statement per eseguire query
 			
@@ -39,22 +41,28 @@ public class EsecutoreQuery implements SkeletonInterface{
 	}
 	
 	public void LoginServer(String host, String port, String username, String password){
-		this.connessione = DataBaseConnessione.getConnectionServer(username, password, host, port); //prende connessione al server
+		try {
+			this.conn = DataBaseConnessione.getConnectionServer(username, password, host, port); //prende connessione al server
+			this.istr = (Statement) conn.createStatement();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public synchronized void creazioneDB() {
 		try {
 			String queryVerificaDB = "SELECT 'CREATE DATABASE " + nomeDataB + "' AS creazione\n"
 					+ "WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = '" + nomeDataB + "')";
-			rs = istruzione.executeQuery(queryVerificaDB);
+			rs = istr.executeQuery(queryVerificaDB);
 			String x = "";
 			while(rs.next()) {
 				x = rs.getString("creazione");
 			}
 			
 			String queryCreazioneDB = x.toString();
-			result = istruzione.execute(queryCreazioneDB);
+			result = istr.execute(queryCreazioneDB);
 		} catch (Exception e) {
+			e.printStackTrace();
 			System.out.println("Il database esiste già");
 		}
 	}
