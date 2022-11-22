@@ -15,6 +15,7 @@ public class EsecutoreQuery implements SkeletonInterface{
 	private ResultSet rs;
 	private boolean result;
 	private ViewInterface view;
+	private String nomeDataB;
 	
 	/**
 	 * costruttore che istanzia la connessione al database
@@ -26,6 +27,9 @@ public class EsecutoreQuery implements SkeletonInterface{
 	 */
 	public EsecutoreQuery(String username, String password, String host, String port, String nomeDB) {
 		try {
+			LoginServer(host, port, username, password);
+			creazioneDB();
+			this.nomeDataB = nomeDB;
 			this.connessione = DataBaseConnessione.getConnection(username, password, host, port , nomeDB); //prende connessione al database
 			this.istruzione = (Statement) connessione.createStatement(); //statement per eseguire query
 			
@@ -34,24 +38,33 @@ public class EsecutoreQuery implements SkeletonInterface{
 		} 
 	}
 	
+	public void LoginServer(String host, String port, String username, String password){
+		this.connessione = DataBaseConnessione.getConnectionServer(username, password, host, port); //prende connessione al server
+	}
+	
+	public synchronized void creazioneDB() {
+		try {
+			String queryVerificaDB = "SELECT 'CREATE DATABASE " + nomeDataB + "' AS creazione\n"
+					+ "WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = '" + nomeDataB + "')";
+			rs = istruzione.executeQuery(queryVerificaDB);
+			String x = "";
+			while(rs.next()) {
+				x = rs.getString("creazione");
+			}
+			
+			String queryCreazioneDB = x.toString();
+			result = istruzione.execute(queryCreazioneDB);
+		} catch (Exception e) {
+			System.out.println("Il database esiste già");
+		}
+	}
+	
 	/**
 	 * questo metodo crea tutte le tabelle necessarie per il corretto funzionamento del programma (nel caso in cui queste non esistano)
 	 */
 	public synchronized void creazioneTabelle() throws SQLException {
 		
 		System.out.println("ESECUTORE QUERY: Inizializzo DataBase");
-		
-		String queryVerificaDB = "SELECT 'CREATE DATABASE LabB' AS creazione\n"
-				+ "WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'LabB')";
-		rs = istruzione.executeQuery(queryVerificaDB);
-		String x = "";
-		while(rs.next()) {
-			x = rs.getString("creazione");
-			System.out.println(x);
-		}
-		
-		String queryCreazioneDB = x.toString();
-		result = istruzione.execute(queryCreazioneDB);
 		
 		String queryCreazione
 				= "CREATE TABLE if not exists Cittadini (\n"

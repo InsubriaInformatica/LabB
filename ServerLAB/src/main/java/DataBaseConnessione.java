@@ -53,8 +53,25 @@ public class DataBaseConnessione {
 		porta = port;
 		host = host2 + "/";
 		url = protocol + host + resource;
-		if (connection == null) {
+		if (connection != null) {
 			connection = DriverManager.getConnection(url, username, password);
+		}
+		
+		return connection;
+	}
+	
+	public static Connection getConnectionServer(String user, String pass, String host2, String port) {
+		username = user;
+		password = pass;
+		porta = port;
+		host = host2 + "/";
+		url = protocol + host;
+		if (connection == null) {
+			try {
+				connection = DriverManager.getConnection(url, username, password);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return connection;
 	}

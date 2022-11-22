@@ -55,4 +55,9 @@ public interface SkeletonInterface {
 	//crea tabelle nel DB
 	public void creazioneTabelle() throws SQLException;
 	
+	public void creazioneDB();
+	
+	//Login al database
+	public void LoginServer(String host, String port, String username, String password);
+	
 }
