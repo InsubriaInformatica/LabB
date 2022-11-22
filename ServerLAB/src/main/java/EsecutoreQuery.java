@@ -20,7 +20,7 @@ public class EsecutoreQuery implements SkeletonInterface{
 	 * costruttore che istanzia la connessione al database
 	 * @param username nome utente per accedere al database
 	 * @param password password associata all'utente scritto sopra
-	 * @param host indirizzo della macchina sulla quale è situato il database
+	 * @param host indirizzo della macchina sulla quale ï¿½ situato il database
 	 * @param port porta sulla quale gira il database
 	 * @param nomeDB nome del DataBase
 	 */
@@ -40,6 +40,18 @@ public class EsecutoreQuery implements SkeletonInterface{
 	public synchronized void creazioneTabelle() throws SQLException {
 		
 		System.out.println("ESECUTORE QUERY: Inizializzo DataBase");
+		
+		String queryVerificaDB = "SELECT 'CREATE DATABASE LabB' AS creazione\n"
+				+ "WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'LabB')";
+		rs = istruzione.executeQuery(queryVerificaDB);
+		String x = "";
+		while(rs.next()) {
+			x = rs.getString("creazione");
+			System.out.println(x);
+		}
+		
+		String queryCreazioneDB = x.toString();
+		result = istruzione.execute(queryCreazioneDB);
 		
 		String queryCreazione
 				= "CREATE TABLE if not exists Cittadini (\n"
@@ -101,7 +113,7 @@ public class EsecutoreQuery implements SkeletonInterface{
 
 	/**
 	 * metodo che inserisce i dati di un certo centro vaccinale dentro al DB
-	 * @return <b>1</b> se l'operazione è andata a buon fine
+	 * @return <b>1</b> se l'operazione ï¿½ andata a buon fine
 	 */
 	//METODI SYCHRONIZED, si accede ai dati in modo concorrente
 	public synchronized int registraCentroVaccinale(String nome, String qualificatore, String indirizzo, String numeroCivico, String comune, String provincia, String Cap, String tipologia) throws SQLException {
@@ -151,7 +163,7 @@ public class EsecutoreQuery implements SkeletonInterface{
 
 	/**
 	 * metodo che inserisce i dati di un vaccinato nel DB, generandogli un codice univoco.
-	 * @return <b>1</b> se l'operazione è andata a buon fine
+	 * @return <b>1</b> se l'operazione ï¿½ andata a buon fine
 	 * 
 	 */
 	public synchronized int registraVaccinato(String nomeCentro, String nome, String cognome, String codiceFiscale,String dataSomministrazione, String tipoVaccino, String nDosi) throws SQLException {
@@ -305,7 +317,7 @@ public class EsecutoreQuery implements SkeletonInterface{
 
 	/**
 	 * registra l'utente vaccinato al portale cittadini
-	 * @return <b>1</b> se la registrazione è andata a buon fine, <b>0</b> se la query è andata a buon fine ma il cittadino non è stato inserito (già presente), <b>-1</b> se la query non è andata a buon fine
+	 * @return <b>1</b> se la registrazione ï¿½ andata a buon fine, <b>0</b> se la query ï¿½ andata a buon fine ma il cittadino non ï¿½ stato inserito (giï¿½ presente), <b>-1</b> se la query non ï¿½ andata a buon fine
 	 */
 	public synchronized int registrazioneCittadino(String nome, String cognome, String codiceFiscale, String eMail, String username, String password, String IdUnivoco) throws SQLException{
 		int ret = 0;
@@ -562,7 +574,7 @@ public class EsecutoreQuery implements SkeletonInterface{
 	
 	/**
 	 * ritorna eventi avversi inseriti da un utente con un certo username
-	 * @return <b>evento</b>, <b>severità</b>, <b>note</b>
+	 * @return <b>evento</b>, <b>severitï¿½</b>, <b>note</b>
 	 */
 	public List<List<String>> retMyElencoEventiAvversi(String username) throws SQLException {
 		List<List<String>> ret = new ArrayList<List<String>>();
@@ -587,7 +599,7 @@ public class EsecutoreQuery implements SkeletonInterface{
 	}
 	
 	/**
-	 * toglie gli spazi in più eventualmente presenti in una stringa
+	 * toglie gli spazi in piï¿½ eventualmente presenti in una stringa
 	 * @param dato
 	 * @return stringa senza spazi
 	 */
