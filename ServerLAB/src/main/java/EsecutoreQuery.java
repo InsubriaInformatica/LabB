@@ -3,6 +3,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 /**
  * risorsa condivisa che si interfaccia localmente con lo skeleton e con il db per eseguire le query.
  * @author simon
@@ -36,6 +38,7 @@ public class EsecutoreQuery implements SkeletonInterface{
 			this.istruzione = (Statement) connessione.createStatement(); //statement per eseguire query
 			
 		} catch (SQLException e) {
+			JOptionPane.showMessageDialog(null, "CONNESSIONE FALLITA", "SERVER", JOptionPane.ERROR_MESSAGE);
 			System.err.println("ESECUTORE QUERY: connessione al DB non riuscita " + e.toString());
 		} 
 	}
@@ -62,8 +65,8 @@ public class EsecutoreQuery implements SkeletonInterface{
 			String queryCreazioneDB = x.toString();
 			result = istr.execute(queryCreazioneDB);
 		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println("Il database esiste già");
+			JOptionPane.showMessageDialog(null, "DB GIA' ESISTENTE", "SERVER", JOptionPane.ERROR_MESSAGE);
+			System.out.println("Il database esiste già" + e.toString());
 		}
 	}
 	
