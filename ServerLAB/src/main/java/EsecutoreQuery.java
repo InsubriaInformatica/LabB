@@ -142,7 +142,7 @@ public class EsecutoreQuery implements SkeletonInterface{
 
 	/**
 	 * metodo che inserisce i dati di un certo centro vaccinale dentro al DB
-	 * @return <b>1</b> se l'operazione � andata a buon fine
+	 * @return <b>1</b> se l'operazione e' andata a buon fine
 	 */
 	//METODI SYCHRONIZED, si accede ai dati in modo concorrente
 	public synchronized int registraCentroVaccinale(String nome, String qualificatore, String indirizzo, String numeroCivico, String comune, String provincia, String Cap, String tipologia) throws SQLException {
@@ -192,7 +192,7 @@ public class EsecutoreQuery implements SkeletonInterface{
 
 	/**
 	 * metodo che inserisce i dati di un vaccinato nel DB, generandogli un codice univoco.
-	 * @return <b>1</b> se l'operazione � andata a buon fine
+	 * @return <b>1</b> se l'operazione e' andata a buon fine
 	 * 
 	 */
 	public synchronized int registraVaccinato(String nomeCentro, String nome, String cognome, String codiceFiscale,String dataSomministrazione, String tipoVaccino, String nDosi) throws SQLException {
@@ -253,7 +253,7 @@ public class EsecutoreQuery implements SkeletonInterface{
 
 	/**
 	 * effettua una ricerca tramite il codice fiscale
-	 * @return <b>nome, cognome, id e Luogo della vaccinazione</b> della persona ricercata
+	 * @return <b>nome<br> cognome<br> id<br> Luogo della vaccinazione<br></b> della persona ricercata
 	 */
 	public synchronized List<String> IdUnivoco(String codiceFiscale) throws SQLException {
 		List<String> ret = new ArrayList<String>();
@@ -293,7 +293,7 @@ public class EsecutoreQuery implements SkeletonInterface{
 
 	/**
 	 * verifica l'esistenza di un centro vaccinale
-	  * @return <b>true</b> se esiste, <b>false</b> se non esiste 
+	  * @return <b>true</b> se esiste<br> <b>false</b> se non esiste 
 	 */
 	public synchronized boolean esisteCentroNome(String nomeCentro) throws SQLException {
 		
@@ -311,7 +311,7 @@ public class EsecutoreQuery implements SkeletonInterface{
 	//verifica nel DB che esiste il centro nel comune e nella tipologia specificata
 	/**
 	 * verifica che nel DB esista in un certo comune un centro vaccinale con un certo nome. 
-	 * @return <b>true</b> se esiste, <b>false</b> se non esiste
+	 * @return <b>true</b> se esiste<br> <b>false</b> se non esiste
 	 */
 	public synchronized boolean EsisteCentroCeT(String comune, String tipologia) throws SQLException {
 		boolean ret = false;
@@ -327,7 +327,7 @@ public class EsecutoreQuery implements SkeletonInterface{
 
 /**
  * dato il codice fiscale, ricerca l'esistenza di un cittadino vaccinato nel DB
- * @return <b>true</b> se esiste, <b>false</b> se non esiste
+ * @return <b>true</b> se esiste<br> <b>false</b> se non esiste
  */
 	public synchronized boolean checkCittadinoVaccinato(String codiceFiscale) throws SQLException {
 		
@@ -346,7 +346,7 @@ public class EsecutoreQuery implements SkeletonInterface{
 
 	/**
 	 * registra l'utente vaccinato al portale cittadini
-	 * @return <b>1</b> se la registrazione � andata a buon fine, <b>0</b> se la query � andata a buon fine ma il cittadino non � stato inserito (gi� presente), <b>-1</b> se la query non � andata a buon fine
+	 * @return <b>1</b> se la registrazione e' andata a buon fine<br> <b>0</b> se la query e' andata a buon fine ma il cittadino non e' stato inserito (gia' presente)<br> <b>-1</b> se la query non e' andata a buon fine
 	 */
 	public synchronized int registrazioneCittadino(String nome, String cognome, String codiceFiscale, String eMail, String username, String password, String IdUnivoco) throws SQLException{
 		int ret = 0;
@@ -379,7 +379,7 @@ public class EsecutoreQuery implements SkeletonInterface{
 
 /**
  * ricerca un utente nel DB in base al suo username
- * @return <b>true</b> se esiste, <b>false</b> se non esiste
+ * @return <b>true</b> se esiste<br> <b>false</b> se non esiste
  */
 	public synchronized boolean esisteUtente(String username) throws SQLException {
 		boolean ret = false;
@@ -395,7 +395,7 @@ public class EsecutoreQuery implements SkeletonInterface{
 
 	/**
 	 * verifica corrispondenza tra codice univoco e codice fiscale dell'utente
-	 * @return <b>true</b> se corrispondono, <b>false</b> se non corrispondono
+	 * @return <b>true</b> se corrispondono<br> <b>false</b> se non corrispondono
 	 */
 	public synchronized boolean verificaCorrispondenzaId(String codiceFiscale, String idVaccinato) throws SQLException {
 		
@@ -456,7 +456,7 @@ public class EsecutoreQuery implements SkeletonInterface{
 
 	/**
 	 * inserisce nella tabella degli eventi avversi i dati inseriti da una certa persona. la persona viene distinta tramite il suo CF
-	 * @return <b>1</b> se l'operazione va a buon fine, <b>0</b> altrimenti
+	 * @return <b>1</b> se l'operazione va a buon fine<br> <b>0</b> altrimenti
 	 */
 	public synchronized int inserisciEventoAvverso(String codiceFiscale, String evento, String severita, String note)throws SQLException {
 		int ret = 0;
@@ -487,7 +487,7 @@ public class EsecutoreQuery implements SkeletonInterface{
 
 	/**
 	 * dato il nome di un centro vaccinale, ne riporta le informazioni
-	 * @return <b>qualificatore, nome, numeroCivico, comune, CAP, provincia</b>;
+	 * @return <b>qualificatore<br> nome<br> numeroCivico<br> comune<br> CAP<br> provincia<br></b>
 	 * <b>0 </b> se non esiste un centro con quel nome
 	 */
 	public synchronized List<String> infoCentriVaccinaliNome(String nomeCentro) throws SQLException {
@@ -535,7 +535,7 @@ public class EsecutoreQuery implements SkeletonInterface{
 
 	/**
 	 * dati comune e tipologia ritorna le informazioni dei centri che soddisfano i criteri
-	 * @return <b>qualificatore, nome, numeroCivico, comune, CAP, provincia</b>;
+	 * @return <b>qualificatore<br> nome<br> numeroCivico<br> comune<br> CAP<br> provincia<br></b>
 	 * <b>0 </b> se non esistono centri che soddisfano i requisiti 
 	 */
 	public synchronized List<List<String>> infoCentriVaccinaliCeT(String comune, String tipologia) throws SQLException {
@@ -603,7 +603,7 @@ public class EsecutoreQuery implements SkeletonInterface{
 	
 	/**
 	 * ritorna eventi avversi inseriti da un utente con un certo username
-	 * @return <b>evento</b>, <b>severit�</b>, <b>note</b>
+	 * @return <b>evento</b><br> <b>severita'<br></b> <b>note<br></b>
 	 */
 	public List<List<String>> retMyElencoEventiAvversi(String username) throws SQLException {
 		List<List<String>> ret = new ArrayList<List<String>>();
