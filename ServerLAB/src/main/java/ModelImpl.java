@@ -13,12 +13,17 @@ public class ModelImpl implements ModelInterface{
 	ServerSocket theServerSocket;
 	Socket socket;
 	
-
+	/**
+	 * instanzia view per inviare dati da mostrare 
+	 * @param v view
+	 */
 	public ModelImpl(ViewInterface v) {
-		this.v = v; //instanzia view per inviare dati da mostrare 
+		this.v = v;
 	}
 	
-	//metodo utile per ACCETTARE ed AVVIARE il server thread che si occuperano di lavorare per il client
+	/**
+	 * questo metodo serve ad accettare i tentativi di connessione che arrivano. Successivamente crea un ServerThread per ogni client connesso
+	 */
 	public void avvioServer(Object dati) throws SQLException {
 		
 		try {
@@ -39,7 +44,9 @@ public class ModelImpl implements ModelInterface{
 		} 
 	}
 	
-	//chiude il server in modo che nessun client possa connettersi
+	/**
+	 * chiude il server 
+	 */
 	public void spegniServer() {
 		try {
 			
