@@ -1,5 +1,5 @@
 /**
- * La classe colori è stata creata per rendere meno macchinosa la codifica delle GUI.
+ *  La classe colori è stata creata per rendere meno macchinosa la codifica delle GUI.
  * i colori più utilizzati sono stati definiti all'interno di questa classe
  */
 import java.awt.Color;

@@ -34,6 +34,10 @@ public class Controller implements ActionListener{
 	}
 	
 	@Override
+	/**
+	 * questo metodo viene richiamato ogni volta che un bottone viene premuto.
+	 * riconosce quale bottone è stato premuto e agisce di conseguenza
+	 */
 	public void actionPerformed(ActionEvent e) {
 		
 		JButton buttonOrigine = (JButton) e.getSource(); //recupera origine cliccata del bottone
