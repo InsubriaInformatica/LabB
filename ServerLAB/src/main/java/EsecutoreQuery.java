@@ -137,7 +137,7 @@ public class EsecutoreQuery implements SkeletonInterface{
 				+ "	note CHARACTER(256),\n"
 				+ "	nomeCentro CHARACTER(40) REFERENCES CentriVaccinali(nome), \n"
 				+ "	PRIMARY KEY (codiceFiscale, evento)\n"
-				+ ")\n"
+				+ ");\n"
 				
 				
 				+ "INSERT INTO cittadini VALUES('DMAQLD99T01Z115W', 'Ademi', 'Qaldo');\n"
@@ -151,16 +151,16 @@ public class EsecutoreQuery implements SkeletonInterface{
 				+ "INSERT INTO cittadini VALUES('RSSGNN02S48A714M', 'Rossini', 'Giovanna');\n"
 				+ "INSERT INTO cittadini VALUES('MRCPLA02H67I407G', 'Marchetti', 'Paola');\n"
 				
-				+ "INSERT INTO indirizzo VALUES (0, 'via', 'Monte Bianco', '66', 'Samarate', 21017, 'VA');\n"
-				+ "INSERT INTO indirizzo VALUES (1, 'viale', 'Incrocio Arturo', '78', 'Jelena laziale', 29501, 'PE');\n"
-				+ "INSERT INTO indirizzo VALUES (2, 'piazza', 'Malpensa', '15', 'Busto Arsizio', 21052, 'VA');\n"
-				+ "INSERT INTO indirizzo VALUES (3, 'via', 'Zeppelin', '20A', 'Cardano Al Campo', 21010, 'VA');\n"
-				+ "INSERT INTO indirizzo VALUES (4, 'viale', 'Milano', '85', 'Gallarate', 21013, 'VA');\n"
-				+ "INSERT INTO indirizzo VALUES (5, 'piazza', 'Italia', '01', 'Milano', 20021, 'MI');\n"
-				+ "INSERT INTO indirizzo VALUES (6, 'via', 'Bombeis', '12', 'Vicenza', 36100, 'VI');\n"
-				+ "INSERT INTO indirizzo VALUES (7, 'viale', 'Seravezza', '63', 'Forte Dei Marmi', 55042, 'LU');\n"
-				+ "INSERT INTO indirizzo VALUES (8, 'piazza', 'Neve', '22', 'Macugnaga', 28876, 'VB');\n"
-				+ "INSERT INTO indirizzo VALUES (9, 'via', 'Del Duomo', '08', 'Firenze', 50100, 'FI');\n";
+				+ "INSERT INTO indirizzo VALUES (0, 'Via', 'Monte Bianco', '66', 'Samarate', 21017, 'VA');\n"
+				+ "INSERT INTO indirizzo VALUES (1, 'Viale', 'Incrocio Arturo', '78', 'Jelena laziale', 29501, 'PE');\n"
+				+ "INSERT INTO indirizzo VALUES (2, 'Piazza', 'Malpensa', '15', 'Busto Arsizio', 21052, 'VA');\n"
+				+ "INSERT INTO indirizzo VALUES (3, 'Via', 'Zeppelin', '20A', 'Cardano Al Campo', 21010, 'VA');\n"
+				+ "INSERT INTO indirizzo VALUES (4, 'Viale', 'Milano', '85', 'Gallarate', 21013, 'VA');\n"
+				+ "INSERT INTO indirizzo VALUES (5, 'Piazza', 'Italia', '01', 'Milano', 20021, 'MI');\n"
+				+ "INSERT INTO indirizzo VALUES (6, 'Via', 'Bombeis', '12', 'Vicenza', 36100, 'VI');\n"
+				+ "INSERT INTO indirizzo VALUES (7, 'Viale', 'Seravezza', '63', 'Forte Dei Marmi', 55042, 'LU');\n"
+				+ "INSERT INTO indirizzo VALUES (8, 'Piazza', 'Neve', '22', 'Macugnaga', 28876, 'VB');\n"
+				+ "INSERT INTO indirizzo VALUES (9, 'Via', 'Del Duomo', '08', 'Firenze', 50100, 'FI');\n";
 				
 		
 		try {

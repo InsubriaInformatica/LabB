@@ -60,11 +60,5 @@ public class ModelImpl implements ModelInterface {
 					lista.get(5).toLowerCase());
 			avvioServer(null); // avvia il server
 		}
-
-		if (datiPrelevatidaArgomento.get(0).equals("DataSet")) {
-			swi = new EsecutoreQuery();
-			this.v.updateView("dataset");
-		}
-
 	}
 }

@@ -180,13 +180,13 @@ public class ServerGUI extends JFrame implements ViewInterface{
 		this.panelBottoni.add(this.buttonAvvio);
 		
 		//BOTTONE SPEGNI SERVER
-		this.buttonDataset = new JButton(new ImageIcon(spegnimento.getImage().getScaledInstance(spegnimento.getIconWidth()/20*2, spegnimento.getIconHeight()/20*2, java.awt.Image.SCALE_SMOOTH)));
-		this.buttonDataset.setName("DataSet");
-		this.buttonDataset.setBorderPainted(false); //senza contorni
-		this.buttonDataset.setBackground(Colori.arancione);
-		this.panelBottoni.setPreferredSize(new Dimension(200, 60)); //dimensioni panel
-		this.buttonDataset.setPreferredSize(new Dimension(200, 50)); //dimensioni bottone
-		//this.panelBottoni.add(this.buttonDataset);
+//		this.buttonDataset = new JButton(new ImageIcon(spegnimento.getImage().getScaledInstance(spegnimento.getIconWidth()/20*2, spegnimento.getIconHeight()/20*2, java.awt.Image.SCALE_SMOOTH)));
+//		this.buttonDataset.setName("DataSet");
+//		this.buttonDataset.setBorderPainted(false); //senza contorni
+//		this.buttonDataset.setBackground(Colori.arancione);
+//		this.panelBottoni.setPreferredSize(new Dimension(200, 60)); //dimensioni panel
+//		this.buttonDataset.setPreferredSize(new Dimension(200, 50)); //dimensioni bottone
+//		this.panelBottoni.add(this.buttonDataset);
 		
 		this.contenitorePrincipale.add(panelUsername);
 		this.contenitorePrincipale.add(panelPsw);
@@ -215,26 +215,18 @@ public class ServerGUI extends JFrame implements ViewInterface{
 	/**
 	 * accende o spegne il server in base al contenuto della stringa passata come parametro
 	 * @param <b>avvio</b> avvia il server
-	 * @param <b>spento</b> spegne il server
 	 */
 	public void updateView(Object dati) {
 		String s = (String) dati;
 		
 		if(s.equals("avvio")) {
 			JOptionPane.showMessageDialog(null, "SERVER AVVIATO", "SERVER", JOptionPane.INFORMATION_MESSAGE);
-		}else if (s.equals("dataset")) {
-			JOptionPane.showMessageDialog(null, "Dataset creato con successo", "SERVER", JOptionPane.INFORMATION_MESSAGE);
 		}
 	}
 
 	@Override
 	public JButton retButtonAvvia() {
 		return this.buttonAvvio;
-	}
-	
-	@Override
-	public JButton retButtonDataset() {
-		return this.buttonDataset;
 	}
 	/**
 	 * @return <b> password

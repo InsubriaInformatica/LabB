@@ -27,10 +27,7 @@ public class Controller implements ActionListener{
 		 * cattura il bottone "Accendi Server" e lo aggiunge ad eventi
 		 */
 		JButton buttonAvvia = this.view.retButtonAvvia();
-		buttonAvvia.addActionListener(this);	
-		
-		JButton buttonDataset = this.view.retButtonDataset();
-		buttonDataset.addActionListener(this);
+		buttonAvvia.addActionListener(this);
 	}
 	
 	@Override
@@ -53,11 +50,6 @@ public class Controller implements ActionListener{
 			for(String i : datiDaServerGUI ) {
 					listaButteInfo.add(i); //aggiunge alla lista le info di quella vecchia
 			}
-		}
-		
-		if(click.equals("DataSet")) {
-			System.out.println("dataset");
-			listaButteInfo.add(buttonOrigine.getName()); //stringa "DataSet" //indice 0
 		}
 		
 		try {

@@ -55,11 +55,10 @@ public interface SkeletonInterface {
 	//crea tabelle nel DB
 	public void creazioneTabelle() throws SQLException;
 	
+	//crea database 
 	public void creazioneDB();
 	
+	//crea dataset
 	public void creazioneDataset();
-	
-	//Login al database
-//	public void LoginServer(String host, String port, String username, String password);
 	
 }
