@@ -58,6 +58,6 @@ public interface SkeletonInterface {
 	public void creazioneDB();
 	
 	//Login al database
-	public void LoginServer(String host, String port, String username, String password);
+//	public void LoginServer(String host, String port, String username, String password);
 	
 }

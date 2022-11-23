@@ -8,7 +8,7 @@ public interface ViewInterface {
 	
 	public JButton retButtonAvvia(); //riferimento al bottone di avvio del server
 	
-	public JButton retButtonSpegni(); //riferimento al bottone di chiusura del server
+	public JButton retButtonDataset(); //riferimento al bottone di chiusura del server
 	
 	public List<String> txtInfoServer(); //lista che contiene info del server prese da text-field
 	

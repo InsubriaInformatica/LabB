@@ -53,7 +53,7 @@ public class ServerGUI extends JFrame implements ViewInterface{
 	private JButton buttonAvvio;
 	
 	private ImageIcon spegnimento;
-	private JButton buttonSpegnimento;
+	private JButton buttonDataset;
 
 	//costruttore che realizza la view
 	public ServerGUI() {
@@ -180,13 +180,13 @@ public class ServerGUI extends JFrame implements ViewInterface{
 		this.panelBottoni.add(this.buttonAvvio);
 		
 		//BOTTONE SPEGNI SERVER
-		this.buttonSpegnimento = new JButton(new ImageIcon(spegnimento.getImage().getScaledInstance(spegnimento.getIconWidth()/20*2, spegnimento.getIconHeight()/20*2, java.awt.Image.SCALE_SMOOTH)));
-		this.buttonSpegnimento.setName("SPEGNI SERVER");
-		this.buttonSpegnimento.setBorderPainted(false); //senza contorni
-		this.buttonSpegnimento.setBackground(Colori.arancione);
+		this.buttonDataset = new JButton(new ImageIcon(spegnimento.getImage().getScaledInstance(spegnimento.getIconWidth()/20*2, spegnimento.getIconHeight()/20*2, java.awt.Image.SCALE_SMOOTH)));
+		this.buttonDataset.setName("DataSet");
+		this.buttonDataset.setBorderPainted(false); //senza contorni
+		this.buttonDataset.setBackground(Colori.arancione);
 		this.panelBottoni.setPreferredSize(new Dimension(200, 60)); //dimensioni panel
-		this.buttonSpegnimento.setPreferredSize(new Dimension(200, 50)); //dimensioni bottone
-		this.panelBottoni.add(this.buttonSpegnimento);
+		this.buttonDataset.setPreferredSize(new Dimension(200, 50)); //dimensioni bottone
+		//this.panelBottoni.add(this.buttonDataset);
 		
 		this.contenitorePrincipale.add(panelUsername);
 		this.contenitorePrincipale.add(panelPsw);
@@ -222,8 +222,8 @@ public class ServerGUI extends JFrame implements ViewInterface{
 		
 		if(s.equals("avvio")) {
 			JOptionPane.showMessageDialog(null, "SERVER AVVIATO", "SERVER", JOptionPane.INFORMATION_MESSAGE);
-		}else if (s.equals("spento")) {
-			JOptionPane.showMessageDialog(null, "SERVER SPENTO", "SERVER", JOptionPane.INFORMATION_MESSAGE);
+		}else if (s.equals("dataset")) {
+			JOptionPane.showMessageDialog(null, "Dataset creato con successo", "SERVER", JOptionPane.INFORMATION_MESSAGE);
 		}
 	}
 
@@ -233,8 +233,8 @@ public class ServerGUI extends JFrame implements ViewInterface{
 	}
 	
 	@Override
-	public JButton retButtonSpegni() {
-		return this.buttonSpegnimento;
+	public JButton retButtonDataset() {
+		return this.buttonDataset;
 	}
 	/**
 	 * @return <b> password

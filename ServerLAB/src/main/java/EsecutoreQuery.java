@@ -22,6 +22,13 @@ public class EsecutoreQuery implements SkeletonInterface{
 	private String nomeDataB;
 	
 	/**
+	 * Costruttore vuoto
+	 */
+	public EsecutoreQuery() {
+		
+	}
+	
+	/**
 	 * costruttore che istanzia la connessione al database
 	 * @param username nome utente per accedere al database
 	 * @param password password associata all'utente scritto sopra
@@ -73,6 +80,12 @@ public class EsecutoreQuery implements SkeletonInterface{
 			JOptionPane.showMessageDialog(null, "DB GIA' ESISTENTE", "SERVER", JOptionPane.ERROR_MESSAGE);
 			System.out.println("Il database esiste già" + e.toString());
 		}
+	}
+	
+	public synchronized void dataset() {
+		System.out.println("ESECUTORE QUERY: creazione dataset");
+		
+		String queryDataset = "";
 	}
 	
 	/**

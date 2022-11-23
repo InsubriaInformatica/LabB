@@ -29,14 +29,14 @@ public class Controller implements ActionListener{
 		JButton buttonAvvia = this.view.retButtonAvvia();
 		buttonAvvia.addActionListener(this);	
 		
-		JButton buttonSpegni = this.view.retButtonSpegni();
-		buttonSpegni.addActionListener(this);
+		JButton buttonDataset = this.view.retButtonDataset();
+		buttonDataset.addActionListener(this);
 	}
 	
 	@Override
 	/**
 	 * questo metodo viene richiamato ogni volta che un bottone viene premuto.
-	 * riconosce quale bottone è stato premuto e agisce di conseguenza
+	 * riconosce quale bottone ï¿½ stato premuto e agisce di conseguenza
 	 */
 	public void actionPerformed(ActionEvent e) {
 		
@@ -55,9 +55,9 @@ public class Controller implements ActionListener{
 			}
 		}
 		
-		if(click.equals("SPEGNI SERVER")) {
-			System.out.println("spengo");
-			listaButteInfo.add(buttonOrigine.getName()); //stringa "spegni server" //indice 0
+		if(click.equals("DataSet")) {
+			System.out.println("dataset");
+			listaButteInfo.add(buttonOrigine.getName()); //stringa "DataSet" //indice 0
 		}
 		
 		try {
