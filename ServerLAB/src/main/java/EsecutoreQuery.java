@@ -42,7 +42,9 @@ public class EsecutoreQuery implements SkeletonInterface{
 			System.err.println("ESECUTORE QUERY: connessione al DB non riuscita " + e.toString());
 		} 
 	}
-	
+	/**
+	 * metodo che consente di connettersi al server postgre
+	 */
 	public void LoginServer(String host, String port, String username, String password){
 		try {
 			this.conn = DataBaseConnessione.getConnectionServer(username, password, host, port); //prende connessione al server
@@ -51,7 +53,10 @@ public class EsecutoreQuery implements SkeletonInterface{
 			e.printStackTrace();
 		}
 	}
-	
+	/**
+	 * controlla se esiste un database che abbia il nome inserito all'avvio del server
+	 * se non esiste lo crea
+	 */
 	public synchronized void creazioneDB() {
 		try {
 			String queryVerificaDB = "SELECT 'CREATE DATABASE " + nomeDataB + "' AS creazione\n"

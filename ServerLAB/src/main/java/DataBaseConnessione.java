@@ -60,6 +60,15 @@ public class DataBaseConnessione {
 		return connection;
 	}
 	
+	/**
+	 * metodo utilizzato per connettersi al server di Postgre. Questo metodo è utile nel caso in cui il server viene avviato 
+	 * e su postgre non esiste un database adatto al funzionamento del programma.
+	 * @param user username con cui accedere al database
+	 * @param pass password con cui accedere al database
+	 * @param host2 indirizzo della macchina su cui è presente il server
+	 * @param port porta sulla quale gira il database
+	 * @return connection
+	 */
 	public static Connection getConnectionServer(String user, String pass, String host2, String port) {
 		username = user;
 		password = pass;
