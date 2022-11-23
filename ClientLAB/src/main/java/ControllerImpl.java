@@ -125,10 +125,6 @@ public class ControllerImpl implements ActionListener{
 			dati = this.v.getNuovoIP();
 		}
 		
-		if(click.equals("Dataset")) {
-			
-		}
-		
 		if(click.equals("REGISTRA NUOVO CENTRO")) {
 			dati = null;
 		}
