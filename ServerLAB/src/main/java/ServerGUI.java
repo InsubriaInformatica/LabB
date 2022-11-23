@@ -6,7 +6,11 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.text.View;
 
-//PATTERN MVC --> GESTIONE DEI COMPONENTI GRAFICI X AVVIO SERVER
+/**
+ * pattern MVC, gestione dei componenti grafici server
+ * @author simon
+ *
+ */
 public class ServerGUI extends JFrame implements ViewInterface{
 	private static final long serialVersionUID = 1L;
 	
@@ -196,7 +200,9 @@ public class ServerGUI extends JFrame implements ViewInterface{
 		
 	}
 	
-	//mostra schermata di avvio del server
+	/**
+	 * mostra la schermata di avvio del server
+	 */
 	private void mostraAvvioServer() {
 		this.setVisible(false);
 		this.getContentPane().removeAll();
@@ -206,6 +212,11 @@ public class ServerGUI extends JFrame implements ViewInterface{
 	}
 
 	@Override
+	/**
+	 * accende o spegne il server in base al contenuto della stringa passata come parametro
+	 * @param <b>avvio</b> avvia il server
+	 * @param <b>spento</b> spegne il server
+	 */
 	public void updateView(Object dati) {
 		String s = (String) dati;
 		
@@ -225,7 +236,9 @@ public class ServerGUI extends JFrame implements ViewInterface{
 	public JButton retButtonSpegni() {
 		return this.buttonSpegnimento;
 	}
-	
+	/**
+	 * @return <b> password
+	 */
 	public String retPsw() {
 		char[] charPassword = txtPsw.getPassword();
 		String password = String.valueOf(charPassword);
@@ -234,6 +247,10 @@ public class ServerGUI extends JFrame implements ViewInterface{
 	
 
 	@Override
+	/**
+	 * 
+	 * @return <b>datiServer</b>: Lista contentente tutti i dati inseriti nella schermata di avvio del server
+	 */
 	public List<String> txtInfoServer() {
 		List<String> datiServer = new ArrayList<String>();
 		datiServer.add(this.txtUsername.getText());
