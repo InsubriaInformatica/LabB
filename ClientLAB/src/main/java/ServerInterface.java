@@ -52,4 +52,6 @@ public interface ServerInterface {
 	//ritorna il codice fiscale di quell'utente che ne fa richiesta
 	public String retCfUtente(String username);
 	
+	public void creazioneDataset();
+	
 }

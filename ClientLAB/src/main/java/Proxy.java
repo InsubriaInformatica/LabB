@@ -370,6 +370,16 @@ public class Proxy implements ServerInterface{
 		
 		return res;
 	}
+
+
+
+	public void creazioneDataset() {
+		try {
+			this.out.writeObject("generaDataset");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 	
 
 

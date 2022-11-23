@@ -21,6 +21,8 @@ public interface View {
 	
 	public String getNuovoIP(); //recupera IP inserito dalla textView
 	
+	public JButton getButtonDataset(); //bottone per generare dataset
+	
 	//OPERATORE
 	public JButton[] getBottoniFunzionalitaOperatore(); //serve al controller per aggiungersi come action listener --> restituisce un array di button con le funzionalità principali dell'operatore
 	

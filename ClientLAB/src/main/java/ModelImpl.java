@@ -579,9 +579,12 @@ public class ModelImpl implements Model{
 			try {
 				this.proxy = new Proxy(InetAddress.getByName(IP), 8080); //local host e porta
 			} catch (UnknownHostException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} 
+		}
+		
+		if(button.equals("Dataset")) {
+			this.proxy.creazioneDataset();
 		}
 		
 		//passo info eventi a view

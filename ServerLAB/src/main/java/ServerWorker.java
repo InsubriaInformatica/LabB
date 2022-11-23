@@ -176,6 +176,10 @@ public class ServerWorker extends Thread{
 					this.out.writeObject(esito);
 				}
 				
+				else if(inputClient.equals("generaDataset")) {
+					this.swi.creazioneDataset();
+				}
+				
 			} catch (ClassNotFoundException | IOException e) {
 				System.err.println("THREAD: problemi invio dato: " + e.toString());
 				break;

@@ -17,7 +17,9 @@ public class GUICambiaIP {
 	private JLabel labelIP;
 	private JTextField txtIP;
 	private JButton buttonCambiaIP;
+	private JButton buttonDataset;
 	private JOptionPane finestraIP;
+	private JLabel spazioVuoto;
 	
 	/**
 	 * Costruttore della classe
@@ -39,14 +41,20 @@ public class GUICambiaIP {
 		this.panelInserimentoIP.add(this.labelIP, BorderLayout.WEST);
 		this.panelInserimentoIP.add(this.txtIP, BorderLayout.EAST);
 		
+		this.buttonDataset = new JButton("Dataset");
+		this.buttonDataset.setName("Dataset");
 		
 		this.buttonCambiaIP = new JButton("CAMBIA IP SERVER");
 		this.buttonCambiaIP.setName("cambiaIP");
 		
+		spazioVuoto = new JLabel();
+		
 		this.finestraIP = new JOptionPane();
 		
 		this.panelJOptionIP.add(panelInserimentoIP);
+		this.panelJOptionIP.add(spazioVuoto);
 		this.panelJOptionIP.add(buttonCambiaIP);
+		this.panelJOptionIP.add(buttonDataset);
 		
 	}
 	
@@ -86,6 +94,10 @@ public class GUICambiaIP {
 	 */
 	public JButton retButtonCambiaIP() {
 		return this.buttonCambiaIP;
+	}
+	
+	public JButton retButtonDataset() {
+		return this.buttonDataset;
 	}
 
 }

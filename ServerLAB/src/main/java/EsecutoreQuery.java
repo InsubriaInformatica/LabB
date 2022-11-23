@@ -82,10 +82,92 @@ public class EsecutoreQuery implements SkeletonInterface{
 		}
 	}
 	
-	public synchronized void dataset() {
+	public synchronized void creazioneDataset() {
 		System.out.println("ESECUTORE QUERY: creazione dataset");
 		
-		String queryDataset = "";
+		String queryDataset
+				= "CREATE TABLE if not exists Cittadini (\n"
+				+ "	codiceFiscale CHARACTER(16),\n"
+				+ "	cognome CHARACTER(30) NOT NULL,\n"
+				+ "	nome CHARACTER(30) NOT NULL,\n"
+				+ "	PRIMARY KEY (codiceFiscale)\n"
+				+ ");"
+		
+				+	"CREATE TABLE if not exists Indirizzo (\n"
+				+ "	id NUMERIC,		\n"
+				+ "	qualificatore CHARACTER(6) NOT NULL CHECK(qualificatore IN ('Via', 'Viale', 'Piazza')),\n"
+				+ "	nome CHARACTER(40) NOT NULL, \n"
+				+ "	numeroCivico CHARACTER(6) NOT NULL,\n"
+				+ "	comune CHARACTER(30) NOT NULL,\n"
+				+ "	cap NUMERIC NOT NULL CHECK(cap BETWEEN 0 AND 99999),\n"
+				+ "	siglaProvincia CHARACTER(2) NOT NULL, \n"
+				+ "	PRIMARY KEY (id)\n"
+				+ ");"
+		
+				+ "CREATE TABLE if not exists CentriVaccinali (\n"
+				+ "	nome CHARACTER(40),\n"
+				+ "	tipologia CHARACTER(11) NOT NULL CHECK(tipologia IN ('Ospedaliero', 'Hub', 'Aziendale')),\n"
+				+ "	idIndirizzo NUMERIC NOT NULL REFERENCES Indirizzo(id),\n"
+				+ "	PRIMARY KEY (nome)\n"
+				+ ");"
+		
+				+ "CREATE TABLE if not exists Vaccinazione (\n"
+				+ "	id SMALLINT,\n"
+				+ "	codiceFiscale CHARACTER(16) REFERENCES Cittadini(codiceFiscale),\n"
+				+ "	data DATE NOT NULL, \n"
+				+ "	tipoVaccino CHARACTER(11) NOT NULL CHECK(tipoVaccino IN ('Pfizer', 'Moderna', 'J&J', 'AstraZeneca')),\n"
+				+ "	nomeCentro CHARACTER(40) NOT NULL REFERENCES CentriVaccinali(nome),\n"
+				+ "	nDosi CHARACTER(20) CHECK (nDosi IN ('Prima', 'Seconda', 'Terza o Successiva')),\n"
+				+ "	PRIMARY KEY (id)\n"
+				+ ");"
+		
+				+ "CREATE TABLE if not exists Cittadini_Registrati (\n"
+				+ "	codiceFiscale CHARACTER(16) REFERENCES Cittadini(codiceFiscale),\n"
+				+ "	username CHARACTER(50) NOT NULL, \n"
+				+ "	password CHARACTER(50) NOT NULL,\n"
+				+ "	email CHARACTER(60) NOT NULL,\n"
+				+ "	idVaccinazione SMALLINT UNIQUE REFERENCES Vaccinazione(id),\n"
+				+ "	PRIMARY KEY(codiceFiscale)\n"
+				+ ");"
+		
+				+ "CREATE TABLE if not exists Eventi_Avversi (\n"
+				+ "	codiceFiscale CHARACTER(16) REFERENCES Cittadini_Registrati(codiceFiscale),\n"
+				+ "	evento CHARACTER(30),\n"
+				+ "	severita NUMERIC CHECK(severita BETWEEN 1 AND 5),\n"
+				+ "	note CHARACTER(256),\n"
+				+ "	nomeCentro CHARACTER(40) REFERENCES CentriVaccinali(nome), \n"
+				+ "	PRIMARY KEY (codiceFiscale, evento)\n"
+				+ ")\n"
+				
+				
+				+ "INSERT INTO cittadini VALUES('DMAQLD99T01Z115W', 'Ademi', 'Qaldo');\n"
+				+ "INSERT INTO cittadini VALUES('SSSGRL01R05B300V', 'Sassi', 'Gabriele');\n"
+				+ "INSERT INTO cittadini VALUES('BTTSMN01T19D869N', 'Battaglia', 'Simone');\n"
+				+ "INSERT INTO cittadini VALUES('BRLNRC95M05D869U', 'Brullo', 'Enrico');\n"
+				+ "INSERT INTO cittadini VALUES('RSSMRO58A04D896Q', 'Rossi', 'Mario');\n"
+				+ "INSERT INTO cittadini VALUES('MGGLCU61L05F855U', 'Maggio', 'Luca');\n"
+				+ "INSERT INTO cittadini VALUES('MSSNCL02A68D869Z', 'Mesisca', 'Nicole');\n"
+				+ "INSERT INTO cittadini VALUES('FRNSRA02A58D431P', 'Franceschin', 'Sara');\n"
+				+ "INSERT INTO cittadini VALUES('RSSGNN02S48A714M', 'Rossini', 'Giovanna');\n"
+				+ "INSERT INTO cittadini VALUES('MRCPLA02H67I407G', 'Marchetti', 'Paola');\n"
+				
+				+ "INSERT INTO indirizzo VALUES (0, 'via', 'Monte Bianco', '66', 'Samarate', 21017, 'VA');\n"
+				+ "INSERT INTO indirizzo VALUES (1, 'viale', 'Incrocio Arturo', '78', 'Jelena laziale', 29501, 'PE');\n"
+				+ "INSERT INTO indirizzo VALUES (2, 'piazza', 'Malpensa', '15', 'Busto Arsizio', 21052, 'VA');\n"
+				+ "INSERT INTO indirizzo VALUES (3, 'via', 'Zeppelin', '20A', 'Cardano Al Campo', 21010, 'VA');\n"
+				+ "INSERT INTO indirizzo VALUES (4, 'viale', 'Milano', '85', 'Gallarate', 21013, 'VA');\n"
+				+ "INSERT INTO indirizzo VALUES (5, 'piazza', 'Italia', '01', 'Milano', 20021, 'MI');\n"
+				+ "INSERT INTO indirizzo VALUES (6, 'via', 'Bombeis', '12', 'Vicenza', 36100, 'VI');\n"
+				+ "INSERT INTO indirizzo VALUES (7, 'viale', 'Seravezza', '63', 'Forte Dei Marmi', 55042, 'LU');\n"
+				+ "INSERT INTO indirizzo VALUES (8, 'piazza', 'Neve', '22', 'Macugnaga', 28876, 'VB');\n"
+				+ "INSERT INTO indirizzo VALUES (9, 'via', 'Del Duomo', '08', 'Firenze', 50100, 'FI');\n";
+				
+		
+		try {
+			result = istruzione.execute(queryDataset);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	/**
