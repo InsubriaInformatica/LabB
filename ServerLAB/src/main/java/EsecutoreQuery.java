@@ -85,7 +85,7 @@ public class EsecutoreQuery implements SkeletonInterface{
 	public synchronized void creazioneDataset() {
 		System.out.println("ESECUTORE QUERY: creazione dataset");
 		
-		String queryDataset
+		String queryDatasetCreazioneTabelle
 				= "CREATE TABLE if not exists Cittadini (\n"
 				+ "	codiceFiscale CHARACTER(16),\n"
 				+ "	cognome CHARACTER(30) NOT NULL,\n"
@@ -137,10 +137,10 @@ public class EsecutoreQuery implements SkeletonInterface{
 				+ "	note CHARACTER(256),\n"
 				+ "	nomeCentro CHARACTER(40) REFERENCES CentriVaccinali(nome), \n"
 				+ "	PRIMARY KEY (codiceFiscale, evento)\n"
-				+ ");\n"
+				+ ");\n";
 				
-				
-				+ "INSERT INTO cittadini VALUES('DMAQLD99T01Z115W', 'Ademi', 'Qaldo');\n"
+		String queryDatasetInserimentoCittadini 
+				= "INSERT INTO cittadini VALUES('DMAQLD99T01Z115W', 'Ademi', 'Qaldo');\n"
 				+ "INSERT INTO cittadini VALUES('SSSGRL01R05B300V', 'Sassi', 'Gabriele');\n"
 				+ "INSERT INTO cittadini VALUES('BTTSMN01T19D869N', 'Battaglia', 'Simone');\n"
 				+ "INSERT INTO cittadini VALUES('BRLNRC95M05D869U', 'Brullo', 'Enrico');\n"
@@ -149,9 +149,10 @@ public class EsecutoreQuery implements SkeletonInterface{
 				+ "INSERT INTO cittadini VALUES('MSSNCL02A68D869Z', 'Mesisca', 'Nicole');\n"
 				+ "INSERT INTO cittadini VALUES('FRNSRA02A58D431P', 'Franceschin', 'Sara');\n"
 				+ "INSERT INTO cittadini VALUES('RSSGNN02S48A714M', 'Rossini', 'Giovanna');\n"
-				+ "INSERT INTO cittadini VALUES('MRCPLA02H67I407G', 'Marchetti', 'Paola');\n"
-				
-				+ "INSERT INTO indirizzo VALUES (0, 'Via', 'Monte Bianco', '66', 'Samarate', 21017, 'VA');\n"
+				+ "INSERT INTO cittadini VALUES('MRCPLA02H67I407G', 'Marchetti', 'Paola');\n";
+		
+		String queryDatasetInserimentoIndirizzo 
+				= "INSERT INTO indirizzo VALUES (0, 'Via', 'Monte Bianco', '66', 'Samarate', 21017, 'VA');\n"
 				+ "INSERT INTO indirizzo VALUES (1, 'Viale', 'Incrocio Arturo', '78', 'Jelena laziale', 29501, 'PE');\n"
 				+ "INSERT INTO indirizzo VALUES (2, 'Piazza', 'Malpensa', '15', 'Busto Arsizio', 21052, 'VA');\n"
 				+ "INSERT INTO indirizzo VALUES (3, 'Via', 'Zeppelin', '20A', 'Cardano Al Campo', 21010, 'VA');\n"
@@ -161,12 +162,129 @@ public class EsecutoreQuery implements SkeletonInterface{
 				+ "INSERT INTO indirizzo VALUES (7, 'Viale', 'Seravezza', '63', 'Forte Dei Marmi', 55042, 'LU');\n"
 				+ "INSERT INTO indirizzo VALUES (8, 'Piazza', 'Neve', '22', 'Macugnaga', 28876, 'VB');\n"
 				+ "INSERT INTO indirizzo VALUES (9, 'Via', 'Del Duomo', '08', 'Firenze', 50100, 'FI');\n";
+		
+		String queryDatasetInserimentoCentri
+				= "INSERT INTO centrivaccinali VALUES ('Ospedale Gallarate', 'Ospedaliero', 0);\n"
+				+ "INSERT INTO centrivaccinali VALUES ('Stadio', 'Aziendale', 1);\n"
+				+ "INSERT INTO centrivaccinali VALUES ('Malpensa Fiere', 'Hub', 2);\n"
+				+ "INSERT INTO centrivaccinali VALUES ('Parco', 'Hub', 3);\n"
+				+ "INSERT INTO centrivaccinali VALUES ('Oratorio', 'Aziendale', 4);\n"
+				+ "INSERT INTO centrivaccinali VALUES ('Parcheggio', 'Aziendale', 5);\n"
+				+ "INSERT INTO centrivaccinali VALUES ('Campo da calcio', 'Hub', 6);\n"
+				+ "INSERT INTO centrivaccinali VALUES ('Scuola', 'Ospedaliero', 7);\n"
+				+ "INSERT INTO centrivaccinali VALUES ('Palestra', 'Aziendale', 8);\n"
+				+ "INSERT INTO centrivaccinali VALUES ('Chiesa', 'Hub', 9);\n";
+		
+		String queryDatasetInserimentoVaccinazione
+				= "INSERT INTO vaccinazione VALUES (1, 'DMAQLD99T01Z115W', '30/05/2022', 'Pfizer', 'Ospedale Gallarate', 'Prima');\n"
+				+ "INSERT INTO vaccinazione VALUES (2, 'SSSGRL01R05B300V', '24/02/2020', 'Moderna', 'Stadio', 'Seconda');\n"
+				+ "INSERT INTO vaccinazione VALUES (3, 'BTTSMN01T19D869N', '14/08/2021', 'J&J', 'Malpensa Fiere', 'Terza o Successiva');\n"
+				+ "INSERT INTO vaccinazione VALUES (4, 'BRLNRC95M05D869U', '01/07/2022', 'AstraZeneca', 'Parco', 'Prima');\n"
+				+ "INSERT INTO vaccinazione VALUES (5, 'RSSMRO58A04D896Q', '25/01/2022', 'Pfizer', 'Oratorio', 'Seconda');\n"
+				+ "INSERT INTO vaccinazione VALUES (6, 'MGGLCU61L05F855U', '26/02/2022', 'Moderna', 'Parcheggio', 'Terza o Successiva');\n"
+				+ "INSERT INTO vaccinazione VALUES (7, 'MSSNCL02A68D869Z', '27/03/2022', 'J&J', 'Campo da calcio', 'Prima');\n"
+				+ "INSERT INTO vaccinazione VALUES (8, 'FRNSRA02A58D431P', '29/04/2022', 'AstraZeneca', 'Scuola', 'Seconda');\n"
+				+ "INSERT INTO vaccinazione VALUES (9, 'RSSGNN02S48A714M', '06/05/2022', 'Pfizer', 'Palestra', 'Terza o Successiva');\n"
+				+ "INSERT INTO vaccinazione VALUES (10, 'MRCPLA02H67I407G', '04/06/2022', 'Moderna', 'Chiesa', 'Prima');\n";
+				
+		String queryDatasetInserimentoCittadiniReg
+				= "INSERT INTO cittadini_registrati VALUES('DMAQLD99T01Z115W', 'qademi', 'password0', 'qaldo.ademi@gmail.it', 1);\n"
+				+ "INSERT INTO cittadini_registrati VALUES('SSSGRL01R05B300V', 'gsassi', 'password1', 'gabriele.sassi@gmail.it', 2);\n"
+				+ "INSERT INTO cittadini_registrati VALUES('BTTSMN01T19D869N', 'sbattaglia', 'password2', 'simone.battaglia@gmail.it', 3);\n"
+				+ "INSERT INTO cittadini_registrati VALUES('BRLNRC95M05D869U', 'ebrullo', 'password3', 'enrico.brullo@gmail.it', 4);\n"
+				+ "INSERT INTO cittadini_registrati VALUES('RSSMRO58A04D896Q', 'mrossi', 'password4', 'mario.rossi@gmail.it', 5);\n"
+				+ "INSERT INTO cittadini_registrati VALUES('MGGLCU61L05F855U', 'lmaggio', 'password5', 'luca.maggio@gmail.it', 6);\n"
+				+ "INSERT INTO cittadini_registrati VALUES('MSSNCL02A68D869Z', 'nmesisca', 'password6', 'nicole.mesisca@gmail.it', 7);\n"
+				+ "INSERT INTO cittadini_registrati VALUES('FRNSRA02A58D431P', 'sfranceschin', 'password7', 'sara.franceschin@gmail.it', 8);\n"
+				+ "INSERT INTO cittadini_registrati VALUES('RSSGNN02S48A714M', 'grossini', 'password8', 'giovanna.rossini@gmail.it', 9);\n"
+				+ "INSERT INTO cittadini_registrati VALUES('MRCPLA02H67I407G', 'pmarchetti', 'password9', 'paola.marchetti@gmail.it', 10);\n";
+		
+		String queryDatasetInserimentoEventi
+				= "INSERT INTO eventi_avversi VALUES('DMAQLD99T01Z115W', 'Mal di testa', 1, 'Nota1', 'Ospedale Gallarate');"
+				+ "INSERT INTO eventi_avversi VALUES('SSSGRL01R05B300V', 'Febbre', 2, 'Nota1', 'Stadio');"
+				+ "INSERT INTO eventi_avversi VALUES('BTTSMN01T19D869N', 'Dolori muscolari/articolari', 3, 'Nota1', 'Malpensa Fiere');"
+				+ "INSERT INTO eventi_avversi VALUES('BRLNRC95M05D869U', 'Linfoadenopatia', 4, 'Nota1', 'Parco');"
+				+ "INSERT INTO eventi_avversi VALUES('RSSMRO58A04D896Q', 'Tachicardia', 5, 'Nota1', 'Oratorio');"
+				+ "INSERT INTO eventi_avversi VALUES('MGGLCU61L05F855U', 'Crisi Ipertensiva', 1, 'Nota1', 'Parcheggio');"
+				+ "INSERT INTO eventi_avversi VALUES('MSSNCL02A68D869Z', 'Febbre', 2, 'Nota1', 'Campo da calcio');"
+				+ "INSERT INTO eventi_avversi VALUES('FRNSRA02A58D431P', 'Dolori muscolari/articolari', 3, 'Nota1', 'Scuola');"
+				+ "INSERT INTO eventi_avversi VALUES('RSSGNN02S48A714M', 'Linfoadenopatia', 4, 'Nota1', 'Palestra');"
+				+ "INSERT INTO eventi_avversi VALUES('MRCPLA02H67I407G', 'Tachicardia', 5, 'Nota1', 'Chiesa');"
+				
+				+ "INSERT INTO eventi_avversi VALUES('DMAQLD99T01Z115W', 'Febbre', 1, 'Nota2', 'Ospedale Gallarate');"
+				+ "INSERT INTO eventi_avversi VALUES('SSSGRL01R05B300V', 'Mal di testa', 2, 'Nota2', 'Stadio');"
+				+ "INSERT INTO eventi_avversi VALUES('BTTSMN01T19D869N', 'Linfoadenopatia', 3, 'Nota2', 'Malpensa Fiere');"
+				+ "INSERT INTO eventi_avversi VALUES('BRLNRC95M05D869U', 'Dolori muscolari/articolari', 4, 'Nota2', 'Parco');"
+				+ "INSERT INTO eventi_avversi VALUES('RSSMRO58A04D896Q', 'Crisi Ipertensiva', 5, 'Nota2', 'Oratorio');"
+				+ "INSERT INTO eventi_avversi VALUES('MGGLCU61L05F855U', 'Tachicardia', 1, 'Nota2', 'Parcheggio');"
+				+ "INSERT INTO eventi_avversi VALUES('MSSNCL02A68D869Z', 'Dolori muscolari/articolari', 2, 'Nota2', 'Campo da calcio');"
+				+ "INSERT INTO eventi_avversi VALUES('FRNSRA02A58D431P', 'Febbre', 3, 'Nota2', 'Scuola');"
+				+ "INSERT INTO eventi_avversi VALUES('RSSGNN02S48A714M', 'Tachicardia', 4, 'Nota2', 'Palestra');"
+				+ "INSERT INTO eventi_avversi VALUES('MRCPLA02H67I407G', 'Linfoadenopatia', 5, 'Nota2', 'Chiesa');"
+				
+				+ "INSERT INTO eventi_avversi VALUES('DMAQLD99T01Z115W', 'Tachicardia', 1, 'Nota3', 'Ospedale Gallarate');"
+				+ "INSERT INTO eventi_avversi VALUES('SSSGRL01R05B300V', 'Linfoadenopatia', 2, 'Nota3', 'Stadio');"
+				+ "INSERT INTO eventi_avversi VALUES('BTTSMN01T19D869N', 'Febbre', 3, 'Nota3', 'Malpensa Fiere');"
+				+ "INSERT INTO eventi_avversi VALUES('BRLNRC95M05D869U', 'Mal di testa', 4, 'Nota3', 'Parco');"
+				+ "INSERT INTO eventi_avversi VALUES('RSSMRO58A04D896Q', 'Mal di testa', 5, 'Nota3', 'Oratorio');"
+				+ "INSERT INTO eventi_avversi VALUES('MGGLCU61L05F855U', 'Mal di testa', 1, 'Nota3', 'Parcheggio');"
+				+ "INSERT INTO eventi_avversi VALUES('MSSNCL02A68D869Z', 'Linfoadenopatia', 2, 'Nota3', 'Campo da calcio');"
+				+ "INSERT INTO eventi_avversi VALUES('FRNSRA02A58D431P', 'Tachicardia', 3, 'Nota3', 'Scuola');"
+				+ "INSERT INTO eventi_avversi VALUES('RSSGNN02S48A714M', 'Febbre', 4, 'Nota3', 'Palestra');"
+				+ "INSERT INTO eventi_avversi VALUES('MRCPLA02H67I407G', 'Mal di testa', 5, 'Nota3', 'Chiesa');"
+				
+				+ "INSERT INTO eventi_avversi VALUES('DMAQLD99T01Z115W', 'Linfoadenopatia', 1, 'Nota4', 'Ospedale Gallarate');"
+				+ "INSERT INTO eventi_avversi VALUES('SSSGRL01R05B300V', 'Dolori muscolari/articolari', 2, 'Nota4', 'Stadio');"
+				+ "INSERT INTO eventi_avversi VALUES('BTTSMN01T19D869N', 'Mal di testa', 3, 'Nota4', 'Malpensa Fiere');"
+				+ "INSERT INTO eventi_avversi VALUES('BRLNRC95M05D869U', 'Febbre', 4, 'Nota4', 'Parco');"
+				+ "INSERT INTO eventi_avversi VALUES('RSSMRO58A04D896Q', 'Linfoadenopatia', 5, 'Nota4', 'Oratorio');"
+				+ "INSERT INTO eventi_avversi VALUES('MGGLCU61L05F855U', 'Linfoadenopatia', 1, 'Nota4', 'Parcheggio');"
+				+ "INSERT INTO eventi_avversi VALUES('MSSNCL02A68D869Z', 'Tachicardia', 2, 'Nota4', 'Campo da calcio');"
+				+ "INSERT INTO eventi_avversi VALUES('FRNSRA02A58D431P', 'Linfoadenopatia', 3, 'Nota4', 'Scuola');"
+				+ "INSERT INTO eventi_avversi VALUES('RSSGNN02S48A714M', 'Dolori muscolari/articolari', 4, 'Nota4', 'Palestra');"
+				+ "INSERT INTO eventi_avversi VALUES('MRCPLA02H67I407G', 'Dolori muscolari/articolari', 5, 'Nota4', 'Chiesa');";
 				
 		
 		try {
-			result = istruzione.execute(queryDataset);
+			result = istruzione.execute(queryDatasetCreazioneTabelle);
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.err.println("Tabelle esistenti");
+		}
+		
+		try {
+			result = istruzione.execute(queryDatasetInserimentoCittadini);
+		} catch (SQLException e) {
+			System.err.println("Cittadini esistenti");
+		}
+		
+		try {
+			result = istruzione.execute(queryDatasetInserimentoIndirizzo);
+		} catch (SQLException e) {
+			System.err.println("Indirizzi esistenti");
+		}
+		
+		try {
+			result = istruzione.execute(queryDatasetInserimentoCentri);
+		} catch (SQLException e) {
+			System.err.println("Centri vaccinali esistenti");
+		}
+		
+		try {
+			result = istruzione.execute(queryDatasetInserimentoVaccinazione);
+		} catch (SQLException e) {
+			System.err.println("Utenti vaccinati esistenti");
+		}
+		
+		try {
+			result = istruzione.execute(queryDatasetInserimentoCittadiniReg);
+		} catch (SQLException e) {
+			System.err.println("Cittadini registrati esistenti");
+		}
+		
+		try {
+			result = istruzione.execute(queryDatasetInserimentoEventi);
+		} catch (SQLException e) {
+			System.err.println("Eventi avversi esistenti");
 		}
 	}
 	
