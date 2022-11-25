@@ -84,60 +84,6 @@ public class EsecutoreQuery implements SkeletonInterface{
 	
 	public synchronized void creazioneDataset() {
 		System.out.println("ESECUTORE QUERY: creazione dataset");
-		
-		String queryDatasetCreazioneTabelle
-				= "CREATE TABLE if not exists Cittadini (\n"
-				+ "	codiceFiscale CHARACTER(16),\n"
-				+ "	cognome CHARACTER(30) NOT NULL,\n"
-				+ "	nome CHARACTER(30) NOT NULL,\n"
-				+ "	PRIMARY KEY (codiceFiscale)\n"
-				+ ");"
-		
-				+	"CREATE TABLE if not exists Indirizzo (\n"
-				+ "	id NUMERIC,		\n"
-				+ "	qualificatore CHARACTER(6) NOT NULL CHECK(qualificatore IN ('Via', 'Viale', 'Piazza')),\n"
-				+ "	nome CHARACTER(40) NOT NULL, \n"
-				+ "	numeroCivico CHARACTER(6) NOT NULL,\n"
-				+ "	comune CHARACTER(30) NOT NULL,\n"
-				+ "	cap NUMERIC NOT NULL CHECK(cap BETWEEN 0 AND 99999),\n"
-				+ "	siglaProvincia CHARACTER(2) NOT NULL, \n"
-				+ "	PRIMARY KEY (id)\n"
-				+ ");"
-		
-				+ "CREATE TABLE if not exists CentriVaccinali (\n"
-				+ "	nome CHARACTER(40),\n"
-				+ "	tipologia CHARACTER(11) NOT NULL CHECK(tipologia IN ('Ospedaliero', 'Hub', 'Aziendale')),\n"
-				+ "	idIndirizzo NUMERIC NOT NULL REFERENCES Indirizzo(id),\n"
-				+ "	PRIMARY KEY (nome)\n"
-				+ ");"
-		
-				+ "CREATE TABLE if not exists Vaccinazione (\n"
-				+ "	id SMALLINT,\n"
-				+ "	codiceFiscale CHARACTER(16) REFERENCES Cittadini(codiceFiscale),\n"
-				+ "	data DATE NOT NULL, \n"
-				+ "	tipoVaccino CHARACTER(11) NOT NULL CHECK(tipoVaccino IN ('Pfizer', 'Moderna', 'J&J', 'AstraZeneca')),\n"
-				+ "	nomeCentro CHARACTER(40) NOT NULL REFERENCES CentriVaccinali(nome),\n"
-				+ "	nDosi CHARACTER(20) CHECK (nDosi IN ('Prima', 'Seconda', 'Terza o Successiva')),\n"
-				+ "	PRIMARY KEY (id)\n"
-				+ ");"
-		
-				+ "CREATE TABLE if not exists Cittadini_Registrati (\n"
-				+ "	codiceFiscale CHARACTER(16) REFERENCES Cittadini(codiceFiscale),\n"
-				+ "	username CHARACTER(50) NOT NULL, \n"
-				+ "	password CHARACTER(50) NOT NULL,\n"
-				+ "	email CHARACTER(60) NOT NULL,\n"
-				+ "	idVaccinazione SMALLINT UNIQUE REFERENCES Vaccinazione(id),\n"
-				+ "	PRIMARY KEY(codiceFiscale)\n"
-				+ ");"
-		
-				+ "CREATE TABLE if not exists Eventi_Avversi (\n"
-				+ "	codiceFiscale CHARACTER(16) REFERENCES Cittadini_Registrati(codiceFiscale),\n"
-				+ "	evento CHARACTER(30),\n"
-				+ "	severita NUMERIC CHECK(severita BETWEEN 1 AND 5),\n"
-				+ "	note CHARACTER(256),\n"
-				+ "	nomeCentro CHARACTER(40) REFERENCES CentriVaccinali(nome), \n"
-				+ "	PRIMARY KEY (codiceFiscale, evento)\n"
-				+ ");\n";
 				
 		String queryDatasetInserimentoCittadini 
 				= "INSERT INTO cittadini VALUES('DMAQLD99T01Z115W', 'Ademi', 'Qaldo');\n"
@@ -244,12 +190,6 @@ public class EsecutoreQuery implements SkeletonInterface{
 				+ "INSERT INTO eventi_avversi VALUES('RSSGNN02S48A714M', 'Dolori muscolari/articolari', 4, 'Nota4', 'palestra');"
 				+ "INSERT INTO eventi_avversi VALUES('MRCPLA02H67I407G', 'Dolori muscolari/articolari', 5, 'Nota4', 'chiesa');";
 				
-		
-		try {
-			result = istruzione.execute(queryDatasetCreazioneTabelle);
-		} catch (SQLException e) {
-			System.err.println("Tabelle esistenti");
-		}
 		
 		try {
 			result = istruzione.execute(queryDatasetInserimentoCittadini);
