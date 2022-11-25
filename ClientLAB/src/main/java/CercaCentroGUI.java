@@ -206,7 +206,7 @@ public class CercaCentroGUI {
 	 * @return
 	 */
 	public String retNomeCentro() {
-		return this.textFieldNomeCentro.getText();
+		return this.textFieldNomeCentro.getText().toLowerCase();
 		
 	}
 	
@@ -215,7 +215,7 @@ public class CercaCentroGUI {
 	 * @return
 	 */
 	public String retComuneCentro() {
-		return this.textFieldComuneCentro.getText();
+		return this.textFieldComuneCentro.getText().toLowerCase();
 			
 	}
 	
