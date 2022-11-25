@@ -244,7 +244,6 @@ public class EsecutoreQuery implements SkeletonInterface{
 				+ "INSERT INTO eventi_avversi VALUES('RSSGNN02S48A714M', 'Dolori muscolari/articolari', 4, 'Nota4', 'palestra');"
 				+ "INSERT INTO eventi_avversi VALUES('MRCPLA02H67I407G', 'Dolori muscolari/articolari', 5, 'Nota4', 'chiesa');";
 				
-		
 		try {
 			result = istruzione.execute(queryDatasetCreazioneTabelle);
 		} catch (SQLException e) {
