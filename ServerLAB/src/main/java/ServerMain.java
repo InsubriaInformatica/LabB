@@ -1,4 +1,8 @@
-
+/**
+ * crea la view degli elementi grafici, il model ed il controller per gli eventi
+ * @author simon
+ *
+ */
 public class ServerMain {
 
 	public static void main(String[] args) {

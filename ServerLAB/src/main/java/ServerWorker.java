@@ -3,7 +3,12 @@ import java.net.*;
 import java.sql.SQLException;
 import java.util.List;
 
-//classe THREAD che svolge task client
+
+/**
+ * classe che si occupa di gestire i thread server
+ * @author simon
+ *
+ */
 public class ServerWorker extends Thread{
 
 	private Socket socket;
@@ -26,7 +31,10 @@ public class ServerWorker extends Thread{
 		start(); //lancia i thread per permettere di eseguire metodo run()
 	}
 	
-	//ereditato dalla classe thread --> metodo che gestisce le task richieste del client
+
+	/**
+	 * metodo ereditato dalla classe thread. Gestisce le tasks richieste dal client
+	 */
 	public void run() {
 		String inputClient;
 		
