@@ -1,14 +1,28 @@
 import java.util.List;
 import javax.swing.JButton;
 
-//PATTERN MVC --> interfaccia che fornisce elementi necessari all'implementazione
+
+/**
+ * PATTERN MVC: interfaccia che fornisce gli elementi necessari all'implementazione
+ * @author simon
+ *
+ */
 public interface ViewInterface {
+	/**
+	 * aggiorna i componenti grafici
+	 * @param dati
+	 */
+	public void updateView(Object dati); 
+	/**
+	 * riferimento al bottone "Avvia Server"
+	 */
+	public JButton retButtonAvvia(); 
 	
-	public void updateView(Object dati); //aggiorna i componenti grafici come per il client
-	
-	public JButton retButtonAvvia(); //riferimento al bottone di avvio del server
-	
-	public List<String> txtInfoServer(); //lista che contiene info del server prese da text-field
+	/**
+	 * lista contenente le info del server
+	 * @return
+	 */
+	public List<String> txtInfoServer(); 
 	
 
 }
