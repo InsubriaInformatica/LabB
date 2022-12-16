@@ -6,7 +6,11 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.text.*;
 
-//questa classe gestisce tutte le componenti grafiche dell'applicazione, aggiornanando anche i singoli elementi
+/**
+ * questa classe gestisce tutte le componenti grafiche dell'applicazione, aggiornanando anche i singoli elementi
+ * @author Gabriele Sassi
+ *
+ */
 public class ViewImpl extends JFrame implements View{
 	private static final long serialVersionUID = 1L;
 

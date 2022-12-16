@@ -1,6 +1,6 @@
 /**
  * crea la view degli elementi grafici, il model ed il controller per gli eventi
- * @author simon
+ * @author Qaldo Ademi, Simone Battaglia, Enrico Brullo, Gabriele Sassi
  *
  */
 public class ServerMain {

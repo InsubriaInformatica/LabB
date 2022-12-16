@@ -1,7 +1,11 @@
 import java.sql.SQLException;
 import java.util.List;
 
-//FORNISCE I METODI NECESSARI DEL SERVER, in base alle richieste del client
+/**
+ * FORNISCE I METODI NECESSARI DEL SERVER, in base alle richieste del client
+ * @author Gabriele Sassi
+ *
+ */
 public interface ServerInterface {
 	
 	//inserisce il nuovo centro nel DB 

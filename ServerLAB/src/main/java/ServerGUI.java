@@ -8,7 +8,7 @@ import javax.swing.text.View;
 
 /**
  * pattern MVC, gestione dei componenti grafici server
- * @author simon
+ * @author Enrico Brullo, Gabriele Sassi
  *
  */
 public class ServerGUI extends JFrame implements ViewInterface{

@@ -4,7 +4,7 @@ import javax.swing.JButton;
 
 /**
  * PATTERN MVC: interfaccia che fornisce gli elementi necessari all'implementazione
- * @author simon
+ * @author Gabriele Sassi
  *
  */
 public interface ViewInterface {

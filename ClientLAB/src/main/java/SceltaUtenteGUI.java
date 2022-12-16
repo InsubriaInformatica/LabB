@@ -3,7 +3,11 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.Border;
 
-//in questa schermata viene selezionata la tipologia utente cui si vuole lavorare
+/**
+ * in questa schermata viene selezionata la tipologia utente cui si vuole lavorare
+ * @author Enrico Brullo
+ *
+ */
 public class SceltaUtenteGUI {
 	
 	private JPanel intestazione;

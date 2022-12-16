@@ -4,7 +4,11 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.Border;
 
-//componenti grafici operatore
+/**
+ * componenti grafici operatore
+ * @author Enrico Brullo
+ *
+ */
 
 public class OperatoreGUI{
 	

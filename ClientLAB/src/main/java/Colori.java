@@ -2,6 +2,7 @@ import java.awt.*;
 
 /**
  * Classe che dichiara i tre colori principali del progetto
+ * @author Simone Battaglia
  *
  */
 public class Colori {

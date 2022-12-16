@@ -2,7 +2,11 @@ import java.io.*;
 import java.net.*;
 import java.util.List;
 
-//PATTERN PROXY --> intermediaro tra richieste del client e ricerca di risorse sul server
+/**
+ * PATTERN PROXY --> intermediaro tra richieste del client e ricerca di risorse sul server
+ * @author Simone Battaglia, Qaldo Ademi
+ *
+ */
 public class Proxy implements ServerInterface{
 	
 	private Socket socket;

@@ -2,7 +2,7 @@ import java.sql.SQLException;
 import java.util.List;
 /**
  * Pattern dello Skeleton: solleva il server dalla gestione delle comunicazioni.
- * @author simon
+ * @author Simone Battaglia
  *
  */
 public interface SkeletonInterface {
@@ -52,7 +52,7 @@ public interface SkeletonInterface {
 	public int registraVaccinato(String nomeCentro, String nome, String cognome, String codiceFiscale, String dataSomministrazione, String tipoVaccino, String nDosi) throws SQLException ;
 	
 	/**
-	 * Verifica se il cittadino corrispondente ad un certo codice fiscale è vaccinato
+	 * Verifica se il cittadino corrispondente ad un certo codice fiscale ï¿½ vaccinato
 	 * @param codiceFiscale
 	 * @throws SQLException
 	 */

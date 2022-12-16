@@ -5,6 +5,11 @@ import com.toedter.calendar.JDateChooser;
 import java.awt.*;
 import java.util.Date;
 
+/**
+ * 
+ * @author Enrico Brullo
+ *
+ */
 public class RegistraVaccinatoGUI {
 	
 	private JPanel intestazione; //intestazione comune

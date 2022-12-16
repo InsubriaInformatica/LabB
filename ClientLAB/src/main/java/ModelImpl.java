@@ -1,9 +1,13 @@
- import java.net.InetAddress;
+import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 
-//gestisce la logica di funzionamento dell'applicazione
+/**
+ * gestisce la logica di funzionamento dell'applicazione
+ * @author Gabriele Sassi
+ *
+ */
 public class ModelImpl implements Model{
 	
 	private View v;
@@ -487,6 +491,11 @@ public class ModelImpl implements Model{
 		return ret;
 	}
 
+	/**
+	 * metodo richiamato dal controller che aggiorna ed elabora dati da mostrare alla view
+	 * @param source: evento di origine (es. bottone che è stato cliccato)
+	 * @param dati: dati mandati dal controller e presi dalla view
+	 */
 	public void updateModel(String source, Object dati) {
 		
 		String button = source;

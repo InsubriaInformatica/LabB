@@ -1,6 +1,10 @@
 import java.sql.SQLException;
 
-// PATTERN MVC --> interfaccia che fornisce elementi necessari all'implementazione
+/**
+ *  PATTERN MVC --> interfaccia che fornisce elementi necessari all'implementazione
+ * @author Gabriele Sassi
+ *
+ */
 public interface ModelInterface {
 	/**
 	 * aggiorna il model in base all'evento generato

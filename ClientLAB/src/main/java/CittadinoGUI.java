@@ -5,6 +5,7 @@ import javax.swing.border.*;
 
 /**
  * Classe che implementa la GUI per i cittadini
+ * @author Enrico Brullo
  *
  */
 public class CittadinoGUI {

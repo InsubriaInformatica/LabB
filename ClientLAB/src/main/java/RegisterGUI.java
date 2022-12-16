@@ -4,7 +4,11 @@ import java.awt.GridLayout;
 
 import javax.swing.*;
 import javax.swing.border.Border;
-
+/**
+ * 
+ * @author Enrico Brullo
+ *
+ */
 public class RegisterGUI {
 	
 	private JPanel intestazione;

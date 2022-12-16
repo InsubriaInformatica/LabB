@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * classe che si occupa di gestire i thread server
- * @author simon
+ * @author Simone Battaglia, Gabriele Sassi
  *
  */
 public class ServerWorker extends Thread{

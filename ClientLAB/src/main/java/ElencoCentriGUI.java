@@ -6,6 +6,7 @@ import javax.swing.border.Border;
 /**
  * 
  * Classe che implementa la GUI della pagina di visualizzazione dei centri vaccinali
+ * @author Enrico Brullo
  *
  */
 public class ElencoCentriGUI {

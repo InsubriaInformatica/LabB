@@ -1,4 +1,3 @@
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +6,7 @@ import javax.swing.JOptionPane;
 
 /**
  * risorsa condivisa che si interfaccia localmente con lo skeleton e con il db per eseguire le query.
- * @author simon
+ * @author Qaldo Ademi, Simone Battaglia
  *
  */
 public class EsecutoreQuery implements SkeletonInterface{

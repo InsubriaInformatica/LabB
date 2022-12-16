@@ -9,6 +9,7 @@ import javax.swing.border.Border;
 /**
  * 
  * Classe che implementa la GUI degli eventi avversi
+ * @author Enrico Brullo
  *
  */
 public class EventiAvversiGUI {

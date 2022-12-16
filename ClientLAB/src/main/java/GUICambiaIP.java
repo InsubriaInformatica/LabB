@@ -6,6 +6,7 @@ import javax.swing.*;
 /**
  * 
  * Classe che implementa la GUI per poter cambiare l'ip del server su cui connettersi
+ * @author Enrico Brullo
  *
  */
 public class GUICambiaIP {

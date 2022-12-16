@@ -1,7 +1,11 @@
 import java.util.List;
 import javax.swing.*;
 
-//PATTERN MVC --> questa interfaccia fornisce i prototipi necessari al funzionamento della view nell'applicazione
+/**
+ * PATTERN MVC --> questa interfaccia fornisce i prototipi necessari al funzionamento della view nell'applicazione
+ * @author Gabriele Sassi
+ *
+ */
 public interface View {
 	
 	//source --> contiene il riferimento al componente che ha generato l'evento

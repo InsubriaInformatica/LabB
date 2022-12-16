@@ -5,6 +5,11 @@ import java.awt.GridLayout;
 import javax.swing.*;
 import javax.swing.border.Border;
 
+/**
+ * 
+ * @author Enrico Brullo
+ *
+ */
 public class VisualizzaEventiAvversiGUI {
 	
 	private JPanel intestazione;

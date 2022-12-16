@@ -3,6 +3,11 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.Border;
 
+/**
+ * 
+ * @author Enrico Brullo
+ *
+ */
 public class LoginGUI {
 	
 	private JPanel intestazione;

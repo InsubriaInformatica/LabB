@@ -1,5 +1,7 @@
 /**
  * questa classe si occupa della connessione al database
+ * 
+ * @author Simone Battaglia, Qaldo Ademi
  */
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -61,11 +63,11 @@ public class DataBaseConnessione {
 	}
 	
 	/**
-	 * metodo utilizzato per connettersi al server di Postgre. Questo metodo è utile nel caso in cui il server viene avviato 
+	 * metodo utilizzato per connettersi al server di Postgre. Questo metodo ï¿½ utile nel caso in cui il server viene avviato 
 	 * e su postgre non esiste un database adatto al funzionamento del programma.
 	 * @param user username con cui accedere al database
 	 * @param pass password con cui accedere al database
-	 * @param host2 indirizzo della macchina su cui è presente il server
+	 * @param host2 indirizzo della macchina su cui ï¿½ presente il server
 	 * @param port porta sulla quale gira il database
 	 * @return connection
 	 */

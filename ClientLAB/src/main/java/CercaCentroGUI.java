@@ -7,6 +7,7 @@ import javax.swing.border.Border;
 
 /**
  * Classe che implementa la GUI per la ricerca del centro vaccinale
+ * @author Qaldo Ademi, Enrico Brullo
  *
  */
 public class CercaCentroGUI {

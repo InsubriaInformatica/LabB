@@ -1,6 +1,6 @@
 /**
  * Classe main del client
- *
+ * @author Qaldo Ademi, Simone Battaglia, Enrico Brullo, Gabriele Sassi
  */
 public class ClientMain {
 

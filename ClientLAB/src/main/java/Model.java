@@ -1,5 +1,9 @@
 
-//PATTERN MVC --> questa interfaccia fornisce i prototipi necessari al funzionamento del model nell'applicazione
+/**
+ * PATTERN MVC --> questa interfaccia fornisce i prototipi necessari al funzionamento del model nell'applicazione
+ * @author Gabriele Sassi
+ *
+ */
 public interface Model {
 	
 	//source --> evento di origine

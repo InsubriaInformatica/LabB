@@ -5,6 +5,7 @@ import javax.swing.*;
 
 /**
  * classe che gestisce gli eventi generati dall'utente
+ * @author Gabriele Sassi
  *
  */
 public class ControllerImpl implements ActionListener{

@@ -1,9 +1,13 @@
-
 import javax.swing.*;
 import javax.swing.border.Border;
 
 import java.awt.*;
 
+/**
+ * 
+ * @author Enrico Brullo
+ *
+ */
 public class RegistraCentroGUI {
 	
 	private JPanel intestazione;

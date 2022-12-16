@@ -4,6 +4,11 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Timer;
 
+/**
+ * 
+ * @author Gabriele Sassi
+ *
+ */
 public class ModelImpl implements ModelInterface {
 
 	public static int PORT = 8080;
@@ -47,6 +52,10 @@ public class ModelImpl implements ModelInterface {
 		}
 	}
 
+	/**
+	 * metodo richiamato dal controller che aggiorna ed elabora dati da mostrare alla view
+	 * @param dati: dati mandati dal controller e presi dalla view
+	 */
 	public void updateModel(Object dati) throws SQLException {
 
 		List<String> datiPrelevatidaArgomento = (List) dati; // preleva dati passati dal controller
