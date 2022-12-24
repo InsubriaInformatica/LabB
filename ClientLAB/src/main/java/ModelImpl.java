@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * gestisce la logica di funzionamento dell'applicazione
+ * Gestisce la logica di funzionamento dell'applicazione
  * @author Gabriele Sassi
  *
  */
@@ -16,7 +16,10 @@ public class ModelImpl implements Model{
 	private boolean flag;
 	private boolean err;
 
-	//riferimento a view dove model dovrà operare, instanzia riferimento proxy server locale dove andrà ad operare
+	/**
+	 * Riferimento a view dove model dovrà operare, instanzia riferimento proxy server locale dove andrà ad operare
+	 * @param v
+	 */
 	public ModelImpl(View v) {
 		
 		try {
@@ -32,7 +35,11 @@ public class ModelImpl implements Model{
 	
 	//METODI PER VERIFICARE I CAMPI INSERITI
 	
-	//controlla se ci sono campi vuoti
+	/**
+	 * Metodo che controlla se ci sono campi vuoti
+	 * @param daControllare
+	 * @return vero se non contiene stringhe vuote altrimenti falso
+	 */
 	public boolean controlloStringheVuote(List<String> daControllare) {
 		
 		for(String str: daControllare) {
@@ -43,7 +50,11 @@ public class ModelImpl implements Model{
 		return false; //se contiene stringhe vuote
 	}
 
-	//controlla dati inseriti per registrare il centro vaccinale
+	/**
+	 * Metodo che controlla dati inseriti per registrare il centro vaccinale
+	 * @param datiCentro
+	 * @return
+	 */
 	public boolean controlloDatiNuovoCentro(List <String> datiCentro) {
 		boolean res = true;
 		
@@ -83,7 +94,11 @@ public class ModelImpl implements Model{
 		return res;
 	}
 	
-	//metodo che verifica la correttezza del modello del codice fiscale inserito: AAAAAA00A00A000A
+	/**
+	 * Metodo che verifica la correttezza del modello del codice fiscale inserito: AAAAAA00A00A000A
+	 * @param codiceFiscale
+	 * @return
+	 */
 	public boolean controlloCodiceFiscale(String codiceFiscale) {
 		
 		boolean res = false;
@@ -165,17 +180,30 @@ public class ModelImpl implements Model{
 		return true; //rispetta lo standard
 	}
 	
-	//verifica se cittadino è vaccinato
+	/**
+	 * Metodo che verifica se cittadino è vaccinato
+	 * @param cf
+	 * @return
+	 */
 	public boolean isVaccinato(String cf) {
 		return this.proxy.checkCittadinoVaccinato(cf);
 	}
 	
-	//verifica che id in fase di registrazione corrisponde all'utente realmente assegnato
+	/**
+	 * Metodo che verifica che id in fase di registrazione corrisponde all'utente realmente assegnato
+	 * @param codiceFiscale
+	 * @param idVaccinato
+	 * @return
+	 */
 	public boolean controlloIdUnivoco(String codiceFiscale, String idVaccinato) {
 		return this.proxy.verificaCorrispondenzaId(codiceFiscale, idVaccinato);
 	}
 	
-	//controlla modello e-mail --> nome@dominio.it/com ecc..
+	/**
+	 * Metodo che controlla modello e-mail --> nome@dominio.it/com ecc..
+	 * @param eMail
+	 * @return
+	 */
 	public boolean controlloEmail(String eMail) {
 		String emailControllo = eMail;
 		String[] nome = emailControllo.split("@");
@@ -199,6 +227,11 @@ public class ModelImpl implements Model{
 		return res;
 	}
 
+	/**
+	 * Metodo che verifica centro vaccinale
+	 * @param datiCentroVaccinale
+	 * @return
+	 */
 	public Object registraCentroVaccinale(List<String> datiCentroVaccinale) {
 		
 		List<String> ret = new ArrayList <String>();
@@ -251,7 +284,11 @@ public class ModelImpl implements Model{
 		return ret;
 	}
 	
-	
+	/**
+	 * Metodo che verifica i dati del vaccininato
+	 * @param datiVaccinato
+	 * @return
+	 */
 	public Object registraVaccinato(List<String> datiVaccinato) {
 		List<String> ret = new ArrayList <String>();
 		boolean controlloCF = controlloCodiceFiscale(datiVaccinato.get(3)); //controllo CF inserito
@@ -280,7 +317,11 @@ public class ModelImpl implements Model{
 		return ret;
 	}
 	
-	//ritorna codice fiscale e id Univoco di vaccinazione, in base al codice fiscale del vaccinato
+	/**
+	 * Metodo che ritorna codice fiscale e id Univoco di vaccinazione, in base al codice fiscale del vaccinato
+	 * @param codiceFiscale
+	 * @return
+	 */
 	private Object retIdUnivoco(String codiceFiscale) {
 		List<String> res = new ArrayList <String> ();
 		
@@ -295,7 +336,11 @@ public class ModelImpl implements Model{
 	}
 	
 	
-	//questo metodo permette al cittadino di registrarsi dopo aver affettuato la vaccinazione
+	/**
+	 * Metodo che permette al cittadino di registrarsi dopo aver effettuato la vaccinazione
+	 * @param datiRegistrazione
+	 * @return
+	 */
 	public Object registrazioneCittadino(List<String> datiRegistrazione) {
 		List<String> ret = new ArrayList <String>();
 		boolean stringheVuote = controlloStringheVuote(datiRegistrazione); // controllo stringhe vuote nella lista
@@ -352,6 +397,11 @@ public class ModelImpl implements Model{
 		return ret;
 	}
 		
+	/**
+	 * Metodo che verifica i dati inseriti in fase di login
+	 * @param datiLogin
+	 * @return
+	 */
 	public Object login(List <String> datiLogin) {
 		List<String> ret = new ArrayList <String>();
 		
@@ -384,7 +434,11 @@ public class ModelImpl implements Model{
 		return ret;
 	}
 	
-	//questo metodo permette di inserire evento avverso
+	/**
+	 * Metodo che permette di inserire evento avverso
+	 * @param datiEvento
+	 * @return
+	 */
 	public Object inserisciEventoAvverso(List <String> datiEvento) {
 		Object ret = null;
 		
@@ -405,7 +459,11 @@ public class ModelImpl implements Model{
 		return ret;
 	}
 	
-	//questo metodo si occupa di ricerca delle info del centro vaccinale, con i dati contenuti
+	/**
+	 * Metodo che si occupa di ricerca delle info del centro vaccinale, con i dati contenuti
+	 * @param infoDatiCentro
+	 * @return
+	 */
 	public Object visualizzaInfoCentriVaccinali(List<String> infoDatiCentro){
 		
 		Object datiDaVisualizzare = null;
@@ -479,7 +537,10 @@ public class ModelImpl implements Model{
 		return ret;
 	}
 		
-	//metodo che rimette a null l'utente connesso se torna alla schermata di login
+	/**
+	 * Metodo che rimette a null l'utente connesso se torna alla schermata di login
+	 * @return
+	 */
 	public Object esciDaEA() {
 		List<String> ret = null;
 		
@@ -492,7 +553,7 @@ public class ModelImpl implements Model{
 	}
 
 	/**
-	 * metodo richiamato dal controller che aggiorna ed elabora dati da mostrare alla view
+	 * Metodo richiamato dal controller che aggiorna ed elabora dati da mostrare alla view
 	 * @param source: evento di origine (es. bottone che è stato cliccato)
 	 * @param dati: dati mandati dal controller e presi dalla view
 	 */
@@ -511,7 +572,9 @@ public class ModelImpl implements Model{
 			}
 		}
 		
-		//manda dati alla combobox per visualizzare centro vaccinali
+		/**
+		 * Metodo che manda dati alla combobox per visualizzare centro vaccinali
+		 */
 		if(button.equals("REGISTRA NUOVO VACCINATO")) {
 			List<String> datiDaMandareAview = this.proxy.retElencoCentriVaccinali();
 			datiPerModel = datiDaMandareAview;
