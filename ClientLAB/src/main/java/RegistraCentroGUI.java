@@ -61,6 +61,12 @@ public class RegistraCentroGUI {
 	private JPanel panelBottone;
 	private JButton buttonRegistra;
 	
+	/**
+	 * Costruttore della classe
+	 * @param altezza
+	 * @param larghezza
+	 * @param intestazione
+	 */
 	public RegistraCentroGUI(int altezza, int larghezza, JPanel intestazione){
 		
 		this.intestazione = intestazione;
@@ -251,7 +257,9 @@ public class RegistraCentroGUI {
 		
 	}
 	
-	//mette label con "" 
+	/**
+	 * Metodo che mette label con "" 
+	 */
 	public void pulisciView() {
 	this.tipologiaCentro.setSelectedIndex(0);
 	this.textFieldNomeCentro.setText("");
@@ -264,28 +272,43 @@ public class RegistraCentroGUI {
 	
 	//AGGIUNGI METODI PER CONTROLLO DEI CAMPI --> GUARDA nostro progetto vecchio
 
-	//ritorna intestazione della pagina
+	/**
+	 * Metodo che ritorna intestazione della pagina
+	 * @return
+	 */
 	public JPanel retIntestazione() {
 		return this.intestazione;
 	}
 
-	//ritorna contenitore elementi
+	/**
+	 * Metodo che ritorna contenitore elementi
+	 * @return
+	 */
 	public JPanel retContenitore() {
 		return this.contenitorePrincipale;
 	}
 	
 
-	//ritorna dalla combobox la tipologia selezionato
+	/**
+	 * Metodo che ritorna dalla combobox la tipologia selezionato
+	 * @return
+	 */
 	public Object retTipoCentro() {
 		return this.tipologiaCentro.getSelectedItem();
 	}
 	
-	//ritorna il nome del centro
+	/**
+	 * Metodo che ritorna il nome del centro
+	 * @return
+	 */
 	public String retNomeCentro() {
 		return this.textFieldNomeCentro.getText();
 	}
 	
-	//ritona il qualificatore selezionato nel radio Button
+	/**
+	 * Metodo che ritona il qualificatore selezionato nel radio Button
+	 * @return
+	 */
 	public String retQualificatore() {
 		
 		String qualificatore = " " ;
@@ -305,36 +328,51 @@ public class RegistraCentroGUI {
 		return qualificatore;
 	}
 	
-	//ritorna l'indirizzo del centro
+	/**
+	 * Metodo che ritorna l'indirizzo del centro
+	 * @return
+	 */
 	public String retNomeIndirizzo() {
 		return this.textFieldIndirizzo.getText();
 	}
 	
-	//ritorna numero civico del centro
+	/**
+	 * Metodo che ritorna numero civico del centro
+	 * @return
+	 */
 	public String retNumeroCivico() {
 		return this.textFieldNumeroCivico.getText();
 	}
 	
-	//ritorna comune centro
+	/**
+	 * Metodo che ritorna comune centro
+	 * @return
+	 */
 	public String retComune() {
 		return this.textFieldComune.getText();
 	}
 	
-	//ritorna provincia centro
+	/**
+	 * Metodo che ritorna provincia centro
+	 * @return
+	 */
 	public String retProvincia() {
 		return this.textFieldProvincia.getText();
 	}
 	
-	//ritorna CAP centro
+	/**
+	 * Metodo che ritorna CAP centro
+	 * @return
+	 */
 	public String retCAP() {
 		return this.textFieldCap.getText();
 	}
 	
-	//ritorna il bottone di aggiunta del centro
-		public JButton retBottoneRegistraCentro() {
-			return this.buttonRegistra;
-		}
-	
-	
-
+	/**
+	 * Metodo che ritorna il bottone di aggiunta del centro
+	 * @return
+	 */
+	public JButton retBottoneRegistraCentro() {
+		return this.buttonRegistra;
+	}
 }
