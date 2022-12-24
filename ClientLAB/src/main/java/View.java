@@ -8,60 +8,162 @@ import javax.swing.*;
  */
 public interface View {
 	
-	//source --> contiene il riferimento al componente che ha generato l'evento
-	//dati --> oggetto che contiene dati con cui aggiornare i componenti della view
-	//flagErrore --> valore booleano, indica se ci sono errori oppure no
-	public void updateView(Object source, Object dati, boolean flagErrore); //riceve i dati del model e aggiorna in base al componente che ha generato l'evento
+	/**
+	 * Metodo che riceve i dati del model e aggiorna in base al componente che ha generato l'evento
+	 * 
+	 * @param source: contiene il riferimento al componente che ha generato l'evento
+	 * @param dati: oggetto che contiene dati con cui aggiornare i componenti della view
+	 * @param flagErrore: valore booleano, indica se ci sono errori oppure no
+	 */
+	public void updateView(Object source, Object dati, boolean flagErrore);
+	/**
+	 * Metodo che restituisce array contenente i riferimenti al Jbutton del tipo di utente selezionato (x ogni utente)
+	 * @return
+	 */
+	public JButton[] getSceltaTipoUtente();
 	
-	public JButton[] getSceltaTipoUtente(); //restituisce array contenente i riferimenti al Jbutton del tipo di utente selezionato (x ogni utente)
+	/**
+	 * metodo che fa riferimento al bottone "indietro"
+	 * @return
+	 */
+	public JButton getBack();
 	
-	public JButton getBack(); //riferimento al bottone "indietro"
+	/**
+	 * Metodo che restituisce la stringa che identifica la view mostrata sullo schermo
+	 * @return
+	 */
+	public String getViewAttuale();
 	
-	public String getViewAttuale(); //restituisce la stringa che identifica la view mostrata sullo schermo
+	/**
+	 * Metodo che restituisce button per aprire finestra di ip
+	 * @return
+	 */
+	public JButton getButtonImpostazioni();
 	
-	public JButton getButtonImpostazioni(); //restituisce button per aprire finestra di ip
+	/**
+	 * Metodo che richiama il bottone per cambiare IP
+	 * @return
+	 */
+	public JButton getButtonCambioIP();
 	
-	public JButton getButtonCambioIP(); //bottone per cambiare IP
+	/**
+	 * Metodo che recupera IP inserito dalla textView
+	 * @return
+	 */
+	public String getNuovoIP();
 	
-	public String getNuovoIP(); //recupera IP inserito dalla textView
-	
-	public JButton getButtonDataset(); //bottone per generare dataset
+	/**
+	 * Metodo che richiama il bottone per generare dataset
+	 * @return
+	 */
+	public JButton getButtonDataset();
 	
 	//OPERATORE
-	public JButton[] getBottoniFunzionalitaOperatore(); //serve al controller per aggiungersi come action listener --> restituisce un array di button con le funzionalità principali dell'operatore
 	
-	public JButton getBottoneRegistraNuovoCentro(); //restituisce il riferimento al JButton per confermare l'inserimento di un nuovo centro
+	/**
+	 * Metodo che serve al controller per aggiungersi come action listener --> restituisce un array di button con le funzionalità principali dell'operatore
+	 * @return
+	 */
+	public JButton[] getBottoniFunzionalitaOperatore();
 	
-	public List<String> getDatiRegistraNuovoCentro(); //restituisce la lista di stringhe fornite durante la registrazione di un nuovo centro
+	/**
+	 * Metodo che restituisce il riferimento al JButton per confermare l'inserimento di un nuovo centro
+	 * @return
+	 */
+	public JButton getBottoneRegistraNuovoCentro();
 	
-	public JButton getBottoneRegistraNuovoVaccinato(); //restituisce il riferimento al JButton per confermare l'inserimento di un nuovo vaccinato
+	/**
+	 * Metodo che restituisce la lista di stringhe fornite durante la registrazione di un nuovo centro
+	 * @return
+	 */
+	public List<String> getDatiRegistraNuovoCentro();
 	
-	public List<String> getDatiRegistraNuovoVaccinato(); //restituisce la lista di stringhe fornite durante la registrazione di un nuovo vaccinato
+	/**
+	 * Metodo che restituisce il riferimento al JButton per confermare l'inserimento di un nuovo vaccinato
+	 * @return
+	 */
+	public JButton getBottoneRegistraNuovoVaccinato();
 	
-	public JButton[] getCercaInfoCentriVaccinali();//restituisce il riferimento al Jbutton per cercare info dei centri vaccinali	
+	/**
+	 * Metodo che restituisce la lista di stringhe fornite durante la registrazione di un nuovo vaccinato
+	 * @return
+	 */
+	public List<String> getDatiRegistraNuovoVaccinato();
 	
-	public JComboBox boxSceltaCentroGetInfo(); //restituisce il riferimento alla JComboBox per la scelta del centro di cui ottenere le informazioni
+	/**
+	 * Metodo che restituisce il riferimento al Jbutton per cercare info dei centri vaccinali	
+	 * @return
+	 */
+	public JButton[] getCercaInfoCentriVaccinali();
 	
-	public String getDatiNomeCentroPerConsultareInfo(); //restituisce la stringa nomeCentro inserita per effettuare la ricerca di informazioni
+	/**
+	 * Metodo che restituisce il riferimento alla JComboBox per la scelta del centro di cui ottenere le informazioni
+	 * @return
+	 */
+	public JComboBox boxSceltaCentroGetInfo();
 	
-	public List<String> getDatiComuneTipologiaPerConsultareInfo(); //restituisce una lista contenente il comune e la tipologia per effettuare la ricerca per comune/tipologia
+	/**
+	 * Metodo che restituisce la stringa nomeCentro inserita per effettuare la ricerca di informazioni
+	 * @return
+	 */
+	public String getDatiNomeCentroPerConsultareInfo();
+	
+	/**
+	 * Metodo che restituisce una lista contenente il comune e la tipologia per effettuare la ricerca per comune/tipologia
+	 * @return
+	 */
+	public List<String> getDatiComuneTipologiaPerConsultareInfo();
 	
 	//EVENTI AVVERSI
-	public JButton getBottonePerInserireEventoAvverso(); //restituisce il riferimento al JButton per confermare l'aggiunta di un evento avverso
 	
-	public List<String> getDatiInserisciEventoAvverso(); //restituisce una lista contenente i dati forniti nel momento di aggiunta di un evento avverso
+	/**
+	 * Metodo che restituisce il riferimento al JButton per confermare l'aggiunta di un evento avverso
+	 * @return
+	 */
+	public JButton getBottonePerInserireEventoAvverso();
+	
+	/**
+	 * Metodo che restituisce una lista contenente i dati forniti nel momento di aggiunta di un evento avverso
+	 * @return
+	 */
+	public List<String> getDatiInserisciEventoAvverso();
 	
 	//CITTADINO
-	public JButton[] getBottoniFunzionalitaCittadino(); //serve al controller per aggiungersi come action listener --> restituisce un array di button con le funzionalità principali del cittadino
 	
-	public JButton getBottoneRegistrati(); //restituisce il riferimento al JButton per confermare la registrazione
+	/**
+	 * Metodo che serve al controller per aggiungersi come action listener --> restituisce un array di button con le funzionalità principali del cittadino
+	 * @return
+	 */
+	public JButton[] getBottoniFunzionalitaCittadino();
 	
-	public List<String> getDatiPerRegistrazione(); //restituisce una lista contenente i dati forniti per la registrazione
+	/**
+	 * Metodo che restituisce il riferimento al JButton per confermare la registrazione
+	 * @return
+	 */
+	public JButton getBottoneRegistrati();
 	
-	public JButton getBottonePerLogin(); // restituisce il riferimento al JButton per confermare il login
+	/**
+	 * Metodo che restituisce una lista contenente i dati forniti per la registrazione
+	 * @return
+	 */
+	public List<String> getDatiPerRegistrazione();
 	
-	public List<String> getDatiPerLogin(); //restituisce una lista contenente username e password per effettuare il login 
+	/**
+	 * Metodo che restituisce il riferimento al JButton per confermare il login
+	 * @return
+	 */
+	public JButton getBottonePerLogin();
 	
-	public JButton getBottoneRegistrazioneDaLogin(); //restituisce il riferimento al JButton per registrarsi dalla schermata di login
+	/**
+	 * Metodo che restituisce una lista contenente username e password per effettuare il login 
+	 * @return
+	 */
+	public List<String> getDatiPerLogin();
+	
+	/**
+	 * Metodo che restituisce il riferimento al JButton per registrarsi dalla schermata di login
+	 * @return
+	 */
+	public JButton getBottoneRegistrazioneDaLogin();
 	
 }
