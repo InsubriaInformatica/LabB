@@ -37,7 +37,6 @@ public class VisualizzaEventiAvversiGUI {
 		
 		this.intestazione = intestazione;
 		
-		Border bordo = BorderFactory.createLineBorder(Colori.arancione, 5); //crea bordo
 		
 		//TITOLO
 		this.panelTitolo = new JPanel();
@@ -73,26 +72,8 @@ public class VisualizzaEventiAvversiGUI {
 		this.colonne = nomiCol;
 		this.valori = valoriBase;
 		
-		this.tabellaEA = new JTable(valoriBase,nomiCol);
-		this.tabellaEA.getTableHeader().setFont(new Font("Arial", Font.BOLD, 18));
-		this.tabellaEA.setRowHeight(25);
-		this.tabellaEA.setSelectionBackground(Colori.arancione);
-		this.tabellaEA.setFont(new Font("Arial", 0, 15));
-		
-	
-		this.scrollPaneEA = new JScrollPane(this.tabellaEA);
-		this.scrollPaneEA.setBackground(Colori.arancione);
-		this.scrollPaneEA.setPreferredSize(new Dimension(1000, 320));
-		this.scrollPaneEA.setBorder(bordo);
-		
-		
 		contenitorePrincipale = new JPanel();
 		this.contenitorePrincipale.setBackground(Colori.purple);
-		this.contenitorePrincipale.add(panelTitolo);
-		this.contenitorePrincipale.add(panelVuoto);
-		this.contenitorePrincipale.add(scrollPaneEA);
-		
-		
 	}
 	
 	/**
@@ -124,16 +105,49 @@ public class VisualizzaEventiAvversiGUI {
 	 * @param inserimento
 	 */
 	public void creaTabella(String [][] inserimento) {
+		
 		this.tabellaEA = new JTable(inserimento, this.colonne);
-		this.tabellaEA.setEnabled(false); //senza eventi
+		this.tabellaEA.getTableHeader().setFont(new Font("Arial", Font.BOLD, 18));
+		this.tabellaEA.setRowHeight(25);
+		this.tabellaEA.setSelectionBackground(Colori.arancione);
+		this.tabellaEA.setFont(new Font("Arial", 0, 15));
+		this.tabellaEA.setEnabled(true); 
+		
 	}
 
 	/**
 	 * Metodo che rende tabella scrollabile ed aggiunge elementi utili
 	 */
 	public void ultimaView() {
+		
+		//TITOLO
+		this.panelTitolo = new JPanel();
+		this.panelTitolo.setLayout(new GridLayout(1,1));
+		this.panelTitolo.setBackground(Colori.purple);
+		this.labelTitolo = new JLabel("INFO EVENTI AVVERSI:");
+		this.labelTitolo.setForeground(Colori.arancione);
+		this.labelTitolo.setFont(new Font("Arial", Font.BOLD, 30));
+		this.labelTitolo.setHorizontalAlignment(JLabel.CENTER);
+		this.labelTitolo.setVerticalAlignment(JLabel.CENTER);
+		this.panelTitolo.add(this.labelTitolo);
+		this.panelTitolo.setPreferredSize(new Dimension(700, 35)); //larghezza, altezza
+				
+		//SPAZIO
+		this.panelVuoto = new JPanel();
+		this.panelVuoto.setLayout(new GridLayout(1,1));
+		this.panelVuoto.setBackground(Colori.purple);
+		this.labelVuoto = new JLabel();
+		this.panelVuoto.add(labelVuoto);
+		this.panelVuoto.setPreferredSize(new Dimension(800, 18)); //larghezza, altezza
+				
+		Border bordo = BorderFactory.createLineBorder(Colori.arancione, 3); //crea bordo
+		
 		this.scrollPaneEA = new JScrollPane(this.tabellaEA);
-		this.scrollPaneEA.setBackground(Colori.purple);
+		this.scrollPaneEA.setPreferredSize(new Dimension(800, 240));
+		this.scrollPaneEA.setBorder(bordo);
+		
+		this.contenitorePrincipale.add(panelTitolo);
+		this.contenitorePrincipale.add(panelVuoto);
 		this.contenitorePrincipale.add(this.scrollPaneEA);
 	}
 	
