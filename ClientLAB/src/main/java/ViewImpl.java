@@ -7,7 +7,7 @@ import java.awt.*;
 import java.text.*;
 
 /**
- * questa classe gestisce tutte le componenti grafiche dell'applicazione, aggiornanando anche i singoli elementi
+ * Questa classe gestisce tutte le componenti grafiche dell'applicazione, aggiornanando anche i singoli elementi
  * @author Gabriele Sassi
  *
  */
@@ -56,7 +56,9 @@ public class ViewImpl extends JFrame implements View{
 	//schermata visualizzazione eventi avversi
 	private VisualizzaEventiAvversiGUI viewVisualizzaEA;
 	
-	//costruttore che realizza la view
+	/**
+	 * Costruttore che realizza la view
+	 */
 	public ViewImpl() {
 		
 		//FRAME 
@@ -142,7 +144,9 @@ public class ViewImpl extends JFrame implements View{
 	
 	//METODI 
 	
-	//mostra gli elementi per la view "sceltaUtente"
+	/**
+	 * Metodo che mostra gli elementi per la view "sceltaUtente"
+	 */
 	private void mostraSceltaUtenteView() {
 		
 		this.setVisible(false); //visibilità panel
@@ -154,7 +158,9 @@ public class ViewImpl extends JFrame implements View{
 		this.viewAttuale = "sceltaUtenteView"; //imposta la schermata attuale
 	}
 	
-	//mostra gli elementi per la view "operatore"
+	/**
+	 * Metodo che mostra gli elementi per la view "operatore"
+	 */
 	private void mostraViewOperatore() {
 		
 		this.setVisible(false); //visibilità panel
@@ -166,7 +172,9 @@ public class ViewImpl extends JFrame implements View{
 		this.viewAttuale = "viewOperatore"; //imposta la schermata attuale
 	}
 	
-	//mostra elementi per la view "cittadino"
+	/**
+	 * Metodo che mostra elementi per la view "cittadino"
+	 */
 	private void mostraViewCittadino() {
 		
 		this.setVisible(false);
@@ -178,12 +186,16 @@ public class ViewImpl extends JFrame implements View{
 		this.viewAttuale = "viewCittadino"; //imposta la schermata attuale
 	}
 	
-	//mostra l'option pane per cambiare ip del server
+	/**
+	 * Metodo che mostra l'option pane per cambiare ip del server
+	 */
 	private void mostraViewCambioIP() {
 		this.viewCambioIP.mostraFinestraCambioIp();
 	}
 	
-	//mostra elementi per la view "registra centro vaccinale"
+	/**
+	 * Metodo che mostra elementi per la view "registra centro vaccinale"
+	 */
 	private void mostraViewRegistraCentro() {
 		
 		this.setVisible(false);
@@ -196,6 +208,10 @@ public class ViewImpl extends JFrame implements View{
 		this.viewAttuale = "registraNuovoCentro";
 	}
 	
+	/**
+	 * Metodo che mostra elementi per la view "registra vaccinato"
+	 * @param elencoCentri
+	 */
 	private void mostraViewRegistraVaccinato(List<String> elencoCentri) {
 		
 		this.setVisible(false);
@@ -213,6 +229,9 @@ public class ViewImpl extends JFrame implements View{
 		this.viewAttuale = "registraNuovoVaccinato";
 	}
 	
+	/**
+	 * Metodo che mostra elementi per la view "registrazione"
+	 */
 	private void mostraViewRegistrazione() {
 		this.setVisible(false);
 		this.getContentPane().removeAll();
@@ -224,6 +243,9 @@ public class ViewImpl extends JFrame implements View{
 		this.viewAttuale = "registrazione";
 	}
 	
+	/**
+	 * Metodo che mostra elementi per la view "ricerca centro"
+	 */
 	private void mostraViewRicercaCentro() {
 		this.setVisible(false);
 		this.getContentPane().removeAll();
@@ -235,6 +257,11 @@ public class ViewImpl extends JFrame implements View{
 		this.viewAttuale = "ricercaCentro";
 	}
 	
+	/**
+	 * Metodo che  mostra elementi per la view "elenco centri"
+	 * @param centri
+	 * @param dati
+	 */
 	private void mostraViewElencoCentri( List<String> centri, List<List<String>> dati) {
 		this.setVisible(false);
 		this.getContentPane().removeAll();
@@ -262,6 +289,9 @@ public class ViewImpl extends JFrame implements View{
 		
 	}
 	
+	/**
+	 * Metodo che mostra elementi per la view "login"
+	 */
 	private void mostraViewLogin() {
 		this.setVisible(false);
 		this.getContentPane().removeAll();
@@ -273,6 +303,9 @@ public class ViewImpl extends JFrame implements View{
 		this.viewAttuale = "login";
 	}
 	
+	/**
+	 * Metodo che mostra elementi per la view  "inserimento eventi avversi"
+	 */
 	private void mostraViewInserimentoEA() {
 		this.setVisible(false);
 		this.getContentPane().removeAll();
@@ -284,6 +317,9 @@ public class ViewImpl extends JFrame implements View{
 		this.viewAttuale = "inserimentoEventiAvversi";
 	}
 	
+	/**
+	 * Metodo che mostra elementi per la view "visualizza eventi avversi"
+	 */
 	private void mostraViewVisualizzaEA(String [][]valoriTabella) {
 		this.setVisible(false);
 		this.getContentPane().removeAll();
@@ -297,12 +333,12 @@ public class ViewImpl extends JFrame implements View{
 		this.viewAttuale = "visualizzaEventiAvversi";
 	}
 	
-	
-	
-	//metodo che riceve dati del model e aggiorna in base al componente che ha generato evento
-	//source --> valore riferito al componente origine che ha generato evento
-	//dati --> con cui aggiornare componenti view
-	//flagerrore --> booleano per indicare se ci sono errori --> li mostra con JPane
+	/**
+	 * Metodo che riceve dati del model e aggiorna in base al componente che ha generato evento
+	 * @param source: valore riferito al componente origine che ha generato evento
+	 * @param dati: dati con cui aggiornare componenti view
+	 * @param flagErrore: booleano per indicare se ci sono errori --> li mostra con JPane
+	 */
 	public void updateView(Object source, Object dati, boolean flagErrore) {
 		
 		String buttonOrigine = (String) source;
@@ -541,12 +577,16 @@ public class ViewImpl extends JFrame implements View{
 		
 	}
 	
-	//metodo che ritorna riferimento bottone indietro
+	/**
+	 * Metodo che ritorna riferimento bottone indietro
+	 */
 	public JButton getBack() {
 		return this.indietro;
 	}
 		
-	//restituisce i riferimenti dei button alla scelta del tipo di utente
+	/**
+	 * Metodo che restituisce i riferimenti dei button alla scelta del tipo di utente
+	 */
 	public JButton[] getSceltaTipoUtente() {
 		JButton[] ret = new JButton[2]; //bottoni usati con controller per eventi
 		ret[0] = this.viewSceltaUtente.retButtonOperatore();
@@ -554,27 +594,38 @@ public class ViewImpl extends JFrame implements View{
 		return ret;
 	}
 	
-	//ritorna bottone per impostazioni ip
+	/**
+	 * Metodo che ritorna bottone per impostazioni ip
+	 */
 	public JButton getButtonImpostazioni() {
 		return this.viewSceltaUtente.retButtonImpostazioni();
 	}
 	
-	//bottone per cambiare IP
+	/**
+	 * Metodo che fa riferimento al bottone per cambiare IP
+	 */
 	public JButton getButtonCambioIP() {
 		return this.viewCambioIP.retButtonCambiaIP();
 		
 	}
 	
-	//recupera ID inserito
+	/**
+	 * Metodo che recupera ID inserito
+	 */
 	public String getNuovoIP() {
 		return this.viewCambioIP.getIPInserito();
 	}
 	
+	/**
+	 * Metodo che fa riferimento al bottone dataset
+	 */
 	public JButton getButtonDataset() {
 		return this.viewCambioIP.retButtonDataset();
 	}
 
-	//cattura le funzionalità dei vari bottoni della schermata operatore
+	/**
+	 * Metodo che cattura le funzionalità dei vari bottoni della schermata operatore
+	 */
 	public JButton[] getBottoniFunzionalitaOperatore() {
 		JButton[] ret = new JButton[2];
 		ret[0] = this.viewOperatore.retButtonRegistraCentro();
@@ -626,7 +677,9 @@ public class ViewImpl extends JFrame implements View{
 		return vaccinato;
 	}
 	
-	//cattura le funzionalità dei vari bottoni della schermata cittadino
+	/**
+	 * Metodo che cattura le funzionalità dei vari bottoni della schermata cittadino
+	 */
 	public JButton[] getBottoniFunzionalitaCittadino() {
 		JButton[] ret = new JButton[3];
 		ret[0] = this.viewCittadino.retButtonRegistrati();
@@ -635,7 +688,9 @@ public class ViewImpl extends JFrame implements View{
 		return ret;
 	}
 
-	//ritorna il bottone per permettere al cittadino di registrarsi 
+	/**
+	 * Metodo che ritorna il bottone per permettere al cittadino di registrarsi 
+	 */
 	public JButton getBottoneRegistrati() {
 		return this.viewRegistrazione.retButtonRegistrati();
 	}
@@ -654,7 +709,9 @@ public class ViewImpl extends JFrame implements View{
 		return cittadinoRegistrato;
 	}
 	
-	//ritorna bottone per permettere al cittadino di accedere
+	/**
+	 * Metodo che ritorna bottone per permettere al cittadino di accedere
+	 */
 	public JButton getBottonePerLogin() {
 		return this.viewLogin.retButtonAccedi();
 	}
@@ -668,12 +725,16 @@ public class ViewImpl extends JFrame implements View{
 		return credenziali;
 	}
 
-	//ritorna bottone per permettere al cittadino di andare alla schermata di registrazione se si trova nella schermata accedi
+	/**
+	 * Metodo che ritorna bottone per permettere al cittadino di andare alla schermata di registrazione se si trova nella schermata accedi
+	 */
 	public JButton getBottoneRegistrazioneDaLogin() {
 			return this.viewLogin.retButtonLoginRegistrati();
 	}
 	
-	//riferimento a bottoni di ricerca info
+	/**
+	 * Metodo che fa riferimento a bottoni di ricerca info
+	 */
 	public JButton[] getCercaInfoCentriVaccinali() {
 		JButton[] ret = new JButton[2];
 		ret[0] = this.viewRicercaCentro.retButtonCercaNome();
@@ -681,18 +742,24 @@ public class ViewImpl extends JFrame implements View{
 		return ret;
 	}
 
-	//combobox con centro da visualizzare x ottenre info
+	/**
+	 * Metodo che combobox con centro da visualizzare x ottenre info
+	 */
 	public JComboBox boxSceltaCentroGetInfo() {
 		return this.viewElencoCentri.retComboBox();
 	}
 
-	//restituisce una stringa con il nome del centro inserito x ricerca
+	/**
+	 * Metodo che restituisce una stringa con il nome del centro inserito x ricerca
+	 */
 	public String getDatiNomeCentroPerConsultareInfo() {
 		String risultato = this.viewRicercaCentro.retNomeCentro();
 		return risultato;
 	}
 
-	//restituisce una lista contente comune e tipologia per ricerca
+	/**
+	 * Metodo che restituisce una lista contente comune e tipologia per ricerca
+	 */
 	public List<String> getDatiComuneTipologiaPerConsultareInfo() {
 		List <String> risultato = new ArrayList<String>();
 		risultato.add(this.viewRicercaCentro.retComuneCentro());
@@ -716,12 +783,18 @@ public class ViewImpl extends JFrame implements View{
 		return eventoAvverso;
 	}
 	
-	//restituisce la view in mostra sullo schermo
+	/**
+	 * Metodo che restituisce la view in mostra sullo schermo
+	 */
 	public String getViewAttuale() {
 		return this.viewAttuale;
 	}
 	
-	//utile per salvare la data in formato testuale
+	/**
+	 * Metodo utile per salvare la data in formato testuale
+	 * @param data
+	 * @return
+	 */
 	private String StringData(Date data) {
 		String risultato, b;
 		String [] a;
@@ -738,7 +811,11 @@ public class ViewImpl extends JFrame implements View{
 	}
 	
 	
-	//utile per eliminare spazi aggiuntivi di una stringa
+	/**
+	 * Metodo utile per eliminare spazi aggiuntivi di una stringa
+	 * @param p
+	 * @return
+	 */
 	private String togliSpazi(String p) {
 	String esito = "";
 		
@@ -763,7 +840,12 @@ public class ViewImpl extends JFrame implements View{
 			
 	}
 	
-	//converte lista di stringhe in una matrice di string per inserire nella tabella (requisito di tabella)
+	/**
+	 * Metodo che  converte lista di stringhe in una matrice di string per inserire nella tabella (requisito di tabella)
+	 * @param old
+	 * @param elencoEa
+	 * @return
+	 */
 	private String[][] matrice(String[][] old, List<String> elencoEa){
 		
 		int nRiga = old.length;
