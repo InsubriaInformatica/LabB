@@ -59,7 +59,12 @@ public class RegistraVaccinatoGUI {
     private JPanel panelBottone;
     private JButton buttonRegistraVacc;
 	
-	
+	/**
+	 * Costruttore della classe
+	 * @param altezza
+	 * @param larghezza
+	 * @param intestazione
+	 */
 	public RegistraVaccinatoGUI(int altezza, int larghezza, JPanel intestazione) {
 		
 		this.intestazione = intestazione;
@@ -241,17 +246,25 @@ public class RegistraVaccinatoGUI {
 	}
 	
 	
-	//ritorna intestazione della pagina
+	/**
+	 * Metodo che ritorna intestazione della pagina
+	 * @return
+	 */
 	public JPanel retIntestazione() {
 		return this.intestazione;
 	}
 
-	//ritorna contenitore elementi
+	/**
+	 * Metodo che ritorna contenitore elementi
+	 * @return
+	 */
 	public JPanel retContenitore() {
 		return this.contenitorePrincipale;
 	}
 	
-	//rimuove centri dalla combobox
+	/**
+	 * Metodo che rimuove centri dalla combobox
+	 */
 	public void resetComboBox() {
 		this.nomeCentroVaccinale.removeAllItems();
 	}
@@ -264,48 +277,74 @@ public class RegistraVaccinatoGUI {
 	}
 	
 	
-	//aggiunge il centro vaccinale alla combo box
+	/**
+	 * Metodo che aggiunge il centro vaccinale alla combo box
+	 * @param centro
+	 */
 	public void aggiungiCentroComboBox(String centro) {
 		this.nomeCentroVaccinale.addItem(centro);
 	}
 	
-	//ritorna il centro vaccinale selezionato nella combo box
+	/**
+	 * Metodo che ritorna il centro vaccinale selezionato nella combo box
+	 * @return
+	 */
 	public Object retNomeCentro() {
 		return this.nomeCentroVaccinale.getSelectedItem();
 	}
 	
 	
-	//rimozione centri vaccinali da comboBox
+	/**
+	 * Metodo che rimozione centri vaccinali da comboBox
+	 */
 	public void rimuoviCentroComboBox() {
 		this.nomeCentroVaccinale.removeAllItems();
 	}
 	
-	//ritorna il nome del vaccinato
+	/**
+	 * Metodo che ritorna il nome del vaccinato
+	 * @return
+	 */
 	public String retNomeVaccinato() {
 		return this.textFieldNomeVaccinato.getText();
 	}
 	
-	//ritorna il cognome del vaccinato
+	/**
+	 * Metodo che ritorna il cognome del vaccinato
+	 * @return
+	 */
 	public String retCognomeVaccinato() {
 		return this.textFieldCognomeVaccinato.getText();
 	}
 	
-	//ritorna CF vaccinato
+	/**
+	 * Metodo che ritorna CF vaccinato
+	 * @return
+	 */
 	public String retCFVaccinato() {
 		return this.textFieldCFVaccinato.getText();
 	}
 	
-	//ritorna data somministrazione vaccino
+	/**
+	 * Metodo che ritorna data somministrazione vaccino
+	 * @return
+	 */
 	public Date retDataVaccinazione() {
 		return this.dataSomministrazione.getDate();
 	}
 	
-	//ritorna vaccino selezionato
+	/**
+	 * Metodo che ritorna vaccino selezionato
+	 * @return
+	 */
 	public Object retVaccinoComboBox() {
 		return this.nomeVaccino.getSelectedItem();
 	}
 	
-	//ritona la dose selezionata nei radiobutton
+	/**
+	 * Metodo che ritona la dose selezionata nei radiobutton
+	 * @return
+	 */
 	public String retNdose() {
 		
 		String dose= " ";
@@ -325,7 +364,10 @@ public class RegistraVaccinatoGUI {
 		return dose;
 	}
 	
-	//ritorna il bottone per registrare vaccinato
+	/**
+	 * Metodo che ritorna il bottone per registrare vaccinato
+	 * @return
+	 */
 	public JButton retButtonRegistraVaccinato() {
 		return this.buttonRegistraVacc;
 	}
