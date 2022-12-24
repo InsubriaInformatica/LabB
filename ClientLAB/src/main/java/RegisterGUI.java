@@ -4,6 +4,7 @@ import java.awt.GridLayout;
 
 import javax.swing.*;
 import javax.swing.border.Border;
+
 /**
  * 
  * @author Enrico Brullo
@@ -55,7 +56,12 @@ public class RegisterGUI {
 	private JPanel panelBottone;
     private JButton buttonRegistra;
 	
-	
+	/**
+	 * Costruttore della classe
+	 * @param altezza
+	 * @param larghezza
+	 * @param intestazione
+	 */
 	public RegisterGUI(int altezza, int larghezza, JPanel intestazione) {
 		
 		this.intestazione = intestazione;
@@ -200,17 +206,25 @@ public class RegisterGUI {
 		
 	}
 	
-	//ritorna intestazione della pagina
+	/**
+	 * Metodo che ritorna intestazione della pagina
+	 * @return
+	 */
 	public JPanel retIntestazione() {
 		return this.intestazione;
 	}
 
-	//ritorna contenitore elementi
+	/**
+	 * Metodo che ritorna contenitore elementi
+	 * @return
+	 */
 	public JPanel retContenitore() {
 		return this.contenitorePrincipale;
 	}
 
-	//pulisce campi
+	/**
+	 * Metodo che pulisce campi
+	 */
 	public void pulisciView() {
 		this.textFieldNome.setText("");
 		this.textFieldCognome.setText("");
@@ -221,39 +235,68 @@ public class RegisterGUI {
 		this.textFieldIdUnivoco.setText("");
 	}
 	
-	//ritorna il bottone per registrare 
+	/**
+	 * Metodo che ritorna il bottone per registrare 
+	 * @return
+	 */
 	public JButton retButtonRegistrati() {
 		return this.buttonRegistra;
 	}
 	
+	/**
+	 * Metodo che ritorna il nome
+	 * @return
+	 */
 	public String retNome() {
 		return textFieldNome.getText();
 	}
 	
+	/**
+	 * Metodo che ritorna il cognome
+	 * @return
+	 */
 	public String retCognome() {
 		return textFieldCognome.getText();
 	}
 	
+	/**
+	 * Metodo che ritorna il codice fiscale
+	 * @return
+	 */
 	public String retCF() {
 		return textFieldCF.getText();
 	}
 	
+	/**
+	 * Metodo che ritorna l'email
+	 * @return
+	 */
 	public String retEmail() {
 		return textFieldEmail.getText();
 	}
 		
-	
+	/**
+	 * Metodo che ritorna l'username
+	 * @return
+	 */
 	public String retUsername() {
 		return textFieldUsername.getText();
 	}
 		
-	
+	/**
+	 * Metodo che ritorna la password
+	 * @return
+	 */
 	public String retPsw() {
 		char[] charPassword = textFieldPsw.getPassword();
 		String password = String.valueOf(charPassword);
 		return password;
 	}
 	
+	/**
+	 * Metodo che ritorna l'id univoco
+	 * @return
+	 */
 	public String retIDUnivoco() {
 		return textFieldIdUnivoco.getText();
 	}
