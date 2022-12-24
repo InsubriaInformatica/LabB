@@ -5,7 +5,7 @@ import javax.swing.*;
 import javax.swing.border.Border;
 
 /**
- * componenti grafici operatore
+ * Componenti grafici operatore
  * @author Enrico Brullo
  *
  */
@@ -34,7 +34,12 @@ public class OperatoreGUI{
 	private JLabel spazioVuoto5;
 	private JLabel spazioVuoto6;
 	
-	//costruttore
+	/**
+	 * Costruttore della classe
+	 * @param larghezza
+	 * @param altezza
+	 * @param intestazione
+	 */
 	public OperatoreGUI(int larghezza, int altezza, JPanel intestazione) {
 		this.intestazione = intestazione; //instestazione schermata
 		
@@ -106,24 +111,36 @@ public class OperatoreGUI{
 	}
 	
 	
-	//metodo che ritorna riferimento al Panel Intestazione della schermata
-		public JPanel retIntestazione() {
-			return this.intestazione;
-		}
-		
-		//metodo che ritorna riferimento al Panel contenitore, ovvero al corpo della schermata
-		public JPanel retContenitore() {
-			return this.contenitore;
-		}
-		
-		//metodo che ritorna riferimento al button relativo alla registrazione di un nuovo centro
-		public JButton retButtonRegistraCentro() {
-			return this.registraCentro;
-		}
-		
-		//metodo che ritorna riferimento al button relativo alla alla registrazione di un nuovo vaccinato
-		public JButton retButtonRegistraVaccinato() {
-			return this.registraVaccinato;
-		}
+	/**
+	 * Metodo che ritorna riferimento al Panel Intestazione della schermata
+	 * @return
+	 */
+	public JPanel retIntestazione() {
+		return this.intestazione;
+	}
+	
+	/**
+	 * Metodo che ritorna riferimento al Panel contenitore, ovvero al corpo della schermata
+	 * @return
+	 */
+	public JPanel retContenitore() {
+		return this.contenitore;
+	}
+	
+	/**
+	 * Metodo che ritorna riferimento al button relativo alla registrazione di un nuovo centro
+	 * @return
+	 */
+	public JButton retButtonRegistraCentro() {
+		return this.registraCentro;
+	}
+	
+	/**
+	 * Metodo che ritorna riferimento al button relativo alla alla registrazione di un nuovo vaccinato
+	 * @return
+	 */
+	public JButton retButtonRegistraVaccinato() {
+		return this.registraVaccinato;
+	}
 	
 }
