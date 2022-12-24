@@ -13,7 +13,11 @@ public class Proxy implements ServerInterface{
 	private ObjectInput in;
 	private ObjectOutput out;
 	
-	//COSTRUTTORE --> istanzia connessione con server e buffer di comunicazione
+	/**
+	 * Costruttore che istanzia connessione con server e buffer di comunicazione
+	 * @param addr
+	 * @param port
+	 */
 	public Proxy(InetAddress addr, int port) {
 		
 		try {
@@ -31,8 +35,7 @@ public class Proxy implements ServerInterface{
 			System.err.println("PROXY: errore di connessione al server " + e.toString());
 		} 
 	}
-	
-	
+
 	
 	public int registraCentroVaccinale(String nome, String qualificatore, String indirizzo, String numeroCivico, String comune, String provincia, String cap, String tipologia) {
 		Integer res = 0; //segnale restituito dal server con callBack
@@ -61,7 +64,9 @@ public class Proxy implements ServerInterface{
 	}
 	
 
-	//verifica l'esistenza di una centro vaccinale nel DB
+	/**
+	 * Metodo che verifica l'esistenza di una centro vaccinale nel DB
+	 */
 	public boolean EsisteCentroNome(String nomeCentro) {
 		boolean res = false;
 		
@@ -79,7 +84,9 @@ public class Proxy implements ServerInterface{
 		return res;
 	}
 	
-	//verifica esistenza centro nel comune e tipologia specificata
+	/**
+	 * Metodo che verifica esistenza centro nel comune e tipologia specificata
+	 */
 	public boolean EsisteCentroCeT(String comune, String tipologia) {
 		boolean res = false;
 		
@@ -98,7 +105,9 @@ public class Proxy implements ServerInterface{
 		return res;
 	}
 
-	//manda e legge info per registrare vaccinato
+	/**
+	 * Metodo che manda e legge info per registrare vaccinato
+	 */
 	public int registraVaccinato(String nomeCentro, String nome, String cognome, String codiceFiscale,String dataSomministrazione, String tipoVaccino, String nDosi) {
 		Integer res = 0; //segnale restituito dal server con callBack
 		
@@ -124,7 +133,9 @@ public class Proxy implements ServerInterface{
 		return res.intValue(); //se maggiore di zero aggiunto, se = o < no perchè gia esiste
 	}
 	
-	//questo metodo verifica che un cittadino sia stato vaccinato, controllando il CF
+	/**
+	 * Metodo che verifica che un cittadino sia stato vaccinato, controllando il CF
+	 */
 	public boolean checkCittadinoVaccinato(String codiceFiscale) {
 			
 		boolean res = false;
@@ -167,7 +178,9 @@ public class Proxy implements ServerInterface{
 		return res.intValue();
 	}
 	
-	//verifica se username esiste controllando nome utente
+	/**
+	 * Metodo che verifica se username esiste controllando nome utente
+	 */
 	public boolean esisteUtente(String username) {
 		
 		boolean res = false;
@@ -186,7 +199,9 @@ public class Proxy implements ServerInterface{
 		return res;
 	}
 	
-	//verifica se id inserito in fase di registrazione è quello dell' utente vaccinato effettivo
+	/**
+	 * Metodo che verifica se id inserito in fase di registrazione è quello dell' utente vaccinato effettivo
+	 */
 	public boolean verificaCorrispondenzaId(String codiceFiscale, String idVaccinato) {
 		
 		boolean res = false;
@@ -206,7 +221,9 @@ public class Proxy implements ServerInterface{
 		return res;
 	}
 	
-	//verifica se dati inseriti sono corretti per accedere
+	/**
+	 * Metodo che verifica se dati inseriti sono corretti per accedere
+	 */
 	public boolean login(String username, String password) {
 		
 		Boolean res = false;
@@ -252,18 +269,18 @@ public class Proxy implements ServerInterface{
 	
 
 	public boolean esisteUsername(String username) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	public boolean checkCittadinoVaccinatoPerRegistrazione(String codiceFiscale, String cognome, String nome,
 			String idUnivoco, String nomeCentro) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 
-	//ritorna elenco centri vaccinali registrati
+	/**
+	 * Metodo che ritorna elenco centri vaccinali registrati
+	 */
 	public List<String> retElencoCentriVaccinali() {
 		List<String> res = null;
 		
@@ -280,7 +297,9 @@ public class Proxy implements ServerInterface{
 		return res;
 	}
 
-	//ritorna id univoco del vaccinato in base al codice fiscale
+	/**
+	 * Metodo che ritorna id univoco del vaccinato in base al codice fiscale
+	 */
 	public List<String> IdUnivoco(String codiceFiscale) {
 		
 		List<String> res = null;
@@ -300,7 +319,9 @@ public class Proxy implements ServerInterface{
 	}
 	
 	
-	//questo metodo ritorna il codice fiscale dell'utente passato come parametro
+	/**
+	 * Metodo che ritorna il codice fiscale dell'utente passato come parametro
+	 */
 	public String retCfUtente(String username) {
 		String res = "";
 		try {
@@ -317,7 +338,9 @@ public class Proxy implements ServerInterface{
 		return res;
 	}
 	
-	//richiede al server l'elenco degli eventi avversi dell'username attualmente connesso
+	/**
+	 * Metodo che richiede al server l'elenco degli eventi avversi dell'username attualmente connesso
+	 */
 	public List<List<String>> retMyElencoEventiAvversi(String username) {
 		List<List<String>> res = null;
 		
@@ -336,7 +359,9 @@ public class Proxy implements ServerInterface{
 	}
 
 
-	//restituise le informazioni del centro ricercato mediante nome
+	/**
+	 * Metodo che restituise le informazioni del centro ricercato mediante nome
+	 */
 	public List<String> infoCentriVaccinaliNome(String nomeCentro) {
 		List<String> res = null;
 		
@@ -355,7 +380,9 @@ public class Proxy implements ServerInterface{
 		return res;
 	}
 
-	//restituisce le info del centro cercato mediante comune e tipologia
+	/**
+	 * Metodo che restituisce le info del centro cercato mediante comune e tipologia
+	 */
 	public List<List<String>> infoCentriVaccinaliCeT(String comune, String tipologia) {
 		List<List<String>> res = null;
 		
@@ -376,7 +403,9 @@ public class Proxy implements ServerInterface{
 	}
 
 
-
+	/**
+	 * Metodo che si occupa di creare il dataset
+	 */
 	public void creazioneDataset() {
 		try {
 			this.out.writeObject("generaDataset");
