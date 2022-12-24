@@ -8,54 +8,146 @@ import java.util.List;
  */
 public interface ServerInterface {
 	
-	//inserisce il nuovo centro nel DB 
+	/**
+	 * Metodo che inserisce il nuovo centro nel DB 
+	 * @param nome
+	 * @param qualificatore
+	 * @param indirizzo
+	 * @param numeroCivico
+	 * @param comune
+	 * @param provincia
+	 * @param cap
+	 * @param tipologia
+	 * @return
+	 */
 	public int registraCentroVaccinale(String nome, String qualificatore, String indirizzo, String numeroCivico, String comune, String provincia, String cap, String tipologia);
 	
-	//inserisce un nuovo vaccinato nel DB
+	/**
+	 * Metodo che inserisce un nuovo vaccinato nel DB
+	 * @param nomeCentro
+	 * @param nome
+	 * @param cognome
+	 * @param codiceFiscale
+	 * @param dataSomministrazione
+	 * @param tipoVaccino
+	 * @param nDosi
+	 * @return
+	 */
 	public int registraVaccinato(String nomeCentro, String nome, String cognome, String codiceFiscale, String dataSomministrazione, String tipoVaccino, String nDosi);
 	
-	//effettua inserimento nel DB di un cittadino vaccinato
+	/**
+	 * Metodo che effettua inserimento nel DB di un cittadino vaccinato
+	 * @param nome
+	 * @param cognome
+	 * @param codiceFiscale
+	 * @param eMail
+	 * @param username
+	 * @param password
+	 * @param IdUnivoco
+	 * @return
+	 */
 	public int registrazioneCittadino(String nome, String cognome, String codiceFiscale, String eMail, String username, String password, String IdUnivoco);
 	
-	//controlla se utente esiste verificando username
+	/**
+	 * Metodo che controlla se utente esiste verificando username
+	 * @param username
+	 * @return
+	 */
 	public boolean esisteUtente(String username);
 	
-	//verifica che id in fase di registrazione corrisponde all'utente realmente assegnato
+	/**
+	 * Metodo che verifica che id in fase di registrazione corrisponde all'utente realmente assegnato
+	 * @param codiceFiscale
+	 * @param idVaccinato
+	 * @return
+	 */
 	public boolean verificaCorrispondenzaId(String codiceFiscale, String idVaccinato);
 	
-	//verifica l'esistenza con il db di un username o password registrata
+	/**
+	 * Metodo che verifica l'esistenza con il db di un username o password registrata
+	 * @param username
+	 * @param password
+	 * @return
+	 */
 	public boolean login(String username, String password);
 	
-	//registra nel DB un nuovo evento avverso di un cittadino
+	/**
+	 * Metodo che registra nel DB un nuovo evento avverso di un cittadino
+	 * @param codiceFiscale
+	 * @param evento
+	 * @param severita
+	 * @param note
+	 * @return
+	 */
 	public int inserisciEventoAvverso(String codiceFiscale, String evento, String severita, String note);
 	
-	//verifica se esiste un centro Vaccinale con quel nome
+	/**
+	 * Metodo che verifica se esiste un centro Vaccinale con quel nome
+	 * @param nome
+	 * @return
+	 */
 	public boolean EsisteCentroNome(String nome);
 	
-	//verifica se esiste un centro Vaccinale nel comune e tipologia specificata
+	/**
+	 * Metodo che verifica se esiste un centro Vaccinale nel comune e tipologia specificata
+	 * @param comune
+	 * @param tipologia
+	 * @return
+	 */
 	public boolean EsisteCentroCeT(String comune, String tipologia);
 	
-	//prende le info dei centri vaccinali tramite ricerca per nome
+	/**
+	 * Metodo che prende le info dei centri vaccinali tramite ricerca per nome
+	 * @param nomeCentro
+	 * @return
+	 */
 	public List<String> infoCentriVaccinaliNome(String nomeCentro);
 	
-	//prende le info dei centri vaccinali tramite ricerca per comune e tipologia
+	/**
+	 * Metodo che prende le info dei centri vaccinali tramite ricerca per comune e tipologia
+	 * @param comune
+	 * @param tipologia
+	 * @return
+	 */
 	public List<List<String>> infoCentriVaccinaliCeT(String comune, String tipologia);
 		
-	//controlla se cittadino si è effettivamente registrato
+	/**
+	 * Metodo che controlla se cittadino si è effettivamente registrato
+	 * @param nomeCittadino
+	 * @return
+	 */
 	public boolean checkCittadinoVaccinato(String nomeCittadino);
 	
-	//ritorna elenco centri vaccinali inseriti nel DB
+	/**
+	 * Metodo che ritorna elenco centri vaccinali inseriti nel DB
+	 * @return
+	 */
 	public List<String> retElencoCentriVaccinali();
 	
-	//ritorna elenco eventi avversi inseriti nel DB per quell'utente
+	/**
+	 * Metodo che ritorna elenco eventi avversi inseriti nel DB per quell'utente
+	 * @param username
+	 * @return
+	 */
 	public List<List<String>> retMyElencoEventiAvversi(String username);
 
-	//restituisce una lista contenente in posizione 0 il nome e in posizione 1 idUnivoco del vaccinato
+	/**
+	 * Metodo che restituisce una lista contenente in posizione 0 il nome e in posizione 1 idUnivoco del vaccinato
+	 * @param codiceFiscale
+	 * @return
+	 */
 	public List<String> IdUnivoco(String codiceFiscale);
 
-	//ritorna il codice fiscale di quell'utente che ne fa richiesta
+	/**
+	 * Metodo che ritorna il codice fiscale di quell'utente che ne fa richiesta
+	 * @param username
+	 * @return
+	 */
 	public String retCfUtente(String username);
 	
+	/**
+	 * Metodo che serve per la creazione del dataset
+	 */
 	public void creazioneDataset();
 	
 }
