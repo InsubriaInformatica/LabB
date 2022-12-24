@@ -1,5 +1,23 @@
 Manifest-Version: 1.0
 Built-By: aldoademi
 Build-Jdk: 17.0.4.1
+Class-Path: lib/jcalendar-1.4.jar lib/aws-lambda-java-core-1.2.1.jar lib
+ /maven-shade-plugin-3.2.2.jar lib/maven-plugin-api-3.0.jar lib/sisu-inj
+ ect-plexus-1.4.2.jar lib/sisu-inject-bean-1.4.2.jar lib/sisu-guice-2.1.
+ 7-noaop.jar lib/maven-model-3.0.jar lib/maven-core-3.0.jar lib/maven-se
+ ttings-3.0.jar lib/maven-settings-builder-3.0.jar lib/maven-repository-
+ metadata-3.0.jar lib/maven-model-builder-3.0.jar lib/maven-aether-provi
+ der-3.0.jar lib/aether-impl-1.7.jar lib/aether-spi-1.7.jar lib/aether-a
+ pi-1.7.jar lib/aether-util-1.7.jar lib/plexus-interpolation-1.14.jar li
+ b/plexus-classworlds-2.2.3.jar lib/plexus-component-annotations-1.5.5.j
+ ar lib/plexus-sec-dispatcher-1.3.jar lib/plexus-cipher-1.4.jar lib/mave
+ n-artifact-3.0.jar lib/plexus-utils-3.3.0.jar lib/maven-artifact-transf
+ er-0.12.0.jar lib/maven-common-artifact-filters-3.0.1.jar lib/maven-sha
+ red-utils-3.1.0.jar lib/commons-codec-1.11.jar lib/slf4j-api-1.7.5.jar 
+ lib/asm-7.3.1.jar lib/asm-commons-7.3.1.jar lib/asm-tree-7.3.1.jar lib/
+ asm-analysis-7.3.1.jar lib/jdom2-2.0.6.jar lib/maven-dependency-tree-3.
+ 0.1.jar lib/aether-util-0.9.0.M2.jar lib/commons-io-2.5.jar lib/jdepend
+ ency-2.3.0.jar lib/asm-util-7.2-beta.jar lib/guava-19.0.jar
+Main-Class: ClientMain
 Created-By: Maven Integration for Eclipse
 

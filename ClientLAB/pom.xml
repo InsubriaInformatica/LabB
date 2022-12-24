@@ -12,7 +12,17 @@
             <artifactId>jcalendar</artifactId>
             <version>1.4</version>
         </dependency>
-  
+
+        <dependency>
+        	<groupId>com.amazonaws</groupId>
+        	<artifactId>aws-lambda-java-core</artifactId>
+        	<version>1.2.1</version>
+        </dependency>
+        <dependency>
+        	<groupId>org.apache.maven.plugins</groupId>
+        	<artifactId>maven-shade-plugin</artifactId>
+        	<version>3.2.2</version>
+        </dependency>
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -34,6 +44,22 @@
 				</execution>
 			</executions>
 		</plugin>
-	</plugins>
+
+    <plugin>
+      <!-- Build an executable JAR -->
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-jar-plugin</artifactId>
+      <version>3.1.0</version>
+      <configuration>
+        <archive>
+          <manifest>
+            <addClasspath>true</addClasspath>
+            <classpathPrefix>lib/</classpathPrefix>
+            <mainClass>ClientMain</mainClass>
+          </manifest>
+        </archive>
+      </configuration>
+    </plugin>
+    </plugins>
 	</build>
 </project>
