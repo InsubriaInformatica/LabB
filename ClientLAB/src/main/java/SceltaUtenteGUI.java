@@ -4,7 +4,7 @@ import javax.swing.*;
 import javax.swing.border.Border;
 
 /**
- * in questa schermata viene selezionata la tipologia utente cui si vuole lavorare
+ * In questa schermata viene selezionata la tipologia utente cui si vuole lavorare
  * @author Enrico Brullo
  *
  */
@@ -32,7 +32,12 @@ public class SceltaUtenteGUI {
 	private JLabel labelTitolo;
 	private JLabel spazioVuoto;
 
-	//costruttore
+	/**
+	 * Costruttore della classe
+	 * @param larghezza
+	 * @param altezza
+	 * @param intestazione
+	 */
 	public SceltaUtenteGUI(int larghezza, int altezza, JPanel intestazione) {
 		this.intestazione = intestazione; //intestazione schermata
 		
@@ -108,27 +113,42 @@ public class SceltaUtenteGUI {
 	}
 	
 	
-	//metodo che ritorna riferimento al Panel Intestazione della schermata
+	/**
+	 * Metodo che ritorna riferimento al Panel Intestazione della schermata
+	 * @return
+	 */
 	public JPanel retIntestazione() {
 		return this.intestazione;
 	}
 	
-	//metodo che ritorna riferimento al Panel contenitore, ovvero al corpo della schermata
+	/**
+	 * Metodo che ritorna riferimento al Panel contenitore, ovvero al corpo della schermata
+	 * @return
+	 */
 	public JPanel retContenitore() {
 		return this.contenitoreTipoUtente;
 	}
 	
-	//metodo che ritorna riferimento al button relativo alla scelta di essere operatore
+	/**
+	 * Metodo che ritorna riferimento al button relativo alla scelta di essere operatore
+	 * @return
+	 */
 	public JButton retButtonOperatore() {
 		return this.operatore;
 	}
 	
-	//metodo che ritorna riferimento al button relativo alla scelta di essere cittadino
+	/**
+	 * Metodo che ritorna riferimento al button relativo alla scelta di essere cittadino
+	 * @return
+	 */
 	public JButton retButtonCittadino() {
 		return this.cittadino;
 	}
 	
-	//metodo che ritorna il pulsante per cambiare ip
+	/**
+	 * Metodo che ritorna il pulsante per cambiare ip
+	 * @return
+	 */
 	public JButton retButtonImpostazioni() {
 		return this.buttonSetting;
 	}
