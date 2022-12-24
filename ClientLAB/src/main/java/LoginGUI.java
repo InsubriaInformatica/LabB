@@ -46,6 +46,12 @@ public class LoginGUI {
 	private JPanel panelBottone1;
     private JButton buttonLoginRegistrati;
 	
+    /**
+     * Costruttore della classe
+     * @param altezza
+     * @param larghezza
+     * @param intestazione
+     */
 	public LoginGUI(int altezza, int larghezza, JPanel intestazione) {
 		
 		this.intestazione = intestazione;
@@ -169,40 +175,60 @@ public class LoginGUI {
 		
 	}
 	
-	//ritorna intestazione della pagina
+	/**
+	 * Metodo che ritorna intestazione della pagina
+	 * @return
+	 */
 	public JPanel retIntestazione() {
 		return this.intestazione;
 	}
 
-	//ritorna contenitore elementi
+	/**
+	 * Metodo che ritorna contenitore elementi
+	 * @return
+	 */
 	public JPanel retContenitore() {
 		return this.contenitorePrincipale;
 	}
 
-	//pulisce i campi di testo
+	/**
+	 * Metodo che pulisce i campi di testo
+	 */
 	public void pulisciCampi() {
 		this.textFieldUsername.setText("");
 		this.textFieldPsw.setText("");
 	}
 	
-	//ritorna username inserito
+	/**
+	 * Metodo che ritorna username inserito
+	 * @return
+	 */
 	public String retUsernameInserito() {
 		return textFieldUsername.getText();
 	}
 	
-	//ritorna un char di password inserita che viene convertito in stringa
+	/**
+	 * Metodo che ritorna un char di password inserita che viene convertito in stringa
+	 * @return
+	 */
 	public String retPswInserita() {
 		char[] charPassword = textFieldPsw.getPassword();
 		String password = String.valueOf(charPassword);
 		return password;
 	}
 	
-	//riferimento a button accedi
+	/**
+	 * Metodo che fa riferimento a button accedi
+	 * @return
+	 */
 	public JButton retButtonAccedi() {
 		return this.buttonAccedi;
 	}
 	
-	//riferimento al button registrati
+	/**
+	 * Metodo che fa riferimento al button registrati
+	 * @return
+	 */
 	public JButton retButtonLoginRegistrati() {
 		return this.buttonLoginRegistrati;
 	}
