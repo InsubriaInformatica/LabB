@@ -27,7 +27,12 @@ public class VisualizzaEventiAvversiGUI {
 	private String[] colonne;
 	private String[][] valori;
 	
-	
+	/**
+	 * Costruttore della classe
+	 * @param altezza
+	 * @param larghezza
+	 * @param intestazione
+	 */
 	public VisualizzaEventiAvversiGUI(int altezza, int larghezza, JPanel intestazione) {
 		
 		this.intestazione = intestazione;
@@ -90,35 +95,51 @@ public class VisualizzaEventiAvversiGUI {
 		
 	}
 	
-	//ritorna intestazione della pagina
+	/**
+	 * Metodo che ritorna intestazione della pagina
+	 * @return
+	 */
 	public JPanel retIntestazione() {
 		return this.intestazione;
 	}
 
-	//ritorna contenitore elementi
+	/**
+	 * Metodo che ritorna contenitore elementi
+	 * @return
+	 */
 	public JPanel retContenitore() {
 		return this.contenitorePrincipale;
 	}
 	
-	//array che contiene nomi colonne
+	/**
+	 * Metodo che ritorna array che contiene nomi colonne
+	 * @return
+	 */
 	public String[] retColonne() {
 		return this.colonne;
 	}
 
-	//crea tabella con valori passati come argomento
+	/**
+	 * Metodo che crea tabella con valori passati come argomento
+	 * @param inserimento
+	 */
 	public void creaTabella(String [][] inserimento) {
 		this.tabellaEA = new JTable(inserimento, this.colonne);
 		this.tabellaEA.setEnabled(false); //senza eventi
 	}
 
-	//rende tabella scrollabile ed aggiunge elementi utili
+	/**
+	 * Metodo che rende tabella scrollabile ed aggiunge elementi utili
+	 */
 	public void ultimaView() {
 		this.scrollPaneEA = new JScrollPane(this.tabellaEA);
 		this.scrollPaneEA.setBackground(Colori.purple);
 		this.contenitorePrincipale.add(this.scrollPaneEA);
 	}
 	
-	//reset view
+	/**
+	 * Metodo che resetta la view
+	 */
 	public void pulisciView() {
 		this.contenitorePrincipale.removeAll();
 	}
