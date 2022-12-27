@@ -29,9 +29,9 @@
    
     <properties>
    
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+   		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>15</maven.compiler.source>
+        <maven.compiler.target>15</maven.compiler.target>
        
     </properties>
     
@@ -40,6 +40,9 @@
 		<plugin>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-javadoc-plugin</artifactId>
+			<configuration>
+        <additionalOptions>-Xdoclint:none</additionalOptions>
+    </configuration>
 			<executions>
 				<execution>
 					<id>attach-javadocs</id>

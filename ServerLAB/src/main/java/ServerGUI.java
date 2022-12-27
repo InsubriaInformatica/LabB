@@ -72,7 +72,7 @@ public class ServerGUI extends JFrame implements ViewInterface{
 
 		
 		//Titolo contenuto nell'intestazione
-		this.immagine = new ImageIcon("img/server.png"); // ../ serve per il jar
+		this.immagine = new ImageIcon("../img/server.png"); // ../ serve per il jar
 		this.titolo = new JLabel(new ImageIcon(immagine.getImage().getScaledInstance(immagine.getIconWidth()/20*6, immagine.getIconHeight()/20*6, java.awt.Image.SCALE_SMOOTH)));
 		titolo.setText("AVVIO SERVER");
 		titolo.setForeground(Colori.arancione);
@@ -164,7 +164,7 @@ public class ServerGUI extends JFrame implements ViewInterface{
 		this.panelVuoto.setPreferredSize(new Dimension(700, 25)); //larghezza, altezza
 		
 		//BOTTONE AVVIA SERVER
-		this.avvio = new ImageIcon("img/accendi.png");
+		this.avvio = new ImageIcon("../img/accendi.png");
 		
 		
 		this.panelBottoni = new JPanel();
