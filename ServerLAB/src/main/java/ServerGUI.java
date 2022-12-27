@@ -52,7 +52,6 @@ public class ServerGUI extends JFrame implements ViewInterface{
 	private ImageIcon avvio;
 	private JButton buttonAvvio;
 	
-	private ImageIcon spegnimento;
 	private JButton buttonDataset;
 
 	//costruttore che realizza la view
@@ -166,7 +165,7 @@ public class ServerGUI extends JFrame implements ViewInterface{
 		
 		//BOTTONE AVVIA SERVER
 		this.avvio = new ImageIcon("img/accendi.png");
-		this.spegnimento = new ImageIcon("img/spegni.png");
+		
 		
 		this.panelBottoni = new JPanel();
 		this.panelBottoni.setLayout(new GridLayout(1,2));
