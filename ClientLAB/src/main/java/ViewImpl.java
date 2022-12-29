@@ -75,8 +75,8 @@ public class ViewImpl extends JFrame implements View{
 		
 		Border bordoIntestazione = BorderFactory.createLineBorder(Colori.purple, 3); //crea bordo
 
-		back = new ImageIcon("../img/indietro2.png");
-		ImageIcon scalaBack = new ImageIcon(back.getImage().getScaledInstance(back.getIconWidth()/30*2, back.getIconHeight()/30*2, java.awt.Image.SCALE_SMOOTH)); //immagine in scala
+		back = new ImageIcon(getClass().getClassLoader().getResource("indietro2.png"));
+		ImageIcon scalaBack = new ImageIcon(back.getImage().getScaledInstance(back.getIconWidth()/20*2, back.getIconHeight()/20*2, java.awt.Image.SCALE_SMOOTH)); //immagine in scala
 		
 		//TASTO INDIETRO
 		this.indietro = new JButton();
@@ -96,11 +96,12 @@ public class ViewImpl extends JFrame implements View{
 		this.intestazione.setBackground(Colori.arancione);
 		this.intestazione.setBorder(bordoIntestazione);
 		
-		this.immagine = new ImageIcon("../img/logovaccino.png"); // ../ serve per il jar
-		
+		this.immagine = new ImageIcon(getClass().getClassLoader().getResource("logovaccino.png"));
+		//this.immagine = new ImageIcon("img/logovaccino.png"); // ../ serve per il jar
+		ImageIcon immagineScala = new ImageIcon(immagine.getImage().getScaledInstance(immagine.getIconWidth()/20*3, immagine.getIconHeight()/20*3, java.awt.Image.SCALE_SMOOTH));
 		
 		//TITOLO
-		this.titolo = new JLabel(new ImageIcon(immagine.getImage().getScaledInstance(immagine.getIconWidth()/30*3, immagine.getIconHeight()/30*3, java.awt.Image.SCALE_SMOOTH)));
+		this.titolo = new JLabel(immagineScala);
 		titolo.setText("VACCINIAMO");
 		//titolo.setIcon(immagine);
 		titolo.setHorizontalTextPosition(JLabel.CENTER); //setta il testo DX,CX,SX rispetto a immagine

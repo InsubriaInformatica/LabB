@@ -56,10 +56,12 @@ public class LoginGUI {
 		
 		this.intestazione = intestazione;
 		
-		immagineUser = new ImageIcon("../img/user.png");
+		immagineUser = new ImageIcon(getClass().getClassLoader().getResource("user.png"));
+		//immagineUser = new ImageIcon("img/user.png");
 		scalaUser = new ImageIcon(immagineUser.getImage().getScaledInstance(immagineUser.getIconWidth()/20, immagineUser.getIconHeight()/20, java.awt.Image.SCALE_SMOOTH)); //immagine in scala
 		
-		immaginePsw = new ImageIcon("../img/password.png");
+		immaginePsw = new ImageIcon(getClass().getClassLoader().getResource("password.png"));
+		//immaginePsw = new ImageIcon("img/password.png");
 		scalaPsw = new ImageIcon(immaginePsw.getImage().getScaledInstance(immaginePsw.getIconWidth()/20, immaginePsw.getIconHeight()/20, java.awt.Image.SCALE_SMOOTH)); //immagine in scala
 		
 		Border bordo = BorderFactory.createLineBorder(Colori.light_grey, 1); //crea bordo

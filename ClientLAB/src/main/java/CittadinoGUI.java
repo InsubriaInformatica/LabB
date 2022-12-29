@@ -53,13 +53,16 @@ public class CittadinoGUI {
 		this.contenitore.setPreferredSize(new Dimension(larghezza/2, altezza/10*7)); //size
 		this.contenitore.setBackground(Colori.purple);
 		
-		immagineRegistrati = new ImageIcon("../img/registrati.png");
+		immagineRegistrati = new ImageIcon(getClass().getClassLoader().getResource("registrati.png"));
+		//immagineRegistrati = new ImageIcon("img/registrati.png");
 		scalaRegistrati = new ImageIcon(immagineRegistrati.getImage().getScaledInstance(immagineRegistrati.getIconWidth()/20*2, immagineRegistrati.getIconHeight()/20*2, java.awt.Image.SCALE_SMOOTH)); //immagine in scala
 		
-		immagineInfo = new ImageIcon("../img/info.png");
+		immagineInfo = new ImageIcon(getClass().getClassLoader().getResource("info.png"));
+		//immagineInfo = new ImageIcon("img/info.png");
 		scalaInfo = new ImageIcon(immagineInfo.getImage().getScaledInstance(immagineInfo.getIconWidth()/20*2, immagineInfo.getIconHeight()/20*2, java.awt.Image.SCALE_SMOOTH)); //immagine in scala
 		
-		immagineAvversi = new ImageIcon("../img/avversi.png");
+		immagineAvversi = new ImageIcon(getClass().getClassLoader().getResource("avversi.png"));
+		//immagineAvversi = new ImageIcon("img/avversi.png");
 		scalaAvversi = new ImageIcon(immagineAvversi.getImage().getScaledInstance(immagineAvversi.getIconWidth()/20*2, immagineAvversi.getIconHeight()/20*2, java.awt.Image.SCALE_SMOOTH)); //immagine in scala
 		
 		this.labelTitolo = new JLabel("FORM CITTADINO:");

@@ -49,14 +49,17 @@ public class SceltaUtenteGUI {
 		this.contenitoreTipoUtente.setPreferredSize(new Dimension(larghezza/2, altezza/10*7)); //size
 		this.contenitoreTipoUtente.setBackground(Colori.purple);
 			
-		immagineOperatore = new ImageIcon("../img/operatore.png");
-		scalaOperatore = new ImageIcon(immagineOperatore.getImage().getScaledInstance(immagineOperatore.getIconWidth()/20*6, immagineOperatore.getIconHeight()/20*6, java.awt.Image.SCALE_SMOOTH)); //immagine in scala
+		immagineOperatore = new ImageIcon(getClass().getClassLoader().getResource("operatore.png"));
+		//immagineOperatore = new ImageIcon("img/operatore.png");
+		scalaOperatore = new ImageIcon(immagineOperatore.getImage().getScaledInstance(immagineOperatore.getIconWidth()/20*2, immagineOperatore.getIconHeight()/20*2, java.awt.Image.SCALE_SMOOTH)); //immagine in scala
 		
-		immagineCittadino = new ImageIcon("../img/cittadino.png");
-		scalaCittadino = new ImageIcon(immagineCittadino.getImage().getScaledInstance(immagineCittadino.getIconWidth()/20*6, immagineCittadino.getIconHeight()/20*6, java.awt.Image.SCALE_SMOOTH)); //immagine in scala
+		immagineCittadino = new ImageIcon(getClass().getClassLoader().getResource("cittadino.png"));
+		//immagineCittadino = new ImageIcon("img/cittadino.png");
+		scalaCittadino = new ImageIcon(immagineCittadino.getImage().getScaledInstance(immagineCittadino.getIconWidth()/20*2, immagineCittadino.getIconHeight()/20*2, java.awt.Image.SCALE_SMOOTH)); //immagine in scala
 		
-		immagineSetting = new ImageIcon("../img/impostazioni.png");
-		scalaSetting = new ImageIcon(immagineSetting.getImage().getScaledInstance(immagineSetting.getIconWidth()/20*6, immagineSetting.getIconHeight()/20*6, java.awt.Image.SCALE_SMOOTH)); //immagine in scala
+		immagineSetting = new ImageIcon(getClass().getClassLoader().getResource("impostazioni.png"));
+		//immagineSetting = new ImageIcon("img/impostazioni.png");
+		scalaSetting = new ImageIcon(immagineSetting.getImage().getScaledInstance(immagineSetting.getIconWidth()/20*2, immagineSetting.getIconHeight()/20*2, java.awt.Image.SCALE_SMOOTH)); //immagine in scala
 		
 
 		this.labelTitolo = new JLabel("SELEZIONA IL TIPO UTENTE:");

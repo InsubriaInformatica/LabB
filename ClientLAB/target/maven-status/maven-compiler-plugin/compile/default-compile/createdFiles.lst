@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-RegistraVaccinatoGUI.class
-OperatoreGUI.class
-RegistraCentroGUI.class
-Model.class
-ViewImpl.class
-View.class
-Main.class
-ModelImpl.class
-ControllerImpl.class
-=======
 GUICambiaIP.class
 ClientMain.class
 CercaCentroGUI.class
@@ -24,10 +13,9 @@ VisualizzaEventiAvversiGUI.class
 View.class
 ServerInterface.class
 ModelImpl.class
-Colori.class
 ElencoCentriGUI.class
+Colori.class
 ControllerImpl.class
 LoginGUI.class
->>>>>>> 87d0e5b9533a9cd1579b965d609ddb0290ff3759
 SceltaUtenteGUI.class
 CittadinoGUI.class

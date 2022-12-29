@@ -50,10 +50,12 @@ public class OperatoreGUI{
 		this.contenitore.setPreferredSize(new Dimension(larghezza, altezza/10*7)); //size
 		this.contenitore.setBackground(Colori.purple);
 		
-		immagineRegCentro = new ImageIcon("../img/regCentro.png");
+		immagineRegCentro = new ImageIcon(getClass().getClassLoader().getResource("regCentro.png"));
+		//immagineRegCentro = new ImageIcon("img/regCentro.png");
 		scalaRegCentro = new ImageIcon(immagineRegCentro.getImage().getScaledInstance(immagineRegCentro.getIconWidth()/20*3, immagineRegCentro.getIconHeight()/20*3, java.awt.Image.SCALE_SMOOTH)); //immagine in scala
 		
-		immagineRegVaccinato = new ImageIcon("../img/regVaccinato.png");
+		immagineRegVaccinato = new ImageIcon(getClass().getClassLoader().getResource("regVaccinato.png"));
+		//immagineRegVaccinato = new ImageIcon("img/regVaccinato.png");
 		scalaRegVaccinato = new ImageIcon(immagineRegVaccinato.getImage().getScaledInstance(immagineRegVaccinato.getIconWidth()/20*3, immagineRegVaccinato.getIconHeight()/20*3, java.awt.Image.SCALE_SMOOTH)); //immagine in scala
 		
 		this.labelTitolo = new JLabel("FORM OPERATORE:");
