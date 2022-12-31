@@ -1,12 +1,11 @@
+/Library/Java/JavaVirtualMachines/jdk-16.0.1.jdk/Contents/Home/bin/javadoc
 @options
 @argfile
 -classpath
-'/Users/lele1312/.m2/repository/com/toedter/jcalendar/1.4/jcalendar-1.4.jar:/Users/lele1312/.m2/repository/com/amazonaws/aws-lambda-java-core/1.2.1/aws-lambda-java-core-1.2.1.jar:/Users/lele1312/.m2/repository/org/apache/maven/plugins/maven-shade-plugin/3.2.2/maven-shade-plugin-3.2.2.jar:/Users/lele1312/.m2/repository/org/apache/maven/maven-plugin-api/3.0/maven-plugin-api-3.0.jar:/Users/lele1312/.m2/repository/org/sonatype/sisu/sisu-inject-plexus/1.4.2/sisu-inject-plexus-1.4.2.jar:/Users/lele1312/.m2/repository/org/sonatype/sisu/sisu-inject-bean/1.4.2/sisu-inject-bean-1.4.2.jar:/Users/lele1312/.m2/repository/org/sonatype/sisu/sisu-guice/2.1.7/sisu-guice-2.1.7-noaop.jar:/Users/lele1312/.m2/repository/org/apache/maven/maven-model/3.0/maven-model-3.0.jar:/Users/lele1312/.m2/repository/org/apache/maven/maven-core/3.0/maven-core-3.0.jar:/Users/lele1312/.m2/repository/org/apache/maven/maven-settings/3.0/maven-settings-3.0.jar:/Users/lele1312/.m2/repository/org/apache/maven/maven-settings-builder/3.0/maven-settings-builder-3.0.jar:/Users/lele1312/.m2/repository/org/apache/maven/maven-repository-metadata/3.0/maven-repository-metadata-3.0.jar:/Users/lele1312/.m2/repository/org/apache/maven/maven-model-builder/3.0/maven-model-builder-3.0.jar:/Users/lele1312/.m2/repository/org/sonatype/aether/aether-impl/1.7/aether-impl-1.7.jar:/Users/lele1312/.m2/repository/org/sonatype/aether/aether-spi/1.7/aether-spi-1.7.jar:/Users/lele1312/.m2/repository/org/sonatype/aether/aether-api/1.7/aether-api-1.7.jar:/Users/lele1312/.m2/repository/org/sonatype/aether/aether-util/1.7/aether-util-1.7.jar:/Users/lele1312/.m2/repository/org/codehaus/plexus/plexus-interpolation/1.14/plexus-interpolation-1.14.jar:/Users/lele1312/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.2.3/plexus-classworlds-2.2.3.jar:/Users/lele1312/.m2/repository/org/codehaus/plexus/plexus-component-annotations/1.5.5/plexus-component-annotations-1.5.5.jar:/Users/lele1312/.m2/repository/org/sonatype/plexus/plexus-sec-dispatcher/1.3/plexus-sec-dispatcher-1.3.jar:/Users/lele1312/.m2/repository/org/sonatype/plexus/plexus-cipher/1.4/plexus-cipher-1.4.jar:/Users/lele1312/.m2/repository/org/apache/maven/maven-artifact/3.0/maven-artifact-3.0.jar:/Users/lele1312/.m2/repository/org/codehaus/plexus/plexus-utils/3.3.0/plexus-utils-3.3.0.jar:/Users/lele1312/.m2/repository/org/apache/maven/shared/maven-artifact-transfer/0.12.0/maven-artifact-transfer-0.12.0.jar:/Users/lele1312/.m2/repository/org/apache/maven/shared/maven-common-artifact-filters/3.0.1/maven-common-artifact-filters-3.0.1.jar:/Users/lele1312/.m2/repository/org/apache/maven/shared/maven-shared-utils/3.1.0/maven-shared-utils-3.1.0.jar:/Users/lele1312/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/Users/lele1312/.m2/repository/org/slf4j/slf4j-api/1.7.5/slf4j-api-1.7.5.jar:/Users/lele1312/.m2/repository/org/ow2/asm/asm/7.3.1/asm-7.3.1.jar:/Users/lele1312/.m2/repository/org/ow2/asm/asm-commons/7.3.1/asm-commons-7.3.1.jar:/Users/lele1312/.m2/repository/org/ow2/asm/asm-tree/7.3.1/asm-tree-7.3.1.jar:/Users/lele1312/.m2/repository/org/ow2/asm/asm-analysis/7.3.1/asm-analysis-7.3.1.jar:/Users/lele1312/.m2/repository/org/jdom/jdom2/2.0.6/jdom2-2.0.6.jar:/Users/lele1312/.m2/repository/org/apache/maven/shared/maven-dependency-tree/3.0.1/maven-dependency-tree-3.0.1.jar:/Users/lele1312/.m2/repository/org/eclipse/aether/aether-util/0.9.0.M2/aether-util-0.9.0.M2.jar:/Users/lele1312/.m2/repository/commons-io/commons-io/2.5/commons-io-2.5.jar:/Users/lele1312/.m2/repository/org/vafer/jdependency/2.3.0/jdependency-2.3.0.jar:/Users/lele1312/.m2/repository/org/ow2/asm/asm-util/7.2-beta/asm-util-7.2-beta.jar:/Users/lele1312/.m2/repository/com/google/guava/guava/19.0/guava-19.0.jar'
+'/Users/lele1312/.m2/repository/com/toedter/jcalendar/1.4/jcalendar-1.4.jar'
 -encoding
 'UTF-8'
 -protected
--source
-'15'
 -sourcepath
 '/Users/lele1312/git/LabB/ClientLAB/src/main/java'
 -author
@@ -18,10 +17,11 @@
 '/Users/lele1312/git/LabB/ClientLAB/target/apidocs'
 -docencoding
 'UTF-8'
+-Xdoclint:none
 -doctitle
 'ClientLAB 1.0-SNAPSHOT API'
 -linkoffline
-'https://docs.oracle.com/en/java/javase/15/docs/api' '/Users/lele1312/git/LabB/ClientLAB/target/javadoc-bundle-options'
+'https://docs.oracle.com/en/java/javase/16/docs/api' '/Users/lele1312/git/LabB/ClientLAB/target/javadoc-bundle-options'
 -use
 -version
 -windowtitle
@@ -48,45 +48,6 @@
 '/Users/lele1312/git/LabB/ClientLAB/src/main/java/RegistraCentroGUI.java'
 '/Users/lele1312/git/LabB/ClientLAB/src/main/java/Colori.java'
 /Users/lele1312/.m2/repository/com/toedter/jcalendar/1.4/jcalendar-1.4.jar = 1629361287168
-/Users/lele1312/.m2/repository/com/amazonaws/aws-lambda-java-core/1.2.1/aws-lambda-java-core-1.2.1.jar = 1671893856271
-/Users/lele1312/.m2/repository/org/apache/maven/plugins/maven-shade-plugin/3.2.2/maven-shade-plugin-3.2.2.jar = 1671893856298
-/Users/lele1312/.m2/repository/org/apache/maven/maven-plugin-api/3.0/maven-plugin-api-3.0.jar = 1629361310408
-/Users/lele1312/.m2/repository/org/sonatype/sisu/sisu-inject-plexus/1.4.2/sisu-inject-plexus-1.4.2.jar = 1629361310302
-/Users/lele1312/.m2/repository/org/sonatype/sisu/sisu-inject-bean/1.4.2/sisu-inject-bean-1.4.2.jar = 1629361310274
-/Users/lele1312/.m2/repository/org/sonatype/sisu/sisu-guice/2.1.7/sisu-guice-2.1.7-noaop.jar = 1629361310352
-/Users/lele1312/.m2/repository/org/apache/maven/maven-model/3.0/maven-model-3.0.jar = 1629361310045
-/Users/lele1312/.m2/repository/org/apache/maven/maven-core/3.0/maven-core-3.0.jar = 1629361310148
-/Users/lele1312/.m2/repository/org/apache/maven/maven-settings/3.0/maven-settings-3.0.jar = 1629361310009
-/Users/lele1312/.m2/repository/org/apache/maven/maven-settings-builder/3.0/maven-settings-builder-3.0.jar = 1629361309794
-/Users/lele1312/.m2/repository/org/apache/maven/maven-repository-metadata/3.0/maven-repository-metadata-3.0.jar = 1629361309892
-/Users/lele1312/.m2/repository/org/apache/maven/maven-model-builder/3.0/maven-model-builder-3.0.jar = 1629361309992
-/Users/lele1312/.m2/repository/org/sonatype/aether/aether-impl/1.7/aether-impl-1.7.jar = 1629361310158
-/Users/lele1312/.m2/repository/org/sonatype/aether/aether-spi/1.7/aether-spi-1.7.jar = 1629361310108
-/Users/lele1312/.m2/repository/org/sonatype/aether/aether-api/1.7/aether-api-1.7.jar = 1629361310160
-/Users/lele1312/.m2/repository/org/sonatype/aether/aether-util/1.7/aether-util-1.7.jar = 1629361310227
-/Users/lele1312/.m2/repository/org/codehaus/plexus/plexus-interpolation/1.14/plexus-interpolation-1.14.jar = 1629361310315
-/Users/lele1312/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.2.3/plexus-classworlds-2.2.3.jar = 1629361310359
-/Users/lele1312/.m2/repository/org/codehaus/plexus/plexus-component-annotations/1.5.5/plexus-component-annotations-1.5.5.jar = 1626681724534
-/Users/lele1312/.m2/repository/org/sonatype/plexus/plexus-sec-dispatcher/1.3/plexus-sec-dispatcher-1.3.jar = 1629361310366
-/Users/lele1312/.m2/repository/org/sonatype/plexus/plexus-cipher/1.4/plexus-cipher-1.4.jar = 1629361310402
-/Users/lele1312/.m2/repository/org/apache/maven/maven-artifact/3.0/maven-artifact-3.0.jar = 1629361310002
-/Users/lele1312/.m2/repository/org/codehaus/plexus/plexus-utils/3.3.0/plexus-utils-3.3.0.jar = 1666520095221
-/Users/lele1312/.m2/repository/org/apache/maven/shared/maven-artifact-transfer/0.12.0/maven-artifact-transfer-0.12.0.jar = 1671893856274
-/Users/lele1312/.m2/repository/org/apache/maven/shared/maven-common-artifact-filters/3.0.1/maven-common-artifact-filters-3.0.1.jar = 1629361310506
-/Users/lele1312/.m2/repository/org/apache/maven/shared/maven-shared-utils/3.1.0/maven-shared-utils-3.1.0.jar = 1629361310540
-/Users/lele1312/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar = 1629361310635
-/Users/lele1312/.m2/repository/org/slf4j/slf4j-api/1.7.5/slf4j-api-1.7.5.jar = 1629361310639
-/Users/lele1312/.m2/repository/org/ow2/asm/asm/7.3.1/asm-7.3.1.jar = 1671893856262
-/Users/lele1312/.m2/repository/org/ow2/asm/asm-commons/7.3.1/asm-commons-7.3.1.jar = 1671893856299
-/Users/lele1312/.m2/repository/org/ow2/asm/asm-tree/7.3.1/asm-tree-7.3.1.jar = 1671893856365
-/Users/lele1312/.m2/repository/org/ow2/asm/asm-analysis/7.3.1/asm-analysis-7.3.1.jar = 1671893856353
-/Users/lele1312/.m2/repository/org/jdom/jdom2/2.0.6/jdom2-2.0.6.jar = 1671893856371
-/Users/lele1312/.m2/repository/org/apache/maven/shared/maven-dependency-tree/3.0.1/maven-dependency-tree-3.0.1.jar = 1671893856378
-/Users/lele1312/.m2/repository/org/eclipse/aether/aether-util/0.9.0.M2/aether-util-0.9.0.M2.jar = 1671893856405
-/Users/lele1312/.m2/repository/commons-io/commons-io/2.5/commons-io-2.5.jar = 1629361310577
-/Users/lele1312/.m2/repository/org/vafer/jdependency/2.3.0/jdependency-2.3.0.jar = 1671893856434
-/Users/lele1312/.m2/repository/org/ow2/asm/asm-util/7.2-beta/asm-util-7.2-beta.jar = 1671893856413
-/Users/lele1312/.m2/repository/com/google/guava/guava/19.0/guava-19.0.jar = 1671893856698
 /Users/lele1312/git/LabB/ClientLAB/src/main/java/RegisterGUI.java = 1671888963849
 /Users/lele1312/git/LabB/ClientLAB/src/main/java/LoginGUI.java = 1672329694218
 /Users/lele1312/git/LabB/ClientLAB/src/main/java/ModelImpl.java = 1671888963849
@@ -109,44 +70,44 @@
 /Users/lele1312/git/LabB/ClientLAB/src/main/java/RegistraCentroGUI.java = 1671888963849
 /Users/lele1312/git/LabB/ClientLAB/src/main/java/Colori.java = 1671624176662
 /Users/lele1312/git/LabB/ClientLAB/src/main/java = 1672305879138
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/RegisterGUI.html = 1672398147059
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/LoginGUI.html = 1672398146810
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/tag-search-index.js = 1672398147899
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/overview-tree.html = 1672398147839
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/module-search-index.js = 1672398147897
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/index.html = 1672398147978
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/package-search-index.js = 1672398147897
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/jquery-ui.overrides.css = 1672398148022
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/package-use.html = 1672398147833
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/ModelImpl.html = 1672398146885
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/ClientMain.html = 1672398146609
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/CercaCentroGUI.html = 1672398146548
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/serialized-form.html = 1672398147745
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/index-all.html = 1672398147976
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/allpackages-index.html = 1672398147895
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/ViewImpl.html = 1672398147603
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/SceltaUtenteGUI.html = 1672398147278
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/member-search-index.js = 1672398147898
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/script.js = 1672398147986
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/stylesheet.css = 1672398147985
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/ElencoCentriGUI.html = 1672398146720
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/help-doc.html = 1672398147983
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/RegistraVaccinatoGUI.html = 1672398147240
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/CittadinoGUI.html = 1672398146585
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/OperatoreGUI.html = 1672398146925
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/package-summary.html = 1672398147647
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/View.html = 1672398147344
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/ControllerImpl.html = 1672398146661
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/EventiAvversiGUI.html = 1672398146758
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/Proxy.html = 1672398147027
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/package-tree.html = 1672398147658
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/element-list = 1672398147638
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/allclasses-index.html = 1672398147890
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/ServerInterface.html = 1672398147297
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/GUICambiaIP.html = 1672398146787
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/type-search-index.js = 1672398147898
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/search.js = 1672398148016
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/RegistraCentroGUI.html = 1672398147145
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/VisualizzaEventiAvversiGUI.html = 1672398147636
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/Model.html = 1672398146828
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/Colori.html = 1672398146627
+/Users/lele1312/git/LabB/ClientLAB/target/apidocs/RegisterGUI.html = 1672490436986
+/Users/lele1312/git/LabB/ClientLAB/target/apidocs/LoginGUI.html = 1672490436782
+/Users/lele1312/git/LabB/ClientLAB/target/apidocs/tag-search-index.js = 1672490437761
+/Users/lele1312/git/LabB/ClientLAB/target/apidocs/overview-tree.html = 1672490437703
+/Users/lele1312/git/LabB/ClientLAB/target/apidocs/module-search-index.js = 1672490437760
+/Users/lele1312/git/LabB/ClientLAB/target/apidocs/index.html = 1672490437833
+/Users/lele1312/git/LabB/ClientLAB/target/apidocs/package-search-index.js = 1672490437760
+/Users/lele1312/git/LabB/ClientLAB/target/apidocs/jquery-ui.overrides.css = 1672490437873
+/Users/lele1312/git/LabB/ClientLAB/target/apidocs/package-use.html = 1672490437696
+/Users/lele1312/git/LabB/ClientLAB/target/apidocs/ModelImpl.html = 1672490436834
+/Users/lele1312/git/LabB/ClientLAB/target/apidocs/ClientMain.html = 1672490436585
+/Users/lele1312/git/LabB/ClientLAB/target/apidocs/CercaCentroGUI.html = 1672490436531
+/Users/lele1312/git/LabB/ClientLAB/target/apidocs/serialized-form.html = 1672490437623
+/Users/lele1312/git/LabB/ClientLAB/target/apidocs/index-all.html = 1672490437830
+/Users/lele1312/git/LabB/ClientLAB/target/apidocs/allpackages-index.html = 1672490437757
+/Users/lele1312/git/LabB/ClientLAB/target/apidocs/ViewImpl.html = 1672490437513
+/Users/lele1312/git/LabB/ClientLAB/target/apidocs/SceltaUtenteGUI.html = 1672490437087
+/Users/lele1312/git/LabB/ClientLAB/target/apidocs/member-search-index.js = 1672490437761
+/Users/lele1312/git/LabB/ClientLAB/target/apidocs/script.js = 1672490437841
+/Users/lele1312/git/LabB/ClientLAB/target/apidocs/stylesheet.css = 1672490437841
+/Users/lele1312/git/LabB/ClientLAB/target/apidocs/ElencoCentriGUI.html = 1672490436680
+/Users/lele1312/git/LabB/ClientLAB/target/apidocs/help-doc.html = 1672490437838
+/Users/lele1312/git/LabB/ClientLAB/target/apidocs/RegistraVaccinatoGUI.html = 1672490437069
+/Users/lele1312/git/LabB/ClientLAB/target/apidocs/CittadinoGUI.html = 1672490436564
+/Users/lele1312/git/LabB/ClientLAB/target/apidocs/OperatoreGUI.html = 1672490436856
+/Users/lele1312/git/LabB/ClientLAB/target/apidocs/package-summary.html = 1672490437567
+/Users/lele1312/git/LabB/ClientLAB/target/apidocs/View.html = 1672490437121
+/Users/lele1312/git/LabB/ClientLAB/target/apidocs/ControllerImpl.html = 1672490436633
+/Users/lele1312/git/LabB/ClientLAB/target/apidocs/EventiAvversiGUI.html = 1672490436711
+/Users/lele1312/git/LabB/ClientLAB/target/apidocs/Proxy.html = 1672490436954
+/Users/lele1312/git/LabB/ClientLAB/target/apidocs/package-tree.html = 1672490437589
+/Users/lele1312/git/LabB/ClientLAB/target/apidocs/element-list = 1672490437556
+/Users/lele1312/git/LabB/ClientLAB/target/apidocs/allclasses-index.html = 1672490437748
+/Users/lele1312/git/LabB/ClientLAB/target/apidocs/ServerInterface.html = 1672490437104
+/Users/lele1312/git/LabB/ClientLAB/target/apidocs/GUICambiaIP.html = 1672490436738
+/Users/lele1312/git/LabB/ClientLAB/target/apidocs/type-search-index.js = 1672490437760
+/Users/lele1312/git/LabB/ClientLAB/target/apidocs/search.js = 1672490437868
+/Users/lele1312/git/LabB/ClientLAB/target/apidocs/RegistraCentroGUI.html = 1672490437023
+/Users/lele1312/git/LabB/ClientLAB/target/apidocs/VisualizzaEventiAvversiGUI.html = 1672490437545
+/Users/lele1312/git/LabB/ClientLAB/target/apidocs/Model.html = 1672490436795
+/Users/lele1312/git/LabB/ClientLAB/target/apidocs/Colori.html = 1672490436605

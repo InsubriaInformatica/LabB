@@ -13,16 +13,7 @@
             <version>1.4</version>
         </dependency>
 
-        <dependency>
-        	<groupId>com.amazonaws</groupId>
-        	<artifactId>aws-lambda-java-core</artifactId>
-        	<version>1.2.1</version>
-        </dependency>
-        <dependency>
-        	<groupId>org.apache.maven.plugins</groupId>
-        	<artifactId>maven-shade-plugin</artifactId>
-        	<version>3.2.2</version>
-        </dependency>
+       
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -33,8 +24,40 @@
     <build>
 	<plugins>
 		<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-assembly-plugin</artifactId>
+    <executions>
+        <execution>
+            <phase>package</phase>
+            <goals>
+                <goal>single</goal>
+            </goals>
+            <configuration>
+                <archive>
+                <manifest>
+                    <mainClass>
+                       ClientMain
+                    </mainClass>
+                </manifest>
+                </archive>
+                <descriptorRefs>
+                    <descriptorRef>jar-with-dependencies</descriptorRef>
+                </descriptorRefs>
+                <appendAssemblyId>false</appendAssemblyId>
+                
+            </configuration>
+        </execution>
+    </executions>
+	</plugin>
+	
+	<plugin>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-javadoc-plugin</artifactId>
+    		<version>3.2.0</version>
+    		<configuration>
+                <javadocExecutable>${java.home}/bin/javadoc</javadocExecutable>
+                <doclint>none</doclint>
+            </configuration>
 			<executions>
 				<execution>
 					<id>attach-javadocs</id>
@@ -43,23 +66,8 @@
 					</goals>
 				</execution>
 			</executions>
-		</plugin>
-
-    <plugin>
-      <!-- Build an executable JAR -->
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-jar-plugin</artifactId>
-      <version>3.1.0</version>
-      <configuration>
-        <archive>
-          <manifest>
-            <addClasspath>true</addClasspath>
-            <classpathPrefix>lib/</classpathPrefix>
-            <mainClass>ClientMain</mainClass>
-          </manifest>
-        </archive>
-      </configuration>
-    </plugin>
-    </plugins>
+	</plugin>
+ </plugins>
+ 
 	</build>
 </project>
