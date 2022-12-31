@@ -1,10 +1,10 @@
-ServerWorker.class
-ViewInterface.class
-DataBaseConnessione.class
 ServerMain.class
+ServerWorker.class
+DataBaseConnessione.class
+ViewInterface.class
 ModelImpl.class
-ModelInterface.class
 Colori.class
+ModelInterface.class
 EsecutoreQuery.class
 ServerGUI.class
 Controller.class

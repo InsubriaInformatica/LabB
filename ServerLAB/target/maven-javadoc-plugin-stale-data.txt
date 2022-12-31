@@ -1,14 +1,14 @@
 @options
 @argfile
 -classpath
-'/Users/lele1312/.m2/repository/org/postgresql/postgresql/42.2.20/postgresql-42.2.20.jar:/Users/lele1312/.m2/repository/com/amazonaws/aws-lambda-java-core/1.2.1/aws-lambda-java-core-1.2.1.jar:/Users/lele1312/.m2/repository/org/apache/maven/plugins/maven-shade-plugin/3.2.2/maven-shade-plugin-3.2.2.jar:/Users/lele1312/.m2/repository/org/apache/maven/maven-plugin-api/3.0/maven-plugin-api-3.0.jar:/Users/lele1312/.m2/repository/org/sonatype/sisu/sisu-inject-plexus/1.4.2/sisu-inject-plexus-1.4.2.jar:/Users/lele1312/.m2/repository/org/sonatype/sisu/sisu-inject-bean/1.4.2/sisu-inject-bean-1.4.2.jar:/Users/lele1312/.m2/repository/org/sonatype/sisu/sisu-guice/2.1.7/sisu-guice-2.1.7-noaop.jar:/Users/lele1312/.m2/repository/org/apache/maven/maven-model/3.0/maven-model-3.0.jar:/Users/lele1312/.m2/repository/org/apache/maven/maven-core/3.0/maven-core-3.0.jar:/Users/lele1312/.m2/repository/org/apache/maven/maven-settings/3.0/maven-settings-3.0.jar:/Users/lele1312/.m2/repository/org/apache/maven/maven-settings-builder/3.0/maven-settings-builder-3.0.jar:/Users/lele1312/.m2/repository/org/apache/maven/maven-repository-metadata/3.0/maven-repository-metadata-3.0.jar:/Users/lele1312/.m2/repository/org/apache/maven/maven-model-builder/3.0/maven-model-builder-3.0.jar:/Users/lele1312/.m2/repository/org/sonatype/aether/aether-impl/1.7/aether-impl-1.7.jar:/Users/lele1312/.m2/repository/org/sonatype/aether/aether-spi/1.7/aether-spi-1.7.jar:/Users/lele1312/.m2/repository/org/sonatype/aether/aether-api/1.7/aether-api-1.7.jar:/Users/lele1312/.m2/repository/org/sonatype/aether/aether-util/1.7/aether-util-1.7.jar:/Users/lele1312/.m2/repository/org/codehaus/plexus/plexus-interpolation/1.14/plexus-interpolation-1.14.jar:/Users/lele1312/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.2.3/plexus-classworlds-2.2.3.jar:/Users/lele1312/.m2/repository/org/codehaus/plexus/plexus-component-annotations/1.5.5/plexus-component-annotations-1.5.5.jar:/Users/lele1312/.m2/repository/org/sonatype/plexus/plexus-sec-dispatcher/1.3/plexus-sec-dispatcher-1.3.jar:/Users/lele1312/.m2/repository/org/sonatype/plexus/plexus-cipher/1.4/plexus-cipher-1.4.jar:/Users/lele1312/.m2/repository/org/apache/maven/maven-artifact/3.0/maven-artifact-3.0.jar:/Users/lele1312/.m2/repository/org/codehaus/plexus/plexus-utils/3.3.0/plexus-utils-3.3.0.jar:/Users/lele1312/.m2/repository/org/apache/maven/shared/maven-artifact-transfer/0.12.0/maven-artifact-transfer-0.12.0.jar:/Users/lele1312/.m2/repository/org/apache/maven/shared/maven-common-artifact-filters/3.0.1/maven-common-artifact-filters-3.0.1.jar:/Users/lele1312/.m2/repository/org/apache/maven/shared/maven-shared-utils/3.1.0/maven-shared-utils-3.1.0.jar:/Users/lele1312/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/Users/lele1312/.m2/repository/org/slf4j/slf4j-api/1.7.5/slf4j-api-1.7.5.jar:/Users/lele1312/.m2/repository/org/ow2/asm/asm/7.3.1/asm-7.3.1.jar:/Users/lele1312/.m2/repository/org/ow2/asm/asm-commons/7.3.1/asm-commons-7.3.1.jar:/Users/lele1312/.m2/repository/org/ow2/asm/asm-tree/7.3.1/asm-tree-7.3.1.jar:/Users/lele1312/.m2/repository/org/ow2/asm/asm-analysis/7.3.1/asm-analysis-7.3.1.jar:/Users/lele1312/.m2/repository/org/jdom/jdom2/2.0.6/jdom2-2.0.6.jar:/Users/lele1312/.m2/repository/org/apache/maven/shared/maven-dependency-tree/3.0.1/maven-dependency-tree-3.0.1.jar:/Users/lele1312/.m2/repository/org/eclipse/aether/aether-util/0.9.0.M2/aether-util-0.9.0.M2.jar:/Users/lele1312/.m2/repository/commons-io/commons-io/2.5/commons-io-2.5.jar:/Users/lele1312/.m2/repository/org/vafer/jdependency/2.3.0/jdependency-2.3.0.jar:/Users/lele1312/.m2/repository/org/ow2/asm/asm-util/7.2-beta/asm-util-7.2-beta.jar:/Users/lele1312/.m2/repository/com/google/guava/guava/19.0/guava-19.0.jar'
+'/home/aldoademi/.m2/repository/org/postgresql/postgresql/42.2.20/postgresql-42.2.20.jar:/home/aldoademi/.m2/repository/com/amazonaws/aws-lambda-java-core/1.2.1/aws-lambda-java-core-1.2.1.jar:/home/aldoademi/.m2/repository/org/apache/maven/plugins/maven-shade-plugin/3.2.2/maven-shade-plugin-3.2.2.jar:/home/aldoademi/.m2/repository/org/apache/maven/maven-plugin-api/3.0/maven-plugin-api-3.0.jar:/home/aldoademi/.m2/repository/org/sonatype/sisu/sisu-inject-plexus/1.4.2/sisu-inject-plexus-1.4.2.jar:/home/aldoademi/.m2/repository/org/sonatype/sisu/sisu-inject-bean/1.4.2/sisu-inject-bean-1.4.2.jar:/home/aldoademi/.m2/repository/org/sonatype/sisu/sisu-guice/2.1.7/sisu-guice-2.1.7-noaop.jar:/home/aldoademi/.m2/repository/org/apache/maven/maven-model/3.0/maven-model-3.0.jar:/home/aldoademi/.m2/repository/org/apache/maven/maven-core/3.0/maven-core-3.0.jar:/home/aldoademi/.m2/repository/org/apache/maven/maven-settings/3.0/maven-settings-3.0.jar:/home/aldoademi/.m2/repository/org/apache/maven/maven-settings-builder/3.0/maven-settings-builder-3.0.jar:/home/aldoademi/.m2/repository/org/apache/maven/maven-repository-metadata/3.0/maven-repository-metadata-3.0.jar:/home/aldoademi/.m2/repository/org/apache/maven/maven-model-builder/3.0/maven-model-builder-3.0.jar:/home/aldoademi/.m2/repository/org/sonatype/aether/aether-impl/1.7/aether-impl-1.7.jar:/home/aldoademi/.m2/repository/org/sonatype/aether/aether-spi/1.7/aether-spi-1.7.jar:/home/aldoademi/.m2/repository/org/sonatype/aether/aether-api/1.7/aether-api-1.7.jar:/home/aldoademi/.m2/repository/org/sonatype/aether/aether-util/1.7/aether-util-1.7.jar:/home/aldoademi/.m2/repository/org/codehaus/plexus/plexus-interpolation/1.14/plexus-interpolation-1.14.jar:/home/aldoademi/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.2.3/plexus-classworlds-2.2.3.jar:/home/aldoademi/.m2/repository/org/codehaus/plexus/plexus-component-annotations/1.5.5/plexus-component-annotations-1.5.5.jar:/home/aldoademi/.m2/repository/org/sonatype/plexus/plexus-sec-dispatcher/1.3/plexus-sec-dispatcher-1.3.jar:/home/aldoademi/.m2/repository/org/sonatype/plexus/plexus-cipher/1.4/plexus-cipher-1.4.jar:/home/aldoademi/.m2/repository/org/apache/maven/maven-artifact/3.0/maven-artifact-3.0.jar:/home/aldoademi/.m2/repository/org/codehaus/plexus/plexus-utils/3.3.0/plexus-utils-3.3.0.jar:/home/aldoademi/.m2/repository/org/apache/maven/shared/maven-artifact-transfer/0.12.0/maven-artifact-transfer-0.12.0.jar:/home/aldoademi/.m2/repository/org/apache/maven/shared/maven-common-artifact-filters/3.0.1/maven-common-artifact-filters-3.0.1.jar:/home/aldoademi/.m2/repository/org/apache/maven/shared/maven-shared-utils/3.1.0/maven-shared-utils-3.1.0.jar:/home/aldoademi/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/home/aldoademi/.m2/repository/org/slf4j/slf4j-api/1.7.5/slf4j-api-1.7.5.jar:/home/aldoademi/.m2/repository/org/ow2/asm/asm/7.3.1/asm-7.3.1.jar:/home/aldoademi/.m2/repository/org/ow2/asm/asm-commons/7.3.1/asm-commons-7.3.1.jar:/home/aldoademi/.m2/repository/org/ow2/asm/asm-tree/7.3.1/asm-tree-7.3.1.jar:/home/aldoademi/.m2/repository/org/ow2/asm/asm-analysis/7.3.1/asm-analysis-7.3.1.jar:/home/aldoademi/.m2/repository/org/jdom/jdom2/2.0.6/jdom2-2.0.6.jar:/home/aldoademi/.m2/repository/org/apache/maven/shared/maven-dependency-tree/3.0.1/maven-dependency-tree-3.0.1.jar:/home/aldoademi/.m2/repository/org/eclipse/aether/aether-util/0.9.0.M2/aether-util-0.9.0.M2.jar:/home/aldoademi/.m2/repository/commons-io/commons-io/2.5/commons-io-2.5.jar:/home/aldoademi/.m2/repository/org/vafer/jdependency/2.3.0/jdependency-2.3.0.jar:/home/aldoademi/.m2/repository/org/ow2/asm/asm-util/7.2-beta/asm-util-7.2-beta.jar:/home/aldoademi/.m2/repository/com/google/guava/guava/19.0/guava-19.0.jar'
 -encoding
 'UTF-8'
 -protected
 -source
 '15'
 -sourcepath
-'/Users/lele1312/git/LabB/ServerLAB/src/main/java'
+'/home/aldoademi/Scrivania/LabB/ServerLAB/src/main/java'
 -Xdoclint:none
 -author
 -bottom
@@ -16,108 +16,108 @@
 -charset
 'UTF-8'
 -d
-'/Users/lele1312/git/LabB/ServerLAB/target/apidocs'
+'/home/aldoademi/Scrivania/LabB/ServerLAB/target/apidocs'
 -docencoding
 'UTF-8'
 -doctitle
 'ServerLAB 1.0-SNAPSHOT API'
 -linkoffline
-'https://docs.oracle.com/en/java/javase/15/docs/api' '/Users/lele1312/git/LabB/ServerLAB/target/javadoc-bundle-options'
+'https://docs.oracle.com/en/java/javase/15/docs/api' '/home/aldoademi/Scrivania/LabB/ServerLAB/target/javadoc-bundle-options'
 -use
 -version
 -windowtitle
 'ServerLAB 1.0-SNAPSHOT API'
-'/Users/lele1312/git/LabB/ServerLAB/src/main/java/ModelInterface.java'
-'/Users/lele1312/git/LabB/ServerLAB/src/main/java/ViewInterface.java'
-'/Users/lele1312/git/LabB/ServerLAB/src/main/java/ModelImpl.java'
-'/Users/lele1312/git/LabB/ServerLAB/src/main/java/DataBaseConnessione.java'
-'/Users/lele1312/git/LabB/ServerLAB/src/main/java/EsecutoreQuery.java'
-'/Users/lele1312/git/LabB/ServerLAB/src/main/java/Controller.java'
-'/Users/lele1312/git/LabB/ServerLAB/src/main/java/ServerGUI.java'
-'/Users/lele1312/git/LabB/ServerLAB/src/main/java/SkeletonInterface.java'
-'/Users/lele1312/git/LabB/ServerLAB/src/main/java/ServerMain.java'
-'/Users/lele1312/git/LabB/ServerLAB/src/main/java/ServerWorker.java'
-'/Users/lele1312/git/LabB/ServerLAB/src/main/java/Colori.java'
-/Users/lele1312/.m2/repository/org/postgresql/postgresql/42.2.20/postgresql-42.2.20.jar = 1667558689826
-/Users/lele1312/.m2/repository/com/amazonaws/aws-lambda-java-core/1.2.1/aws-lambda-java-core-1.2.1.jar = 1671893856271
-/Users/lele1312/.m2/repository/org/apache/maven/plugins/maven-shade-plugin/3.2.2/maven-shade-plugin-3.2.2.jar = 1671893856298
-/Users/lele1312/.m2/repository/org/apache/maven/maven-plugin-api/3.0/maven-plugin-api-3.0.jar = 1629361310408
-/Users/lele1312/.m2/repository/org/sonatype/sisu/sisu-inject-plexus/1.4.2/sisu-inject-plexus-1.4.2.jar = 1629361310302
-/Users/lele1312/.m2/repository/org/sonatype/sisu/sisu-inject-bean/1.4.2/sisu-inject-bean-1.4.2.jar = 1629361310274
-/Users/lele1312/.m2/repository/org/sonatype/sisu/sisu-guice/2.1.7/sisu-guice-2.1.7-noaop.jar = 1629361310352
-/Users/lele1312/.m2/repository/org/apache/maven/maven-model/3.0/maven-model-3.0.jar = 1629361310045
-/Users/lele1312/.m2/repository/org/apache/maven/maven-core/3.0/maven-core-3.0.jar = 1629361310148
-/Users/lele1312/.m2/repository/org/apache/maven/maven-settings/3.0/maven-settings-3.0.jar = 1629361310009
-/Users/lele1312/.m2/repository/org/apache/maven/maven-settings-builder/3.0/maven-settings-builder-3.0.jar = 1629361309794
-/Users/lele1312/.m2/repository/org/apache/maven/maven-repository-metadata/3.0/maven-repository-metadata-3.0.jar = 1629361309892
-/Users/lele1312/.m2/repository/org/apache/maven/maven-model-builder/3.0/maven-model-builder-3.0.jar = 1629361309992
-/Users/lele1312/.m2/repository/org/sonatype/aether/aether-impl/1.7/aether-impl-1.7.jar = 1629361310158
-/Users/lele1312/.m2/repository/org/sonatype/aether/aether-spi/1.7/aether-spi-1.7.jar = 1629361310108
-/Users/lele1312/.m2/repository/org/sonatype/aether/aether-api/1.7/aether-api-1.7.jar = 1629361310160
-/Users/lele1312/.m2/repository/org/sonatype/aether/aether-util/1.7/aether-util-1.7.jar = 1629361310227
-/Users/lele1312/.m2/repository/org/codehaus/plexus/plexus-interpolation/1.14/plexus-interpolation-1.14.jar = 1629361310315
-/Users/lele1312/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.2.3/plexus-classworlds-2.2.3.jar = 1629361310359
-/Users/lele1312/.m2/repository/org/codehaus/plexus/plexus-component-annotations/1.5.5/plexus-component-annotations-1.5.5.jar = 1626681724534
-/Users/lele1312/.m2/repository/org/sonatype/plexus/plexus-sec-dispatcher/1.3/plexus-sec-dispatcher-1.3.jar = 1629361310366
-/Users/lele1312/.m2/repository/org/sonatype/plexus/plexus-cipher/1.4/plexus-cipher-1.4.jar = 1629361310402
-/Users/lele1312/.m2/repository/org/apache/maven/maven-artifact/3.0/maven-artifact-3.0.jar = 1629361310002
-/Users/lele1312/.m2/repository/org/codehaus/plexus/plexus-utils/3.3.0/plexus-utils-3.3.0.jar = 1666520095221
-/Users/lele1312/.m2/repository/org/apache/maven/shared/maven-artifact-transfer/0.12.0/maven-artifact-transfer-0.12.0.jar = 1671893856274
-/Users/lele1312/.m2/repository/org/apache/maven/shared/maven-common-artifact-filters/3.0.1/maven-common-artifact-filters-3.0.1.jar = 1629361310506
-/Users/lele1312/.m2/repository/org/apache/maven/shared/maven-shared-utils/3.1.0/maven-shared-utils-3.1.0.jar = 1629361310540
-/Users/lele1312/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar = 1629361310635
-/Users/lele1312/.m2/repository/org/slf4j/slf4j-api/1.7.5/slf4j-api-1.7.5.jar = 1629361310639
-/Users/lele1312/.m2/repository/org/ow2/asm/asm/7.3.1/asm-7.3.1.jar = 1671893856262
-/Users/lele1312/.m2/repository/org/ow2/asm/asm-commons/7.3.1/asm-commons-7.3.1.jar = 1671893856299
-/Users/lele1312/.m2/repository/org/ow2/asm/asm-tree/7.3.1/asm-tree-7.3.1.jar = 1671893856365
-/Users/lele1312/.m2/repository/org/ow2/asm/asm-analysis/7.3.1/asm-analysis-7.3.1.jar = 1671893856353
-/Users/lele1312/.m2/repository/org/jdom/jdom2/2.0.6/jdom2-2.0.6.jar = 1671893856371
-/Users/lele1312/.m2/repository/org/apache/maven/shared/maven-dependency-tree/3.0.1/maven-dependency-tree-3.0.1.jar = 1671893856378
-/Users/lele1312/.m2/repository/org/eclipse/aether/aether-util/0.9.0.M2/aether-util-0.9.0.M2.jar = 1671893856405
-/Users/lele1312/.m2/repository/commons-io/commons-io/2.5/commons-io-2.5.jar = 1629361310577
-/Users/lele1312/.m2/repository/org/vafer/jdependency/2.3.0/jdependency-2.3.0.jar = 1671893856434
-/Users/lele1312/.m2/repository/org/ow2/asm/asm-util/7.2-beta/asm-util-7.2-beta.jar = 1671893856413
-/Users/lele1312/.m2/repository/com/google/guava/guava/19.0/guava-19.0.jar = 1671893856698
-/Users/lele1312/git/LabB/ServerLAB/src/main/java/ModelInterface.java = 1671624176669
-/Users/lele1312/git/LabB/ServerLAB/src/main/java/ViewInterface.java = 1671624176670
-/Users/lele1312/git/LabB/ServerLAB/src/main/java/ModelImpl.java = 1671624176669
-/Users/lele1312/git/LabB/ServerLAB/src/main/java/DataBaseConnessione.java = 1671624176668
-/Users/lele1312/git/LabB/ServerLAB/src/main/java/EsecutoreQuery.java = 1671624176668
-/Users/lele1312/git/LabB/ServerLAB/src/main/java/Controller.java = 1671624176668
-/Users/lele1312/git/LabB/ServerLAB/src/main/java/ServerGUI.java = 1672329304999
-/Users/lele1312/git/LabB/ServerLAB/src/main/java/SkeletonInterface.java = 1671624176670
-/Users/lele1312/git/LabB/ServerLAB/src/main/java/ServerMain.java = 1671624176669
-/Users/lele1312/git/LabB/ServerLAB/src/main/java/ServerWorker.java = 1671624176670
-/Users/lele1312/git/LabB/ServerLAB/src/main/java/Colori.java = 1671624176668
-/Users/lele1312/git/LabB/ServerLAB/src/main/java = 1672173663039
-/Users/lele1312/git/LabB/ServerLAB/target/apidocs/ModelInterface.html = 1672331728555
-/Users/lele1312/git/LabB/ServerLAB/target/apidocs/ViewInterface.html = 1672331728964
-/Users/lele1312/git/LabB/ServerLAB/target/apidocs/tag-search-index.js = 1672331729153
-/Users/lele1312/git/LabB/ServerLAB/target/apidocs/overview-tree.html = 1672331729112
-/Users/lele1312/git/LabB/ServerLAB/target/apidocs/module-search-index.js = 1672331729151
-/Users/lele1312/git/LabB/ServerLAB/target/apidocs/index.html = 1672331729189
-/Users/lele1312/git/LabB/ServerLAB/target/apidocs/package-search-index.js = 1672331729152
-/Users/lele1312/git/LabB/ServerLAB/target/apidocs/jquery-ui.overrides.css = 1672331729243
-/Users/lele1312/git/LabB/ServerLAB/target/apidocs/package-use.html = 1672331729107
-/Users/lele1312/git/LabB/ServerLAB/target/apidocs/ModelImpl.html = 1672331728542
-/Users/lele1312/git/LabB/ServerLAB/target/apidocs/serialized-form.html = 1672331729047
-/Users/lele1312/git/LabB/ServerLAB/target/apidocs/index-all.html = 1672331729186
-/Users/lele1312/git/LabB/ServerLAB/target/apidocs/allpackages-index.html = 1672331729149
-/Users/lele1312/git/LabB/ServerLAB/target/apidocs/DataBaseConnessione.html = 1672331728324
-/Users/lele1312/git/LabB/ServerLAB/target/apidocs/member-search-index.js = 1672331729152
-/Users/lele1312/git/LabB/ServerLAB/target/apidocs/EsecutoreQuery.html = 1672331728481
-/Users/lele1312/git/LabB/ServerLAB/target/apidocs/script.js = 1672331729202
-/Users/lele1312/git/LabB/ServerLAB/target/apidocs/stylesheet.css = 1672331729201
-/Users/lele1312/git/LabB/ServerLAB/target/apidocs/Controller.html = 1672331728267
-/Users/lele1312/git/LabB/ServerLAB/target/apidocs/help-doc.html = 1672331729198
-/Users/lele1312/git/LabB/ServerLAB/target/apidocs/ServerGUI.html = 1672331728800
-/Users/lele1312/git/LabB/ServerLAB/target/apidocs/package-summary.html = 1672331729000
-/Users/lele1312/git/LabB/ServerLAB/target/apidocs/SkeletonInterface.html = 1672331728942
-/Users/lele1312/git/LabB/ServerLAB/target/apidocs/package-tree.html = 1672331729018
-/Users/lele1312/git/LabB/ServerLAB/target/apidocs/element-list = 1672331728978
-/Users/lele1312/git/LabB/ServerLAB/target/apidocs/ServerMain.html = 1672331728818
-/Users/lele1312/git/LabB/ServerLAB/target/apidocs/allclasses-index.html = 1672331729144
-/Users/lele1312/git/LabB/ServerLAB/target/apidocs/type-search-index.js = 1672331729152
-/Users/lele1312/git/LabB/ServerLAB/target/apidocs/search.js = 1672331729230
-/Users/lele1312/git/LabB/ServerLAB/target/apidocs/ServerWorker.html = 1672331728853
-/Users/lele1312/git/LabB/ServerLAB/target/apidocs/Colori.html = 1672331728209
+'/home/aldoademi/Scrivania/LabB/ServerLAB/src/main/java/ServerMain.java'
+'/home/aldoademi/Scrivania/LabB/ServerLAB/src/main/java/ModelInterface.java'
+'/home/aldoademi/Scrivania/LabB/ServerLAB/src/main/java/Controller.java'
+'/home/aldoademi/Scrivania/LabB/ServerLAB/src/main/java/ModelImpl.java'
+'/home/aldoademi/Scrivania/LabB/ServerLAB/src/main/java/ViewInterface.java'
+'/home/aldoademi/Scrivania/LabB/ServerLAB/src/main/java/SkeletonInterface.java'
+'/home/aldoademi/Scrivania/LabB/ServerLAB/src/main/java/EsecutoreQuery.java'
+'/home/aldoademi/Scrivania/LabB/ServerLAB/src/main/java/DataBaseConnessione.java'
+'/home/aldoademi/Scrivania/LabB/ServerLAB/src/main/java/Colori.java'
+'/home/aldoademi/Scrivania/LabB/ServerLAB/src/main/java/ServerWorker.java'
+'/home/aldoademi/Scrivania/LabB/ServerLAB/src/main/java/ServerGUI.java'
+/home/aldoademi/.m2/repository/org/postgresql/postgresql/42.2.20/postgresql-42.2.20.jar = 1667560426394
+/home/aldoademi/.m2/repository/com/amazonaws/aws-lambda-java-core/1.2.1/aws-lambda-java-core-1.2.1.jar = 1671890039041
+/home/aldoademi/.m2/repository/org/apache/maven/plugins/maven-shade-plugin/3.2.2/maven-shade-plugin-3.2.2.jar = 1671890135730
+/home/aldoademi/.m2/repository/org/apache/maven/maven-plugin-api/3.0/maven-plugin-api-3.0.jar = 1671890135890
+/home/aldoademi/.m2/repository/org/sonatype/sisu/sisu-inject-plexus/1.4.2/sisu-inject-plexus-1.4.2.jar = 1671888584615
+/home/aldoademi/.m2/repository/org/sonatype/sisu/sisu-inject-bean/1.4.2/sisu-inject-bean-1.4.2.jar = 1671888584883
+/home/aldoademi/.m2/repository/org/sonatype/sisu/sisu-guice/2.1.7/sisu-guice-2.1.7-noaop.jar = 1671888585495
+/home/aldoademi/.m2/repository/org/apache/maven/maven-model/3.0/maven-model-3.0.jar = 1671890136070
+/home/aldoademi/.m2/repository/org/apache/maven/maven-core/3.0/maven-core-3.0.jar = 1671890136470
+/home/aldoademi/.m2/repository/org/apache/maven/maven-settings/3.0/maven-settings-3.0.jar = 1671890135822
+/home/aldoademi/.m2/repository/org/apache/maven/maven-settings-builder/3.0/maven-settings-builder-3.0.jar = 1671890136202
+/home/aldoademi/.m2/repository/org/apache/maven/maven-repository-metadata/3.0/maven-repository-metadata-3.0.jar = 1671890136270
+/home/aldoademi/.m2/repository/org/apache/maven/maven-model-builder/3.0/maven-model-builder-3.0.jar = 1671890136470
+/home/aldoademi/.m2/repository/org/sonatype/aether/aether-impl/1.7/aether-impl-1.7.jar = 1671890136538
+/home/aldoademi/.m2/repository/org/sonatype/aether/aether-spi/1.7/aether-spi-1.7.jar = 1671890136542
+/home/aldoademi/.m2/repository/org/sonatype/aether/aether-api/1.7/aether-api-1.7.jar = 1671890136678
+/home/aldoademi/.m2/repository/org/sonatype/aether/aether-util/1.7/aether-util-1.7.jar = 1671890136730
+/home/aldoademi/.m2/repository/org/codehaus/plexus/plexus-interpolation/1.14/plexus-interpolation-1.14.jar = 1671890136770
+/home/aldoademi/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.2.3/plexus-classworlds-2.2.3.jar = 1671890136786
+/home/aldoademi/.m2/repository/org/codehaus/plexus/plexus-component-annotations/1.5.5/plexus-component-annotations-1.5.5.jar = 1666441030228
+/home/aldoademi/.m2/repository/org/sonatype/plexus/plexus-sec-dispatcher/1.3/plexus-sec-dispatcher-1.3.jar = 1671888581011
+/home/aldoademi/.m2/repository/org/sonatype/plexus/plexus-cipher/1.4/plexus-cipher-1.4.jar = 1671888581047
+/home/aldoademi/.m2/repository/org/apache/maven/maven-artifact/3.0/maven-artifact-3.0.jar = 1671890136802
+/home/aldoademi/.m2/repository/org/codehaus/plexus/plexus-utils/3.3.0/plexus-utils-3.3.0.jar = 1671890137018
+/home/aldoademi/.m2/repository/org/apache/maven/shared/maven-artifact-transfer/0.12.0/maven-artifact-transfer-0.12.0.jar = 1671890136906
+/home/aldoademi/.m2/repository/org/apache/maven/shared/maven-common-artifact-filters/3.0.1/maven-common-artifact-filters-3.0.1.jar = 1671890137038
+/home/aldoademi/.m2/repository/org/apache/maven/shared/maven-shared-utils/3.1.0/maven-shared-utils-3.1.0.jar = 1671890137118
+/home/aldoademi/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar = 1671888588903
+/home/aldoademi/.m2/repository/org/slf4j/slf4j-api/1.7.5/slf4j-api-1.7.5.jar = 1671888585543
+/home/aldoademi/.m2/repository/org/ow2/asm/asm/7.3.1/asm-7.3.1.jar = 1671890137154
+/home/aldoademi/.m2/repository/org/ow2/asm/asm-commons/7.3.1/asm-commons-7.3.1.jar = 1671890137174
+/home/aldoademi/.m2/repository/org/ow2/asm/asm-tree/7.3.1/asm-tree-7.3.1.jar = 1671890137310
+/home/aldoademi/.m2/repository/org/ow2/asm/asm-analysis/7.3.1/asm-analysis-7.3.1.jar = 1671890137286
+/home/aldoademi/.m2/repository/org/jdom/jdom2/2.0.6/jdom2-2.0.6.jar = 1671890137434
+/home/aldoademi/.m2/repository/org/apache/maven/shared/maven-dependency-tree/3.0.1/maven-dependency-tree-3.0.1.jar = 1671890137442
+/home/aldoademi/.m2/repository/org/eclipse/aether/aether-util/0.9.0.M2/aether-util-0.9.0.M2.jar = 1671890137490
+/home/aldoademi/.m2/repository/commons-io/commons-io/2.5/commons-io-2.5.jar = 1671890137594
+/home/aldoademi/.m2/repository/org/vafer/jdependency/2.3.0/jdependency-2.3.0.jar = 1671890137630
+/home/aldoademi/.m2/repository/org/ow2/asm/asm-util/7.2-beta/asm-util-7.2-beta.jar = 1671890137738
+/home/aldoademi/.m2/repository/com/google/guava/guava/19.0/guava-19.0.jar = 1671890138182
+/home/aldoademi/Scrivania/LabB/ServerLAB/src/main/java/ServerMain.java = 1671183731579
+/home/aldoademi/Scrivania/LabB/ServerLAB/src/main/java/ModelInterface.java = 1671183687523
+/home/aldoademi/Scrivania/LabB/ServerLAB/src/main/java/Controller.java = 1671183565907
+/home/aldoademi/Scrivania/LabB/ServerLAB/src/main/java/ModelImpl.java = 1671184075420
+/home/aldoademi/Scrivania/LabB/ServerLAB/src/main/java/ViewInterface.java = 1671183778839
+/home/aldoademi/Scrivania/LabB/ServerLAB/src/main/java/SkeletonInterface.java = 1671183780027
+/home/aldoademi/Scrivania/LabB/ServerLAB/src/main/java/EsecutoreQuery.java = 1671183655515
+/home/aldoademi/Scrivania/LabB/ServerLAB/src/main/java/DataBaseConnessione.java = 1671183614823
+/home/aldoademi/Scrivania/LabB/ServerLAB/src/main/java/Colori.java = 1671183548027
+/home/aldoademi/Scrivania/LabB/ServerLAB/src/main/java/ServerWorker.java = 1671183760611
+/home/aldoademi/Scrivania/LabB/ServerLAB/src/main/java/ServerGUI.java = 1672337435423
+/home/aldoademi/Scrivania/LabB/ServerLAB/src/main/java = 1672337435423
+/home/aldoademi/Scrivania/LabB/ServerLAB/target/apidocs/tag-search-index.js = 1672337926884
+/home/aldoademi/Scrivania/LabB/ServerLAB/target/apidocs/script.js = 1672337926904
+/home/aldoademi/Scrivania/LabB/ServerLAB/target/apidocs/help-doc.html = 1672337926904
+/home/aldoademi/Scrivania/LabB/ServerLAB/target/apidocs/ModelInterface.html = 1672337926668
+/home/aldoademi/Scrivania/LabB/ServerLAB/target/apidocs/module-search-index.js = 1672337926884
+/home/aldoademi/Scrivania/LabB/ServerLAB/target/apidocs/package-tree.html = 1672337926804
+/home/aldoademi/Scrivania/LabB/ServerLAB/target/apidocs/package-use.html = 1672337926856
+/home/aldoademi/Scrivania/LabB/ServerLAB/target/apidocs/index-all.html = 1672337926896
+/home/aldoademi/Scrivania/LabB/ServerLAB/target/apidocs/jquery-ui.overrides.css = 1672337926912
+/home/aldoademi/Scrivania/LabB/ServerLAB/target/apidocs/DataBaseConnessione.html = 1672337926592
+/home/aldoademi/Scrivania/LabB/ServerLAB/target/apidocs/type-search-index.js = 1672337926884
+/home/aldoademi/Scrivania/LabB/ServerLAB/target/apidocs/index.html = 1672337926900
+/home/aldoademi/Scrivania/LabB/ServerLAB/target/apidocs/allpackages-index.html = 1672337926884
+/home/aldoademi/Scrivania/LabB/ServerLAB/target/apidocs/ServerGUI.html = 1672337926736
+/home/aldoademi/Scrivania/LabB/ServerLAB/target/apidocs/package-search-index.js = 1672337926884
+/home/aldoademi/Scrivania/LabB/ServerLAB/target/apidocs/element-list = 1672337926788
+/home/aldoademi/Scrivania/LabB/ServerLAB/target/apidocs/SkeletonInterface.html = 1672337926784
+/home/aldoademi/Scrivania/LabB/ServerLAB/target/apidocs/member-search-index.js = 1672337926884
+/home/aldoademi/Scrivania/LabB/ServerLAB/target/apidocs/overview-tree.html = 1672337926860
+/home/aldoademi/Scrivania/LabB/ServerLAB/target/apidocs/ViewInterface.html = 1672337926788
+/home/aldoademi/Scrivania/LabB/ServerLAB/target/apidocs/stylesheet.css = 1672337926904
+/home/aldoademi/Scrivania/LabB/ServerLAB/target/apidocs/Colori.html = 1672337926540
+/home/aldoademi/Scrivania/LabB/ServerLAB/target/apidocs/ModelImpl.html = 1672337926664
+/home/aldoademi/Scrivania/LabB/ServerLAB/target/apidocs/ServerMain.html = 1672337926740
+/home/aldoademi/Scrivania/LabB/ServerLAB/target/apidocs/Controller.html = 1672337926568
+/home/aldoademi/Scrivania/LabB/ServerLAB/target/apidocs/allclasses-index.html = 1672337926880
+/home/aldoademi/Scrivania/LabB/ServerLAB/target/apidocs/ServerWorker.html = 1672337926756
+/home/aldoademi/Scrivania/LabB/ServerLAB/target/apidocs/search.js = 1672337926904
+/home/aldoademi/Scrivania/LabB/ServerLAB/target/apidocs/EsecutoreQuery.html = 1672337926652
+/home/aldoademi/Scrivania/LabB/ServerLAB/target/apidocs/package-summary.html = 1672337926796
+/home/aldoademi/Scrivania/LabB/ServerLAB/target/apidocs/serialized-form.html = 1672337926828
