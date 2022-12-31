@@ -1,113 +1,111 @@
-/Library/Java/JavaVirtualMachines/jdk-16.0.1.jdk/Contents/Home/bin/javadoc
+/app/eclipse/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.linux.x86_64_17.0.4.v20220903-1038/jre/bin/javadoc
 @options
 @argfile
 -classpath
-'/Users/lele1312/.m2/repository/com/toedter/jcalendar/1.4/jcalendar-1.4.jar'
+'/home/aldoademi/.m2/repository/com/toedter/jcalendar/1.4/jcalendar-1.4.jar'
 -encoding
 'UTF-8'
 -protected
 -sourcepath
-'/Users/lele1312/git/LabB/ClientLAB/src/main/java'
+'/home/aldoademi/Scrivania/LabB/ClientLAB/src/main/java'
 -author
 -bottom
 'Copyright &#169; 2022. All rights reserved.'
 -charset
 'UTF-8'
 -d
-'/Users/lele1312/git/LabB/ClientLAB/target/apidocs'
+'/home/aldoademi/Scrivania/LabB/ClientLAB/target/apidocs'
 -docencoding
 'UTF-8'
 -Xdoclint:none
 -doctitle
 'ClientLAB 1.0-SNAPSHOT API'
--linkoffline
-'https://docs.oracle.com/en/java/javase/16/docs/api' '/Users/lele1312/git/LabB/ClientLAB/target/javadoc-bundle-options'
 -use
 -version
 -windowtitle
 'ClientLAB 1.0-SNAPSHOT API'
-'/Users/lele1312/git/LabB/ClientLAB/src/main/java/RegisterGUI.java'
-'/Users/lele1312/git/LabB/ClientLAB/src/main/java/LoginGUI.java'
-'/Users/lele1312/git/LabB/ClientLAB/src/main/java/ModelImpl.java'
-'/Users/lele1312/git/LabB/ClientLAB/src/main/java/ClientMain.java'
-'/Users/lele1312/git/LabB/ClientLAB/src/main/java/CercaCentroGUI.java'
-'/Users/lele1312/git/LabB/ClientLAB/src/main/java/ViewImpl.java'
-'/Users/lele1312/git/LabB/ClientLAB/src/main/java/SceltaUtenteGUI.java'
-'/Users/lele1312/git/LabB/ClientLAB/src/main/java/ElencoCentriGUI.java'
-'/Users/lele1312/git/LabB/ClientLAB/src/main/java/RegistraVaccinatoGUI.java'
-'/Users/lele1312/git/LabB/ClientLAB/src/main/java/CittadinoGUI.java'
-'/Users/lele1312/git/LabB/ClientLAB/src/main/java/OperatoreGUI.java'
-'/Users/lele1312/git/LabB/ClientLAB/src/main/java/View.java'
-'/Users/lele1312/git/LabB/ClientLAB/src/main/java/ControllerImpl.java'
-'/Users/lele1312/git/LabB/ClientLAB/src/main/java/EventiAvversiGUI.java'
-'/Users/lele1312/git/LabB/ClientLAB/src/main/java/Proxy.java'
-'/Users/lele1312/git/LabB/ClientLAB/src/main/java/GUICambiaIP.java'
-'/Users/lele1312/git/LabB/ClientLAB/src/main/java/ServerInterface.java'
-'/Users/lele1312/git/LabB/ClientLAB/src/main/java/VisualizzaEventiAvversiGUI.java'
-'/Users/lele1312/git/LabB/ClientLAB/src/main/java/Model.java'
-'/Users/lele1312/git/LabB/ClientLAB/src/main/java/RegistraCentroGUI.java'
-'/Users/lele1312/git/LabB/ClientLAB/src/main/java/Colori.java'
-/Users/lele1312/.m2/repository/com/toedter/jcalendar/1.4/jcalendar-1.4.jar = 1629361287168
-/Users/lele1312/git/LabB/ClientLAB/src/main/java/RegisterGUI.java = 1671888963849
-/Users/lele1312/git/LabB/ClientLAB/src/main/java/LoginGUI.java = 1672329694218
-/Users/lele1312/git/LabB/ClientLAB/src/main/java/ModelImpl.java = 1671888963849
-/Users/lele1312/git/LabB/ClientLAB/src/main/java/ClientMain.java = 1671624176661
-/Users/lele1312/git/LabB/ClientLAB/src/main/java/CercaCentroGUI.java = 1671624176660
-/Users/lele1312/git/LabB/ClientLAB/src/main/java/ViewImpl.java = 1672330940742
-/Users/lele1312/git/LabB/ClientLAB/src/main/java/SceltaUtenteGUI.java = 1672329694525
-/Users/lele1312/git/LabB/ClientLAB/src/main/java/ElencoCentriGUI.java = 1671624176662
-/Users/lele1312/git/LabB/ClientLAB/src/main/java/RegistraVaccinatoGUI.java = 1671888963849
-/Users/lele1312/git/LabB/ClientLAB/src/main/java/CittadinoGUI.java = 1672329694231
-/Users/lele1312/git/LabB/ClientLAB/src/main/java/OperatoreGUI.java = 1672329694176
-/Users/lele1312/git/LabB/ClientLAB/src/main/java/View.java = 1671888963850
-/Users/lele1312/git/LabB/ClientLAB/src/main/java/ControllerImpl.java = 1671624176662
-/Users/lele1312/git/LabB/ClientLAB/src/main/java/EventiAvversiGUI.java = 1671624176663
-/Users/lele1312/git/LabB/ClientLAB/src/main/java/Proxy.java = 1671888963849
-/Users/lele1312/git/LabB/ClientLAB/src/main/java/GUICambiaIP.java = 1671624176663
-/Users/lele1312/git/LabB/ClientLAB/src/main/java/ServerInterface.java = 1671888963849
-/Users/lele1312/git/LabB/ClientLAB/src/main/java/VisualizzaEventiAvversiGUI.java = 1671893407335
-/Users/lele1312/git/LabB/ClientLAB/src/main/java/Model.java = 1671888963848
-/Users/lele1312/git/LabB/ClientLAB/src/main/java/RegistraCentroGUI.java = 1671888963849
-/Users/lele1312/git/LabB/ClientLAB/src/main/java/Colori.java = 1671624176662
-/Users/lele1312/git/LabB/ClientLAB/src/main/java = 1672305879138
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/RegisterGUI.html = 1672490436986
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/LoginGUI.html = 1672490436782
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/tag-search-index.js = 1672490437761
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/overview-tree.html = 1672490437703
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/module-search-index.js = 1672490437760
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/index.html = 1672490437833
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/package-search-index.js = 1672490437760
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/jquery-ui.overrides.css = 1672490437873
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/package-use.html = 1672490437696
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/ModelImpl.html = 1672490436834
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/ClientMain.html = 1672490436585
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/CercaCentroGUI.html = 1672490436531
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/serialized-form.html = 1672490437623
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/index-all.html = 1672490437830
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/allpackages-index.html = 1672490437757
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/ViewImpl.html = 1672490437513
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/SceltaUtenteGUI.html = 1672490437087
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/member-search-index.js = 1672490437761
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/script.js = 1672490437841
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/stylesheet.css = 1672490437841
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/ElencoCentriGUI.html = 1672490436680
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/help-doc.html = 1672490437838
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/RegistraVaccinatoGUI.html = 1672490437069
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/CittadinoGUI.html = 1672490436564
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/OperatoreGUI.html = 1672490436856
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/package-summary.html = 1672490437567
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/View.html = 1672490437121
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/ControllerImpl.html = 1672490436633
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/EventiAvversiGUI.html = 1672490436711
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/Proxy.html = 1672490436954
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/package-tree.html = 1672490437589
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/element-list = 1672490437556
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/allclasses-index.html = 1672490437748
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/ServerInterface.html = 1672490437104
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/GUICambiaIP.html = 1672490436738
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/type-search-index.js = 1672490437760
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/search.js = 1672490437868
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/RegistraCentroGUI.html = 1672490437023
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/VisualizzaEventiAvversiGUI.html = 1672490437545
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/Model.html = 1672490436795
-/Users/lele1312/git/LabB/ClientLAB/target/apidocs/Colori.html = 1672490436605
+'/home/aldoademi/Scrivania/LabB/ClientLAB/src/main/java/SceltaUtenteGUI.java'
+'/home/aldoademi/Scrivania/LabB/ClientLAB/src/main/java/ModelImpl.java'
+'/home/aldoademi/Scrivania/LabB/ClientLAB/src/main/java/CittadinoGUI.java'
+'/home/aldoademi/Scrivania/LabB/ClientLAB/src/main/java/RegisterGUI.java'
+'/home/aldoademi/Scrivania/LabB/ClientLAB/src/main/java/GUICambiaIP.java'
+'/home/aldoademi/Scrivania/LabB/ClientLAB/src/main/java/ControllerImpl.java'
+'/home/aldoademi/Scrivania/LabB/ClientLAB/src/main/java/VisualizzaEventiAvversiGUI.java'
+'/home/aldoademi/Scrivania/LabB/ClientLAB/src/main/java/Proxy.java'
+'/home/aldoademi/Scrivania/LabB/ClientLAB/src/main/java/View.java'
+'/home/aldoademi/Scrivania/LabB/ClientLAB/src/main/java/EventiAvversiGUI.java'
+'/home/aldoademi/Scrivania/LabB/ClientLAB/src/main/java/Colori.java'
+'/home/aldoademi/Scrivania/LabB/ClientLAB/src/main/java/ElencoCentriGUI.java'
+'/home/aldoademi/Scrivania/LabB/ClientLAB/src/main/java/LoginGUI.java'
+'/home/aldoademi/Scrivania/LabB/ClientLAB/src/main/java/Model.java'
+'/home/aldoademi/Scrivania/LabB/ClientLAB/src/main/java/ViewImpl.java'
+'/home/aldoademi/Scrivania/LabB/ClientLAB/src/main/java/CercaCentroGUI.java'
+'/home/aldoademi/Scrivania/LabB/ClientLAB/src/main/java/RegistraVaccinatoGUI.java'
+'/home/aldoademi/Scrivania/LabB/ClientLAB/src/main/java/ClientMain.java'
+'/home/aldoademi/Scrivania/LabB/ClientLAB/src/main/java/ServerInterface.java'
+'/home/aldoademi/Scrivania/LabB/ClientLAB/src/main/java/OperatoreGUI.java'
+'/home/aldoademi/Scrivania/LabB/ClientLAB/src/main/java/RegistraCentroGUI.java'
+/home/aldoademi/.m2/repository/com/toedter/jcalendar/1.4/jcalendar-1.4.jar = 1666680922225
+/home/aldoademi/Scrivania/LabB/ClientLAB/src/main/java/SceltaUtenteGUI.java = 1672337435383
+/home/aldoademi/Scrivania/LabB/ClientLAB/src/main/java/ModelImpl.java = 1671885810784
+/home/aldoademi/Scrivania/LabB/ClientLAB/src/main/java/CittadinoGUI.java = 1672337435379
+/home/aldoademi/Scrivania/LabB/ClientLAB/src/main/java/RegisterGUI.java = 1671886429540
+/home/aldoademi/Scrivania/LabB/ClientLAB/src/main/java/GUICambiaIP.java = 1671183469163
+/home/aldoademi/Scrivania/LabB/ClientLAB/src/main/java/ControllerImpl.java = 1671183230383
+/home/aldoademi/Scrivania/LabB/ClientLAB/src/main/java/VisualizzaEventiAvversiGUI.java = 1672169990935
+/home/aldoademi/Scrivania/LabB/ClientLAB/src/main/java/Proxy.java = 1671886263484
+/home/aldoademi/Scrivania/LabB/ClientLAB/src/main/java/View.java = 1671887243804
+/home/aldoademi/Scrivania/LabB/ClientLAB/src/main/java/EventiAvversiGUI.java = 1671183472267
+/home/aldoademi/Scrivania/LabB/ClientLAB/src/main/java/Colori.java = 1671182982246
+/home/aldoademi/Scrivania/LabB/ClientLAB/src/main/java/ElencoCentriGUI.java = 1671183474191
+/home/aldoademi/Scrivania/LabB/ClientLAB/src/main/java/LoginGUI.java = 1672337435379
+/home/aldoademi/Scrivania/LabB/ClientLAB/src/main/java/Model.java = 1671885441276
+/home/aldoademi/Scrivania/LabB/ClientLAB/src/main/java/ViewImpl.java = 1672337435383
+/home/aldoademi/Scrivania/LabB/ClientLAB/src/main/java/CercaCentroGUI.java = 1671182932166
+/home/aldoademi/Scrivania/LabB/ClientLAB/src/main/java/RegistraVaccinatoGUI.java = 1671886593688
+/home/aldoademi/Scrivania/LabB/ClientLAB/src/main/java/ClientMain.java = 1671184073440
+/home/aldoademi/Scrivania/LabB/ClientLAB/src/main/java/ServerInterface.java = 1671886791892
+/home/aldoademi/Scrivania/LabB/ClientLAB/src/main/java/OperatoreGUI.java = 1672337435379
+/home/aldoademi/Scrivania/LabB/ClientLAB/src/main/java/RegistraCentroGUI.java = 1671886516556
+/home/aldoademi/Scrivania/LabB/ClientLAB/src/main/java = 1672337435383
+/home/aldoademi/Scrivania/LabB/ClientLAB/target/apidocs/tag-search-index.js = 1672511968321
+/home/aldoademi/Scrivania/LabB/ClientLAB/target/apidocs/ViewImpl.html = 1672511968209
+/home/aldoademi/Scrivania/LabB/ClientLAB/target/apidocs/script.js = 1672511968357
+/home/aldoademi/Scrivania/LabB/ClientLAB/target/apidocs/help-doc.html = 1672511968353
+/home/aldoademi/Scrivania/LabB/ClientLAB/target/apidocs/SceltaUtenteGUI.html = 1672511968105
+/home/aldoademi/Scrivania/LabB/ClientLAB/target/apidocs/module-search-index.js = 1672511968321
+/home/aldoademi/Scrivania/LabB/ClientLAB/target/apidocs/package-tree.html = 1672511968225
+/home/aldoademi/Scrivania/LabB/ClientLAB/target/apidocs/EventiAvversiGUI.html = 1672511967989
+/home/aldoademi/Scrivania/LabB/ClientLAB/target/apidocs/package-use.html = 1672511968289
+/home/aldoademi/Scrivania/LabB/ClientLAB/target/apidocs/index-all.html = 1672511968349
+/home/aldoademi/Scrivania/LabB/ClientLAB/target/apidocs/jquery-ui.overrides.css = 1672511968361
+/home/aldoademi/Scrivania/LabB/ClientLAB/target/apidocs/type-search-index.js = 1672511968321
+/home/aldoademi/Scrivania/LabB/ClientLAB/target/apidocs/index.html = 1672511968349
+/home/aldoademi/Scrivania/LabB/ClientLAB/target/apidocs/GUICambiaIP.html = 1672511968001
+/home/aldoademi/Scrivania/LabB/ClientLAB/target/apidocs/allpackages-index.html = 1672511968321
+/home/aldoademi/Scrivania/LabB/ClientLAB/target/apidocs/CittadinoGUI.html = 1672511967917
+/home/aldoademi/Scrivania/LabB/ClientLAB/target/apidocs/ElencoCentriGUI.html = 1672511967973
+/home/aldoademi/Scrivania/LabB/ClientLAB/target/apidocs/VisualizzaEventiAvversiGUI.html = 1672511968213
+/home/aldoademi/Scrivania/LabB/ClientLAB/target/apidocs/package-search-index.js = 1672511968321
+/home/aldoademi/Scrivania/LabB/ClientLAB/target/apidocs/ControllerImpl.html = 1672511967941
+/home/aldoademi/Scrivania/LabB/ClientLAB/target/apidocs/element-list = 1672511968213
+/home/aldoademi/Scrivania/LabB/ClientLAB/target/apidocs/member-search-index.js = 1672511968321
+/home/aldoademi/Scrivania/LabB/ClientLAB/target/apidocs/OperatoreGUI.html = 1672511968037
+/home/aldoademi/Scrivania/LabB/ClientLAB/target/apidocs/Proxy.html = 1672511968069
+/home/aldoademi/Scrivania/LabB/ClientLAB/target/apidocs/ClientMain.html = 1672511967925
+/home/aldoademi/Scrivania/LabB/ClientLAB/target/apidocs/overview-tree.html = 1672511968293
+/home/aldoademi/Scrivania/LabB/ClientLAB/target/apidocs/View.html = 1672511968129
+/home/aldoademi/Scrivania/LabB/ClientLAB/target/apidocs/stylesheet.css = 1672511968357
+/home/aldoademi/Scrivania/LabB/ClientLAB/target/apidocs/RegisterGUI.html = 1672511968077
+/home/aldoademi/Scrivania/LabB/ClientLAB/target/apidocs/CercaCentroGUI.html = 1672511967905
+/home/aldoademi/Scrivania/LabB/ClientLAB/target/apidocs/Colori.html = 1672511967929
+/home/aldoademi/Scrivania/LabB/ClientLAB/target/apidocs/ModelImpl.html = 1672511968029
+/home/aldoademi/Scrivania/LabB/ClientLAB/target/apidocs/RegistraVaccinatoGUI.html = 1672511968097
+/home/aldoademi/Scrivania/LabB/ClientLAB/target/apidocs/Model.html = 1672511968013
+/home/aldoademi/Scrivania/LabB/ClientLAB/target/apidocs/ServerInterface.html = 1672511968113
+/home/aldoademi/Scrivania/LabB/ClientLAB/target/apidocs/allclasses-index.html = 1672511968317
+/home/aldoademi/Scrivania/LabB/ClientLAB/target/apidocs/RegistraCentroGUI.html = 1672511968089
+/home/aldoademi/Scrivania/LabB/ClientLAB/target/apidocs/LoginGUI.html = 1672511968009
+/home/aldoademi/Scrivania/LabB/ClientLAB/target/apidocs/search.js = 1672511968357
+/home/aldoademi/Scrivania/LabB/ClientLAB/target/apidocs/package-summary.html = 1672511968221
+/home/aldoademi/Scrivania/LabB/ClientLAB/target/apidocs/serialized-form.html = 1672511968245

@@ -15,7 +15,7 @@ GUICambiaIP.class
 Model.class
 EventiAvversiGUI.class
 View.class
-ElencoCentriGUI.class
 Colori.class
+ElencoCentriGUI.class
 LoginGUI.class
 CittadinoGUI.class
