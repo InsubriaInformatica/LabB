@@ -5,27 +5,27 @@ Per eseguire i moduli, aprire due schermate terminale/prompt dei comandi in base
 
 ----------
 Avvio applicazione con sistema operativo MacOS:
-Come primo passo, nella prima schermata recarsi alla directory src/ServerLAB/target, mediante comando:
-cd ServerLAB/target 
+Come primo passo, nella prima schermata recarsi alla directory Ademi_746362/src/ServerLAB/target, mediante comando:
+cd Ademi_746362/src/ServerLAB/target 
 Successivamente eseguire:
 chmod +x ServerLAB-1.0-SNAPSHOT.jar
 java -jar ServerLAB-1.0-SNAPSHOT.jar
 
-Nella seconda schermata recarsi alla directory src/ClientLAB/target, mediante comando:
-cd ClientLAB/target
+Nella seconda schermata recarsi alla directory Ademi_746362/src/ClientLAB/target, mediante comando:
+cd Ademi_746362/src/ClientLAB/target
 Successivamente eseguire: 
 chmod +x ClientLAB-1.0-SNAPSHOT.jar
 java -jar CLientLAB-1.0-SNAPSHOT.jar
 -----------
 
 Avvio applicazione con sistema operativo Windows:
-Nella prima schermata recarsi alla directory src/ServerLAB/target, mediante comando:
-cd ServerLAB/target
+Nella prima schermata recarsi alla directory Ademi_746362/src/ServerLAB/target, mediante comando:
+cd Ademi_746362/src/ServerLAB/target
 Successivamente eseguire:
 \java -jar ServerLAB-1.0-SNAPSHOT.jar
 
-Nella seconda schermata recarsi alla directory src/ClientLAB/target, mediante comando:
-cd ClientLAB/target
+Nella seconda schermata recarsi alla directory Ademi_746362/src/ClientLAB/target, mediante comando:
+cd Ademi_746362/src/ClientLAB/target
 Successivamente eseguire:
 \java -jar ClientLAB-1.0-SNAPSHOT.jar
 ----------
