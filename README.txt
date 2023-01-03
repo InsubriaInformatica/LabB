@@ -1,6 +1,8 @@
 Prima di procedere alla creazione del DataBase assicurarsi di avere scaricato e installato "PostreSQL" con il proprio tool grafico "PgAdmin".
 Il Database verrà successivamente creato in automatico all'avvio server, la procedura dettagliata è riportata nel manuale utente.
 
+NOTA BENE: all'avvio del server non modificare parametri, inserire sono la password di autenticazione a PgAdmin, scelta in fase di installazione del tool.
+
 Per eseguire i moduli, aprire due schermate terminale/prompt dei comandi in base al sistema operativo che si sta utilizzando: 
 
 ----------
