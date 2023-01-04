@@ -1,3 +1,8 @@
+//Ademi Qaldo 746362 Va
+//Battaglia Simone 744514 Va
+//Brullo Enrico 744949 Va
+//Sassi Gabriele 745081 Va
+
 /**
  *  La classe colori &egrave stata creata per rendere meno macchinosa la codifica delle GUI.
  * i colori piu' utilizzati sono stati definiti all'interno di questa classe

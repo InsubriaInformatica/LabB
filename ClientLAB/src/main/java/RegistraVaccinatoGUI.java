@@ -1,3 +1,8 @@
+//Ademi Qaldo 746362 Va
+//Battaglia Simone 744514 Va
+//Brullo Enrico 744949 Va
+//Sassi Gabriele 745081 Va
+
 import javax.swing.*;
 import javax.swing.border.Border;
 
