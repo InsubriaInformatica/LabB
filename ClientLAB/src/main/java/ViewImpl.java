@@ -475,7 +475,7 @@ public class ViewImpl extends JFrame implements View{
 			List<List<String>> campo = new ArrayList<List<String>>();
 			int j=0;
 			
-			//se non cè inserito il nome, si cerca per comune e tipologia
+			//se non c'è inserito il nome, si cerca per comune e tipologia
 			if(togliSpazi(this.viewRicercaCentro.retNomeCentro()).equals("")) {
 				List<List<String>> datiComuneTipo = (List<List<String>>) dati; //dati passati dal model
 				

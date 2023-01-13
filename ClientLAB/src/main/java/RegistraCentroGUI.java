@@ -307,7 +307,7 @@ public class RegistraCentroGUI {
 	 * @return
 	 */
 	public String retNomeCentro() {
-		return this.textFieldNomeCentro.getText();
+		return this.textFieldNomeCentro.getText().toLowerCase();
 	}
 	
 	/**
@@ -338,7 +338,7 @@ public class RegistraCentroGUI {
 	 * @return
 	 */
 	public String retNomeIndirizzo() {
-		return this.textFieldIndirizzo.getText();
+		return this.textFieldIndirizzo.getText().toLowerCase();
 	}
 	
 	/**
@@ -354,7 +354,7 @@ public class RegistraCentroGUI {
 	 * @return
 	 */
 	public String retComune() {
-		return this.textFieldComune.getText();
+		return this.textFieldComune.getText().toLowerCase();
 	}
 	
 	/**
