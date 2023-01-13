@@ -114,7 +114,7 @@ public class EsecutoreQuery implements SkeletonInterface{
 				+ "INSERT INTO indirizzo VALUES (9, 'Via', 'Del Duomo', '08', 'firenze', 50100, 'FI');\n";
 		
 		String queryDatasetInserimentoCentri
-				= "INSERT INTO centrivaccinali VALUES ('ospedale gallarate', 'Ospedaliero', 0);\n"
+				= "INSERT INTO centrivaccinali VALUES ('ospedale samarate', 'Ospedaliero', 0);\n"
 				+ "INSERT INTO centrivaccinali VALUES ('stadio', 'Aziendale', 1);\n"
 				+ "INSERT INTO centrivaccinali VALUES ('malpensa fiere', 'Hub', 2);\n"
 				+ "INSERT INTO centrivaccinali VALUES ('parco', 'Hub', 3);\n"
@@ -126,7 +126,7 @@ public class EsecutoreQuery implements SkeletonInterface{
 				+ "INSERT INTO centrivaccinali VALUES ('chiesa', 'Hub', 9);\n";
 		
 		String queryDatasetInserimentoVaccinazione
-				= "INSERT INTO vaccinazione VALUES (1, 'DMAQLD99T01Z115W', '30/05/2022', 'Pfizer', 'ospedale gallarate', 'Prima');\n"
+				= "INSERT INTO vaccinazione VALUES (1, 'DMAQLD99T01Z115W', '30/05/2022', 'Pfizer', 'ospedale samarate', 'Prima');\n"
 				+ "INSERT INTO vaccinazione VALUES (2, 'SSSGRL01R05B300V', '24/02/2020', 'Moderna', 'stadio', 'Seconda');\n"
 				+ "INSERT INTO vaccinazione VALUES (3, 'BTTSMN01T19D869N', '14/08/2021', 'J&J', 'malpensa fiere', 'Terza o Successiva');\n"
 				+ "INSERT INTO vaccinazione VALUES (4, 'BRLNRC95M05D869U', '01/07/2022', 'AstraZeneca', 'parco', 'Prima');\n"
@@ -150,7 +150,7 @@ public class EsecutoreQuery implements SkeletonInterface{
 				+ "INSERT INTO cittadini_registrati VALUES('MRCPLA02H67I407G', 'pmarchetti', 'password9', 'paola.marchetti@gmail.it', 10);\n";
 		
 		String queryDatasetInserimentoEventi
-				= "INSERT INTO eventi_avversi VALUES('DMAQLD99T01Z115W', 'Mal di testa', 1, 'Nota1', 'ospedale gallarate');"
+				= "INSERT INTO eventi_avversi VALUES('DMAQLD99T01Z115W', 'Mal di testa', 1, 'Nota1', 'ospedale samarate');"
 				+ "INSERT INTO eventi_avversi VALUES('SSSGRL01R05B300V', 'Febbre', 2, 'Nota1', 'stadio');"
 				+ "INSERT INTO eventi_avversi VALUES('BTTSMN01T19D869N', 'Dolori muscolari/articolari', 3, 'Nota1', 'malpensa fiere');"
 				+ "INSERT INTO eventi_avversi VALUES('BRLNRC95M05D869U', 'Linfoadenopatia', 4, 'Nota1', 'parco');"
@@ -161,7 +161,7 @@ public class EsecutoreQuery implements SkeletonInterface{
 				+ "INSERT INTO eventi_avversi VALUES('RSSGNN02S48A714M', 'Linfoadenopatia', 4, 'Nota1', 'palestra');"
 				+ "INSERT INTO eventi_avversi VALUES('MRCPLA02H67I407G', 'Tachicardia', 5, 'Nota1', 'chiesa');"
 				
-				+ "INSERT INTO eventi_avversi VALUES('DMAQLD99T01Z115W', 'Febbre', 1, 'Nota2', 'ospedale gallarate');"
+				+ "INSERT INTO eventi_avversi VALUES('DMAQLD99T01Z115W', 'Febbre', 1, 'Nota2', 'ospedale samarate');"
 				+ "INSERT INTO eventi_avversi VALUES('SSSGRL01R05B300V', 'Mal di testa', 2, 'Nota2', 'stadio');"
 				+ "INSERT INTO eventi_avversi VALUES('BTTSMN01T19D869N', 'Linfoadenopatia', 3, 'Nota2', 'malpensa fiere');"
 				+ "INSERT INTO eventi_avversi VALUES('BRLNRC95M05D869U', 'Dolori muscolari/articolari', 4, 'Nota2', 'parco');"
@@ -172,7 +172,7 @@ public class EsecutoreQuery implements SkeletonInterface{
 				+ "INSERT INTO eventi_avversi VALUES('RSSGNN02S48A714M', 'Tachicardia', 4, 'Nota2', 'palestra');"
 				+ "INSERT INTO eventi_avversi VALUES('MRCPLA02H67I407G', 'Linfoadenopatia', 5, 'Nota2', 'chiesa');"
 				
-				+ "INSERT INTO eventi_avversi VALUES('DMAQLD99T01Z115W', 'Tachicardia', 1, 'Nota3', 'ospedale gallarate');"
+				+ "INSERT INTO eventi_avversi VALUES('DMAQLD99T01Z115W', 'Tachicardia', 1, 'Nota3', 'ospedale samarate');"
 				+ "INSERT INTO eventi_avversi VALUES('SSSGRL01R05B300V', 'Linfoadenopatia', 2, 'Nota3', 'stadio');"
 				+ "INSERT INTO eventi_avversi VALUES('BTTSMN01T19D869N', 'Febbre', 3, 'Nota3', 'malpensa fiere');"
 				+ "INSERT INTO eventi_avversi VALUES('BRLNRC95M05D869U', 'Mal di testa', 4, 'Nota3', 'parco');"
@@ -183,7 +183,7 @@ public class EsecutoreQuery implements SkeletonInterface{
 				+ "INSERT INTO eventi_avversi VALUES('RSSGNN02S48A714M', 'Febbre', 4, 'Nota3', 'palestra');"
 				+ "INSERT INTO eventi_avversi VALUES('MRCPLA02H67I407G', 'Mal di testa', 5, 'Nota3', 'chiesa');"
 				
-				+ "INSERT INTO eventi_avversi VALUES('DMAQLD99T01Z115W', 'Linfoadenopatia', 1, 'Nota4', 'ospedale gallarate');"
+				+ "INSERT INTO eventi_avversi VALUES('DMAQLD99T01Z115W', 'Linfoadenopatia', 1, 'Nota4', 'ospedale samarate');"
 				+ "INSERT INTO eventi_avversi VALUES('SSSGRL01R05B300V', 'Dolori muscolari/articolari', 2, 'Nota4', 'stadio');"
 				+ "INSERT INTO eventi_avversi VALUES('BTTSMN01T19D869N', 'Mal di testa', 3, 'Nota4', 'malpensa fiere');"
 				+ "INSERT INTO eventi_avversi VALUES('BRLNRC95M05D869U', 'Febbre', 4, 'Nota4', 'parco');"
