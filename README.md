@@ -12,8 +12,17 @@ PROGETTO REALIZZATO DA:
 
 ## Vacciniamo
 ```
-    Il funzionamento generale dell’applicazione consiste in un semplice software in grado di gestire la campagna vaccinale COVID-19. In particolare, gli operatori vaccinali possono amministrare il form dedicato all’aggiornamento dello stato delle vaccinazioni. I cittadini possono visualizzare informazioni sull’andamento della campagna vaccinale e attraverso la propria area personale sono in grado di gestire funzionalità riguardanti la propria vaccinazione.
+    Il funzionamento generale dell’applicazione 
+    consiste in un semplice software in grado 
+    di gestire la campagna vaccinale COVID-19. 
+    In particolare, gli operatori vaccinali 
+    possono amministrare il form dedicato 
+    all’aggiornamento dello stato delle vaccinazioni. 
+    I cittadini possono visualizzare 
+    informazioni sull’andamento della campagna vaccinale
+    attraverso la propria area personale sono in grado di gestire funzionalità riguardanti la propria vaccinazione.
 ```
+
 
 ## REQUISITI DI SISTEMA
 
