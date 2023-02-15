@@ -7,7 +7,7 @@ PROGETTO REALIZZATO DA:
 2. BATTAGLIA SIMONE, matricola `744514`[sbattaglia2@studenti.uninsubria.it](mailto:sbattaglia2@studenti.uninsubria.it)
 3. BRULLO ENRICO, matricola `744949` [ebrullo@studenti.uninsubria.it](mailto:ebrullo@studenti.uninsubria.it)
 4. SASSI GABRIELE. matricola `745081` [gsassi2@studenti.uninsubria.it](mailto:gsassi2@studenti.uninsubria.it)
-
+---------------------------------------------------------------------------
 
 
 ## Vacciniamo
@@ -16,7 +16,7 @@ Il funzionamento generale dell’applicazione consiste in un semplice software i
 In particolare, gli operatori vaccinali possono amministrare il form dedicato all’aggiornamento dello stato delle vaccinazioni. 
 I cittadini possono visualizzare informazioni sull’andamento della campagna vaccinale attraverso la propria area personale sono in grado di gestire funzionalità riguardanti la propria vaccinazione.
 ```
-
+---------------------------------------------------------------------------
 
 ## REQUISITI DI SISTEMA
 
@@ -36,7 +36,7 @@ Per poter eseguire l'applicazione è necessario aver installato sul proprio comp
 * `Windows 10 e versioni successive.`
 * `Ubuntu Linux 14.x e versioni successive.`
 * `Mac OS X.`
-
+---------------------------------------------------------------------------
 
 ## Installazione del programma
 ```
@@ -60,10 +60,11 @@ se lanciando direttamente gli eseguibili si riscontrano problemi, in alternativa
 
 **MAC OS**
 * `cd {nome del percorso in cui è presente il file Server .jar}`;
-* `chmod +x ServerLAB-1.0-SNAPSHOT .jar`, per aggiungere permessi al file;* `java -jar ServerLAB-1.0-SNAPSHOT .jar`, per avviare il jar.
+* `chmod +x ServerLAB-1.0-SNAPSHOT .jar`, per aggiungere permessi al file
+* `java -jar ServerLAB-1.0-SNAPSHOT .jar`, per avviare il jar.
 
 * `cd {nome del percorso in cui è presente il file Client .jar}`;
-* `chmod +x ClientLAB-1.0-SNAPSHOT .jar`, per aggiungere permessi al file;* `java -jar ClientLAB-1.0-SNAPSHOT .jar`, per avviare il jar.
-
-
+* `chmod +x ClientLAB-1.0-SNAPSHOT .jar`, per aggiungere permessi al file;
+* `java -jar ClientLAB-1.0-SNAPSHOT .jar`, per avviare il jar.
+---------------------------------------------------------------------------
 
