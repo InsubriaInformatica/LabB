@@ -1,5 +1,5 @@
 # Progetto Vacciniamo 
-Corso di Laboratorio interdisciplinare B, Laurea Triennale in Informatica presso Università degli Studi dell'Insubria.
+Corso di Laboratorio interdisciplinare B, Laurea Triennale in Informatica presso Università degli Studi dell'Insubria con sede a Varese.
 
 PROGETTO REALIZZATO DA:
 
