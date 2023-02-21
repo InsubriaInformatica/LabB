@@ -44,7 +44,7 @@ L'applicazione non necessita di installazione: Per l'esecuzione dell'applicazion
 ```
 
 ### Avviare l'applicazione 
-Dopo aver scaricato ed estratto il file .zip, seguire i seguenti passaggi:
+Dopo aver scaricato ed estratto il file **.zip**, seguire i seguenti passaggi:
 
 Per avviare l'applicazione fare doppio click sul file nella cartella `target/`del modulo che si vuole eseguire:
 
@@ -72,3 +72,4 @@ se lanciando direttamente gli eseguibili si riscontrano problemi, in alternativa
 
 ## Extra
 L'esecuzione dell'applicazione è supportata dal Manuale Utente, il file `pdf` può essere scaricato e visionato recandosi presso la cartella `documentazione/`.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
