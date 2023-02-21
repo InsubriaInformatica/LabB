@@ -72,4 +72,5 @@ se lanciando direttamente gli eseguibili si riscontrano problemi, in alternativa
 
 ## Extra
 L'esecuzione dell'applicazione è supportata dal Manuale Utente, il file `pdf` può essere scaricato e visionato recandosi presso la cartella `documentazione/`.
+
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
