@@ -45,6 +45,7 @@ L'applicazione non necessita di installazione: Per l'esecuzione dell'applicazion
 
 ### Avviare l'applicazione 
 Dopo aver scaricato ed estratto il file .zip, seguire i seguenti passaggi:
+
 Per avviare l'applicazione fare doppio click sul file nella cartella `target/`del modulo che si vuole eseguire:
 
 * `ServerLAB-1.0-SNAPSHOT.jar` se si vuole usare l'applicazione **Server**;
@@ -69,3 +70,5 @@ se lanciando direttamente gli eseguibili si riscontrano problemi, in alternativa
 * `java -jar ClientLAB-1.0-SNAPSHOT .jar`, per avviare il jar.
 ---------------------------------------------------------------------------
 
+## Extra
+L'esecuzione dell'applicazione è supportata dal Manuale Utente, il file `pdf` può essere scaricato e visionato recandosi presso la cartella `documentazione/`.
